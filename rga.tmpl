@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="description" content="Enter RGA">
+  <title>RGA Entry - MacMurray Pacific</title>
+  <link rel="stylesheet" href="/styleblue.css">
+  <style type="text/css"><!-- 
+    body { font-family: Verdana, Arial, Helvetica, "sans-serif"; color: white; }
+    a:visited, a:link { color: white; }
+    a:hover { text-decoration: none }
+    .ibox { width: 150px; }
+    .error { font-size: 10pt; font-weight: bold; color: red }
+    .rttxt { margin-left: 50px; padding: 10px; border: #ffffff solid thin; }
+    .ltxt {  padding: 10px; border: #ffffff solid thin; }
+    .big { font-size: 115%; }
+    .b1 { width: 73px; }
+    .b2 { width: 152px; }
+    .left  { text-align: left  }
+    .right { text-align: right }
+    -->
+  </style>
+</head>
+
+<body>
+  <script src="/key13.js" type="text/javascript"></script>
+  <table align="center" border="0" cellpadding="0" cellspacing="0" width="750">
+    <tr valign="top">
+      <td height="80" class="itemr">
+        <h2>Enter RGA</h2>
+        <TMPL_VAR NAME="errorText">
+        <TMPL_VAR NAME="messageText">
+        <TMPL_IF NAME="mode_getcust">
+          <div align="center">
+            <table>
+              <tr>
+                <td>
+                  <TMPL_IF NAME="customers">
+                  <div align="left">Found the following customers:</div>
+                  <TMPL_LOOP NAME="customers">
+                    <a href="/rga.html?custCode=<TMPL_VAR NAME="CustomerID">&mode=enter">Select</a> <TMPL_VAR NAME="CustomerID"> - <TMPL_VAR NAME="Name"><br />
+                  </TMPL_LOOP>
+                  </div>
+                  <div align="center">OR:</div>
+                  </TMPL_IF>
+                  <form method="post" name="form">
+                    <div>Enter a Customer Account or Name:<br><i>A partial name is okay.</i></div>
+                    <div align="center">
+                      <input name="custCode" value="<TMPL_VAR NAME="custCode">"><br><br>
+                    </div>
+                    <input type="submit" value="Continue">
+                    <input type="hidden" name="mode" value="select">
+                  </form>
+                  <br>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </TMPL_IF>
+        <TMPL_IF NAME="mode_enter">
+          <div>Add A Product Code</div>
+          <form method="post" action="/rga.html">
+            <table>
+              <tr>
+                <td>Product Code to Return:</td>
+                <td><input name="ProductCode"></td>
+              </tr>
+            </table>
+            <input type="submit" value="Search For Product">
+            <input type="hidden" name="mode" value="show">
+          </form>
+          <TMPL_IF NAME="session_rga_productCount">
+          <form method="post" action="/rga.html">
+            <input type="hidden" name="mode" value="details">
+            <input type="submit" value="Complete RGA">
+          </form>
+          </TMPL_IF>
+          <TMPL_INCLUDE NAME="rga_inc.html">
+        </TMPL_IF>
+        <TMPL_IF NAME="mode_show">
+          <form method="post" action="/rga.html">
+            <table>
+              <tr valign="bottom">
+                <th class="left">Invoice Number</th>
+                <th class="left">Date</th>
+                <th class="right">Quantity Sold</th>
+                <th class="right">Unit Price</th>
+                <th class="right">Return Quantity</th>
+              </tr>
+              <TMPL_LOOP NAME="showTrans">
+              <tr>
+                <td><TMPL_VAR NAME="InvoiceNumber"></td>
+                <td><TMPL_VAR NAME="Date"></td>
+                <td class="right"><TMPL_VAR NAME="QuantitySold"></td>
+                <td class="right"><TMPL_VAR NAME="showPrice"></td>
+                <td class="right"><input name="qty_<TMPL_VAR NAME="rowNumber">" size=5></td>
+                <input type="hidden" name="product_<TMPL_VAR NAME="rowNumber">" value="<TMPL_VAR NAME="ProductCode" escape=html>">
+                <input type="hidden" name="invoice_<TMPL_VAR NAME="rowNumber">" value="<TMPL_VAR NAME="InvoiceNumber" escape=html>">
+                <input type="hidden" name="price_<TMPL_VAR NAME="rowNumber">" value="<TMPL_VAR NAME="UnitPrice" escape=html>">
+              </tr>
+              </TMPL_LOOP>
+            </table>
+            <input type="hidden" name="mode" value="saveqty">
+            <input type="submit" value="Add To RGA or Enter another Product Code">
+          </form>
+          <TMPL_INCLUDE NAME="rga_inc.html">
+        </TMPL_IF>
+        <TMPL_IF NAME="mode_details">
+          <form method="post" action="/rga.html">
+            <table>
+              <tr><td class="right">Reason For Return:</td><td><input name="ReasonForReturn" value="<TMPL_VAR NAME="details_ReasonForReturn" escape=html>"></td></tr>
+              <tr><td class="right">Restock Charge:</td><td><input type="checkbox" name="RestockCharge" value=1<TMPL_VAR NAME="details_RestockCharge">></td></tr>
+              <tr><td class="right">Customer Pays Return Freight:</td><td><input type="checkbox" name="CustomerPayReturnFreight" value=1<TMPL_VAR NAME="details_CustomerPayReturnFreight">></td></tr>
+              <tr><td class="right">Credit All Freight Charges:</td><td><input type="checkbox" name="CreditAllFreightCharges" value=1<TMPL_VAR NAME="details_CreditAllFreightCharges">></td></tr>
+              <tr><td class="right">Send Email Confirmation To:</td><td><input name="Email" value="<TMPL_VAR NAME="details_Email" escape=html">"></td></tr>
+            </table>
+            <input type="hidden" name="mode" value="savedets">
+            <input type="submit" value="Save Changes">
+          </form>
+          <TMPL_IF NAME="detailsSaved">
+          <div>
+            <a href="/rga.html?mode=clear">Clear RGA</a> | <a href="/rga.html?mode=process">Process RGA</a>
+          </div>
+          </TMPL_IF>
+          <TMPL_INCLUDE NAME="rga_inc.html">
+        </TMPL_IF>
+      </td>
+      <td rowspan=2>
+        <img src="http://macmurraypacific.com/web_graphics/spacer.gif" height="180" width="358" alt="">
+      </td>
+    </tr>
+  </table>
+  <div align="center"><TMPL_INCLUDE NAME="salesReportsLinks.tmpl"></div>
+</body>
+</html>

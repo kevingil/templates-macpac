@@ -1,0 +1,26 @@
+  <p><font size=3>General Search matches whatever you type in the
+    Product Code and Product Descriptions of all items. Note
+    that you must type at least 4 characters for the Product
+    Descriptions to be searched.</font></p><br />
+  <script type="text/javascript" src="/key13.js"></script>
+  <form name="verify" action="/products.html" method="post">
+    <table cellspacing="2" cellpadding="2" border="0">
+      <input type="hidden" name="mode" value="WildCard">
+      <input type="hidden" name="first" value="1">
+      <tr valign="top">
+        <td class="hr">General Search:</td>       
+        <td>
+          <input name="WildCard" id="wildcardField2" class="forceUpperCase" value="<TMPL_VAR NAME="WildCard" escape=html>">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="Submit" value="Search">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <script><!--
+    document.verify.WildCard.focus(); //-->
+  </script>

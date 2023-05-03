@@ -1,0 +1,14 @@
+<TMPL_IF NAME="showNewButtons">
+  <div class="dropdown">
+  <button class="newbutton">Add To List</button>
+      <div class="dropdown-content">
+          <a class="shoppingList newButtons <TMPL_UNLESS NAME="ShoppingList">addShoppingList</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="ShoppingList">Remove from Shopping List<TMPL_ELSE>Add to Shopping List</TMPL_IF></a>
+          <a class="favorite newButtons <TMPL_UNLESS NAME="Favorite">addFavorite</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites List<TMPL_ELSE>Add to Favorites List</TMPL_IF></a>
+      </div>
+  </div>
+<TMPL_ELSE>
+  <button class="newbutton favorite addFavorite <TMPL_IF NAME="Favorite">hideInline<TMPL_ELSE>showInline</TMPL_IF>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>" onclick="return false">Add to<br/>Favorites</button>
+  <button class="newbutton favorite <TMPL_IF NAME="Favorite">showInline<TMPL_ELSE>hideInline</TMPL_IF>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>" onclick="return false">Remove from<br/>Favorites</button>
+  <button class="newbutton shoppingList addShoppingList <TMPL_IF NAME="ShoppingList">hideInline<TMPL_ELSE>showInline</TMPL_IF>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>" onclick="return false">Add to<br/>Shopping List</button>
+  <button class="newbutton shoppingList <TMPL_IF NAME="ShoppingList">showInline<TMPL_ELSE>hideInline</TMPL_IF>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>" onclick="return false">Remove from<br/>Shopping List</button>
+</TMPL_IF>

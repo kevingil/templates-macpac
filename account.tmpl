@@ -1,0 +1,51 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="buttonNavs.tmpl">
+
+<br/>
+  <form method="POST" action="/account.html" name="verify">
+    <table>
+      <tr valign="top">
+        <td align="right"><b>User&nbsp;Name:</b></td>
+        <td><TMPL_VAR NAME="UserName"><input name="UserName" type="hidden" value="<TMPL_VAR NAME="UserName" escape=html>"></td>
+      </tr>
+      <tr valign="top">
+        <td align="right"><b>Password:</b></td>
+        <td><input name="Password" type="password" value="" id="password">
+          <br><i>You must enter your correct password to make changes.</i></td>
+      </tr>
+      <tr valign="top">
+        <td align="right"><b>Email&nbsp;Address</b></td>
+        <td><input name="Email" size=60 value="<TMPL_VAR NAME="Email" escape=html>"><br>
+          <i>For notices like copies of orders.</i></td>
+      </tr>
+      <tr valign="top">
+        <td align="right"><b>Status</b></td>
+        <td>
+          Inactive <input type="radio" name="Status" value="0"<TMPL_UNLESS NAME="Status"> checked</TMPL_UNLESS>>&nbsp;&nbsp;
+          Active <input type="radio" name="Status" value="1"<TMPL_IF NAME="Status"> checked</TMPL_IF>><br>
+          <i>Account can be inactivated, but you must call MacMurray Pacific to reactivate it.</i>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="SubmitIt" value="Update Your Account">
+          <input type="hidden" name="mode" value="save">
+        </td>
+      </tr>
+    </form>
+    <form method="post" action="/updatePassword.html">
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Change Your Password"></td>
+      </tr>
+    </form>
+  </table>
+  <script type="text/javascript"><!--
+    document.getElementById('password').focus(); //-->
+  </script>
+<div class="center">
+<TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+      
+<TMPL_INCLUDE NAME="footer.tmpl">

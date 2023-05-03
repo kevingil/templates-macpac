@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>MacMurray Pacific Invoice</title>
+<meta name="description" content="MacMurray Pacific Wholesale Hardware: Products For the Cabinet and Woodworking Industries">  
+<meta name="keywords" content="MacMurray Pacific, wholesale hardware, cabinet hardware, woodworking supplies, door hardware, hardware wholesalers, California wholesalers, hinges, drawer slides, shop supplies, kitchen accessories">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=1100,  initial-scale=1, maximum-scale=.9, user-scalable=no">
+<meta name="HandheldFriendly" content="true"/>
+
+<style>
+/* Invoice Styles */
+
+html,
+body {
+    font-family: arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#invoicewrap {
+    width: 1000px;
+    min-height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+#top-left {
+    font-size: 12pt;
+    margin: 5px;
+}
+
+#top-right {
+    float: right;
+    font-size: 12pt;
+    text-align: right;
+    margin: 5px;
+}
+
+#bill-to {
+    margin: 10px 0 15px 10px;
+    line-height: 120%;
+    display: inline-block;
+    font-size: 12pt;
+}
+
+#ship-to {
+    margin: 10px 0 15px 40px;
+    line-height: 120%;
+    display: inline-block;
+    font-size: 12pt;
+}
+
+#totals {
+    float: right;
+    clear: both;
+    text-align: right;
+    font-size: 12pt;
+}
+
+#rem-1 {
+     font-size: 12pt;
+}
+
+#rem-2 {    
+    float: right;
+     text-align: right;
+     font-size: 12pt;
+    margin: 10px;
+}
+
+
+#inv-due {
+    border: 2px dotted #999;
+    border-radius: 5px;
+    width: 250px;
+    padding: 5px;
+    font-size: 11pt;
+    margin: 2px 0 15px 50px;
+    text-align: center;
+}
+
+#stmt-terms {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10pt;
+    color: #666;
+    margin-top: 15px;
+}
+
+#inv-terms {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 9pt;
+    color: #666;
+    margin-top: 15px;
+}
+
+.border {
+    border: 1px solid #999;
+}
+
+
+.space {
+    padding-left: 15px;
+}
+
+.sm-header {
+    padding: 3px 0 2px 5px;;
+    background-color: #e0f1fe;
+    width: 220px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 11pt;
+}
+
+.right {
+    text-align: right;
+}
+
+.ar {
+    text-align: right;
+    font-size: 11pt;
+    margin-right: 25px;
+}
+
+.center {
+    text-align: center;
+}
+
+.small {
+    font-size: 8pt;
+}
+
+table.inv-1 {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.inv-1 th {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+    background-color: #e0f1fe;
+}
+
+table.inv-1 td {
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+}
+
+table.inv-2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.inv-2 th {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+    background-color: #e0f1fe;
+    valign: bottom;
+}
+
+table th.align-right { text-align: right; }
+
+table.inv-2 td {
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+}
+
+.inv-2 tr:nth-child(odd) {
+    background-color: #e0f1fe;
+}
+</style>
+<link rel="icon" type="image/gif" href="https://macpac1.com/images/bridge.gif">
+</head>
+<body>
+<TMPL_LOOP NAME="invoice">
+<div id="invoicewrap">
+
+<div id="top-right">
+<h2>Invoice</h2>
+<table width="200">
+    <tr>
+        <td>Invoice Date:</td><td><TMPL_VAR NAME="date"></td>
+    </tr>
+    <tr>
+        <td>Invoice No:</td><td><TMPL_VAR NAME="invoiceNumber"></td>
+    </tr>
+    <tr>
+        <td>Customer No:</td><td><TMPL_VAR NAME="CustomerID"></td>
+    </tr>
+</table>
+</div>
+
+<div id="top-left">
+<img src="https://macpac1.com/images/header_new.gif" alt="macpac" width="525" height="90">
+
+<p class="space">568 7th Street<br/>
+San Francisco, CA 94103<br/>
+Ph: 415-552-5500<br/>
+Fx: 415-552-5840<br/></p>
+</div>
+
+<hr>
+<div id="bill-to">
+<div class="sm-header">Bill To:</div>
+<p class="space">Customer No: <TMPL_VAR NAME="BillingCustID"><br/>
+<TMPL_VAR NAME="BillingCustName"><br/>
+<TMPL_VAR NAME="BillingCustAddr"><br/>
+<TMPL_IF NAME="BillingCustAddr2"><TMPL_VAR NAME="BillingCustAddr2"><br/></TMPL_IF>
+<TMPL_VAR NAME="BillingCustCity">, <TMPL_VAR NAME="BillingCustState"> <TMPL_VAR NAME="BillingCustZip"><br/>
+<TMPL_IF NAME="BillingCustPhone"><TMPL_VAR NAME="BillingCustPhone"><br/></TMPL_IF>
+</div>
+
+<div id="ship-to">
+<div class="sm-header">Ship To:</div>
+<p class="space">Customer No: <TMPL_VAR NAME="ShippingCustID"><br/>
+<TMPL_VAR NAME="ShippingCustName"><br/>
+<TMPL_VAR NAME="ShippingCustAddr"><br/>
+<TMPL_IF NAME="ShippingCustAddr2"><TMPL_VAR NAME="ShippingCustAddr2"><br/></TMPL_IF>
+<TMPL_VAR NAME="ShippingCustCity">, <TMPL_VAR NAME="ShippingCustState"> <TMPL_VAR NAME="ShippingCustZip"><br/>
+<TMPL_IF NAME="ShippingCustPhone"><TMPL_VAR NAME="ShippingCustPhone"><br/></TMPL_IF>
+</div>
+
+<table class="inv-1">
+<tr>
+<th>Customer PO</th>
+<th>Invoice No.</th>
+<th>Invoice Date</th>
+<th>Work Order / WB</th>
+<th>Ship Via</th>
+<th>Ctns</th>
+<th>Weight</th>
+</tr>
+<tr>
+<td><TMPL_VAR NAME="poNumber"></td>
+<td><TMPL_VAR NAME="invoiceNumber"></td>
+<td><TMPL_VAR NAME="date"></td>
+<td><TMPL_VAR NAME="WorkOrderNumber"></td>
+<td><TMPL_VAR NAME="shipVia"></td>
+<td><TMPL_VAR NAMe="cartons"></td>
+<td><TMPL_VAR NAME="weight"></td>
+</tr>
+</table>
+<br/>
+<table class="inv-2">
+<tr>
+<th style="vertical-align:bottom">Line<br/>Item</th>
+<th style="vertical-align:bottom">Product<br/>Code</th>
+<th style="vertical-align:bottom">Description</th>
+
+<th style="vertical-align:bottom" class="align-right">Qty<br/>Ordered</th>
+<th style="vertical-align:bottom" class="align-right">Qty<br/>Shipped</th>
+<th style="vertical-align:bottom" class="align-right">Unit<br/>Price</th>
+<th style="vertical-align:bottom" class="align-right">Per</th>
+<th style="vertical-align:bottom" class="align-right">Ext<br/>Price</th>
+</tr>
+<TMPL_LOOP NAME="lines">
+<tr>
+<td><TMPL_VAR NAME="lineNumber"></td>
+<td><TMPL_VAR NAME="ProductCode"></td>
+<td><TMPL_VAR NAME="ProductDescription2" escape=html></td>
+
+<td class="right"><TMPL_VAR NAME="QuantityOrdered"></td>
+<td class="right"><TMPL_VAR NAME="QuantitySold"></td>
+<td class="right"><TMPL_VAR NAME="UnitPrice"></td>
+<td class="right"><TMPL_VAR NAME="UofM"></td>
+<td class="right"><TMPL_VAR NAME="Extension"></td>
+</tr>
+</TMPL_LOOP>
+</table>
+<br/><br/><br/>
+<div id="totals">
+<!--
+    <p>Sales Tax <TMPL_VAR NAME="tax"></p>
+    <p>Freight/Handling <TMPL_VAR NAME="shippingHandling"></p>
+    <p>Invoice Total <TMPL_VAR NAME="GrandTotal"></p>
+ -->
+<table width="250">
+    <tr><td>Merchandise Total:</td><td><TMPL_VAR NAME="Subtotal"></td></tr>
+    <tr><td>Sales Tax:</td><td><TMPL_VAR NAME="tax"></td></tr>
+    <tr><td>Freight/Handling:</td><td><TMPL_VAR NAME="shippingHandling"></td></tr>
+    <tr><td><b>Invoice Total:</b></td><td><b><TMPL_VAR NAME="GrandTotal"></b></td></tr>
+</table>
+</div>
+
+<br/>
+<br/>
+<br/>
+<div id="rem-1">
+<b>Send Payment To:</b><br/><br/>
+MacMurray Pacific<br/>
+PO Box 742553<br/>
+Los Angeles, CA 90074-2553<br/><br/>
+Please write Account Number on your check. Thank You For Your Business!<br/>
+</div>
+<div id="inv-terms">
+Payment is due by 10th of month following purchase, past due at <b>month end</b>. 1-1/2% Service Charge on past due balance.
+Customer is responsible for reasonable costs incurred by MacMurray Pacific to collect past due amounts, including attorney's fees.
+Please call our credit department with any questions concerning above balance.
+</div>
+
+</div>
+</TMPL_LOOP>
+</body>
+</html>

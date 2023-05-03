@@ -1,0 +1,18 @@
+<TMPL_IF NAME="todaysOpportunities">
+<table>
+  <tr>
+    <td valign="bottom">Customer (click to start Sales Report)</td>
+    <td valign="bottom">Opportunity</td>
+    <td valign="bottom">Next Step</td>
+  </tr>
+  <TMPL_LOOP NAME="todaysOpportunities">
+  <tr>
+    <td valign="top"><a href="/salesReport.html?mode=create&custCode=<TMPL_VAR NAME="CustomerID" escape=HTML>"><TMPL_VAR NAME="Name"></a></td>
+    <td valign="top"><TMPL_VAR NAME="opportunity"></td>
+    <td valign="top"><TMPL_VAR NAME="nextStep"></td>
+  </tr>
+  </TMPL_LOOP>
+</table>
+<TMPL_ELSE>
+  <div>You have reported no opportunities for today.</div>
+</TMPL_IF>

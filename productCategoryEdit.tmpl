@@ -1,0 +1,30 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="products.css.tmpl">
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="systemMenu.tmpl"></TMPL_IF>
+<br/>
+<h3>Edit Product Categories</h3>
+
+<table class="categories" width="100%">
+  <TMPL_LOOP NAME="prodTypeList">
+  <tr>
+    <TMPL_LOOP NAME="columns">
+      <td>
+        <TMPL_IF NAME="subtypes">
+        <span class="cdropdown">
+          <button class="cdropbtn"><TMPL_VAR NAME="type"></button>
+          <span class="cdropdown-content">
+            <TMPL_LOOP NAME="subtypes">
+            <a href="/productFilterEdit.html?id=<TMPL_VAR NAME="id">"><TMPL_VAR NAME="subtype"></a>
+            </TMPL_LOOP>
+            <hr>
+            <a href="/productFilterEdit.html?category=<TMPL_VAR NAME="category" escape=url>">Add New Subcategory</a>
+          </span>
+        </span>
+        </TMPL_IF>
+      </td>
+    </TMPL_LOOP>
+  </tr>
+  </TMPL_LOOP>
+</table>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

@@ -1,0 +1,121 @@
+<TMPL_IF NAME="exportProdList">
+<pre>
+<TMPL_LOOP NAME="exportProdList"><TMPL_VAR NAME="ProductCode">
+</TMPL_LOOP>
+</pre>
+<TMPL_ELSE>
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="systemMenu.tmpl">
+
+<div class="center">
+<a href="/productCategoryEdit.html"><button class="button3">Edit Product Categories/Filters</button></a></div>
+  <form method="post">
+    <table>
+      <tr>
+        <th>Products</th>
+        <th>Filters</th>
+      </tr>
+      <tr valign="top">
+        <td><input name="search" value="<TMPL_VAR NAME="search" escape=html>"></td>
+        <td>
+          <input type="radio" name="filters"<TMPL_IF NAME="filter_needsWork"> checked</TMPL_IF> value="needsWork"> - Needs Work<br>
+          <input type="radio" name="filters"<TMPL_IF NAME="filter_finished"> checked</TMPL_IF> value="finished"> - Finished<br>
+          <input type="radio" name="filters"<TMPL_IF NAME="filter_all"> checked</TMPL_IF> value="all"> - All<br>
+        </td>
+        <td><input type="submit" value="Save Changes"> - including updates to products</td>
+      </tr>
+    </table>
+    <TMPL_IF NAME="products">
+    <div align="center">
+    <TMPL_IF NAME="pageBackward"><a href="<TMPL_VAR NAME="pageBackward">">&lt;-- Previous Page</a></TMPL_IF>
+    <TMPL_IF NAME="pageForward"><a href="<TMPL_VAR NAME="pageForward">">Next Page --&gt;</a></TMPL_IF>
+    </div>
+    <table>
+      <tr>
+        <td colspan=3>Product Type: <TMPL_VAR NAME="prodTypeSelector"></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="jq_checkall"></td>
+        <th>Product Code</th>
+        <th>Description</th>
+        <th>Description</th>
+        <th>Attributes</th>
+      </tr>
+      <TMPL_LOOP NAME="products">
+      <tr class="code_filter_row" <TMPL_VAR NAME="code_product_keys">>
+        <td><input type="checkbox" class="code_filter_onchange jq_setme" id="cb_<TMPL_VAR NAME="cleanProductCode">" name="cb_<TMPL_VAR NAME="cleanProductCode">"<TMPL_IF NAME="selected"> checked</TMPL_IF>></td>
+        <td><input type="hidden" name="pc_<TMPL_VAR NAME="cleanProductCode">" value="<TMPL_VAR NAME="ProductCode">"><TMPL_VAR NAME="ProductCode"></td>
+        <td><TMPL_VAR NAME="ProductDescription"></td>
+        <td>
+          Web: <textarea class="code_filter_onchange webdescription_blurred" name="web_description_<TMPL_VAR NAME="cleanProductCode">"><TMPL_VAR NAME="WebDescription" escape=html></textarea><br />
+          Cat: <textarea class="code_filter_onchange webdescription_blurred" name="category_description_<TMPL_VAR NAME="cleanProductCode">"><TMPL_VAR NAME="CatDescription" escape=html></textarea>
+        </td>
+        <td align="right" valign="top"><div id="col5_<TMPL_VAR NAME="cleanProductCode">" style="white-space:nowrap"></div><div id="col6_<TMPL_VAR NAME="cleanProductCode">"><TMPL_VAR NAME="attributes"></div></td>
+      </tr>
+      </TMPL_LOOP>
+    </table>
+    <div align="center">
+    <TMPL_IF NAME="pageBackward"><a href="<TMPL_VAR NAME="pageBackward">">&lt;-- Previous Page</a></TMPL_IF>
+    <TMPL_IF NAME="pageForward"><a href="<TMPL_VAR NAME="pageForward">">Next Page --&gt;</a></TMPL_IF>
+    </div>
+    </TMPL_IF>
+    <input type="hidden" name="mode" value="save">
+  </form>
+</div><!--end content box (tabs)-->
+<TMPL_INCLUDE NAME="footer.tmpl">
+<script><!--
+  $('.code_filter_onchange').change(setAllFields).on('blur', function() {
+    // $(this).addClass('webdescription_blurred');
+    // $(this).removeClass('webdescription_focussed');
+  }).on('focus', function() {
+    // $(this).addClass('webdescription_focussed');
+    // $(this).removeClass('webdescription_blurred');
+  });
+  var prodTypeData = <TMPL_VAR NAME="filters">;
+  var prodTypeSelector = $('#prodTypeSelector');
+  // for each checked row, add fields for filters, update data in code_value fields
+  function setAllFields() {
+    var selectedProdTypeData = prodTypeSelector.val();
+    $('.code_filter_row').each(function(index, element) {
+      var cleanProdName = $(this).attr('code_prod_name');
+      var vendorCode = $(this).attr('vendorcode');
+      if (selectedProdTypeData != -1 && $('#cb_'+cleanProdName).prop('checked')) {
+        var out = [];
+        var entry = prodTypeData[vendorCode][selectedProdTypeData];
+        if (selectedProdTypeData != -1) {
+          var filters = entry['filters'].split(',');
+        }
+        for (filter in filters) {
+          var lcfilter = filters[filter].toLowerCase();
+          lcfilter = lcfilter.replace(' ', '_');
+          var value = $(this).attr('keyval_' + lcfilter) || '';
+          out.push(filters[filter] + '&nbsp;<input name="filter_' + lcfilter + '_' + cleanProdName + '" value="' + value + '">');
+        }
+        $('#col5_'+cleanProdName).html(out.join('<br>'));
+        $('#col6_'+cleanProdName).css('display', 'none');
+      } else {
+        $('#col5_'+cleanProdName).html('');
+        $('#col6_'+cleanProdName).css('display', 'block');
+      }
+    });
+  }
+  setAllFields();
+  $(function() {
+      // add multiple select / deselect functionality
+      $("#jq_checkall").click(function () {
+        $('.jq_setme').prop('checked', this.checked);
+      });
+   
+      // if all checkbox are selected, check the selectall checkbox
+      // and viceversa
+      $(".jq_setme").click(function() {
+          if($(".jq_setme").length == $(".jq_setme:checked").length) {
+              $("#jq_checkall").prop("checked", "checked");
+          } else {
+              $("#jq_checkall").prop("checked", false);
+          }
+   
+      });
+  });
+//--></script>
+</TMPL_IF>

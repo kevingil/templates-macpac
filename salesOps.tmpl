@@ -1,0 +1,18 @@
+<TMPL_IF NAME="salesOps">
+  <table>
+    <tr>
+      <th valign="bottom">Opportunity</th>
+      <th valign="bottom" align="left">Next Step</th>
+      <th valign="bottom">Next Date</th>
+    </tr>
+  <TMPL_LOOP NAME="salesOps">
+    <tr>
+      <td><TMPL_VAR NAME="opportunity"></td>
+      <td><TMPL_VAR NAME="nextStep"></td>
+      <td><TMPL_VAR NAME="nextDate"></td>
+    </tr>
+  </TMPL_LOOP>
+  </table>
+<TMPL_ELSE>
+  <div>There are no sales opportunities recorded for this customer.</div>
+</TMPL_IF>

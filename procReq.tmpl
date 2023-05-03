@@ -1,0 +1,61 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_IF NAME="list">
+<table cellpadding=6 cellspacing=0 border=0>
+  <tr valign="top">
+    <td align="center"><strong>Request</strong></td>
+    <td colspan=2 align="center"><strong>Instructions</strong></td>
+  </tr>
+  <TMPL_LOOP NAME="list">
+    <tr class="<TMPL_IF NAME="__even__">evenRow<TMPL_ELSE>oddrow</TMPL_IF>">
+      <td valign="top">
+        <table>
+          <tr valign="top">
+            <td class="hr">Account #:</td>
+            <td><TMPL_VAR NAME="CustomerID"><TMPL_IF NAME="notFound"><div style="color: red">Not Found!</div></TMPL_IF></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Account Name:</td>
+            <td><TMPL_VAR NAME="CustomerName"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">User's Name:</td>
+            <td><TMPL_VAR NAME="YourName"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">User's Title:</td>
+            <td><TMPL_VAR NAME="Title"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">User's Phone:</td>
+            <td><TMPL_VAR NAME="Phone"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">User's Email:</td>
+            <td><TMPL_VAR NAME="Email"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Login:</td>
+            <td><TMPL_VAR NAME="UserName"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Date&nbsp;and&nbsp;time&nbsp;of&nbsp;Request:</td>
+            <td><TMPL_VAR NAME="dateRequested"></td>
+          </tr>
+        </table>
+      </td>
+      <td valign="middle" align="center">
+        <form method="post" action="procReq.html">
+          <input type="hidden" name="id" value="<TMPL_VAR NAME="ID" escape=html>">
+          <input type="submit" name="Submit" value="Disallow">
+          <TMPL_UNLESS NAME="notFound">
+            <input type="submit" name="Submit" value="Allow">
+          </TMPL_UNLESS>
+        </form>
+      </td>
+    </tr>
+  </TMPL_LOOP>
+</table>
+<TMPL_ELSE>
+<div style="color: red">No requests are waiting</div>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

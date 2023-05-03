@@ -1,0 +1,54 @@
+  <h3>To search our product list,<br>
+    complete one or more fields below:</h3>
+  <br>
+  <script type="text/javascript" src="/key13.js"></script>
+  <script type="text/javascript"><!--
+    function submitForm() {
+      if (document.verify.ProductDescription.value != '') {
+        if (document.verify.ProductDescription.value.length < 4) {
+          alert('Please enter at least 4 characters in the Description field.');
+          document.verify.ProductDescription.focus();
+          return false;
+        }
+      }
+      return true;
+    }
+  //-->
+  </script>
+  <form name="verify" action="products.html" method="post" onSubmit="return submitForm()">
+    <table cellspacing=2 cellpadding=2 border=0>
+      <tr>
+        <td class="hr">Category:</td>
+        <td>
+					<TMPL_INCLUDE NAME="categorySelector.tmpl">
+        </td>
+      </tr>
+      <tr>
+        <td class="hr">Vendor:</td>
+        <td>
+					<TMPL_INCLUDE NAME="vendorSelector.tmpl">
+        </td>
+      </tr>
+      <tr>
+        <td class="hr">Product Code:</td>
+        <td>
+          <input name="ProductCode" size=10 class="forceUpperCase" value="<TMPL_VAR NAME="ProductCode" escape=html>">
+        </td>
+      </tr>
+      <tr>
+        <td class="hr">Alpha Code:</td>
+        <td><input name="AlphaCode" size=10 value="<TMPL_VAR NAME="AlphaCode" escape=html>"></td>
+      </tr>
+      <tr>
+        <td class="hr">Description:<br><i>At least 4 characters required</i></td>
+        <td><input name="ProductDescription" size=20 value="<TMPL_VAR NAME="ProductDescription" escape=html>"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="Submit" Value="Search"></td></tr>
+    </table>
+    <input type="hidden" name="first" value=1>
+  </form>
+  <script type="text/javascript">
+    document.verify.ProductCode.focus();
+  </script>

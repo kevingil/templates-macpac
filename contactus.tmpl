@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>Contact MacMurray Pacific</title>
+	<meta name="description" content="Login to MacMurray Pacific's Customer Services">
+	<style type="text/css"><!-- 
+		body { font-family: Verdana, Arial, Helvetica, "sans-serif"; color: white; background: #343399 url(graphics/mplogo.gif) center top no-repeat ; }
+		a:visited, a:link { color: white; }
+		a:hover { text-decoration: none }
+		.ibox { width: 220px; }
+		.error { font-size: 120%; font-weight: bold; color: red }
+		.rttxt { margin-left: 50px; padding: 10px; border: #ffffff solid thin; }
+		.big { font-size: 115%; }
+		.b1 { width: 100px; }
+		.b2 { width: 152px; }
+		.unseen { display: none; }
+		-->
+	</style>
+	<script type="text/javascript" src="key13.js"></script>
+</head>
+<body bgcolor="#343399">
+	<table align="center" border="0" cellpadding="0" cellspacing="0" width="750">
+		<tr valign=top>
+			<td height="80" align="right">
+				<img src="graphics/spacer.gif"  height="85" width="392" alt="spacer">
+			</td>
+			<td rowspan=2>
+				<img src="graphics/spacer.gif"  height="160" width="358" alt="spacer">
+				<div class="rttxt">
+					<p align="center"><span class="big">Looking for sales assistance?</span><br>
+						Visit our <a href="http://macmurraypacific.com/mp1/services.html" title="Account Registration & Application and Sales">services</a> page.
+					</p>
+					<p align="center"><span class="big">Need product information?</span><br>
+						View our <a href="http://macmurraypacific.com/catalog.html?site=mp1" title="Products Catalog">catalog page</a>.
+					</p>
+				</div>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<div align="right">
+          <TMPL_IF NAME="sentMessage">
+						<p style="color: white; font-size: 150%">
+							Your email was sent. Thank you!
+						</p>
+          <TMPL_ELSE>
+            <TMPL_IF NAME="errors">
+              <table border=1>
+                <tr>
+                  <td>
+                    <TMPL_IF NAME="fields">
+                      <div class="error">
+                        <div>Please fill in the following fields and resubmit:</div>
+                        <ul>
+                      <TMPL_LOOP NAME="fields">
+                          <li><TMPL_VAR NAME="field"></li>
+                      </TMPL_LOOP>
+                      </div>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="emailInvalid">
+                      <div class="error">Your email address appears to be invalid.</div>
+                    </TMPL_IF>
+                  </td>
+                </tr>
+              </table>
+            </TMPL_IF>
+            <form method="post" action="contactus.html" name="contactus">
+              <h2>Contact Form</h2>
+              <p>This message goes to the SF office order desk.
+                <TMPL_IF NAME="showEmail">
+                  To email your salesman directly, please send your message to <a href="mailto:<TMPL_VAR NAME="showEmail">">his email</a>.
+                <TMPL_ELSE>
+                  To email your salesman directly, please send your message to his email.
+                </TMPL_IF>
+              </p>
+              <table border="0" cellpadding="2" cellspacing="0" summary="">
+                <tr><td align="right" valign="top">* Subject:</td><td><input class="ibox" name="Subject" size="35" maxlength="55" value="<TMPL_VAR NAME="Subject" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">* Message:</td><td><textarea class="ibox" name="Message" cols="26" rows="5"><TMPL_VAR NAME="Message" escape=html></textarea></td></tr>
+                <tr><td align="right" valign="top">* Name:</td><td><input class="ibox" name="Name"  size="35" maxlength="35" title="Your Name (required)" value="<TMPL_VAR NAME="Name" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">* Email:</td><td><input class="ibox" name="Email"  size="35" maxlength="35" title="Your Email (required)" value="<TMPL_VAR NAME="Email" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">* Company:</td><td><input class="ibox" name="Company"  size="35" maxlength="35" title="Company Name (required)" value="<TMPL_VAR NAME="Company" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">City:</td><td><input class="ibox" name="City"  size="35" maxlength="35" title="City" value="<TMPL_VAR NAME="City" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">* State:</td><td><input name="State"  size="2" maxlength="2" title="State (required)" value="<TMPL_VAR NAME="State" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">Phone:</td><td><input class="ibox" name="Phone"  size="35" maxlength="35" title="Phone" value="<TMPL_VAR NAME="Phone" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">Fax:</td><td><input class="ibox" name="Fax"  size="35" maxlength="35" title="Fax" value="<TMPL_VAR NAME="Fax" escape=html>"></td></tr>
+                <tr><td align="right" valign="top">Customer Number:</td><td valign="top"><input name="Customer" class="ibox" size="35" maxlength="35" title="MacMurray Pacific Account Number" value="<TMPL_VAR NAME="Customer" escape=html>"></td></tr>
+                <tr><td></td><td align="left">
+                  <input class="b1" type="submit" name="Submit" value="Send Email">
+                  <input class="b1" type="reset" value="Clear">
+                  <p>* required information</p>
+                </td></tr>
+              </table>
+              <script type="text/javascript"><!--
+                document.contactus.<TMPL_VAR NAME="nextField">.focus();
+                  //-->
+              </script>
+            </form>
+          </TMPL_IF>
+        </div>
+      </td>
+    </tr>
+  </table>
+   
+  <br>
+  <h3 align="center"><a href="index.html" title="Homepage">Return To Homepage</a></h3>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="products.css.tmpl">
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
+
+<h3><TMPL_IF NAME="id">Edit<TMPL_ELSE>Add</TMPL_IF> Product Filters</h3>
+<TMPL_IF NAME="id">
+<div><a href="?delete=<TMPL_VAR NAME="id" escape=html>" onclick="return confirm('Sure you want to delete?')">Delete <TMPL_VAR NAME="type">/<TMPL_VAR NAME="subtype"></a></div><br>
+</TMPL_IF>
+
+<form method="post" action="productFilterEditSave.html">
+  <input type="hidden" name="id" value="<TMPL_VAR NAME="id">">
+  <table>
+    <tr valign="top">
+      <td>Category:</td>
+      <td><input name="type" value="<TMPL_VAR NAME="type" escape=html>"></td>
+      <td>Sub Category:</td>
+      <td><input name="subtype" value="<TMPL_VAR NAME="subtype" escape=html>"></td>
+    </tr>
+    <tr>
+      <td colspan=4>
+        <table>
+        <TMPL_LOOP NAME="vendors">
+          <tr>
+            <td><input type="checkbox" name="selected_<TMPL_VAR NAME="VendorCode">" value=1<TMPL_IF NAME="selected"> checked</TMPL_IF>><input type="hidden" name="vendor_<TMPL_VAR NAME="VendorCode">" value=1></td>
+            <td><TMPL_VAR NAME="VendorName"></td>
+            <TMPL_LOOP NAME="filters">
+              <td><input name="filter_<TMPL_VAR NAME="VendorCode">_<TMPL_VAR NAME="filter" escape=html>" value="<TMPL_VAR NAME="filter" escape=html>" size=10><input type="hidden" name="original_<TMPL_VAR NAME="VendorCode">_<TMPL_VAR NAME="filter" escape=html>" value="1"></td>
+            </TMPL_LOOP>
+            <td><input name="filter_<TMPL_VAR NAME="VendorCode">" value="" placeholder="Add Filters with commas" size=25></td>
+          </tr>
+        </TMPL_LOOP>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <input type="submit">
+</form>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

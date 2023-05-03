@@ -1,0 +1,55 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+  <div align="left">
+    <ul>
+      <li>enter start date, end date, list of products with pricing</li>
+      <li>list upcoming web specials group by start date</li>
+      <li>edit web pricing by date</li>
+    </ul>
+  </div>
+  <TMPL_IF NAME="mode_form">
+  <div align="center">Create new web specials</div>
+  <form method="post" action="/webPricing.html">
+    <table>
+      <tr><td class="itemr">First Date:</td><td><input name="startDate" value="<TMPL_VAR NAME="startDate" escape=html>"> <i>yyyy-mm-dd</i></td></tr>
+      <tr><td class="itemr">Last Date:</td><td><input name="endDate" value="<TMPL_VAR NAME="endDate" escape=html>"> <i>yyyy-mm-dd</i></td></tr>
+      <tr><td colspan=2>
+        <table id="products">
+          <tr>
+            <td></td>
+            <td class="headerl">Product Code</td>
+            <td class="headerr">Web Special Price</td>
+          </tr>
+  <TMPL_LOOP NAME="products">
+          <tr>
+            <td class="itemr"><TMPL_VAR NAME="index">.</td>
+            <td><input name="<TMPL_VAR NAME="prodName">" value="<TMPL_VAR NAME="product" escape=html>"></td>
+            <td><input name="<TMPL_VAR NAME="priceName">" value="<TMPL_VAR NAME="price" escape=html>" class="itemr"></td>
+          </tr>
+  </TMPL_LOOP>
+        </table>
+      </td></tr>
+      <tr><td colspan=3 align="center"><input type="submit" value="Submit"></td></tr>
+    </table>
+    <input type="hidden" name="mode" value="save">
+  </form>
+  </TMPL_IF>
+  <TMPL_UNLESS NAME="mode_form">
+    <div align="center"><input type="button" value="Create New Web Specials" onclick="document.location.href='/webPricing.html?mode=form'"></div><br />
+  </TMPL_UNLESS>
+  <TMPL_IF NAME="upcoming">
+  <div align="center">Show upcoming web specials</div>
+  <table>
+    <TMPL_LOOP NAME="upcoming">
+    <tr><td colspan=3 class="itemc b">From <TMPL_VAR NAME="startDate"> to <TMPL_VAR NAME="endDate"> <a href="/webPricing.html?mode=delete&startDate=<TMPL_VAR NAME="startDate">&endDate=<TMPL_VAR NAME="endDate">">Delete this special</a></td></tr>
+    <tr><td class="headerl">Product Code</td><td class="headerl">Description</td><td class="headerr">Web Special</td><td class="headerr">List Price</td></tr>
+      <TMPL_LOOP NAME="specials">
+    <tr><td><TMPL_VAR NAME="ProductCode"></td><td><TMPL_VAR NAME="ProductDescription"></td><td class="itemr"><TMPL_VAR NAME="WebPrice"></td><td class="itemr"><TMPL_VAR NAME="Price" escape=html></td></tr>
+      </TMPL_LOOP>
+    </TMPL_LOOP>
+  <TMPL_ELSE>
+    <div align="center">No Upcoming Web Specials</div>
+  </TMPL_IF>
+  </table>
+  <hr>
+  <div align="center"><a href="/order.html">Order Menu</a></div>
+<TMPL_INCLUDE NAME="footer.tmpl">

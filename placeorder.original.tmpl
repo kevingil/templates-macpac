@@ -1,0 +1,229 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_IF NAME="not_yet">
+<table border="0" cellpadding="0" cellspacing="0" width="620">
+  <tr>
+    <td valign="top">
+      <br/><b>Please complete the following information to complete your order:</b><br/><br/>
+      <form method="post" action="/placeorder.html" name="order">
+        <table>
+          <tr valign="top">
+            <td class="hr">Your Shipping Address</td>
+            <td>
+              <TMPL_VAR NAME="Name"><br>
+              <TMPL_VAR NAME="Address"><br>
+              <TMPL_IF NAME="Address2"><TMPL_VAR NAME="Address2"><br></TMPL_IF>
+              <TMPL_VAR NAME="City"> <TMPL_VAR NAME="State"> <TMPL_VAR NAME="Zip"><br>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Your Name:</td>
+            <td><input name="yourName" value="<TMPL_VAR NAME="yourName" escape=html>"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">PO Number:</td>
+            <td><input name="poNumber" value="<TMPL_VAR NAME="poNumber" escape=html>"></td>
+          </tr>
+
+          <TMPL_IF NAME="Email">
+          <tr valign="top">
+            <td class="hr">Send Confirmation Email to Customer?</td>
+            <td><input type="checkbox" name="EmailToCustomer" value=1> <TMPL_VAR NAME="Email"></td>
+          </tr>
+          </TMPL_IF>
+          <tr valign="top">
+            <td class="hr">Additional Email Confirmation To:</td>
+            <td><input name="EmailConfirmation" value="<TMPL_VAR NAME="EmailConfirmation" escape=html>" size="40"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Special Instructions:</td>
+            <td><input name="special" maxlength="25" size="25" value="<TMPL_VAR NAME="special" escape=html>"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Comments:</td>
+            <td><textarea name="comments" cols="37" rows="6" wrap="hard"><TMPL_VAR NAME="comments" escape=html></textarea></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <style>
+                #sub { font-weight: bold }
+              </style>
+              <input name="Submit" value="Continue" type="submit" class="button1">
+              <p>
+                <input value="Cancel Order" onclick="if (confirm('Press OK to Cancel Order')) {document.order.action='/emptycart.html'; document.order.mode.value='empty';return true} else {return false}" type="submit" class="button1">
+                <input value="Edit Order" onclick="document.order.action='/cart.html';document.order.mode.value='';return true" type="submit" class="button1">
+              </p>
+            </td>
+          </tr>
+        </table>
+        <input name="mode" value="check" type="hidden">
+      </form>
+    </td>
+  </tr>
+</table>
+</TMPL_IF>
+<TMPL_IF NAME="checked">
+  <table border=1 bgcolor="#f0f0f0">
+    <tr>
+      <td>
+        <table align="center">
+          <tr>
+            <td>
+              <form action="placeorder.html" method="post">
+                <input type="hidden" name="mode" value="submit">
+                <input type="hidden" name="willcall" value="<TMPL_VAR NAME="willcall" escape=html>">
+                <input type="submit" value="Submit Order" class="b">
+              </form>
+            </td>
+            <td>
+              <form method="post" action="/emptycart.html">
+                <input type="hidden" name="mode" value="empty">
+                <input type="submit" value="Cancel Order" onClick="return confirm('Press OK to Cancel Order')">
+              </form>
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr valign="top">
+            <td align="right">Bill To:</td>
+            <td><TMPL_VAR NAME="billToName"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><TMPL_VAR NAME="billToAddress"></td>
+          </tr>
+          <tr valign="top">
+            <td></td>
+            <td><TMPL_VAR NAME="billToCity"> <TMPL_VAR NAME="billToState"> <TMPL_VAR NAME="billToZip"></td>
+          </tr>
+  <TMPL_IF NAME="billToPONumber">
+          <tr>
+            <td align="Right">PO Number:</td>
+            <td><TMPL_VAR NAME="billToPONumber"></td>
+          </tr>
+  </TMPL_IF>
+  <TMPL_IF NAME="billToWillCall">
+          <tr valign="top">
+            <td align="Right">Shipment Method:</td>
+            <td class="b">Will Call</td>
+          </tr>
+  </TMPL_IF>
+        </table>
+        <br />
+        <table>
+          <tr> 
+            <td><br /></td>
+          </tr>
+          <tr valign="bottom">
+            <td class="b">Product Code</td>
+            <td class="hr">Quantity<br />Ordered</td>
+            <td class="b">Units</td>
+            <td class="hr">Quantity<br />Available</td>
+            <td class="hr">List Price</td>
+            <td class="hr">Your Price</td>
+            <td class="hr">Extend</td>
+          </tr>
+  <TMPL_LOOP NAME="lines">
+    <TMPL_IF NAME="comment">
+      <tr>
+        <td colspan=3 align="left"><TMPL_VAR NAME="comment"></td>
+      </tr>
+    </TMPL_IF>
+    <TMPL_IF NAME="prodCode">
+      <tr valign="top">
+        <td class="nr"><TMPL_VAR NAME="prodCode"> <TMPL_VAR NAME="Description"></td>
+        <td class="itemr"><TMPL_VAR NAME="qty"></td>
+        <td><TMPL_VAR NAME="uOfM"></td>
+        <td class="itemr"><TMPL_VAR NAME="qtyAvailable"></td>
+        <td class="itemr"><TMPL_VAR NAME="listPrice"></td>
+        <td class="itemr"><TMPL_VAR NAME="nicePrice"></td>
+        <td class="itemr"><TMPL_VAR NAME="extendPrice"></td>
+      </tr>
+      <TMPL_LOOP NAME="memos">
+      <tr valign="top">
+        <td colspan=3>&nbsp;&nbsp;<TMPL_VAR NAME="memo"></td>
+      </tr>
+      </TMPL_LOOP>
+      <tr><td>&nbsp;</td></tr>
+    </TMPL_IF>
+    <TMPL_IF NAME="total">
+      <tr>
+        <td><strong>Grand Total</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="hr"><TMPL_VAR NAME="total"></td>
+      </tr>
+    </TMPL_IF>
+  </TMPL_LOOP>
+        </table>
+        <br /><p align="center" class="b">Click submit order to complete your purchase.</p>
+        <table align="center">
+          <tr>
+            <td>
+              <form action="/placeorder.html" method="post">
+                <input type="hidden" name="mode" value="submit">
+                <input type="hidden" name="yourName" value="<TMPL_VAR NAME="yourName" escape=html>">
+                <input type="hidden" name="comments" value="<TMPL_VAR NAME="comments" escape=html>">
+                <input type="hidden" name="EmailConfirmation" value="<TMPL_VAR NAME="EmailConfirmation" escape=html>">
+                <input type="hidden" name="EmailToCustomer" value="<TMPL_VAR NAME="EmailToCustomer" escape=html>">
+                <input type="hidden" name="poNumber" value="<TMPL_VAR NAME="poNumber" escape=html>">
+                <input type="hidden" name="special" value="<TMPL_VAR NAME="special" escape=html>">
+                <input type="hidden" name="willcall" value="<TMPL_VAR NAME="willcall" escape=html>">
+                <input type="submit" value="Submit Order" class="b">
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td colspan=2 align="center">
+              <a href="/home/html">Return to Customer Service</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</TMPL_IF>
+<TMPL_IF NAME="quoted">
+  <TMPL_INCLUDE NAME="sendQuote.html.tmpl">
+  <br />
+  <form method="post">
+    <table>
+      <tr><td align="right" valign="top">Notes:</td><td><textarea name="notes"><TMPL_VAR NAME="notes" escape=html></textarea></td></tr>
+      <tr><td align="right">Email To:</td><td><input name="emailTo" value="<TMPL_VAR NAME="session_cust_customerRow_Email" escape=html>"></td></tr>
+      <tr><td colspan=2 align="center"><input type="submit" value="Send Quote"></td></tr>
+    </table>
+    <input type="hidden" name="mode" value="quote">
+    <input type="hidden" name="submode" value="sendQuote">
+  </form>
+</TMPL_IF>
+<TMPL_IF NAME="placed">
+  <table>
+    <tr>
+      <td>
+        Order <TMPL_VAR NAME="orderNumber"> accepted and placed for <TMPL_VAR NAME="session_custName">
+          placed by <TMPL_VAR NAME="user_Name">. Your shopping cart is now empty. A copy of your confirmation is shown below.
+        <br />
+        <br />
+        <br />
+        <TMPL_LOOP NAME="orderData">
+        <TMPL_INCLUDE NAME="placeorder_html.tmpl">
+        </TMPL_LOOP>
+      </td>
+    </tr>
+  </table>
+</TMPL_IF>
+<TMPL_IF NAME="canSwitchCustomers">
+  <table>
+    <tr>
+      <td>
+        <form method="post" action="/logout.html">
+          <input type="submit" value="Switch Customers">
+          <input type="hidden" name="mode" value="newcust">
+        </form>
+      </td>
+    </tr>
+  </table>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

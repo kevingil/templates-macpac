@@ -1,0 +1,67 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <TMPL_IF NAME="mode_blank">
+			<TMPL_INCLUDE NAME="errorDiv.tmpl">
+			<h3>Customer Registration</h3>
+      <p>Use this to create an online account for an existing MacMurracy Pacific customer.</p>
+			<div><span class="error">*</span> Marks required information. Please use shipping account number in the 'Account Number' field (if you have a separate shipping address #).</div><br/><br/>
+      <TMPL_VAR NAME="errorText">
+      <TMPL_VAR NAME="messageText">
+			<form method="post" action="/setupCustomerLogin.html" name="regform">
+				<input type="hidden" name="mode" value="send">
+				<table border="0" cellpadding="0" cellspacing="7">
+					<tr>
+						<td align="right">Account Number:</td>
+						<td><TMPL_VAR NAME="CustomerIDRequired"></td>
+						<td><input class="ibox" name="CustomerID" size="20" value="<TMPL_VAR NAME="CustomerID" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right">Your Name:</td>
+						<td><TMPL_VAR NAME="YourNameRequired"></td>
+						<td><input class="ibox" name="YourName" size="20" value="<TMPL_VAR NAME="YourName" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right">Email:</td>
+						<td><TMPL_VAR NAME="EmailRequired"></td>
+						<td><input class="ibox" name="Email" size="20" value="<TMPL_VAR NAME="Email" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right">Re-enter Email:</td>
+						<td><TMPL_VAR NAME="EmailRequired"></td>
+						<td><input class="ibox" name="Email2" size="20" value="<TMPL_VAR NAME="Email2" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right" valign="top">Create A User Name:<br><span>(6 - 10 characters)</span></td>
+						<td><TMPL_VAR NAME="UserNameRequired"></td>
+						<td align="left" valign="top"><input name="UserName" maxlength=10 size=10 value="<TMPL_VAR NAME="UserName" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right">Re-enter User Name:</td>
+						<td><TMPL_VAR NAME="UserNameRequired"></td>
+						<td align="left"><input name="UserName2" maxlength=10 size=10 value="<TMPL_VAR NAME="UserName2" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right" valign="top">Password:<br><span>(6 - 10 characters, letters <b>and</b> numbers)</span></td>
+						<td><TMPL_VAR NAME="PasswordRequired"></td>
+						<td align="left" valign="top"><input type="password" name="Password" size=10 maxlength=10 value="<TMPL_VAR NAME="Password" escape=html>"></td>
+					</tr>
+					<tr>
+						<td align="right">Re-enter Password:</td>
+						<td><TMPL_VAR NAME="PasswordRequired"></td>
+						<td align="left"><input type="password" name="Password2" size=10 maxlength=10 value="<TMPL_VAR NAMe="Password2" escape=html>"></td>
+					</tr>
+					<tr>
+						<td><br><b>Need help? Call 415-552-5500</b></td>
+						<td></td>
+						<td align="left"><br><input class="button3" type="submit" value="Submit Request"></td>
+					</tr>
+				</table>
+        <script type="text/javascript"><!--
+          document.regform.<TMPL_VAR NAME="focusOn">.focus();
+          // -->
+        </script>
+			</form>
+		</TMPL_IF>
+</div>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

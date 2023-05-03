@@ -1,0 +1,75 @@
+<p>Please check over your order to make sure all looks correct. Sales Tax, Freight and Handling Charges may apply.<br/>
+Click Submit Order to complete your purchase. <b>Please click only once!</b> It may take a moment to process.</p>
+<div class="orderBox">
+<div class="center">
+  <img src="images/header1.gif" alt="MacMurray Pacific" height="83" width="650"><br/>
+  <p class="info">Phone: 415-552-5500 / Fax: 415-552-5840 / Email: orders@macmurraypacific.com</p>
+  <b class="small">Click Only Once!</b><input name="Submit" value="Submit Order" type="button" class="button4" onclick="document.location='/placeorder.html?mode=submit'"> <b class="small">Click Only Once!</b><br/>
+  <input name="Submit" value="Back to Cart" type="button" class="button3" onclick="document.location='/cart.html'">
+  <div class="right">Date: <TMPL_VAR NAME="date"></div>
+</div>
+  <table>
+    <tr>
+      <td class="left" width="350" style="text-decoration: underline;"><b>Bill To:</b></td>
+      <td class="left" style="text-decoration: underline;"><b>Ship To:</b></td>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billToName"></td>
+      <td class="left"><TMPL_VAR NAME="shipToName"></td>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billToAddress"></td>
+      <td class="left"><TMPL_VAR NAME="shipToAddress"></td>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billToCity"> <TMPL_VAR NAME="billToState"> <TMPL_VAR NAME="billToZip"></td>
+      <td class="left"><TMPL_VAR NAME="shipToCity"> <TMPL_VAR NAME="shipToState"> <TMPL_VAR NAME="shipToZip"></td>
+    </tr>
+  </table>
+
+  <br/>
+  <br/>
+  <div class="center">
+  <table>
+    <TMPL_IF NAME="billToPONumber"><tr><td>PO Number:</td><td><TMPL_VAR NAME="billToPONumber"></td></tr></TMPL_IF>
+    <TMPL_IF NAME="clean_notes"><tr><td>Notes</td><td><TMPL_VAR NAME="clean_notes">   </td></tr></TMPL_IF>
+  </table>
+<br/>
+  <table class="invoicedetail">
+    <tr>
+      <td class="left" width="150" style="text-decoration: underline;">Product Code</td>
+      <td class="left" width="400" style="text-decoration: underline;">Description</td>
+      <td width="100" style="text-decoration: underline;">Quantity</td>
+      <td width="50" style="text-decoration: underline;">Unit</td>
+      <td width="150" class="right" style="text-decoration: underline;">Price</td>
+      <td width="150" class="right" style="text-decoration: underline;">Ext.</td>
+    </tr>
+    <TMPL_LOOP NAME="items">
+    <tr>
+      <TMPL_IF NAME="commentLine">
+      <td></td>
+      <td class="left"><TMPL_VAR NAME="comment"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </TMPL_IF>
+      <TMPL_IF NAME="itemLine">
+      <td class="left"><TMPL_VAR NAME="prodCode"></td>
+      <td class="left"><TMPL_VAR NAME="description"></td>
+      <td><TMPL_VAR NAME="qty"></td>
+      <td><TMPL_VAR NAME="uOfM"></td>
+      <td class="right"><TMPL_VAR NAME="nicePrice"></td>
+      <td class="right"><TMPL_VAR NAME="extendPrice"></td>
+      </TMPL_IF>
+    </tr>
+    </TMPL_LOOP>
+  </table>
+  <br/>
+  <div class="right"><b>Subtotal: <TMPL_VAR NAME="total"></b></div>
+  <b>Click Submit Order to Complete your Purchase</b><br/><br/>
+  <b class="small">Click Only Once!</b><input name="Submit" value="Submit Order" type="submit" class="button4" onclick="document.location='/placeorder.html?mode=submit'"><b class="small">Click Only Once!</b><br/>
+  <input name="Submit" value="Cancel Order" type="button" class="button6" onclick="if(confirm('Are you sure you want to cancel this order?')){document.location='/emptycart.html?mode=empty&next=cart.html'}">
+  <input name="Submit" value="Back to Cart" type="submit" class="button3" onclick="document.location='/cart.html'">
+</div>
+</div>

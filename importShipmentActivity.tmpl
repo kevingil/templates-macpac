@@ -1,0 +1,15 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="buttonNavs.tmpl">
+<div class="center">
+  <TMPL_IF NAME="message">
+    <div><TMPL_VAR NAME="message"></div><br />
+  </TMPL_IF>
+  <form method="post" enctype="multipart/form-data">
+    <table class="center">
+      <tr><td>Excel file to upload:</td><td><input type="file" name="uploadFile"></td></tr>
+      <tr><td></td><td><input type="submit" value="Upload Shipment Activity Report"></td></tr>
+    </table>
+    <input type="hidden" name="mode" value="upload">
+  </form>
+</div>
+<TMPL_INCLUDE NAME="footer.tmpl">

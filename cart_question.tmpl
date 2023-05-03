@@ -1,0 +1,14 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<table align="center">
+	<tr>
+		<td align="center">
+			<div>Your shopping cart has items in it.  Would you like to:</div>
+      <TMPL_IF NAME="favoritesCount"><input type="button" value="Add Favorites to Cart" onclick="window.location='/list.html'; return false"><br></TMPL_IF>
+      <input type="button" value="Add to Cart" onclick="window.location='/cart.html'; return false"><br>
+      <input type="button" value="Proceed to Checkout" onclick="window.location='/placeorder.html'; return false"><br>
+      <input type="button" value="Empty Cart and Begin a New Order" onclick="window.location='/emptycart.html'; return false"><br>
+      <input type="button" value="Save This Cart and Start a New Cart" onclick="window.location='/carts.html?mode=addCart'; return false"><br>
+		</td>
+	</tr>
+</table>
+<TMPL_INCLUDE NAME="footer.tmpl">

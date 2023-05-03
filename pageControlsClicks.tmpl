@@ -1,0 +1,34 @@
+<div id="pagecontrols">
+  <div id="productSortBy">Sort By: <span class="likeALink"><TMPL_VAR NAME="productSortBy"></span></div>
+  <div id="productPerPage">Items Per Page: <span class="likeALink"><TMPL_VAR NAME="productPerPage"></span></div>
+  <div id="productShowOnly">Show Only: <span class="likeALink"><TMPL_VAR NAME="productShowOnly"></span></div>
+</div>
+<script>
+  $('#productSortBy').click(function() {
+    $.ajax({
+      url: '/setFlags.json',
+      data: {action: 'nextProductSortBy'},
+      success: function(data) {
+        location.reload();
+      }
+    });
+  });
+  $('#productPerPage').click(function() {
+    $.ajax({
+      url: '/setFlags.json',
+      data: {action: 'nextProductPerPage'},
+      success: function(data) {
+        location.reload();
+      }
+    });
+  });
+  $('#productShowOnly').click(function() {
+    $.ajax({
+      url: '/setFlags.json',
+      data: {action: 'nextProductShowOnly'},
+      success: function(data) {
+        location.reload();
+      }
+    });
+  });
+</script>

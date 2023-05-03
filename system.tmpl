@@ -1,0 +1,85 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="systemMenu.tmpl">
+<br/>
+
+<TMPL_IF NAME="status_message">
+<div class="status_message"><TMPL_VAR NAME="status_message"></div>
+</TMPL_IF>
+<form method="post" action="system.html" name="verify">
+  <input type="hidden" name="mode" value="save">
+  <div class="center">
+    <table cellpadding="3" align="center">
+      <tr>
+        <td align="right" valign="middle"><b>Cookie Timeout After</b></td>
+        <td><TMPL_VAR NAME="ExpireLength"></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Cart Contents Timeout After</b></td>
+        <td><TMPL_VAR NAME="CartExpireLength"></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Favorites' Age</b></td>
+        <td><TMPL_VAR NAME="FavoritesAge"></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Default Products Per Page for Customers</b></td>
+        <td><TMPL_VAR NAME="DefaultProductPerPageCust"></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Default Products Per Page for Sales</b></td>
+        <td><TMPL_VAR NAME="DefaultProductPerPageSales"></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Unavailable Title</b></td>
+        <td><input name="UnavailableTitle" value="<TMPL_VAR NAME="UnavailableTitle" escape=html">"></td>
+      </tr>
+      <tr>
+        <td align="right"><b>Unavailable Message</b></td>
+        <td><input name="UnavailableMessage" value="<TMPL_VAR NAME="UnavailableMessage" escape=html">"></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><input type="submit" name="Submit" value="Save"></td>
+      </tr>
+    </table>
+  </div>
+</form>
+
+<hr>
+
+<form>
+  <input type="hidden" name="mode" value="control">
+  <table class="center">
+    <tr>
+      <td class="right">Delay before restarting/shutting down?</td>
+      <td class="right">
+        <select name="delay">
+          <option value=0>Immediately</option>
+          <option value=1>One Minute</option>
+          <option value=2>Two Minutes</option>
+          <option value=5>Five Minutes</option>
+          <option value=10>Ten Minutes</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="right">Action</td>
+      <td class="right">
+        Restart&nbsp;&nbsp;- <input type="radio" name="action" value="restart"><br>
+        Shutdown&nbsp;-      <input type="radio" name="action" value="shutdown">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+
+<div class="center">
+  <input type="button" class="button1" value="Vendor List" onclick="document.location.href='/vendorList.html'">
+  <input type="button" class="button1" value="Process Account Requests" onclick="document.location.href='/procReq.html'">
+  <input type="button" class="button1" value="Web Pricing" onclick="document.location.href='/webPricing.html'">
+</div>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

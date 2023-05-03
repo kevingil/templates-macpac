@@ -1,0 +1,28 @@
+================================================================================
+                           **************************
+                               Q U O T E   O N L Y
+                           **************************
+                                FAX: (415)552-5840
+                              PHONE: (415)552-5500                  DATE: <TMPL_VAR NAME="glob_todayPretty">
+
+*ORDERED BY*                               *SHIP TO*
+    <TMPL_VAR NAME="billToName">  <TMPL_VAR NAME="shipToName">
+    <TMPL_VAR NAME="billToAddress">  <TMPL_VAR NAME="shipToAddress">
+    <TMPL_VAR NAME="billToAddress2">  <TMPL_VAR NAME="shipToAddress2">
+    <TMPL_VAR NAME="billToCSZ">  <TMPL_VAR NAME="shipToCSZ">
+
+QUANTITY       PRODUCT DESCRIPTION              NET PRICE  EXT PRICE            
+--------------------------------------------------------------------------------
+<TMPL_LOOP NAME="lines"><TMPL_VAR NAME="qty"> <TMPL_VAR NAME="uOfM">   <TMPL_VAR NAME="prodCode">   <TMPL_VAR NAME="nicePrice">  <TMPL_VAR NAME="extendPrice">
+               <TMPL_VAR NAME="prodDesc">
+
+</TMPL_LOOP>
+
+                     TOTAL                                   <TMPL_VAR NAME="total">
+
+<TMPL_VAR NAME="notes">
+
+SALES TAX & FREIGHT MAY APPLY
+QUOTE VALID FOR LIMITED TIME
+THANK YOU.
+CONTACT: <TMPL_VAR NAME="user_Name">

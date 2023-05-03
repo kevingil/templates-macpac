@@ -1,0 +1,52 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
+
+<span id="pageNumber">
+<div align="center">
+  <h3>MacMurray Pacific Catalog</h3>
+  Jump to Page <input type="text" class="quantity" id="jumpToPage" v-bind:value="currentPage" @keyup.enter="jumpToPage"><button @click="jumpToPage" value="" class="button"></button>
+<br/><br/>
+  <button @click="showPage(-1)" class="previous" v-bind:style="{visibility: currentIndex > 0 ? 'visible' : 'hidden'}"></button>
+  <button @click="showPage(1)" class="next" v-bind:style="{visibility: currentIndex < pageList.length - 1 ? 'visible' : 'hidden'}"></button><br/><br/>
+<img v-bind:src="imageLink" width="90%" border="1"><br/><br/>
+  <button @click="showPage(-1)" class="previous" v-bind:style="{visibility: currentIndex > 0 ? 'visible' : 'hidden'}"></button>
+  <button @click="showPage(1)" class="next" v-bind:style="{visibility: currentIndex < pageList.length - 1 ? 'visible' : 'hidden'}"></button><br/><br/>
+  </div>
+</span>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  var pageNumberApp = new Vue({
+    el: '#pageNumber',
+    data: {
+      pageList: [],
+      imageLink: '',
+      currentPage: 0,
+      currentIndex: 0,
+    },
+    methods: {
+      showPage: function(offset) {
+        for (let index = 0; index < this.pageList.length; index++) {
+          if (this.pageList[index] == this.currentPage) {
+            let newIndex = index + offset;
+            if (newIndex > -1 && newIndex < this.pageList.length) {
+              this.currentIndex = newIndex;
+              this.currentPage = this.pageList[newIndex];
+              this.imageLink = '/catalogImages/' + this.currentPage + '.png';
+            }
+            return;
+          }
+        }
+      },
+      jumpToPage: function() {
+        this.currentPage = document.getElementById('jumpToPage').value;
+        this.showPage(0);
+      }
+    }
+  });
+  pageNumberApp.pageList = '<TMPL_VAR NAME="pageList">'.split(',');
+  pageNumberApp.currentPage = '<TMPL_VAR NAME="page" default=0>';
+  pageNumberApp.showPage(0);
+</script>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

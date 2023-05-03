@@ -1,0 +1,74 @@
+  <TMPL_INCLUDE NAME="header.tmpl">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" width="750">
+    <tr valign="top">
+      <td height="80" align="right">
+        <TMPL_IF NAME="orders">
+          <h2>View Sales Reports</h2>
+          <table>
+            <tr>
+              <th valign="bottom">Date</th>
+              <TMPL_IF NAME="form_date"><th valign="bottom">Customer</th></TMPL_IF>
+              <th valign="bottom">Contact</th>
+              <th valign="bottom">Comments</th>
+              <th valign="bottom">Sales Amount</th>
+            </tr>
+          <TMPL_LOOP NAME="orders">
+            <tr>
+              <td valign="top" style="white-space: nowrap"><TMPL_VAR NAME="startDate"></td>
+              <TMPL_IF NAME="form_date"><td valign="top"><TMPL_VAR NAME="Customer"></td></TMPL_IF>
+              <td valign="top"><TMPL_VAR NAME="talkedToName"></td>
+              <td valign="top"><TMPL_VAR NAME="comment"> <TMPL_VAR NAME="comment2"> <TMPL_VAR NAME="salesNotes"></td>
+              <td align="right" valign="top"><TMPL_VAR NAME="salesAmount"></td>
+            </tr>
+          </TMPL_LOOP>
+          </table>
+          <br /><br />
+          <div align="center">YTD Sales: <TMPL_VAR NAME="ytdSales"> | This Customer: <TMPL_VAR NAME="ytdSalesCustomer"></div>
+          <br><br>
+        <TMPL_ELSE>
+          <h2>Choose Customer</h2>
+          <TMPL_IF NAME="searched">
+            <TMPL_IF NAME="customers">
+              <div align="left">
+                Found the following customers:<br>
+                <TMPL_LOOP NAME="customers">
+                  <div><a href="viewSalesReports.html?custCode=<TMPL_VAR NAME="CustomerID">&mode=list" style="text-decoration: underline">Show</a> <TMPL_VAR NAME="CustomerID"> - <TMPL_VAR NAME="Name"></div>
+                </TMPL_LOOP>
+                <TMPL_IF NAME="morethan40">
+                <div align="center"><br><br>Or be more specific to see other customers<br><br></div>
+                <TMPL_ELSE>
+                <br />
+                </TMPL_IF>
+              </div>
+            <TMPL_ELSE>
+              <div align="center"><br><br>No customers with Sales Orders matched<br><br></div>
+            </TMPL_IF>
+          </TMPL_IF>
+        </TMPL_IF>
+        <form method="post" name="form">
+          <div style="text-align: left">
+            <div>
+              Enter a Customer Account or Name:<br>
+              <i>A partial name is okay.</i>
+              <input name="custCode" value="<TMPL_VAR NAME="form_custCode" escape=html>" class="getcust">
+            </div>
+            <div align="center">OR</div>
+            <div>
+              <div align="left">Enter a Date to show Sales Reports for:<br /><i>yyyy-mm-dd</i></div>
+              <input name="date" value="<TMPL_VAR NAME="form_date">"><br><br>
+            </div>
+          </div>
+          <input type="submit" value="Continue" class="newbutton">
+          <input type="hidden" name="mode" value="find">
+        </form>
+      </td>
+      <td rowspan=2>
+        <img src="graphics/spacer.gif" height="180" width="358" alt="">
+      </td>
+    </tr>
+  </table>
+  <br />
+  <TMPL_INCLUDE NAME="salesNavs.tmpl">
+  </div>
+<TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
+<TMPL_INCLUDE NAME="footer.tmpl">

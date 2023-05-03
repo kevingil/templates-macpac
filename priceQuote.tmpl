@@ -1,0 +1,41 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_VAR NAME="messageText">
+<TMPL_IF NAME="modeCreate">
+  <form method="post">
+    <table class="center">
+      <tr><td align="right" valign="top">Name of quote:</td><td><input name="cartName" value="<TMPL_VAR NAME="cartName" escape=html>" size=40></td></tr>
+      <tr><td align="right" valign="top">Notes:</td><td><textarea name="notes" cols=40 rows=5><TMPL_VAR NAME="notes" escape=html></textarea></td></tr>
+      <tr><td colspan=2><div align="center"><input type="submit" value="Save Quote"></div></td></tr>
+    </table>
+    <input type="hidden" name="mode" value="saveChanges">
+    <input type="hidden" name="cartID" value="<TMPL_VAR NAME="cartID" escape=html>">
+  </form>
+  <hr>
+  <TMPL_INCLUDE NAME="quoteBody.tmpl">
+<TMPL_ELSE>
+  <div align="center"><a href="/saveQuotes.html">View Saved Quotes</a></div>
+  <TMPL_INCLUDE NAME="quoteBody.tmpl">
+  <br />
+  <form method="post">
+    <table class="center">
+      <tr><td align="right" valign="top">Notes:</td><td><textarea name="notes" cols=40 rows=5><TMPL_VAR NAME="notes" escape=html></textarea></td></tr>
+      <TMPL_IF NAME="userEmail">
+        <tr><td align="right" valign="top">Emailing to</td><td><TMPL_VAR NAME="userEmail"></td></tr>
+        <tr><td align="right">Additional Email To:</td><td><input name="emailTo" value="<TMPL_VAR NAME="session_cust_customerRow_Email" escape=html>" size=50></td></tr>
+      <TMPL_ELSE>
+        <tr><td align="right">Email To:</td><td><input name="emailTo" value="<TMPL_VAR NAME="session_cust_customerRow_Email" escape=html>" size=50></td></tr>
+      </TMPL_IF>
+      <tr>
+        <td colspan=2 align="center">
+          <input type="submit" class="newbutton" value="Send Quote">
+        </td>
+      </tr>
+    </table>
+    <TMPL_IF NAME="cartID"><input type="hidden" name="cartID" value="<TMPL_VAR NAME="cartID">"></TMPL_IF>
+    <input type="hidden" name="mode" value="quote">
+    <input type="hidden" name="submode" value="sendQuote">
+  </form>
+  <div align="center"><a href="/saveQuotes.html">View Saved Quotes</a></div>
+  </div>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

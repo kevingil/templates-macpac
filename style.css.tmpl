@@ -1,0 +1,69 @@
+body { background-color: white<TMPL_IF NAME="testMode">; border: #ff0000 solid 5px</TMPL_IF> }
+body, p, td, textarea, input, A:active, form
+{
+  font-family: sans-serif;
+  <TMPL_IF NAME="glob_isMobile">font-size: 22px;</TMPL_IF>
+}
+table { text-align: left }
+h1 { font: bold 200% sans-serif }
+h2 { font: bold 150% sans-serif }
+h3 { font: bold 125% sans-serif }
+h4 { font: bold 100% sans-serif }
+h5 { font: bold 90% sans-serif }
+h6 { font: bold 70% sans-serif }
+A:visited, A:link
+{
+  font-family: sans-serif;
+  color: #c87407;
+}
+A:active { color: red }
+A:hover { text-decoration: none }
+.green { font-size: 110%; color: green; font-weight: bold }
+.error { font-size: 120%; font-weight: bold; color: red }
+.messages { border: black solid 1px; color: green; font-weight: bold; font-size: 110% }
+.headerl { font-weight: bold; vertical-align: bottom }
+.headerr { font-weight: bold; text-align: right; vertical-align: bottom }
+.iteml { text-align: left }
+.itemr { text-align: right }
+.itemc { text-align: center }
+.kitPart { font-style: italic }
+.forms { display: inline }
+.notes { font-size: 90% }
+.nobr { font-weight: bold; white-space: nowrap }
+.b { font-weight: bold }
+.c { text-align: center }
+.hr { font-weight: bold; text-align: right }
+.nr { white-space: nowrap }
+.top, .top td { vertical-align: top }
+.unavail {
+  color: red;
+  background-color: gray;
+  font-size: 150%;
+  font-weight: bold
+}
+.oddRow, .cartRowOdd { background-color: white }
+.cartHeaderRow, .evenRow, .cartRowEven { background-color: #ccccff }
+
+.oddTabRow { background-color: white }
+.evenRow { background-color: #ccccff }
+
+.tabbed { background-color: #ccccff }
+td.tabs { background-color: white }
+span.tab {
+  padding: 2px 2px 2px 2px;
+  margin: 0px 2px 0px 0px;
+  background-color: #ccccff;
+}
+span.tabSelected { font-weight: bold; }
+.tab a {
+  text-decoration: none;
+  color: black;
+}
+
+.orderReport { }
+.orderReport .orderItem { }
+.instructions { font-style: italic }
+.vendorSelector { width: 30em }
+
+.activeCart { background-color: #ccccff }
+.inactiveCart { background-color: #ffccff }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <title>MacMurray Pacific Wholesale Hardware</title>
+  <meta name="description" content="MacMurray Pacific Wholesale Hardware: Products For the Cabinet and Woodworking Industries">  
+  <meta name="keywords" content="MacMurray Pacific, wholesale hardware, cabinet hardware, woodworking supplies, door hardware,
+  hardware wholesalers, California wholesalers, hinges, drawer slides, shop supplies, kitchen accessories">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1100" />
+  <link rel="stylesheet" type="text/css" href="global.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="icon" type="image/gif" href="images/bridge2.gif">
+</head>
+
+<body>
+<div id="wrap"><!--begin wrap-->
+<div id="maincontent"><!--begin maincontent for footer padding-->
+<a name="top"></a> 
+<div id="header"><!--begin header box-->
+
+<div class="contactbox">
+<p class="low1"><TMPL_IF NAME="session_loggedIn"><a href="/logout.html" class="products"><b>Logout <TMPL_VAR NAME="user_Name"></b></a><TMPL_ELSE><a href="/login.html" class="products"><b>Customer Login</b></a></TMPL_IF><br/><br/>
+<TMPL_IF NAME="session_multipleCustomers"><br/><TMPL_VAR NAME="session_custName"><br/><p class="low1"><a href="/getcust.html">Switch Customers</a></p></TMPL_IF>
+
+</div>
+
+<p class="con-info"><b>Phone:</b> 800-244-1455 / <b>Fax:</b> 415-552-5840</p>
+</div><!--end header box-->
+
+<ul id="toc">
+<TMPL_IF NAME="session_isGuest">
+<li<TMPL_IF NAME="glob_menu_home"> class="current"</TMPL_IF>><a href="index.html"><span>Home</span></a></li>
+</TMPL_IF>
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE>
+<li<TMPL_IF NAME="glob_menu_custHome"> class="current"</TMPL_IF>><a href="custHome.html"><span>Customer Home</span></a></li>
+</TMPL_IF>
+<li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a href="productCats.html"><span>Products</span></a></li>
+<li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a href="catalog.html"><span>Catalog Download</span></a></li>
+ <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a href="forms.html"><span>Resources</span></a></li>
+ <li<TMPL_IF NAME="glob_menu_videos"> class="current"</TMPL_IF>><a href="videos.html"><span>Videos</span></a></li>
+<li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Manufacturer Links</span></a></li>
+<li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Services / Contact Us</span></a></li>
+<TMPL_IF NAME="session_isSales">
+<li<TMPL_IF NAME="glob_menu_sales"> class="current"</TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
+</TMPL_IF>
+<TMPL_IF NAME="session_isAdmin">
+<li<TMPL_IF NAME="glob_menu_admin"> class="current"</TMPL_IF>><a href="admin.html"><span>System</span></a></li>
+</TMPL_IF>
+</ul>
+
+<div class="content"><!--begin content box (tabs)-->
+
+
+<form class="searchbar" action="/category.html" method="post">
+<input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="searchFor" escape=html>">
+<input type="submit" name="button" value="" class="button">
+<TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All"></TMPL_UNLESS>
+</form>
+
+<TMPL_UNLESS NAME="session_isGuest">
+<div class="cart1">
+<a href="/cart.html"><img src="images/emptycart.jpg" class="right1" alt="cart" height="38" width="40">
+<div class="ItemsInCart"><TMPL_IF NAME="placed">0 items<TMPL_ELSE><TMPL_VAR NAME="cart_ItemsInCart"></TMPL_IF></div><div class="GrandTotalInCart"><TMPL_IF NAME="placed">$0.00<TMPL_ELSE><TMPL_VAR NAME="cart_GrandTotalInCart"></TMPL_IF></div></a>
+</div>
+</TMPL_UNLESS><br/><br/>
+
+<TMPL_IF NAME="categoryPage">
+  <div class="searchDif">
+    <TMPL_IF NAME="prod_favorites">Search My Favorites</TMPL_IF>
+    <TMPL_IF NAME="prod_history">Search Order History</TMPL_IF>
+    <TMPL_IF NAME="prod_shoplist">Search Shopping List</TMPL_IF>
+    <TMPL_IF NAME="prod_normal">Search MacPac Inventory</TMPL_IF>
+  </div>
+</TMPL_IF>
+<br/>
+

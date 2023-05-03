@@ -1,0 +1,9 @@
+<tr class="oddeven">
+  <td><TMPL_VAR NAME="created_by"></td>
+  <td class="nowrap"><TMPL_VAR NAME="created_date"></td>
+  <td>Bug <TMPL_VAR NAME="bugid">: <TMPL_VAR NAME="title"></td>
+  <td><TMPL_VAR NAME="body_html"></td>
+  <td><TMPL_VAR NAME="closed_text"></td>
+  <td><TMPL_VAR NAME="priority"></td>
+  <td><TMPL_IF NAME="closed"><a href="?mode=open&bugid=<TMPL_VAR NAME="bugid">">Re-open</a><TMPL_ELSE><a href="?mode=close&bugid=<TMPL_VAR NAME="bugid">">Close</a></TMPL_IF> | <a href="?mode=showDetails&bugid=<TMPL_VAR NAME="bugid">">Show Details</a> | <a href="?mode=showAddNote&bugid=<TMPL_VAR NAME="bugid">">Add Note</a></td>
+</tr>

@@ -1,0 +1,9 @@
+<TMPL_IF NAME=hasMessages>
+<div class="messages">
+  <ul>
+    <TMPL_LOOP NAME=messages>
+    <li><TMPL_VAR NAME=message></li>
+    </TMPL_LOOP>
+  </ul>
+</div>
+</TMPL_IF>

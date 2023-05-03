@@ -1,0 +1,315 @@
+<style>
+  .ui-autocomplete-loading {
+    background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="/jquery.ui.autocomplete.scroll.min.js"></script>
+<script src="/handlebars-v4.0.5.js"></script>
+<TMPL_INCLUDE NAME="cartrow-template.tmpl">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script>
+  var cartrowSrc  = $("#cartrow-template").html();
+  var cartrowTemplate = Handlebars.compile(cartrowSrc);
+  var cartrowTmpl = function(row) {
+    <TMPL_IF NAME="session_isSales">
+    try {
+      const qty = parseInt(row.Qty);
+      if (parseInt(row.Qty) > parseInt(row.QtyAvailable)) {
+        row.ShowBuyer = `<div class="buyer">Buyer: ${row.Buyer}</div>`;
+        if (!row.ExpectedDate || row.ExpectedDate === '2000-00-00') {
+          row.MoreExpected = `<div class="moreExpected">${row.OrderQuantity} more expected. Call for ETA</div>`;
+        } else {
+          row.MoreExpected = `<div class="moreExpected">${row.OrderQuantity} more expected on ${row.ExpectedDate}</div>`;
+        }
+      }
+    } catch(err) {
+      console.error(err);
+    }
+    </TMPL_IF>
+    return cartrowTemplate(row);
+  }
+  function cleanProductCode(productCode) {
+    return productCode.replace(/[^-a-z0-9]/ig, '');
+  }
+  // $(function()... defines a function that is called when ready event triggers
+  $(function() {
+    var productCodeAutocompleteCache = {};
+    // autocomplete for product code {
+    $('.addProductCode').autocomplete({
+      minLength: 2,
+      maxShowItems: 5,
+      source: function( request, response ) {
+        var term = request.term;
+        if ( term in productCodeAutocompleteCache ) {
+          response( productCodeAutocompleteCache[ term ] );
+          return;
+        }
+
+        request.feed = 'autocomplete';
+        $.getJSON( "/feed.json", request, function( data, status, xhr ) {
+          productCodeAutocompleteCache[ term ] = data.prods;
+          response( data.prods );
+        });
+      },
+      change: function (event, ui) {
+        var productCode;
+        if (ui && ui.item && ui.item.value) {
+          productCode = ui.item.value;
+        } else {
+          productCode = $(this).val();
+        }
+        if (productCode == '') {
+          $('.productCodeNotFound').css('display', 'none');
+          $('.dsnof').css('display', 'none');
+          return;
+        }
+        $.ajax({
+          url: '/feed.json',
+          data: {feed: 'validateProductCode', productCode: productCode},
+          success: function(data) {
+            if (data.found != null) {
+              $('.productCodeNotFound').css('display', 'none');
+            } else {
+              $('.productCodeNotFound').css('display', 'block');
+            }
+          },
+        });
+      }
+    });
+    // autocomplete for product code }
+
+    // autocomplete for customer {
+    var getcustAutocompleteCache = {};
+    $('.getcust').autocomplete({
+      minLength: 2,
+      maxShowItems: 10,
+      source: function( request, response ) {
+        var term = request.term;
+        if ( term in getcustAutocompleteCache ) {
+          response( getcustAutocompleteCache[ term ] );
+          return;
+        }
+
+        request.feed = 'autoc_cust';
+        $.getJSON( "/feed.json", request, function( data, status, xhr ) {
+          getcustAutocompleteCache[ term ] = data.found;
+          response( data.found );
+        });
+      },
+      change: function (event, ui) {
+        var term;
+        var key = '.custCodeNotFound';
+        if (ui && ui.item && ui.item.value) {
+          term = ui.item.value;
+        } else {
+          term = $(this).val();
+        }
+        if (term == '') {
+          $(key).css('display', 'none');
+          return;
+        }
+        $.ajax({
+          url: '/feed.json',
+          data: {feed: 'autoc_cust', search: search},
+          success: function(data) {
+            if (data.found != null) {
+              $(key).css('display', 'none');
+            } else {
+              $(key).css('display', 'block');
+            }
+          },
+        });
+      }
+    });
+    // autocomplete for customer }
+  });
+
+  $('.addProductCode').on("autocompletechange", function(event,ui) {
+    var productCode;
+    if (ui && ui.item && ui.item.value) {
+      productCode = ui.item.value;
+    } else {
+      productCode = $(this).val();
+    }
+    if (productCode == '') {
+      $('.productCodeNotFound').css('display', 'none');
+      $('.dsnof').css('display', 'none');
+      return;
+    }
+    $.ajax({
+      url: '/feed.json',
+      data: {feed: 'validateProductCode', productCode: productCode},
+      success: function(data) {
+        if (data.found != null) {
+          $('.productCodeNotFound').css('display', 'none');
+        } else {
+          $('.productCodeNotFound').css('display', 'block');
+        }
+        $('#addQuantityField').focus();
+      },
+    });
+  });
+
+  $('.getcust').on("autocompletechange", function(event,ui) {
+    var search;
+    if (ui && ui.item && ui.item.value) {
+      search = ui.item.value;
+    } else {
+      search = $(this).val();
+    }
+    var key = '.custCodeNotFound';
+    if (search == '') {
+      $(key).css('display', 'none');
+      return;
+    }
+    $.ajax({
+      url: '/feed.json',
+      data: {feed: 'autoc_cust', search: search},
+      success: function(data) {
+        if (data.found != null) {
+          $(key).css('display', 'none');
+        } else {
+          $(key).css('display', 'block');
+        }
+      },
+    });
+  });
+  var clearCartFields = function() {
+    $('.addRowQuantity').val('');
+    $('.productCodeNotFound').css('display', 'none');
+    $('.addProductCode').val('').focus();
+  }
+  var controlCartButtons = function(len) {
+    if (!len) {
+      $('#emptycart').removeClass('cartHasItems'); // show
+      $('#checkoutButton').addClass('cartHasItems'); // hide
+      $('#emptyCartButton').addClass('cartHasItems'); // hide
+      $('#createQuoteButton').addClass('cartHasItems'); // hide
+      $('#subtotalField').addClass('cartHasItems'); // hide
+    } else {
+      $('#emptycart').addClass('cartHasItems'); // hide
+      $('#checkoutButton').removeClass('cartHasItems'); // show
+      $('#emptyCartButton').removeClass('cartHasItems'); // show
+      $('#createQuoteButton').removeClass('cartHasItems'); // show
+      $('#subtotalField').removeClass('cartHasItems'); // show
+    }
+  }
+  var fromCartSuccess = function(data) {
+    var canEditPrice = <TMPL_VAR NAME="session_canEditPrice" default="0">;
+    var total        = data.GrandTotalInCart;
+    var items        = data.ItemsInCart;
+    var newShowPrice = data.newShowPrice;
+    var newExtended  = data.newExtended;
+    controlCartButtons(data.indexed.length);
+    $('.ItemsInCart').html(items);
+    $('.GrandTotalInCart').html(total);
+    // replace table with new response data
+    var list = '';
+    var count = data['indexed'].length;
+    for (i = 0; i < count; i++) {
+      var row = data['indexed'][i];
+      row['thumbX'] = Math.floor(parseInt(row['thumbX']) * .75);
+      row['thumbY'] = Math.floor(parseInt(row['thumbY']) * .75);
+      list = list + cartrowTmpl(row);
+    }
+    var body = document.getElementById('carttabletbody');
+    if (body)
+      body.innerHTML = list;
+    clearCartFields();
+    regHandleCartOnReplace();
+  };
+  var deleteFromCart = function(IndexNo) {
+    $.ajax({
+      url: '/addToCart.json',
+      data: {IndexNo: IndexNo, Qty: 0},
+      success: function(data) {
+        fromCartSuccess(data);
+      }
+    });
+  };
+  var fullCartonMsg = 'Full Cartons Only, Order in Multiples of ';
+  var addToCart = function(IndexNo) {
+    let quantity = $(".quantity[IndexNo='" + IndexNo + "']").val();
+    let price    = $(".setPrice[IndexNo='" + IndexNo + "']").val();
+    let addQuantity = $(".addQuantity[IndexNo='" + IndexNo + "']");
+    let perbox   = addQuantity.attr('perbox');
+    let allowpartialcases = addQuantity.attr('allowpartialcases');
+    if (allowpartialcases === 'N' && quantity % perbox != 0) {
+      return alert(fullCartonMsg + perbox);
+    }
+    $.ajax({
+      url: '/addToCart.json',
+      data: {IndexNo: IndexNo, Qty: quantity, SalesPrice: price},
+      success: function(data) {
+        fromCartSuccess(data);
+        setAddedToCartMessage('number', IndexNo, 1);
+      },
+    });
+  };
+  var addProductToCart = function(me) {
+    var productCode = me.attr('useproductcode');
+    var escaped  = productCode.replace(/[^-a-z0-9]/ig, '');
+    var quantity = $(".quantity[productCode='" + escaped + "\']").val();
+    var perbox   = $(".addQuantity[productCode='" + escaped + "']").attr('perbox');
+    var allowpartialcases = $(".addQuantity[productCode='" + escaped + "']").attr('allowpartialcases');
+    if (allowpartialcases == 'N' && quantity % perbox != 0) {
+      return alert(fullCartonMsg + perbox);
+    }
+    $.ajax({
+      url: '/addToCart.json',
+      data: {ProductCode: productCode, Qty: quantity},
+      success: function(data) {
+        fromCartSuccess(data);
+        setAddedToCartMessage('product', productCode, 1);
+      }
+    });
+  };
+  var addRowToCart = function() {
+    var productCode    = $('.addProductCode').val();
+    var quantity       = $('.addRowQuantity').val();
+    if (quantity > 0 && productCode != '' && $('.productCodeNotFound').css('display') == 'none') {
+      $.ajax({
+        url: '/addToCart.json',
+        data: {ProductCode: productCode, Qty: quantity},
+        success: function(data) {
+          if (data.fullcartononly) {
+            alert(fullCartonMsg + data.fullcartononly);
+            return;
+          }
+          fromCartSuccess(data);
+        }
+      });
+    }
+  };
+  var setPrice = function(IndexNo, setPrice) {
+    $.ajax({
+      url: '/feed.json',
+      data: {feed: 'setPrice', IndexNo: IndexNo, setPrice: setPrice},
+      success: function(data) {
+        if (data.error == 0) {
+          $('.setPrice[IndexNo=\'' + IndexNo + '\']').val(data.newPrice);
+          $('.Extended[IndexNo=\'' + IndexNo + '\']').text(data.newExtended);
+          $('.GrandTotalInCart').text(data.grandTotal);
+          setAddedToCartMessage('number', IndexNo, 1);
+        }
+      }
+    });
+  };
+  function setAddedToCartMessage(type, value, flag) {
+    if (type == 'number') {
+      if (flag) {
+        $('.addedToCart'+value).css('visibility', 'visible');
+      } else {
+        $('.addedToCart'+value).css('visibility', 'hidden');
+      }
+    } else {
+      var cleaned = '.atcm' + cleanProductCode(value);
+      if (flag) {
+        $(cleaned).css('visibility', 'visible');
+      } else {
+        $(cleaned).css('visibility', 'hidden');
+      }
+    }
+  }
+</script>

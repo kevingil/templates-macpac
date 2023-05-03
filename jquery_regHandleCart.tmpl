@@ -1,0 +1,84 @@
+<script>
+  // register jQuery events
+  function handle_addProductToCart() {
+    var me = $(this);
+    addProductToCart(me);
+    me.blur();
+  }
+  function regHandleCartOnReplace() {
+    $('.addQuantity').keydown(function (e) {
+      var me = $(this);
+      var IndexNo = me.attr('IndexNo');
+      var productCode = me.attr('productCode');
+      var useProductCode = me.attr('useproductCode');
+      if (e.which == 13) {
+        if (useProductCode) {
+          addProductToCart(me);
+        } else {
+          addToCart(me.attr('IndexNo'));
+        }
+        me.blur();
+      } else {
+        if (IndexNo) {
+          setAddedToCartMessage('number', IndexNo, 0);
+        } else {
+          setAddedToCartMessage('product', productCode, 0);
+        }
+      }
+    });
+    $('.addProductToCart').off('click', handle_addProductToCart);
+    $('.addProductToCart').on('click', handle_addProductToCart);
+    $('.addToCart').on('click', function() {
+      var mythis = $(this);
+      var IndexNo = mythis.attr('IndexNo');
+      addToCart(IndexNo);
+    });
+    $('.addedByLegacyCheckbox').on('change', function() {
+      var mythis  = $(this);
+      var IndexNo = mythis.attr('IndexNo');
+      var status  = mythis.prop('checked') ? 1 : 0;
+      $.ajax({
+        url: '/feed.json',
+        data: {feed: 'includeClips', IndexNo: IndexNo, status: status},
+        success: function(data) {
+          fromCartSuccess(data);
+        },
+      });
+    });
+    $('.setPriceButton').on('click', function() {
+      var me          = $(this);
+      var IndexNo     = me.attr('IndexNo');
+      var price       = $('.setPrice[IndexNo=\''+IndexNo+'\']').val();
+      setPrice(IndexNo, price);
+    });
+    $('.setPrice').keypress(function (e) {
+      var me      = $(this);
+      var IndexNo = me.attr('IndexNo');
+      if (e.which == 13) {
+        var price   = me.val();
+        setPrice(IndexNo, price);
+        me.blur();
+      } else if (IndexNo) {
+        setAddedToCartMessage('number', IndexNo, 0);
+      }
+    });
+  }
+  function regHandleCartOnLoad() {
+    $('.addRowToCart').on('click', addRowToCart);
+    $('.addProductToCart').off('click', handle_addProductToCart);
+    $('.addProductToCart').on('click', handle_addProductToCart);
+    $('.addProductCode').keypress(function (e) {
+      if (e.which == 13) {
+        $('.addRowQuantity').focus();
+      }
+    });
+    $('.addRowQuantity').keypress(function (e) {
+      if (e.which == 13) {
+        addRowToCart();
+      }
+    });
+  }
+  regHandleCartOnReplace();
+  regHandleCartOnLoad();
+  controlCartButtons(0);
+</script>

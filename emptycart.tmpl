@@ -1,0 +1,16 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+  <table>
+    <tr>
+      <td>
+        <div align="center">Choose an action for your cart:</div>
+        <br>
+        <table>
+          <tr><td align="right"><input type="button" onclick="if (confirm('Are you sure you want to empty your cart?')) window.location='/emptycart.html?mode=empty&next=/list.html'; return false" value="Empty"></td><td> - Empty my cart and begin a new order.</td></tr>
+          <tr><td align="right"><input type="button" onclick="window.location='/editcart.html'; return false" value="Edit"></td><td> - Edit items or quantities already in my cart.</td></tr>
+          <tr><td align="right"><input type="button" onclick="window.location='/list.html'; return false" value="Add"></td><td> - Add new items to those already in my cart.</td></tr>
+          <tr><td align="right"><input type="button" onclick="window.location='/carts.html?mode=addCart'; return false" value="Save"></td><td> - Save this Cart and start a New Cart.</td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+<TMPL_INCLUDE NAME="footer.tmpl">

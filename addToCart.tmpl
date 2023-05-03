@@ -1,0 +1,15 @@
+<!-- addToCart -->
+<div style="white-space: nowrap">
+  <TMPL_IF NAME="categoryPage">
+  <TMPL_IF NAME="added_by_legacy">
+  <!-- if added by legacy, don't show qty in cart editor -->
+  <TMPL_ELSE>
+  <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty" escape=html>" IndexNo="<TMPL_VAR NAME="IndexNo" escape=html>" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" default="">">
+  <button class="addToCart qty" IndexNo="<TMPL_VAR NAME="IndexNo" escape=html>" />
+  </TMPL_IF>
+  <TMPL_ELSE>
+  <input type="text" class="quantity addQuantity" placeholder="Quantity" value="{{Qty}}" IndexNo="{{IndexNo}}" perbox="{{PerBox}}" allowpartialcases="{{AllowPartialCases}}">
+  <button class="addToCart qty" IndexNo="{{IndexNo}}" />
+  </TMPL_IF>
+</div>
+<!-- /addToCart -->

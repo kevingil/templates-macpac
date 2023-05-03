@@ -1,0 +1,88 @@
+<table border=1>
+  <tr>
+    <td>
+      <div align="center">***************************</div>
+      <div align="center" style="font-size: 150%">QUOTE ONLY</div>
+      <div align="center">***************************</div>
+      <div align="center">
+        <table>
+          <tr>
+            <td align="right">Fax:</td>
+            <td>(415) 552-5840</td>
+          </tr>
+          <tr>
+            <td align="right">Phone:</td>
+            <td>(415) 552-5500</td>
+          </tr>
+        </table>
+        <div align="right">
+          Date: <TMPL_VAR NAME="glob_todayPretty">
+        </div>
+        <br />
+
+        <table width="100%">
+          <tr>
+            <td>
+              *ORDERED BY*<br />
+              <TMPL_VAR NAME="session_cust_billTo_Name"><br />
+              <TMPL_VAR NAME="session_cust_billTo_Address"><br />
+              <TMPL_VAR NAME="session_cust_billTo_Address2"><br />
+              <TMPL_VAR NAME="session_cust_billTo_City"> <TMPL_VAR NAME="session_cust_billTo_State"> <TMPL_VAR NAME="session_cust_billTo_Zip">
+            </td>
+            <td><span style="width: 10px"></span></td>
+            <td>
+              *SHIP TO*<br />
+              <TMPL_VAR NAME="session_cust_customerRow_Name"><br />
+              <TMPL_VAR NAME="session_cust_customerRow_Address"><br />
+              <TMPL_VAR NAME="session_cust_customerRow_Address2"><br />
+              <TMPL_VAR NAME="session_cust_customerRow_City"> <TMPL_VAR NAME="session_cust_customerRow_State"> <TMPL_VAR NAME="session_cust_customerRow_Zip">
+            </td>
+          </tr>
+        </table>
+        <br />
+        <table>
+          <tr valign="bottom">
+            <td class="hr">Quantity</td>
+            <td></td>
+            <td class="b">Product Description</td>
+            <td class="hr">Net Price</td>
+            <td class="hr">Ext Price</td>
+          </tr>
+  <TMPL_LOOP NAME="lines">
+    <TMPL_IF NAME="prodCode">
+          <tr valign="top">
+            <td class="itemr"><TMPL_VAR NAME="qty"></td>
+            <td><TMPL_VAR NAME="uOfM"></td>
+            <td><TMPL_VAR NAME="prodCode"></td>
+            <td class="itemr"><TMPL_VAR NAME="nicePrice"></td>
+            <td class="itemr"><TMPL_VAR NAME="extendPrice"></td>
+          </tr>
+          <tr>
+            <td colspan=2></td>
+            <td><TMPL_VAR NAME="prodDesc"></td>
+          </tr>
+      <TMPL_LOOP NAME="memos">
+          <tr valign="top">
+            <td colspan=3>&nbsp;&nbsp;<TMPL_VAR NAME="memo"></td>
+          </tr>
+      </TMPL_LOOP>
+          <tr><td>&nbsp;</td></tr>
+    </TMPL_IF>
+  </TMPL_LOOP>
+          <tr valign="top">
+            <td colspan=2></td>
+            <td>TOTAL</td>
+            <td></td>
+            <td class="itemr"><TMPL_VAR NAME="total"></td>
+          </tr>
+        </table>
+        <br />
+      </div>
+      <div><TMPL_VAR NAME="clean_notes" escape=none></div><br />
+      <div>SALES TAX &amp; FREIGHT MAY APPLY</div>
+      <div>QUOTE VALID FOR LIMITED TIME</div>
+      <div>THANK YOU.</div>
+      <div>CONTACT: <TMPL_VAR NAME="user_Name"></div>
+    </td>
+  </tr>
+</table>

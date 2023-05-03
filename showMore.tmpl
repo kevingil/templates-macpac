@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title><TMPL_VAR NAME="ProductCode"> - More Product Information</title>
+  <style>
+    td {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body onLoad='self.focus()'>
+  <center>
+    <table>
+      <tr valign="top">
+        <td class="headerr">Product&nbsp;Code:</td>
+        <td><TMPL_VAR NAME="ProductCode"></td>
+      </tr>
+      <tr valign="top">
+        <td class="headerr">Description:</td>
+        <td><TMPL_VAR NAME="ProductDescription"></td>
+      </tr>
+      <TMPL_LOOP NAME="Memos">
+      <tr valign="top">
+        <td class="headerr"><TMPL_VAR NAME="prompt"></td>
+        <td><TMPL_VAR NAME="value"></td>
+      </tr>
+      </TMPL_LOOP>
+    </table>
+    <input type="button" value="Close Window" onClick="window.close()">
+  </center>
+</body>
+</html>

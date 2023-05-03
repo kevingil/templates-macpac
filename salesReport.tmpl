@@ -1,0 +1,257 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="buttonNavs.tmpl">
+<script type="text/javascript"><!--
+  function toggleSOPDisplay() {
+    var div = document.getElementById('ShowSOP');
+    if (div.style.display == 'none') {
+      div.style.display = 'block';
+    } else {
+      div.style.display = 'none';
+    }
+  } // toggleSOPDisplay
+
+  function toggleViewSOPDisplay() {
+    var div = document.getElementById('ShowViewSOP');
+    if (div.style.display == 'none') {
+      div.style.display = 'block';
+    } else {
+      div.style.display = 'none';
+    }
+  }
+
+  function validateNextDate(showError) {
+    var element = document.getElementById('nextDateField');
+    var value = element.value;
+    var fields = value.split(/[\-,.\/]/);
+    var msg = [];
+    if (fields.length < 3) {
+      msg.push('Date format is mm/dd/yy');
+    } else {
+      if (!fields[0].match(/^\d+$/) || !fields[1].match(/^\d+$/) || !fields[2].match(/^\d+$/)) {
+        msg.push('Date format is mm/dd/yy');
+      } else {
+        if (fields[0] < 1 || fields[0] > 12) {
+          msg.push('Month is invalid (1-12)');
+        }
+        if (fields[2] > 2000) {
+          fields[2] -= 2000;
+        }
+        var daysInMonth = daysPerMonth(fields[0], fields[2]);
+        if (fields[1] < 1 || fields[1] > daysInMonth) {
+          msg.push('Date is invalid (1-' + daysInMonth + ')');
+        }
+        if (fields[2] < 10) {
+          msg.push('Year is invalid');
+        }
+      }
+    }
+    if (msg.length) {
+      if (showError) {
+        alert(msg.join('\n'));
+        element.focus();
+      }
+      return false;
+    }
+    element.value = formatWithLeadingZeroes(fields[0], 2) + '-' + formatWithLeadingZeroes(fields[1], 2) + '-' + formatWithLeadingZeroes(fields[2], 2);
+    return true;
+  } // validateNextDate
+
+  function formatWithLeadingZeroes(value, places) {
+    while(value.length < places) {
+      value = '0' + value;
+    }
+    return value;
+  } // formatWithLeadingZeroes
+
+  function daysPerMonth(month, year) {
+    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+      return 31;
+    } else if (month == 2) {
+      return (year % 4 == 0) ? 29 : 28;
+    } else {
+      return 30;
+    }
+  }
+
+  function validateForm() {
+    if (SOPField.checked) {
+      if (opportunityField.value == '' && opportunityPulldownField.selectedIndex == 0) {
+        alert('Opportunity is required');
+        opportunityField.focus();
+        return false;
+      }
+      if (nextStepField.value == '') {
+        alert('Next Step is required');
+        nextStepField.focus();
+        return false;
+      }
+      if (nextDateField.value == '') {
+        alert('Next Date is required');
+        nextDateField.focus();
+        return false;
+      }
+      return validateNextDate(true);
+    }
+    if (id_comment.value == '' && id_salesNotes.value == '') {
+      alert('Either Comment or Sales Note are required');
+      return false;
+    }
+    return true;
+  } // validateForm()
+  //-->
+</script>
+<div class="homeBorder">
+  <h3><a href="/salesReport.html" class="products">Sales Report Form</a> / <a href="/viewSalesReports.html" class="products">View Sales Reports</a></h3>
+  <hr>
+  <TMPL_VAR NAME="errorText">
+  <TMPL_IF NAME="mode_success">
+    <h2>Created Sales Orders</h2>
+    <div>Sales Report was created successfully.</div>
+    <div><a href="<TMPL_VAR NAME="pageName">" class="newbutton">Continue</a></div>
+  </TMPL_IF>
+  <TMPL_IF NAME="mode_failure">
+    <h2>Created Sales Orders</h2>
+    <div class="error">Sales Report was <i>not</i> created successfully. Please contact MacPac!</div>
+    <div><a href="<TMPL_VAR NAME="pageName">" class="newbutton">Continue</a></div>
+  </TMPL_IF>
+  <TMPL_IF NAME="mode_blank">
+    <h2>Sales Report Form</h2>
+    <form method="post">
+      <table border="0" align="center">
+        <tr>
+          <td align="right">
+            Enter a Customer Account or Name:
+          </td>
+          <td width="210" align="right"><input name="custCode" value="<TMPL_VAR NAME="user_custCode" ESCAPE=HTML>" id="fieldCustCode" class="getcust"></td>
+          <td><input type="submit" name="Submit" value="Continue" class="newbutton"></td>
+        </tr>
+      </table>
+      <input name="mode" type="hidden" value="create">
+    </form>
+    <TMPL_IF NAME="showCustomers">
+    <div align="center">
+      <table>
+      <TMPL_LOOP NAME="customers">
+      <tr>
+        <td><a href="/salesReport.html?custCode=<TMPL_VAR NAME="CustomerID">&mode=create" style="text-decoration: underline; line-height: 150%;">Select </a></td>
+        <td><TMPL_VAR NAME="CustomerID"></td>
+        <td><TMPL_VAR NAME="Name"></td>
+      </tr>
+      </TMPL_LOOP>
+      </table>
+    </TMPL_IF>
+    <br/>
+    <hr>
+  </TMPL_IF>
+  <TMPL_IF NAME="mode_salesOrder">
+    <div id="salesReportArea">
+      <form method="post" name="form" onSubmit="return validateForm()">
+        <table width="900">
+          <tr>
+            <td><h4>Finish Sales Report - <TMPL_VAR NAME="Name"></h4></td>
+            <td class="small">Time Start: <TMPL_VAR NAME="reportStartTime"></td>
+            <td class="small">Date: <TMPL_VAR NAME="reportStartDate"></td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <td width="250">Contact:</td><td></td>
+            <td>Comments:</td>
+          </tr>
+          <tr height="60">
+            <td valign="top">
+              <input name="talkedToName" value="<TMPL_VAR NAME="talkedToName" escape=html>" class="quick">
+            </td><td></td>
+            <td valign="top">
+              <input name="comment" maxlength="75" id="id_comment" value="<TMPL_VAR NAME="comment" escape=html>" class="quick1"><br />
+              <input name="comment2" maxlength="75" value="<TMPL_VAR NAME="comment2" escape=html>" class="quick1"><br/><i class="small">75 characters max each line</i><br/><br/>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">Sales Amount:</td><td></td>
+            <td valign="top">Sales Opportunity</td>
+          </tr>
+          <tr>
+            <td valign="top"><input name="salesAmount" value="<TMPL_VAR NAME="salesAmount" escape=html>" class="quick"></td><td></td>
+            <td><input type="checkbox" name="SOP" value=1 onChange="toggleSOPDisplay()" id="SOPField"> - Yes<br/><br/>
+              <div id="ShowSOP" style="display:none">
+                Opportunity:
+                <TMPL_IF NAME="opportunityPulldown">
+                  <TMPL_INCLUDE NAME="opportunityPulldown.tmpl"><br/>
+                </TMPL_IF>
+                <input name="opportunity" maxlength=20 id="opportunityField" class="quick" value="<TMPL_VAR NAME="opportunity" escape=html>"><br/>
+
+                Next Step:<br/>
+                <input name="nextStep" maxlength=50 id="nextStepField" class="quick" value="<TMPL_VAR NAME="nextStep" escape=html>"><br/>
+
+                Next Date (mm-dd-yy):<br/>
+                <input name="nextDate" id="nextDateField" maxlength=10 class="quick" onChange="validateNextDate(false)" value="<TMPL_VAR NAME="nextDate" escape=html>"><br/><br/>
+              </div>
+              <TMPL_IF NAME="salesOps">
+                Outstanding Sales Opportunities<br/>
+                <TMPL_INCLUDE NAME="salesOps.tmpl">
+              </TMPL_IF>
+            </td>
+          </tr>
+        </table>
+        <br/><br/>
+
+        <div class="center">
+          <input type="submit" value="Finish Report" class="newbutton"><input type="button" onclick="location='/salesReport.html?mode=removeCurrent'" value="Delete Current Report" class="newbutton">
+        </div>
+        <input type="hidden" name="mode" value="save">
+      </form>
+    </div>
+    <br/>
+  </TMPL_IF>
+  <TMPL_IF NAME="mode_view">
+    <div align="center">
+      <h3>View Sales Reports</h3>
+      <table>
+        <tr>
+          <th valign="bottom">Date</th>
+          <TMPL_IF NAME="form_date"><th valign="bottom">Customer</th></TMPL_IF>
+          <th valign="bottom">Contact</th>
+          <th valign="bottom">Comments</th>
+          <th valign="bottom">Sales Amount</th>
+        </tr>
+      <TMPL_LOOP NAME="orders">
+        <tr>
+          <td valign="top" style="white-space: nowrap"><TMPL_VAR NAME="startDate"></td>
+          <TMPL_IF NAME="form_date"><td valign="top"><TMPL_VAR NAME="Customer"></td></TMPL_IF>
+          <td valign="top"><TMPL_VAR NAME="talkedToName"></td>
+          <td valign="top"><TMPL_VAR NAME="comment"> <TMPL_VAR NAME="comment2"> <TMPL_VAR NAME="salesNotes"></td>
+          <td align="right" valign="top"><TMPL_VAR NAME="salesAmount"></td>
+        </tr>
+      </TMPL_LOOP>
+      </table>
+    </div>
+    <br /><br />
+    <div align="center">YTD Sales: <TMPL_VAR NAME="ytdSales"> | This Customer: <TMPL_VAR NAME="ytdSalesCustomer"></div>
+  </TMPL_IF>
+  <br/>
+  <TMPL_IF NAME="salesOrders">
+  <table>
+    <tr>
+      <th valign="bottom">Date</th>
+      <th valign="bottom">Contact</th>
+      <th valign="bottom">Comments</th>
+      <th valign="bottom">Sales Amount</th>
+    </tr>
+    <TMPL_LOOP NAME="salesOrders">
+    <tr>
+      <td valign="top" style="white-space: nowrap"><TMPL_VAR NAME="startDate"></td>
+      <td valign="top"><TMPL_VAR NAME="talkedToName"></td>
+      <td valign="top"><TMPL_VAR NAME="comment"> <TMPL_VAR NAME="comment2"> <TMPL_VAR NAME="salesNotes"></td>
+      <td align="right" valign="top"><TMPL_VAR NAME="salesAmount"></td>
+    </tr>
+    </TMPL_LOOP>
+  </table>
+  </TMPL_IF>
+  <br/>
+  <TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+
+<TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
+<TMPL_INCLUDE NAME="footer.tmpl">

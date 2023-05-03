@@ -1,0 +1,21 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+  <div class="center">
+		<TMPL_INCLUDE NAME="customerPrompt.tmpl">
+		<TMPL_IF NAME=customers>
+      <div>Found the following customers:</div><br/>
+      <div align="center">
+      <table>
+        <TMPL_LOOP NAME=customers>
+        <tr>
+          <td><a href="/setcust.html?custCode=<TMPL_VAR NAME=CustomerID>&exact=1" style="text-decoration: underline; line-height: 150%;">Login to</a></td>
+          <td><TMPL_VAR NAME=CustomerID></td>
+          <td><TMPL_VAR NAME=Name></td>
+        </tr>
+        </TMPL_LOOP>
+      </table>
+      </div>
+    <TMPL_ELSE>
+      <p class=error>No customers matched '<TMPL_VAR NAME=form_custCode>'</p>
+    </TMPL_IF>
+  </div>
+<TMPL_INCLUDE NAME="footer.tmpl">

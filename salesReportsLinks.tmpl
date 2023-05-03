@@ -1,0 +1,12 @@
+<TMPL_IF NAME="session_isSales">
+	<TMPL_IF NAME="glob_salesOrderCount">
+		<a href="/salesReport.html">Record Sales Report</a> |
+	<TMPL_ELSE>
+		<a href="/salesReport.html">Start Sales Report</a> |
+	</TMPL_IF>
+	<a href="/viewSalesReports.html">View Sales Reports</a> |
+	<a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">&mode=show">View Invoices</a> |
+</TMPL_IF>
+	<a href="/order.html">Order Entry</a> |
+	<a href="/logout.html">Log Out</a> |
+	<a href="/index.html">Return To Homepage</a>

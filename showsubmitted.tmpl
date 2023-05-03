@@ -1,0 +1,21 @@
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
+
+<div class="center">
+<h3 style="color: #339933;"><b>Thank you for your order!</b></h3>
+</div><br/>
+
+Order <b><TMPL_VAR NAME="orderNumber"></b> accepted and placed for <TMPL_VAR NAME="session_custName">
+  placed by user <TMPL_VAR NAME="user_Name">.<br/><br/>Your shopping cart is now empty. A copy of your confirmation is shown below. Please <b>close</b> this tab or navigate away from page when finished.
+<br/>
+<br/>
+<br/>
+<div class="center">
+<a href="/custHome.html" class="button3">Home</a>
+<a href="/cart.html" class="button3">Back to Cart</a>
+</div>
+<br/>
+<br/>
+
+<TMPL_LOOP NAME="orderData">
+<TMPL_INCLUDE NAME="placeorder_html.tmpl">
+</TMPL_LOOP>

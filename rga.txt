@@ -1,0 +1,26 @@
+                               MACMURRAY PACIFIC
+                                      RGA
+                              Pick Up Request Memo
+                                FAX: (415)552-5840
+                              PHONE: (415)552-5500
+                                                              Date: <TMPL_VAR NAME="glob_todayPretty">
+                                                          Print By: <TMPL_VAR NAME="user_Name">
+
+Customer: <TMPL_VAR NAME="session_rga_customer_Name">
+          <TMPL_VAR NAME="session_rga_customer_Address">
+          <TMPL_VAR NAME="session_rga_customer_Address2">
+          <TMPL_VAR NAME="session_rga_customer_City"> <TMPL_VAR NAME="session_rga_customer_State"> <TMPL_VAR NAME="session_rga_customer_Zip">
+          <TMPL_VAR NAME="session_rga_customer_ContactPhone">
+<TMPL_IF NAME="session_rga_productCount">
+================================================================================
+Product Code          Invoice #     Qty Unit Price Extended Price
+<TMPL_LOOP NAME="products"><TMPL_VAR NAME="product">  <TMPL_VAR NAME="invoiceNumber"> <TMPL_VAR NAME="qty"> <TMPL_VAR NAME="price">     <TMPL_VAR NAME="extend">
+  <TMPL_VAR NAME="productDesc">
+</TMPL_LOOP>
+</TMPL_IF>
+<TMPL_IF NAME="session_rga_detailsSaved">
+             Reason For Return: <TMPL_VAR NAME="session_rga_reasonForReturn">
+                Restock Charge? <TMPL_VAR NAME="session_rga_restockCharge">
+Customer to Pay Return Freight? <TMPL_VAR NAME="session_rga_customerPayReturnFreight">
+    Credit All Freight Charges? <TMPL_VAR NAME="session_rga_creditAllFreightCharges">
+</TMPL_IF>

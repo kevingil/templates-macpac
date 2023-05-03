@@ -1,0 +1,25 @@
+<html>
+<body>
+<pre>
+To show information only to users who are not logged in, i.e. guests, use this before:
+  &lt;TMPL_IF NAME="session_isGuest"&gt;
+And this after:
+  &lt;/TMPL_IF&gt;
+
+To show information only to users who are logged in as sales, use this before:
+  &lt;TMPL_IF NAME="session_isSales"&gt;
+And this after:
+  &lt;/TMPL_IF&gt;
+
+To show information only to users who are logged in as admin, use this before:
+  &lt;TMPL_IF NAME="session_isAdmin"&gt;
+And this after:
+  &lt;/TMPL_IF&gt;
+
+To show information only to users who are logged in as a normal customer, use this before:
+  &lt;TMPL_IF NAME="session_isCustomer"&gt;
+And this after:
+  &lt;/TMPL_IF&gt;
+</pre>
+</body>
+</html>

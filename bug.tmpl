@@ -1,0 +1,95 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="systemMenu.tmpl">
+<TMPL_IF NAME="listOutstanding">
+  <table class="bugTable">
+    <caption>Outstanding Bugs</caption>
+    <TMPL_INCLUDE NAME="bugListHeaders.tmpl">
+    <TMPL_LOOP NAME="outstandingRows">
+      <TMPL_INCLUDE NAME="bugListRow.tmpl">
+    </TMPL_LOOP>
+  </table>
+  <TMPL_INCLUDE NAME="bugFooters.tmpl">
+</TMPL_IF>
+<TMPL_IF NAME="listClosed">
+  <table class="bugTable">
+    <caption>Closed Bugs</caption>
+    <TMPL_INCLUDE NAME="bugListHeaders.tmpl">
+    <TMPL_LOOP NAME="closedRows">
+      <TMPL_INCLUDE NAME="bugListRow.tmpl">
+    </TMPL_LOOP>
+  </table>
+  <TMPL_INCLUDE NAME="bugFooters.tmpl">
+</TMPL_IF>
+<TMPL_IF NAME="listAll">
+  <table class="bugTable">
+    <caption>All Bugs</caption>
+    <TMPL_INCLUDE NAME="bugListHeaders.tmpl">
+    <TMPL_LOOP NAME="allRows">
+      <TMPL_INCLUDE NAME="bugListRow.tmpl">
+    </TMPL_LOOP>
+  </table>
+  <TMPL_INCLUDE NAME="bugFooters.tmpl">
+</TMPL_IF>
+<TMPL_IF NAME="showAddBug">
+  <form method="post">
+    <table>
+      <tr><td class="right">Bug Title:</td><td><input name="title" value="<TMPL_VAR NAME="title" escape=html>" size=80></td></tr>
+      <tr><td class="right">Description:</td><td><textarea name="body" rows=5 cols=80><TMPL_VAR NAME="body" escape=html></textarea></td></tr>
+      <tr><td class="right">Cut/paste URL:</td><td><input name="url" value="<TMPL_VAR NAME="url" escape=html>"></td></tr>
+      <tr><td class="right">Logged in user:</td><td><input name="user" value="<TMPL_VAR NAME="user" escape=html>"></td></tr>
+      <tr><td class="right">Logged in customer</td><td><input name="customer" value="<TMPL_VAR NAME="customer" escape=html>"></td></tr>
+      <tr><td class="right">Priority (higher values are higher priority)</td><td><input name="priority" value="<TMPL_VAR NAME="priority" escape=html>"></td></tr>
+      <tr><td></td><td><input type="submit" value="Add Bug"></td></tr>
+    </table>
+    <input type="hidden" name="mode" value="addBug">
+  </form>
+  <a href="?">Return</a>
+</TMPL_IF>
+<TMPL_IF NAME="showAddNote">
+  <form method="post">
+    <table>
+      <tr><td class="right">Message:</td><td><input name="message" value="<TMPL_VAR NAME="message" escape=html>" size=80></td></tr>
+      <tr><td></td><td><input type="submit" value="Add Note"></td></tr>
+    </table>
+    <input type="hidden" name="mode" value="addNote">
+    <input type="hidden" name="bugid" value="<TMPL_VAR NAME="bugid">">
+  </form>
+  <a href="?">Return</a>
+</TMPL_IF>
+<TMPL_IF NAME="showDetails">
+  <table class="bugTable">
+    <TMPL_INCLUDE NAME="bugListHeaders.tmpl">
+    <TMPL_LOOP NAME="bug">
+      <TMPL_INCLUDE NAME="bugListRow.tmpl">
+    </TMPL_LOOP>
+    <TMPL_IF NAME="details">
+    <tr>
+      <td colspan=2></td>
+      <td colspan=5>
+        <table class="bugTable">
+          <tr>
+            <td>Created By</td>
+            <td>Created</td>
+            <td>Message</td>
+            <td>Closes Bug</td>
+          </tr>
+          <TMPL_LOOP NAME="details">
+          <tr class="oddeven">
+            <td><TMPL_VAR NAME="created_by"></td>
+            <td><TMPL_VAR NAME="created_date"></td>
+            <td><TMPL_VAR NAME="message"></td>
+            <td><TMPL_VAR NAME="closes_bug"></td>
+          </tr>
+          </TMPL_LOOP>
+        </table>
+      </td>
+    </tr>
+    <TMPL_ELSE>
+    <tr>
+      <td colspan=7 style="text-align: center">No notes for this bug</td>
+    </tr>
+    </TMPL_IF>
+  </table>
+  <a href="?">Return</a>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

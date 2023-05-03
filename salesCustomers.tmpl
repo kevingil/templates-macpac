@@ -1,0 +1,29 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
+<div align="center"><TMPL_IF NAME="session_isAdmin"><a href="?mode=zone-with">All Zones - Customers with Accounts</a> | <a href="?mode=zone-without">All Zones - Customers without Accounts</a></TMPL_IF> | <a href="?mode=-without">My Customers without Accounts</a></div>
+<TMPL_IF NAME="session_isAdmin"><div align="center"><a href="?mode=<TMPL_VAR name="mode">&email=1">Email Individual Below Report</a></div></TMPL_IF>
+
+<h3><TMPL_VAR NAME="title"></h3>
+<table>
+  <tr height="50">
+    <th style="width: 4em"></th>
+    <th>Customer ID</th>
+    <th>Customer Name</th>
+  </tr>
+<TMPL_LOOP NAME="salesCustomers">
+  <tr><td colspan=3 style="font-weight: bold">Zone <TMPL_VAR NAME="SalesRepID"> (<TMPL_VAR NAME="count"> customers)</td></tr>
+  <TMPL_LOOP NAME="data">
+  <tr>
+    <td></td>
+    <td><TMPL_VAR NAME="CustomerID"></td>
+    <td><TMPL_VAR NAME="Name"></td>
+  </tr>
+  </TMPL_LOOP>
+</TMPL_LOOP>
+</table>
+
+<br/>
+<div class="center" style="clear: both">
+<TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+<TMPL_INCLUDE NAME="footer.tmpl">

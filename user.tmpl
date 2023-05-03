@@ -1,0 +1,165 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="systemMenu.tmpl">
+<br/>
+
+<TMPL_IF NAME="message_deleted">
+  <div style="color: green">Deleted User <TMPL_VAR NAME="name"></div>
+  <form method="post" action="/user.html">
+    <input type="submit" value="Back to User Maint Menu">
+  </form>
+</TMPL_IF>
+<TMPL_IF NAME="message_none">
+  <div style="color: red">No user found that matched that name. To delete one, click on Edit User, then click on Delete User for that user.</div>
+</TMPL_IF>
+<TMPL_IF NAME="message_other">
+  <div style="color: red">Found more than one user that matched that name. To delete one, click on Edit User, then click on Delete User for that user.</div>
+</TMPL_IF>
+
+<TMPL_IF NAME="pluralUsers">
+  <table>
+    <TMPL_LOOP NAME="users">
+      <tr valign="top">
+        <td>
+          <form method="post" action="/user.html">
+            <input type="hidden" name="mode" value="edit">
+            <input type="hidden" name="userCode" value="<TMPL_VAR NAME="userCode" escape=html>">
+            <input type="hidden" name="UserName" value="<TMPL_VAR NAME="Name" escape=html">">
+            <input type=submit name=Submit value="Edit User">
+          </form>
+        </td>
+        <td>
+          <form method="post" action="/user.html">
+            <input type="hidden" name="mode" value="confirmDelete">
+            <input type="hidden" name="userCode" value="<TMPL_VAR NAME="userCode" escape=html>">
+            <input type="hidden" name="UserName" value="<TMPL_VAR NAME="Name" escape=html>">
+            <input type="submit" name="Submit" value="Delete User" onClick="if (confirm('Are you sure you want to delete this user?')) { document.user.mode.value='confirmDelete'; return true; } else { return false }">
+          </form>
+        </td>
+        <td><TMPL_VAR NAME="Name"></td>
+      </tr>
+    </TMPL_LOOP>
+    <tr>
+      <td align="center" colspan=2>
+        <a href="/user.html">Select Different User</a>
+      </td>
+    </tr>
+  </table>
+</TMPL_IF>
+<TMPL_IF NAME="mode_edit">
+  <form method="post" action="/user.html" name="verify">
+    <input type="hidden" name="mode" value="save">
+    <input type="hidden" name="userCode" value="<TMPL_VAR NAME="userCode" escape=html>">
+    <table>
+      <tr valign="top">
+        <td class="hr">User&nbsp;Name:</td>
+        <td>
+          <input name="Name" value="<TMPL_VAR NAME="Name" escape=html>">
+          <div class="instructions">Please use upper and lower case for readability.</div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="hr">Password:</td>
+        <td>
+          <input type="password" name="Password" value="<TMPL_VAR NAME="Password" escape=html>">
+          <div class="instructions">Password should be 6 to 10 characters long and have both letters and digits.</div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="hr">Email&nbsp;Address:</td>
+        <td>
+          <input name="Email" size=60 value="<TMPL_VAR NAME="Email" escape=html>">
+          <div style="instructions">This is the email address copies of orders will be sent to. One copy will also be sent to the customer's email address, if any.</div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="hr">Customer Account #:</td>
+        <td>
+          <input name="CustomerID" value="<TMPL_VAR NAME="CustomerID" escape=html>">
+          <div style="instructions">Customer's own user accounts can only access their own account. For multiple customers, use comma to separate entries.</div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td class="hr">Status:</td>
+        <td>
+          Inactive <input type="radio" name="Status" value="0"<TMPL_UNLESS NAME="Status"> checked</TMPL_UNLESS>><br>
+          Active <input type="radio" name="Status" value="1"<TMPL_IF NAME="Status"> checked</TMPL_IF>>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td></td>
+        <td><input type="submit" name="Submit" value="Save Changes"> <input type="button" value="Cancel Edit" onclick="location='/user.html'"></td>
+      </tr>
+      <tr valign="top" bgcolor="gray">
+        <td colspan=2 class="b c" style="color: white">Inhouse and Sales Reps Only</td></tr>
+      <tr valign="top" bgcolor="gray">
+        <td class="hr">Sales Rep Zones:</td>
+        <td>
+          <input name="SalesZones" value="<TMPL_VAR NAME="SalesZones" escape=html>"><br>
+          <div style="instructions">List of Sales Zones with commas between them.</div>
+        </td>
+      </tr>
+      <tr valign="top" bgcolor="gray">
+        <td class="hr">Admin&nbsp;Level:</td>
+        <td>
+          <table>
+            <tr>
+              <td class="hr">User</td>
+              <td><input type="radio" name="AdminLevel" value=0<TMPL_UNLESS NAME="AdminLevel"> checked</TMPL_UNLESS>></td>
+            </tr>
+            <tr>
+              <td class="hr">Admin</td>
+              <td>
+                <input type="radio" name="AdminLevel" value=1<TMPL_IF NAME="AdminLevel"> checked</TMPL_IF>>
+                <div style="instructions">Only for MacMurray Pacific personnel.</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr valign="top" bgcolor="gray">
+        <td class="hr">All Customers:</td>
+        <td>
+          <input type="checkbox" name="AllCusts" value="1"<TMPL_IF NAME="AllCusts"> checked</TMPL_IF>>
+          <div style="instructions">Allow this user to access <b>all</b> customers.</div>
+        </td>
+      </tr>
+      <tr valign="top" bgcolor="gray">
+        <td class="hr">Override&nbsp;Rules?:</td>
+        <td>
+          <input type="checkbox" name="Override" value="1"<TMPL_IF NAME="Override"> checked</TMPL_IF>>
+          <div style="instructions">Check to override rules for passwords.</div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</TMPL_IF>
+<TMPL_IF NAME="mode_blank">
+  <table width="375" align="center">
+    <tr valign="top">
+      <td width="100">User Name:</td>
+      <td>
+        <form method="post" action="/user.html" name="user">
+        <input type="hidden" name="mode" value="edit">
+        <input name="UserName">
+          <div style="instructions">First part of name is enough, or put % in front of name to search in the middle of names</div>
+          <input type="submit" name="Submit" value="Edit User">
+          <input type="submit" name="Submit" value="Delete User" onClick="if (confirm('Are you sure you want to delete this user?')) { document.user.mode.value='confirmDelete'; return true; } else { return false }">
+        </form>
+        <script language="javascript"><!--
+          document.user.UserName.focus(); //-->
+        </script>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <form method="post" action="/user.html">
+          <input type="submit" name="Submit" value="Add New User">
+          <input type="hidden" name="mode" value="edit">
+        </form>
+      </td>
+    </tr>
+  </table>
+</TMPL_IF>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

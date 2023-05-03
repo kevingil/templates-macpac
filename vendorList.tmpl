@@ -1,0 +1,22 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
+
+<h3>Vendor List For MacMurray Pacific</h3>
+<table>
+  <tr height="50">
+    <th>Vendor Phone</th>
+    <th>Vendor Code / Name</th>
+  </tr>
+<TMPL_LOOP NAME="vendors">
+  <tr>
+    <td><TMPL_VAR NAME="Phone"></td>
+    <td><TMPL_VAR NAME="VendorCode"> - <TMPL_VAR NAME="VendorName"> (<TMPL_VAR NAME="Buyer">)</td>
+  </tr>
+</TMPL_LOOP>
+</table>
+
+<br/>
+<div class="center" style="clear: both">
+<TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+<TMPL_INCLUDE NAME="footer.tmpl">

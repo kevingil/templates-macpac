@@ -1,0 +1,58 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+<div id="emailQuote">
+  <img src="images/header1.gif" alt="MacMurray Pacific" height="83" width="650"><br/>
+  <p class="info">Phone: 415-552-5500 / Fax: 415-552-5840 / Email: orders@macmurraypacific.com</p>
+  <input name="Submit" value="Submit Order" type="submit" class="button1"><input name="Submit" value="Cancel Order" type="submit" class="button1"><input name="Submit" value="Back to Cart" type="submit" class="button1">
+  <div class="right">Date</div>
+  <table class="center">
+    <tr>
+      <td class="left" width="350" style="text-decoration: underline;"><b>Bill To:</b></td>
+      <td class="left" style="text-decoration: underline;"><b>Ship To:</b></td>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billToName"></td>
+      <td class="left">Name of Company</td>
+    </tr>
+    <tr>
+      <td class="left">Address 1</td>
+      <td class="left">Address 1</td>
+    </tr>
+    <tr>
+      <td class="left">Address 2</td>
+      <td class="left">Address 2</td>
+    </tr>
+  </table>
+
+  <br/>
+  <br/>
+  <p class="left">PO Number:</p>
+  <p class="left">Special Instructions</p>
+  <p class="left">Notes</p>
+  <p class="left">Notes</p>
+
+  <table class="invoicedetail">
+    <tr>
+      <td class="left" width="150" style="text-decoration: underline;">Product Code</td>
+      <td class="left" width="400" style="text-decoration: underline;">Description</td>
+      <td width="100" style="text-decoration: underline;">Quantity</td>
+      <td width="50" style="text-decoration: underline;">Unit</td>
+      <td width="150" class="right" style="text-decoration: underline;">Price</td>
+      <td width="150" class="right" style="text-decoration: underline;">Ext.</td>
+    </tr>
+    <tr>
+      <td class="left">4000-102</td>
+      <td class="left">Door Stop, Dome 1"H Baldwin</td>
+      <td>20</td>
+      <td>EA</td>
+      <td class="right">$ 6.57</td>
+      <td class="right">$ 131.40</td>
+    </tr>
+  </table>
+  <br/>
+  <div class="right"><b>Total $131.40</b></div>
+  <b>Click Submit Order to Complete your Purchase</b><br/>
+  <input name="Submit" value="Submit Order" type="submit" class="button1"><input name="Submit" value="Cancel Order" type="submit" class="button1"><input name="Submit" value="Back to Cart" type="submit" class="button1">
+</div>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

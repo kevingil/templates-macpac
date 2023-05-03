@@ -1,0 +1,52 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="buttonNavs.tmpl">
+<h3>DS / NOF Entry</h3>
+<form method="post" action="/dsnof.html">
+  <table class="dstable">
+    <thead>
+      <tr>
+        <th align="left">Product Code</th>
+        <th align="left">Description</th>
+        <th class="center">Qty</th>
+        <th align="right">Cost</th>
+        <th align="right">Sell Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <TMPL_LOOP NAME="items">
+        <tr>
+          <td>
+            <input name="<TMPL_VAR NAME="item">" style="width: 12em" value="<TMPL_VAR NAME="ProductCode">">
+          </td>
+          <td>
+            <input name="<TMPL_VAR NAME="descField">" style="width: 25em" value="<TMPL_VAR NAME="Description">">
+          </td>
+          <td class="center">
+            <input name="<TMPL_VAR NAME="qtyField">" style="width: 8em" value="<TMPL_VAR NAME="Qty">">
+          </td>
+          <td align="right">
+            <input name="<TMPL_VAR NAME="costField">" style="width: 8em" value="<TMPL_VAR NAME="Cost">">
+          </td>
+          <td align="right">
+            <input name="<TMPL_VAR NAMe="priceField">" style="width: 8em" value="<TMPL_VAR NAME="SalesPrice">">
+          </td>
+        </tr>
+      </TMPL_LOOP>
+    </tbody>
+  </table>
+  <input type="hidden" name="count" value="<TMPL_VAR NAME="count">">
+  <input type="hidden" name="mode" value="save"><br/>
+  <div class="center">
+    <input type="submit" class="newbutton" style="padding: 7px; font-size: 12pt;" value="Add Items to Cart">
+  </div>
+</form>
+<br/>
+
+<br/>
+<br/>
+
+<div class="center">
+  <TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

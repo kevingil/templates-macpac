@@ -1,0 +1,14 @@
+<TMPL_IF NAME=hasErrors>
+<table border=1  cellpadding="7">
+	<tr>
+		<td class="error">
+			Please fix these problems:
+			<ul>
+				<TMPL_LOOP NAME=errors>
+				<li><TMPL_VAR NAME=error></li>
+				</TMPL_LOOP>
+			</ul>
+		</td>
+	</tr>
+</table>
+</TMPL_IF>

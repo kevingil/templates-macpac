@@ -1,0 +1,33 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<div class="center">
+
+<TMPL_IF NAME="gotone">
+  <table align="center">
+    <tr>
+      <td class="rb">Product Code:</td>
+      <td align="left"><TMPL_VAR NAME="productCode"></td>
+    </tr>
+    <tr>
+      <td class="rb">Description:</td>
+      <td align="left"><TMPL_VAR NAME="description"></td>
+    </tr>
+  </table>
+  <table align="center">
+    <tr>
+      <td class="rb">#</td>
+      <td class="rb"><TMPL_VAR NAME="label"></td>
+    </tr>
+    <TMPL_LOOP NAME="prices">
+    <tr>
+      <td align="right"><TMPL_VAR NAME="qty"></td>
+      <td align="right" style="padding-left: 1em"><TMPL_VAR NAME="price"></td>
+    </tr>
+    </TMPL_LOOP>
+  </table>
+<TMPL_ELSE>
+	Nope
+</TMPL_IF>
+
+<input type="button" value="Back" class="newbutton" onclick="history.back(-1)" />
+</div>
+<TMPL_INCLUDE NAME="footer.tmpl">

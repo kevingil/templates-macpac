@@ -1,0 +1,59 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+  <br>
+  <h2>Edit Order</h2>
+  Notes:
+  <div align="center">
+    <div align="left">
+      <ul>
+        <li>Press Save Changes before going to another page, or you will lose any recent changes to your shopping cart.
+        <li>To delete an item, change its quantity to 0.
+        <li>To add an item, use <a href="order.html">Order Entry</a> or <a href="/list.html">Favorites</a>.
+        <TMPL_IF NAME="addedByLegacy"><li>To remove clips, uncheck the box under Qty.</TMPL_IF>
+      </ul>
+    </div>
+  </div>
+  <form method="post" name="verify" action="editcart.html">
+    <table>
+      <tr class="evenRow" class="b" style="vertical-align: bottom">
+        <td>Product Code</td>
+        <td align="right">Per Box</td>
+        <td>Description</td>
+        <td>Qty</td>
+        <TMPL_IF NAME="session_isSales">
+          <td>Your Price</td>
+        </TMPL_IF>
+      </tr>
+      <TMPL_LOOP NAME="items">
+      <tr class="cartRow<TMPL_IF NAME="__odd__">Odd<TMPL_ELSE>Even</TMPL_IF>" valign="top">
+        <td>
+        <TMPL_IF NAME="addedByLegacy">
+          <TMPL_VAR NAME="ProductCode">
+        <TMPL_ELSE>
+          <input name="<TMPL_VAR NAME="name_prodCode">" onChange="changeProdCode('verify', '<TMPL_VAR NAME="name_prodCode">', '<TMPL_VAR NAME="name_qty">', '<TMPL_VAR NAME="name_salesPrice">')" value="<TMPL_VAR NAME="ProductCode">">
+          <TMPL_IF NAME="session_isSales"> <a href="/pr.html?ProductCode=<TMPL_VAR NAME="ProductCode">" target="_blank">PR</a></TMPL_IF>
+        </TMPL_IF>
+        </td>
+        <td align="right">&nbsp;<TMPL_VAR NAME="Perbox"></td>
+        <td><TMPL_VAR NAME="desc">&nbsp;</td>
+        <td>
+        <TMPL_IF NAME="addedByLegacy">
+          <input type="checkbox" name="<TMPL_VAR NAME="name_block">" value="1"<TMPL_VAR NAME="value_block">>
+        <TMPL_ELSE>
+          <input name="<TMPL_VAR NAME="name_qty">" value="<TMPL_VAR NAME="Qty">" size=5>
+        </TMPL_IF>
+        </td>
+        <TMPL_IF NAME="session_isSales">
+        <td>
+          <input name="<TMPL_VAR NAME="name_salesPrice">" value="<TMPL_VAR NAME="displayPrice">" size=7>
+        </td>
+        </TMPL_IF>
+      </tr><input type="hidden" name="<TMPL_VAR NAME="name_oldProdCode">" value="<TMPL_VAR NAME="ProductCode">">
+      <input type="hidden" name="Desc<TMPL_VAR NAME="n">" value="<TMPL_VAR NAME="Description">">
+      <input type="hidden" name="Cost<TMPL_VAR NAME="n">" value="<TMPL_VAR NAME="Cost">">
+      </TMPL_LOOP>
+    </table>
+    <input type="submit" name="Submit" value="Save Changes">
+    <input type="hidden" name="mode" value="save">
+    <input type="hidden" name="count" value="<TMPL_VAR NAME="count">">
+  </form>
+<TMPL_INCLUDE NAME="footer.tmpl">

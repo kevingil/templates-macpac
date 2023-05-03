@@ -1,0 +1,80 @@
+      <h3>Please complete the following information to complete your order:</h3>
+      <form method="post" action="/placeorder.html" name="order">
+        <table width="620">
+          <tr valign="top">
+            <td class="hr">Shipping Address:</td>
+            <td>
+              <TMPL_IF NAME="shippingAccounts">
+                <table>
+                <TMPL_LOOP NAME="shippingAccounts">
+                  <tr>
+                    <td valign="top"><input type="radio" name="select_shipTo" value="<TMPL_VAR NAME="CustomerID">"<TMPL_VAR NAME="checked">></td>
+                    <td>
+                      <TMPL_VAR NAME="CustomerID">: <TMPL_VAR NAME="Name">,
+                      <TMPL_VAR NAME="Address"><TMPL_IF NAME="Address2"> <TMPL_VAR NAME="Address2"></TMPL_IF>,
+                      <TMPL_VAR NAME="City"> <TMPL_VAR NAME="State"> <TMPL_VAR NAME="Zip"><br>
+                    </td>
+                  </tr>
+                </TMPL_LOOP>
+                </table>
+              <TMPL_ELSE>
+                <TMPL_VAR NAME="Name"><br>
+                <TMPL_VAR NAME="Address"><br>
+                <TMPL_IF NAME="Address2"><TMPL_VAR NAME="Address2"><br></TMPL_IF>
+                <TMPL_VAR NAME="City"> <TMPL_VAR NAME="State"> <TMPL_VAR NAME="Zip"><br>
+                <input type="hidden" name="select_shipTo" value="<TMPL_VAR NAME="CustomerID">">
+              </TMPL_IF>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Your Name:</td>
+            <td><input name="yourName" value="<TMPL_VAR NAME="yourName" escape=html>" class="orderform"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">PO Number:</td>
+            <td><input name="poNumber" value="<TMPL_VAR NAME="poNumber" escape=html>" class="orderform"></td>
+          </tr>
+
+          <TMPL_IF NAME="Email">
+          <tr valign="top">
+            <td class="hr">Send Confirmation Email to Customer?</td>
+            <td><input type="checkbox" name="EmailToCustomer" value="1"<TMPL_IF NAME="EmailToCustomer"> checked</TMPL_IF>> <TMPL_VAR NAME="Email"></td>
+          </tr>
+          <TMPL_ELSE>
+          <input type="hidden" name="EmailToCustomer" value="<TMPL_VAR NAME="EmailToCustomer" DEFAULT="0">">
+          </TMPL_IF>
+          <tr valign="top">
+            <td class="hr">Additional Email Confirmation To:</td>
+            <td><input name="EmailConfirmation" value="<TMPL_VAR NAME="EmailConfirmation" escape=html>" class="orderform"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Special Instructions:</td>
+            <td><input name="special" maxlength="25" class="orderform" value="<TMPL_VAR NAME="special" escape=html>"></td>
+          </tr>
+          <tr valign="top">
+            <td class="hr">Comments:</td>
+            <td><textarea name="comments" cols="37" rows="6" wrap="hard" id="textarea1"><TMPL_VAR NAME="comments" escape=html></textarea><br/>
+            <input name="Submit" value="Continue" type="submit" class="button3"></td>
+          </tr>
+        </table>
+        
+        <p>
+          <input value="Cancel Order" class="button6" type="submit" onclick="if (confirm('Are you sure you want to cancel this order?')) {document.order.action='/emptycart.html'; document.order.mode.value='empty';return true} else {return false}">
+          <input value="Back to Cart" class="button3" onclick="document.location='/cart.html'" type="button">
+        </p>
+      
+        <input name="mode" value="check" type="hidden">
+        <input name="Name" type="hidden">
+        <input name="Address" type="hidden">
+        <input name="Address2" type="hidden">
+        <input name="City" type="hidden">
+        <input name="State" type="hidden">
+        <input name="Zip" type="hidden">
+      </form>
+      <script language="javascript" type="text/javascript"><!--
+        document.order.<TMPL_VAR NAME="focus_on">.focus();
+      //-->
+      </script>
+    </td>
+  </tr>
+</table>

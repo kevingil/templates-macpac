@@ -1,0 +1,53 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+<TMPL_IF NAME="total">
+  <h3 class="middle">Quotes for <TMPL_VAR NAME="session_custName"></h3>
+  <p>Click on Name of Quote to Modify (it goes back into the shopping cart for editing or turning into an order).</p>
+  <TMPL_IF NAME="carts">
+  <h3>Saved Quotes</h3>
+  <table>
+      <TMPL_LOOP NAME="carts">
+      <tr style="vertical-align: middle">
+          <td><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">" class="newbutton">View</a></td>
+          <td width="400"><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">&mode=edit"><TMPL_VAR NAME="cartName"></a></td>
+          <td width="200" align="right"><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">&mode=delete" onclick="return confirm('Are you sure you want to delete this quote?')"><img src="images/x-cl.gif" alt="delete"></a></td>
+      </tr>
+      </TMPL_LOOP>
+  </table>
+  </TMPL_IF>
+  <TMPL_IF NAME="emailed">
+  <h3>Emailed Quotes</h3>
+  <table>
+      <TMPL_LOOP NAME="emailed">
+      <tr style="vertical-align: middle">
+          <td><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">" class="newbutton">View</a></td>
+          <td width="400"><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">&mode=edit"><TMPL_VAR NAME="cartName"></a></td>
+          <td width="200" align="right"><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">&mode=delete" onclick="return confirm('Are you sure you want to delete this quote?')"><img src="images/x-cl.gif" alt="delete"></a></td>
+      </tr>
+      </TMPL_LOOP>
+  </table>
+  </TMPL_IF>
+  <TMPL_IF NAME="otherUsers">
+  <h3>Quotes by other users</h3>
+  <table>
+      <TMPL_LOOP NAME="otherUsers">
+      <tr style="vertical-align: middle">
+          <td><TMPL_VAR NAME="Name"></td>
+          <td><TMPL_VAR NAME="quoteStatusString"></td>
+          <td><a href="/priceQuote.html?cartID=<TMPL_VAR NAME="CartID">" class="newbutton">View</a></td>
+          <td width="400"><TMPL_VAR NAME="cartName"></td>
+      </tr>
+      </TMPL_LOOP>
+  </table>
+  </TMPL_IF>
+  <hr>
+<TMPL_ELSE>
+  <div align="center">You have no saved quotes.</div>
+</TMPL_IF>
+
+<div class="center" style="clear: both">
+<TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+</div>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

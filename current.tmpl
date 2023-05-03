@@ -1,0 +1,91 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="buttonNavs.tmpl">
+<div class="center">
+<p>User <b><TMPL_VAR NAME="user_name"></b> for <b><TMPL_VAR NAME="session_custName"></b></p></div>
+<br/>
+<div id="currentorders">
+<TMPL_IF NAME="orders">
+  <TMPL_LOOP NAME="orders">
+    <div><a href="/current.html#<TMPL_VAR NAME="orderNumber">">Order: <TMPL_VAR NAME="orderNumber"></a></div>
+  </TMPL_LOOP>
+</div>
+<br/>
+
+  <TMPL_LOOP NAME="orders">
+  <div class="curBorder">
+  <a name="<TMPL_VAR NAME="orderNumber">">
+
+    <table class="orderInfo">
+      <tr>
+        <td class="infor"><b>Work Order: </b></td>
+        <td width="180"><TMPL_VAR NAME="orderNumber"></td>
+        <td class="infor"><b>Customer PO: </b></td>
+        <td><TMPL_VAR NAME="poNumber"></td>
+        <td class="infor"><b>Written By: </b></td>
+        <td><TMPL_VAR NAME="writtenBy"></td>
+      </tr>
+      <tr>
+        <td class="infor"><b>Order Date and Time: </b></td>
+        <td><TMPL_VAR NAME="orderDateAndTime"></td>
+        <td class="infor"><b>MP PO: </b></td>
+        <td><TMPL_VAR NAME="macpacPONumber"></td>
+        <td class="infor"><b>Called In By: </b></td>
+        <td><TMPL_VAR NAME="calledInBy"></td>
+      </tr>
+      <tr>
+        <td class="infor"><b>Current Status: </b></td>
+        <td><TMPL_VAR NAME="orderStatus"></td> 
+        <td class="infor"><b>Shipment Method: </b></td>
+        <td><TMPL_IF NAME="showLink"><a href="<TMPL_VAR NAME="showLink" escape=html>" style="text-decoration: underline;" target="_blank"><TMPL_VAR NAME="shipmentMethod"></a><TMPL_ELSE><TMPL_VAR NAME="shipmentMethod"></TMPL_IF></td>   
+        <td class="infor"><b>Packed: </b></td>
+        <td><TMPL_VAR NAME="packedBy"> <TMPL_VAR NAME="datePacked"> <TMPL_VAR NAME="timePacked"></td>   
+      </tr>     
+    </table>
+<br/>
+<br/>
+    <table class="lineItems">
+    <TMPL_LOOP NAME="items">
+      <TMPL_IF NAME="__first__">
+<tr>
+  <td><b>Line No.</b></td>
+  <td><b>Product Code</b></td>
+  <td><b>Description</b></td>
+  <td><b>Quantity</b></td>
+  <td><b>Unit</b></td>
+  <td class="right"><b>Price</b></td>
+  <td class="right"><b>Ext.</b></td>
+  </tr>
+</TMPL_IF>
+<tr>
+  <td><TMPL_VAR NAME="lineNumber"></td>
+  <td><TMPL_VAR NAME="productCode"></td>
+  <td><TMPL_VAR NAME="description"></td>
+  <td><TMPL_VAR NAME="qtyOnOrder"></td>
+  <td><TMPL_VAR NAME="UofM"></td>
+  <td class="right"><TMPL_VAR NAME="unitPrice"></td>
+  <td class="right"><TMPL_VAR NAME="extension"></td>
+</tr>
+
+</TMPL_LOOP>
+</table>
+
+<br/>
+<div class="center"><a href="#top"><img src="images/backtotop.gif" alt="top" height="40" width="40"></a></div>
+</div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  </TMPL_LOOP>
+
+<TMPL_ELSE>
+  <div class="error">You have no current orders!</div>
+  <br/>
+    <br/>
+      <br/>
+</TMPL_IF>
+
+<div class="center">
+<TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+<TMPL_INCLUDE NAME="footer.tmpl">

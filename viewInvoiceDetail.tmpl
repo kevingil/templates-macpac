@@ -1,0 +1,109 @@
+<TMPL_LOOP NAME="invoice">
+<div class="homeBorder">
+  <div class="cust-no">
+  Customer No. <TMPL_VAR NAME="session_custcode">
+  </div>
+  <br/>
+  <br/>
+
+  <table>
+    <tr>
+      <td width="450" style="text-decoration: underline;"><b>Sold To:</b></td>
+      <td style="text-decoration: underline;"><b>Ship To:</b></td>
+    </tr>
+    <tr>
+      <td><TMPL_VAR NAME="BillingCustName"></td>
+      <td><TMPL_VAR NAME="ShippingCustName"></td>
+    </tr>
+    <tr>
+      <td><TMPL_IF NAME="BillingCustAddr"><TMPL_VAR NAME="BillingCustAddr"></TMPL_IF></td>
+      <td><TMPL_IF NAME="ShippingCustAddr"><TMPL_VAR NAME="ShippingCustAddr"></TMPL_IF></td>
+    </tr>
+    <tr>
+      <td><TMPL_IF NAME="BillingCustAddr2"><TMPL_VAR NAME="BillingCustAddr2"></TMPL_IF></td>
+      <td><TMPL_IF NAME="ShippingCustAddr2"><TMPL_VAR NAME="ShippingCustAddr2"></TMPL_IF></td>
+    </tr>
+    <tr>
+      <td>
+        <TMPL_IF NAME="BillingCustCity"><TMPL_VAR NAME="BillingCustCity">,</TMPL_IF>
+        <TMPL_IF NAME="BillingCustState"><TMPL_VAR NAME="BillingCustState">,</TMPL_IF>
+        <TMPL_IF NAME="BillingCustZip"><TMPL_VAR NAME="BillingCustZip">,</TMPL_IF>
+      </td>
+      <td>
+        <TMPL_IF NAME="ShippingCustCity"><TMPL_VAR NAME="ShippingCustCity">,</TMPL_IF>
+        <TMPL_IF NAME="ShippingCustState"><TMPL_VAR NAME="ShippingCustState">,</TMPL_IF>
+        <TMPL_IF NAME="ShippingCustZip"><TMPL_VAR NAME="ShippingCustZip">,</TMPL_IF>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <TMPL_IF NAME="BillingCustPhone"><TMPL_VAR NAME="BillingCustPhone"></TMPL_IF>
+      </td>
+      <td>
+        <TMPL_IF NAME="ShippingCustPhone"><TMPL_VAR NAME="ShippingCustPhone"></TMPL_IF>
+      </td>
+    </tr>
+  </table>
+
+  <br/>
+  <hr>
+
+  <table>
+    <tr>
+      <td width="150"><b>Invoice Date</b></td>
+      <td><TMPL_VAR NAME="date"></td>
+    </tr>
+    <tr>
+      <td><b>Invoice #</b></td>
+      <td><TMPL_VAR NAME="InvoiceNumber"></td>
+    </tr>
+    <tr>
+      <td><b>Work Order #</b></td>
+      <td><TMPL_VAR NAME="WorkOrderNumber"></td>
+    </tr>
+    <tr>
+      <td><b>Customer PO #</b></td>
+      <td><TMPL_VAR NAME="poNumber"></td>
+    </tr>
+    <tr>
+      <td><b>Shipment Method</b></td>
+      <td><TMPL_IF NAME="shippingMethodLink"><a href="<TMPL_VAR NAME="shippingMethodLink">" target="_blank"></TMPL_IF><TMPL_VAR NAME="shippingMethod"><TMPL_IF NAME="shippingMethodLink"></a></TMPL_IF></td>
+    </tr>
+  </table>
+  <br/>
+
+  <table class="invoicedetail">
+    <tr>
+      <td colspan=2></td>
+      <td colspan=2 class="center" style="text-decoration: underline">Quantity</td>
+      <td colspan=3></td>
+    </tr>
+    <tr>
+      <td width="150" style="text-decoration: underline;">Product Code</td>
+      <td width="400" style="text-decoration: underline;">Description</td>
+      <td width="100" style="text-decoration: underline;" class="right">Ordered</td>
+      <td width="100" style="text-decoration: underline;" class="right">Shipped</td>
+      <td width="50" style="text-decoration: underline;">Unit</td>
+      <td width="150" class="right" style="text-decoration: underline;">Price</td>
+      <td width="150" class="right" style="text-decoration: underline;">Ext.</td>
+    </tr>
+    <TMPL_LOOP NAME="lines">
+    <tr>
+      <td><TMPL_VAR NAME="ProductCode"></td>
+      <td><TMPL_VAR NAME="ProductDescription2" escape=html></td>
+      <td class="right"><TMPL_VAR NAME="QuantityOrdered"></td>
+      <td class="right"><TMPL_VAR NAME="QuantitySold"></td>
+      <td><TMPL_VAR NAME="UOfM"></td>
+      <td class="right"><TMPL_VAR NAME="UnitPrice"></td>
+      <td class="right"><TMPL_VAR NAME="Extension"></td>
+    </tr>
+    </TMPL_LOOP>
+  </table>
+  <div class="right">
+    <p>Merchandise Total <TMPL_VAR NAME="SubTotal"></p>
+    <p>Sales Tax <TMPL_VAR NAME="tax"></p>
+    <p>Freight/Handling <TMPL_VAR NAME="shippingHandling"></p>
+    <p>Invoice Total <TMPL_VAR NAME="GrandTotal"></p>
+  </div>
+</div>
+</TMPL_LOOP>

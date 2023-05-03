@@ -1,0 +1,61 @@
+<h3>Price Quote <TMPL_IF NAME="cartName">"<TMPL_VAR NAME="cartName">"</TMPL_IF> for <TMPL_VAR NAME="billing_Name"></h3>
+<br/>
+<div class="orderBox">
+<div class="center">
+  <img src="<TMPL_VAR NAME="base">images/header1.gif" alt="MacMurray Pacific" height="83" width="650"><br/>
+  <p class="info">Phone: 415-552-5500 / Fax: 415-552-5840 / Email: orders@macmurraypacific.com</p>
+<br/>
+  <h3>Quote Only</h3></div>
+  <div class="right">Date: <TMPL_VAR NAME="datePretty"></div><br/>
+  <table class="center">
+    <tr>
+      <td class="left" width="350" style="text-decoration: underline;"><b>Quoted By:</b></td>
+      <TMPL_IF NAME="showBillingAddress"><td class="left" style="text-decoration: underline;"><b>Ship To:</b></td></TMPL_IF>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billing_Name"></td>
+      <TMPL_IF NAME="showBillingAddress"><td class="left"><TMPL_VAR NAME="shipping_Name"></td></TMPL_IF>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billing_Address"><TMPL_IF NAME="billing_Address2"><br /><TMPL_VAR NAME="billing_Address2"></TMPL_IF></td>
+      <TMPL_IF NAME="showBillingAddress"><td class="left"><TMPL_VAR NAME="shipping_Address"><TMPL_IF NAME="shipping_Address2"><br /><TMPL_VAR NAME="shipping_Address2"></TMPL_IF></td></TMPL_IF>
+    </tr>
+    <tr>
+      <td class="left"><TMPL_VAR NAME="billing_City">, <TMPL_VAR NAME="billing_State"> <TMPL_VAR NAME="billing_Zip"></td>
+      <TMPL_IF NAME="showBillingAddress"><td class="left"><TMPL_VAR NAME="shipping_City">, <TMPL_VAR NAME="shipping_State"> <TMPL_VAR NAME="shipping_Zip"></td></TMPL_IF>
+    </tr>
+  </table>
+
+  <br/>
+  <br/>
+
+  <table class="invoicedetail">
+    <tr>
+      <td class="left" width="150" style="text-decoration: underline;">Product Code</td>
+      <td class="left" width="400" style="text-decoration: underline;">Description</td>
+      <td width="100" style="text-decoration: underline;" class="right">Quantity</td>
+      <td width="50" style="text-decoration: underline;">Unit</td>
+      <td width="150" class="right" style="text-decoration: underline;">Price</td>
+      <td width="150" class="right" style="text-decoration: underline;">Ext.</td>
+    </tr>
+    <TMPL_LOOP NAME="items">
+      <TMPL_IF NAME="itemLine">
+    <tr>
+      <td class="left"><TMPL_VAR NAME="prodCode"></td>
+      <td class="left"><TMPL_VAR NAME="description"></td>
+      <td class="right"><TMPL_VAR NAME="qty"></td>
+      <td><TMPL_VAR NAME="uOfM"></td>
+      <td class="right"><TMPL_VAR NAME="nicePrice"></td>
+      <td class="right"><TMPL_VAR NAME="extendPrice"></td>
+    </tr>
+      </TMPL_IF>
+    </TMPL_LOOP>
+  </table>
+  <br/>
+<div class="right"><b>Total <TMPL_VAR NAME="total"></b></div>
+<TMPL_IF NAME="notes"><p class="left"><TMPL_VAR NAME="notes"></p></TMPL_IF>
+<p class="left">Sales Tax and Freight May Apply</p>
+<p class="left">Quote Valid for a Limited Time</p>
+<p class="left">Thank you!</p>
+<p class="left">Contact: <TMPL_VAR NAME="contact"></p>
+</div>

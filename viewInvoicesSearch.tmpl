@@ -1,0 +1,58 @@
+        <div align="center">
+          <table>
+            <tr>
+              <td>
+                <TMPL_IF NAME="showPrices">
+                  <TMPL_IF NAME="customers">
+                  <div align="left">Select from the following customers:</div>
+                  <form method="post" action="/viewInvoices.html">
+                    <select name="custCode">
+                      <TMPL_LOOP NAME="customers">
+                      <option value="<TMPL_VAR NAME="CustomerID" escape=html>"><TMPL_VAR NAME="CustomerID"> - <TMPL_VAR NAME="Name"></option>
+                      </TMPL_LOOP>
+                    </select>
+                    <input type="submit" value="Select Customer">
+                    <input type="hidden" name="mode" value="show">
+                  </form>
+                  <div align="center">OR:</div>
+                  </TMPL_IF>
+                </TMPL_IF>
+                <form method="post" name="form" action="/viewInvoices.html">
+                  <table>
+                    <TMPL_IF NAME="multipleCustomers">
+                    <tr>
+                      <td valign="top" class="itemr" nowrap>Enter a Customer Account or Name:<br><i>A partial name is okay.</i></td>
+                      <td valign="top"><input name="custCode" value="<TMPL_VAR NAME="custCode">"></td>
+                    </tr>
+                    <TMPL_ELSE>
+                    <input type="hidden" name="custCode" value="<TMPL_VAR NAME="custCode" escape=html>">
+                    </TMPL_IF>
+                    <tr>
+                      <td valign="top" class="itemr" nowrap>Purchase Order #:</td>
+                      <td><input name="purchaseOrder" value="<TMPL_VAR NAME="purchaseOrder" escape=html>"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" class="itemr" nowrap>Invoice #:</td>
+                      <td><input name="invoiceNumber" value="<TMPL_VAR NAME="invoiceNumber" escape=html>"></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" class="itemr" nowrap>Invoice Date Start:</td>
+                      <td nowrap><input name="invoiceDateStart" value="<TMPL_VAR NAME="invoiceDateStart" escape=html>"> <i>yyyy-mm-dd</i></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" class="itemr" nowrap>Invoice Date End:<br><i>optional</i></td>
+                      <td nowrap><input name="invoiceDateEnd" value="<TMPL_VAR NAME="invoiceDateEnd" escape=html>"> <i>yyyy-mm-dd</i></td>
+                    </tr>
+                    <tr>
+                      <td valign="top" class="itemr" nowrap>Work Order #:</td>
+                      <td><input name="workOrder" value="<TMPL_VAR NAME="workOrder" escape=html>"></td>
+                    </tr>
+                  </table>
+                  <input type="submit" value="Continue">
+                  <input type="hidden" name="mode" value="show">
+                </form>
+                <br>
+              </td>
+            </tr>
+          </table>
+        </div>

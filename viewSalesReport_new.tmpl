@@ -1,0 +1,17 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="buttonNavs.tmpl">
+
+<h3>View Sales Reports</h3>
+<div class="center">     
+  <div class="salesnavs">
+    <ul>
+      <li><a href="/salesReport.html">Start Sales Reports</a></li>
+      <li><a href="/viewSalesReport.html">View Sales Reports</a></li>
+      <li><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">&mode=show">View Invoices</a></li>
+      <li><a href="/cart.html">Quick Order / Cart</a></li>
+      <li><a href="/custHome.html">Homepage</a></li>
+      <li><a href="/logout.html">Log Out</a></li>
+    </ul>
+  </div>
+</div>
+<TMPL_INCLUDE NAME="footer.tmpl">

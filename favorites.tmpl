@@ -1,0 +1,60 @@
+<div class="center">
+  <TMPL_INCLUDE NAME="pageNumbers.tmpl">
+  <table>
+    <TMPL_LOOP NAME="rows">
+    <TMPL_IF NAME="__first__">
+      <tr class="oddeven">
+        <td colspan=7 class="center">
+          <p class="b" style="font-size: 125%">
+            Found <TMPL_VAR NAME="rowCount"> <TMPL_VAR NAME="favoritesText"> for <TMPL_VAR NAME="custName">
+          </p>
+          <p>
+            Favorites are items you've ordered more than once in the last <TMPL_VAR NAME="monthsAgo"> months (since <TMPL_VAR NAME="sinceNice">), or that you've selected as a Favorite.
+          </p>
+        </td>
+      </tr>
+      <tr class="oddeven header" valign="bottom">
+        <td></td>
+        <td><b>Product&nbsp;Code</b></td>
+        <td><b>Product Description</b></td>
+        <td align="right"><b>Times Ordered<br>In Past</b></td>
+        <td align="right"><b>Per Box</b></td>
+        <td align="center"><b>My Favorite</b></td>
+        <td align="right"><b>Quantity<br>In Cart</b></td>
+      </tr>
+    </TMPL_IF>
+    <TMPL_IF NAME="newCategory">
+      <tr class="oddeven newcat" valign="top">
+        <td colspan=6 align="center">
+          <div style="padding-left: 80px"><TMPL_UNLESS NAME="__first__"><br /></TMPL_UNLESS><TMPL_VAR NAME="Category"></div>
+        </td>
+      </tr>
+    </TMPL_IF>
+      <tr class="oddeven detail" valign="top">
+        <td><TMPL_IF NAME="filename"><a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode">">
+          <img src="<TMPL_VAR NAME="glob_thumbnailPrefix">.com/<TMPL_VAR NAME="filename">" title="<TMPL_VAR NAME="ProductCode" escape=html> image"></a></TMPL_IF>
+        </td>
+        <td><TMPL_VAR NAME="ProductCode"><input type="hidden" name="<TMPL_VAR NAME="ProdField">" value="<TMPL_VAR NAME="ProductCode" escape=html>"><input type="hidden" name="<TMPL_VAR NAME="oldProdField">" value="<TMPL_VAR NAME="ProductCode" escape=html">"></td>
+        <td><TMPL_VAR NAME="ProductDescription"></td>
+        <td align="right"><TMPL_VAR NAME="Ordered"></td>
+        <td align="right"><TMPL_VAR NAME="PerBox"></td>
+        <td align="center"><TMPL_INCLUDE NAME="favoriteButton.tmpl"></td>
+        <td align="right"><TMPL_INCLUDE NAME="addToCart.tmpl"></td>
+      </tr>
+    </TMPL_LOOP>
+    <TMPL_UNLESS NAME="rowCount">
+      <tr bgcolor="white">
+        <td colspan=7 align="center">
+          <p class="error">
+            You have not yet ordered any products at least twice since <TMPL_VAR NAME="sinceNice">.</p>
+        </td>
+      </tr>
+    </TMPL_UNLESS>
+  </table>
+  <table>
+    <tr>
+      <td>Favorite Products ordered: </td>
+      <td><TMPL_VAR NAME="monthsAgoSelector"></td>
+    </tr>
+  </table>
+</div>

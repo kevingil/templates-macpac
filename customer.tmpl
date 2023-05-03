@@ -1,0 +1,122 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<TMPL_INCLUDE NAME="systemMenu.tmpl">
+<br/>
+<TMPL_IF NAME="mode_show">
+  <i>Click on title to re-sort the report by that column</i>
+  <table>
+    <tr valign="top" class="evenRow">
+      <td class="<TMPL_IF NAME="salesZone">b </TMPL_IF>itemr">
+        <a href="customer.html?mode=show&order=SalesRepID,Name">Sales&nbsp;Zone</a><TMPL_VAR NAME="salesZone">
+      </td>
+      <td class="<TMPL_IF NAME="accountNo">b </TMPL_IF> itemr">
+        <a href="customer.html?mode=show&order=CustomerID">Account&nbsp;#</a><TMPL_VAR NAME="accountNo">
+      </td>
+      <td class="<TMPL_IF NAME="accountName">b</TMPL_IF>"><a href="customer.html?mode=show&order=Name">Account&nbsp;Name</a><TMPL_VAR NAME="accountName">
+      </td>
+      <td class="b">Email&nbsp;Address</td>
+    </tr>
+  <TMPL_LOOP NAME="customers">
+    <tr valign="top" class="<TMPL_IF NAME="__odd__">oddRow<TMPL_ELSE>evenRow</TMPL_IF>">
+      <td class="nr" align="right"><TMPL_VAR NAME="SalesRepID"></td>
+      <td class="nr" align="right"><a href="/customer.html?mode=users&CustomerID=<TMPL_VAR NAME="CustomerID" escape=html>"><TMPL_VAR NAMe="CustomerID"></a></td>
+      <td class="nr"><TMPL_VAR NAME="Name"></td>
+      <td class="nr"><TMPL_VAR NAME="Email"></td>
+    </tr>
+  </TMPL_LOOP>
+  </table>
+</TMPL_IF>
+
+<TMPL_IF NAME="mode_find">
+  <div align="center">Found <TMPL_VAR NAME="found"></div>
+  <table>
+    <tr valign="middle">
+      <td></td>
+      <td>Customer Name</td>
+    </tr>
+  <TMPL_LOOP NAME="customers">
+    <tr valign="middle">
+      <td>
+        <form method="post" action="customer.html">
+          <input type="submit" name="Submit" value="Select">
+          <input type="hidden" name="CustomerID" value="<TMPL_VAR NAME="CustomerID" escape=html>">
+          <input type="hidden" name="mode" value="users">
+        </form>
+      </td>
+      <td><TMPL_VAR NAME="Name"></td>
+    </tr>
+  </TMPL_LOOP>
+    <tr>
+      <td align="center" colspan=2>
+        <a href="customer.html">Select Different Customer</a>
+      </td>
+    </tr>
+  </table>
+  <div align="center">Found <TMPL_VAR NAME="found"></div>
+</TMPL_IF>
+
+<TMPL_IF NAME="mode_users">
+  <form method="post" action="customer.html" name="update">
+  <table>
+    <tr>
+      <td align="center">
+        <h3>Enter users that can submit orders for <TMPL_VAR NAME="Name">:</h3>
+        <i>Erase names to remove permission, add names to add permission.</i>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <TMPL_LOOP NAME="users">
+        <input name="<TMPL_VAR NAME="field" escape=html>" value="<TMPL_VAR NAME="Name" escape=html>"><br>
+        </TMPL_LOOP>
+        <table>
+          <tr>
+            <td>Require PIN to view special pricing:</td>
+            <td>
+              <input type="radio" name="requireSpecialAccessPin" value="true"<TMPL_IF NAME="requireSpecialAccessPin"> checked</TMPL_IF>> - Yes
+              <br>
+              <input type="radio" name="requireSpecialAccessPin" value="false"<TMPL_UNLESS NAME="requireSpecialAccessPin"> checked</TMPL_UNLESS>> - No
+            </td>
+          </tr>
+        </table>
+        <input type="submit" name="Submit" value="Update">
+        <input type="hidden" name="mode" value="save">
+        <input type="hidden" name="count" value="<TMPL_VAR NAME="count" escape=html>">
+        <input type="hidden" name="CustomerID" value="<TMPL_VAR NAME="CustomerID" escape=html>">
+        <p><a href="customer.html">Select Another Customer</a></p>
+        <script type="text/javascript"><!--
+          document.update.Name1.focus();
+          //-->
+        </script>
+        <TMPL_LOOP NAME="SalesReps">
+          <TMPL_VAR NAME="Name"> is a SalesRep for this account<br>
+        </TMPL_LOOP>
+      </td>
+    </tr>
+  </table>
+  </form>
+</TMPL_IF>
+
+<TMPL_IF NAME="mode_blank">
+  <form method="post" action="customer.html" name="verify">
+    <table width=400 align="center">
+      <tr valign="top">
+        <td align="right">Customer</td>
+        <td><input name="CustomerID" value="<TMPL_VAR NAME="CustomerID" escape=html>" class="getcust"></td>
+      </tr>
+      <tr valign="top">
+        <td></td>
+        <td><input type="submit" name="Submit" value="Show Users"></td>
+      </tr>
+    </table>
+    <input type="hidden" name="mode" value="find">
+  </form>
+  <script type="text/javascript"><!--
+    document.verify.CustomerName.focus();
+    //-->
+  </script><br/>
+  <div class="center">
+  <a href="customer.html?mode=show">Show List Of All Accounts That Are Web Enabled</a>
+</TMPL_IF></div>
+
+<TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
+<TMPL_INCLUDE NAME="footer.tmpl">

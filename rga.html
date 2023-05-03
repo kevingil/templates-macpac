@@ -1,0 +1,54 @@
+<div align="center">
+  <div>MacMurray Pacific</div>
+  <div>RGA</div>
+  <div>Pick Up Request Memo</div>
+  <table>
+    <tr><td align="right">FAX:</td><td>(415) 552-5840</td></tr>
+    <tr><td align="right">PHONE:</td><td>(415) 552-5500</td></tr>
+  </table>
+</div>
+<div align="right">
+  <table>
+    <tr><td align="right">Date:</td><td><TMPL_VAR NAME="glob_todayPretty"></td></tr>
+    <tr><td align="right">Print By:</td><td><TMPL_VAR NAME="user_Name"></td></tr>
+  </table>
+</div>
+<br />
+<table>
+  <tr><td align="right">Customer:</td><td><TMPL_VAR NAME="session_rga_customer_Name"></td></tr>
+  <tr><td></td><td><TMPL_VAR NAME="session_rga_customer_Address"></td></tr>
+  <tr><td></td><td><TMPL_VAR NAME="session_rga_customer_Address2"></td></tr>
+  <tr><td></td><td><TMPL_VAR NAME="session_rga_customer_City"> <TMPL_VAR NAME="session_rga_customer_State"> <TMPL_VAR NAME="session_rga_customer_Zip"> </td></tr>
+  <tr><td align="right">Phone:</td><td><TMPL_VAR NAME="session_rga_customer_ContactPhone"></td></tr>
+</table>
+<TMPL_IF NAME="session_rga_productCount">
+<br />
+<table border=1>
+  <tr>
+    <td>Product Code</td>
+    <td>Product Description</td>
+    <td>Invoice</td>
+    <td>Qty</td>
+    <td>Price</td>
+    <td>Extended</td>
+  </tr>
+  <TMPL_LOOP NAME="products">
+  <tr>
+    <td><TMPL_VAR NAME="product"></td>
+    <td style="white-space:nowrap"><TMPL_VAR NAME="productDesc"></td>
+    <td><TMPL_VAR NAME="InvoiceNumber"></td>
+    <td><TMPL_VAR NAME="qty"></td>
+    <td><TMPL_VAR NAME="price"></td>
+    <td align="right"><TMPL_VAR NAME="extend"></td>
+  </tr>
+  </TMPL_LOOP>
+</table>
+</TMPL_IF>
+<TMPL_IF NAME="session_rga_detailsSaved">
+<table>
+  <tr><td align="right">Reason For Return:</td><td><TMPL_VAR NAME="session_rga_reasonForReturn"></td></tr>
+  <tr><td align="right">Restock Charge?</td><td><TMPL_VAR NAME="session_rga_restockCharge"></td></tr>
+  <tr><td align="right">Customer to Pay Return Freight?</td><td><TMPL_VAR NAME="session_rga_customerPayReturnFreight"></td></tr>
+  <tr><td align="right">Credit All Freight Charges?</td><td><TMPL_VAR NAME="session_rga_creditAllFreightCharges"></td></tr>
+</table>
+</TMPL_IF>

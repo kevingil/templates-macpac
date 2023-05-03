@@ -1,0 +1,330 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<style>
+/* Invoice Styles */
+
+html,
+body {
+    font-family: arial, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+#invoicewrap {
+    width: 650px;
+    min-height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+#top-left {
+    font-size: 11pt;
+    margin: 5px;
+}
+
+#top-right {
+    float: right;
+    font-size: 11pt;
+    text-align: right;
+    margin: 5px;
+}
+
+#bill-to {
+    margin: 10px 0 15px 10px;
+    line-height: 120%;
+    display: inline-block;
+    font-size: 11pt;
+}
+
+#ship-to {
+    margin: 10px 0 15px 40px;
+    line-height: 120%;
+    display: inline-block;
+    font-size: 11pt;
+}
+
+#totals {
+    float: right;
+    clear: both;
+    text-align: right;
+    font-size: 10pt;
+}
+
+#rem-1 {
+     font-size: 10pt;
+}
+
+#rem-2 {    
+    float: right;
+     text-align: right;
+     font-size: 10pt;
+    margin: 10px;
+}
+
+
+#inv-due {
+    border: 2px dotted #999;
+    border-radius: 5px;
+    width: 250px;
+    padding: 5px;
+    font-size: 11pt;
+    margin: 2px 0 15px 50px;
+    text-align: center;
+}
+
+#stmt-terms {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10pt;
+    color: #666;
+    margin-top: 15px;
+}
+
+#inv-terms {
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 9pt;
+    color: #666;
+    margin-top: 15px;
+}
+
+.border {
+    border: 1px solid #999;
+}
+
+
+.space {
+    padding-left: 5px;
+}
+
+.sm-header {
+    padding: 3px 0 2px 5px;;
+    background-color: #e0f1fe;
+    width: 220px;
+    font-weight: bold;
+}
+
+
+
+.right {
+    text-align: right;
+}
+
+.ar {
+    text-align: right;
+    font-size: 11pt;
+    margin-right: 25px;
+}
+
+.center {
+    text-align: center;
+}
+
+.small {
+    font-size: 8pt;
+}
+
+table.inv-1 {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.inv-1 th {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+    background-color: #e0f1fe;
+}
+
+table.inv-1 td {
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+}
+
+table.inv-2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.inv-2 th {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+    background-color: #e0f1fe;
+    valign: bottom;
+}
+
+table th.align-right { text-align: right; }
+
+table.inv-2 td {
+    border: 1px solid #ccc;
+    padding: 3px;
+    font-size: 10pt;
+}
+
+.inv-2 tr:nth-child(odd) {
+    background-color: #e0f1fe;
+}
+</style>
+<TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
+<div class="center">
+<p>User <b><TMPL_VAR NAME="user_name"></b> for <b><TMPL_VAR NAME="session_custName"></b></p></div>
+<ul id="toc">
+  <li<TMPL_UNLESS NAME="invoice"> class="current"</TMPL_UNLESS>><a href="viewInvoices.html?custCode=<TMPL_VAR NAME="session_custcode">"><span>Select Invoice</span></a></li>
+  <li<TMPL_IF NAME="invoice"> class="current"</TMPL_IF>><a href="#"><span>Invoice Details</span></a></li>
+</ul>
+<div class="invBorder">
+  <TMPL_IF NAME="invoice">
+    <TMPL_INCLUDE NAME="viewInvoiceDetail.tmpl">
+    <div align="center">
+      <a href="/invoice/<TMPL_VAR NAME="invoiceNumber" escape=html>.pdf?custCode=<TMPL_VAR NAME="CustomerID" escape=html>&invoiceNumber=<TMPL_VAR NAME="invoiceNumber" escape=html>&pdf=1"><img src="images/InvPDF.jpg" alt="PDF Download" height="77" width="150"></a>
+    </div>
+  <TMPL_ELSE>
+    <TMPL_IF NAME="customers">
+    <div class="center">
+      <p>Select from the following customers:</p>
+        <form method="post" action="/viewInvoices.html">
+          <select name="custCode">
+            <TMPL_LOOP NAME="customers">
+            <option value="<TMPL_VAR NAME="CustomerID" escape=html>"><TMPL_VAR NAME="CustomerID"> - <TMPL_VAR NAME="Name"></option>
+            </TMPL_LOOP>
+          </select>
+          <input type="submit" value="Select Customer" class="button1">
+          <input type="hidden" name="mode" value="show">
+        </form>
+      <p><b>OR:</b></p>
+    </div>
+    </TMPL_IF>
+
+    <form method="post" action="/viewInvoices.html">
+      <table align="center">
+        <TMPL_UNLESS NAME="customers">
+          <TMPL_IF NAME="showCustomers">
+        <tr>
+          <td class="right">Enter a Customer Account Number:</td>
+          <td>
+            <input type="text" name="custSearch" class="quick" value="<TMPL_VAR NAME="custSearch" escape=html>">
+            <input type="submit" name="button" value="Search" class="button1">
+          </td>
+        </tr>
+          </TMPL_IF>
+        </TMPL_UNLESS>
+
+        <tr>
+          <td class="right">Customer PO #:</td>
+          <td>
+            <input type="text" name="purchaseOrder" class="quick" value="<TMPL_VAR NAME="purchaseOrder" escape=html>">
+            <input type="submit" name="button" value="Search" class="button1">
+          </td>
+        </tr>
+            
+        <tr>
+          <td class="right">Work Order #:</td>
+          <td>
+            <input type="text" name="workOrder" class="quick" value="<TMPL_VAR NAME="workOrder" escape=html>">
+            <input type="submit" name="button" value="Search" class="button1">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="right">Invoice #:</td>
+          <td>
+            <input type="text" name="invoiceNumber" class="quick" value="<TMPL_VAR NAME="invoiceNumber" escape=html>">
+            <input type="submit" name="button" value="Search" class="button1">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="right">Product Code:</td>
+          <td>
+            <input type="text" name="productCode" class="quick" value="<TMPL_VAR NAME="productCode" escape=html>">
+            <input type="submit" name="button" value="Search" class="button1">
+          </td>
+        </tr>
+      </table>
+      <br/>
+
+      <table>
+        <tr valign="top">
+          <td width="215" class="right<TMPL_IF NAME="invoiceDateStart_error"> field_text_error</TMPL_IF>">
+            Invoice Date Start:
+            <div class="small">(optional)</div>
+          </td>
+          <td>
+            <input type="text" name="invoiceDateStart" class="quick<TMPL_IF NAME="invoiceDateStart_error"> field_value_error</TMPL_IF>" value="<TMPL_VAR NAME="invoiceDateStart" escape=html>">
+            <div class="small">yyyy-mm-dd or mm/dd/yy or mm/dd/yyyy</div>
+            <TMPL_IF NAME="invoiceDateStart_error"><div class="field_message_error"><TMPL_VAR NAME="invoiceDateStart_error"></div></TMPL_IF>
+          </td>
+
+          <td width="225" class="right<TMPL_IF NAME="invoiceDateEnd_error"> field_text_error</TMPL_IF>">
+            Invoice Date End:
+            <div class="small">(optional)</div>
+          </td>
+          <td>
+            <input type="text" name="invoiceDateEnd" class="quick<TMPL_IF NAME="invoiceDateEnd_error"> field_value_error</TMPL_IF>" value="<TMPL_VAR NAME="invoiceDateEnd" escape=html>">
+            <div class="small">yyyy-mm-dd or mm/dd/yy or mm/dd/yyyy</div>
+            <TMPL_IF NAME="invoiceDateEnd_error"><div class="field_message_error"><TMPL_VAR NAME="invoiceDateEnd_error"></div></TMPL_IF>
+          </td>
+          <td>
+            <input type="submit" name="button" value="Search" class="button1">
+          </td>
+        </tr>
+      </table>
+    </form>
+    <hr>
+    <br/>
+    
+    <div align="center">
+      <b>
+        <TMPL_IF NAME="mode_showall_list"><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="custCode">&mode=show" class="button3">Show Invoices List View</a>
+        <TMPL_ELSE><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="custCode">&mode=showall" class="button3">Show Invoices Detail View</a>
+        </TMPL_IF>
+      </b>
+    </div><br><br>
+
+    <div>
+      <TMPL_IF NAME="previous"><a href="viewInvoices.html?<TMPL_VAR NAME="previous">">&lt;-- Newer Invoices</a></TMPL_IF>
+      <TMPL_IF NAME="next"><span style="float: right"><a href="viewInvoices.html?<TMPL_VAR NAME="next">">Older Invoices --&gt;</a></span></TMPL_IF>
+    </div>
+    <TMPL_IF NAME="viewall">
+      <TMPL_LOOP NAME="viewall">
+        <TMPL_INCLUDE NAME="viewAllInvoices.tmpl">
+      </TMPL_LOOP>
+    <TMPL_ELSE>
+      <table class="searchinvoice">
+        <tr>
+          <td style="text-decoration: underline;">Date</td>
+          <td style="text-decoration: underline;">Invoice #</td>
+          <td style="text-decoration: underline;">Work Order #</td>
+          <td style="text-decoration: underline;">Customer PO #</td>
+        </tr>
+        <TMPL_LOOP NAME="invoices">
+        <tr>
+          <td><TMPL_VAR NAME="date"></td>
+          <td style="text-decoration: underline;"><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="custCode" escape=html>&invoiceNumber=<TMPL_VAR NAME="invoiceNumber" escape=html>"><TMPL_VAR NAME="invoiceNumber"></a></td>
+          <td><TMPL_VAR NAME="workOrderNumber"></td>
+          <td><TMPL_VAR NAME="poNumber"></td>
+        </tr>
+        </TMPL_LOOP>
+      </table>
+    </TMPL_IF>
+    <div>
+      <TMPL_IF NAME="previous"><a href="viewInvoices.html?<TMPL_VAR NAME="previous">">&lt;-- Newer Invoices</a></TMPL_IF>
+      <TMPL_IF NAME="next"><span style="float: right"><a href="viewInvoices.html?<TMPL_VAR NAME="next">">Older Invoices --&gt;</a></span></TMPL_IF>
+    </div>
+    <br>
+    <div align="center">
+      <b>
+        <TMPL_IF NAME="mode_showall_list"><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="custCode">&mode=show" class="button3">Show Invoices List View</a>
+        <TMPL_ELSE><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="custCode">&mode=showall" class="button3">Show Invoices Detail View</a>
+        </TMPL_IF></b></div>
+  </TMPL_IF>
+  <br/>
+  <br/>
+  <TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
+
+<TMPL_INCLUDE NAME="footer.tmpl">
