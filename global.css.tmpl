@@ -107,17 +107,17 @@ p.update {
     color: #cc0000;
 }
 
-form.searchbar {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-right:none;
-    min-width:800px;
-
+.search-wrap {
     display: grid;
     grid-template-columns: auto repeat(2, 50px);
     grid-template-rows: 50px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    margin: 0px 10px 0px 0px;
+}
+
+form.searchbar {
+    min-width:300px;
 }
 
 form.searchbar input[type=text] {

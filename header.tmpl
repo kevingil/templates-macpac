@@ -84,11 +84,14 @@
         <!--begin content box (tabs)-->
 
 
+        <div class="search-wrap">
+
         <form class="searchbar" action="/category.html" method="post">
           <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
             searchFor" escape=html>">
           <input type="submit" name="button" value="" class="button">
           <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All"></TMPL_UNLESS>
+        </form>
 
         <TMPL_UNLESS NAME="session_isGuest">
           <div class="cart1">
@@ -107,7 +110,8 @@
           </div>
         </TMPL_UNLESS><br /><br />
 
-        </form>
+        </div>
+
         <TMPL_IF NAME="categoryPage">
           <div class="searchDif">
             <TMPL_IF NAME="prod_favorites">Search My Favorites</TMPL_IF>
