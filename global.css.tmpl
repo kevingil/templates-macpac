@@ -111,8 +111,13 @@ form.searchbar {
     margin-top: 5px;
     margin-bottom: 5px;
     margin-right:none;
-    display:inline;
     min-width:800px;
+
+    display: grid;
+    grid-template-columns: 5fr repeat(2, 1fr);
+    grid-template-rows: 50px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 form.searchbar input[type=text] {
@@ -124,13 +129,16 @@ form.searchbar input[type=text] {
     background-color: #FBFBFB;
     vertical-align: top;
     font-size: 10pt;
-    width: clamp(70%, 90%, 50%);
+
+    grid-area: 1 / 1 / 2 / 2;
     
 }
 form.searchbar input[type=submit] {
     margin-top: 5px;
     margin-bottom: 5px;
     width:50px;
+
+    grid-area: 1 / 2 / 2 / 3;
 }
 
 img.right1 {
@@ -144,6 +152,8 @@ img.right1 {
     width: 55px;
     font-size: 10pt;
     text-align: right;
+
+    grid-area: 1 / 3 / 2 / 4;
 
 }
 

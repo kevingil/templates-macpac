@@ -89,7 +89,6 @@
             searchFor" escape=html>">
           <input type="submit" name="button" value="" class="button">
           <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All"></TMPL_UNLESS>
-        </form>
 
         <TMPL_UNLESS NAME="session_isGuest">
           <div class="cart1">
@@ -108,6 +107,7 @@
           </div>
         </TMPL_UNLESS><br /><br />
 
+        </form>
         <TMPL_IF NAME="categoryPage">
           <div class="searchDif">
             <TMPL_IF NAME="prod_favorites">Search My Favorites</TMPL_IF>
