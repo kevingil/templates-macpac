@@ -1,12 +1,19 @@
 /* MacMurray Pacific Global Styles
-- test
+
+Global palette
+
+main background color: #eaeefa
+header background color: #EEEDEE
+buttons color: #001f3f
+buttons text color: #FFFFFF
+
 */
 
 /* Header Styles -----------------------------------------------------------------*/
 
 html,
 body {
-    background: url('images/bkgd.gif') repeat fixed;
+    background: #eaeefa;
     font-family: arial, sans-serif;
     font-size: 16px;
     margin: 0;
@@ -16,14 +23,15 @@ body {
 }
 
 #wrap {
-    width: 1100px;
+    max-width: 1100px;
+    min-width: 800px;
     min-height: 100%;
     position: relative;
     margin: 0 auto;
 }
 
 .nowrap {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 #maincontent {
@@ -31,27 +39,67 @@ body {
 }
 
 #header {
-    background: url('images/header-bg.jpg');
+    /* background: url('dist/header-bg.jpg');
+    TODO wendy: new header background if picture prefered 
+    */
+    background: #aaa;
     max-width: 1100px;
     height: 130px;
     box-shadow: 0 5px 10px #000033;
     margin: 0 0 25px 0;
+
+    display: grid;
+    grid-template-columns: 150px 3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    
 }
-p.con-info {
-    padding: 88px 0 0 203px;
+
+.header-logo {
+    grid-area:1 / 1 / 2 / 2;
+    /* TODO wendy: new cool logo :) */
+    background-image: url('https://macpac1.com/images/bridge2.gif') ;
+    background-size: cover;
+    margin:5px;
+    max-width:190px;
+    max-height:120px;
+}
+
+.con-info {
+    margin: 10px 10px auto max(200px,auto);
+    max-height:100px;
     font-size: 11pt;
-    position: absolute;
+    grid-area: 1 / 2 / 2 / 3;
+    display: inline;
+}
+
+.header-title {
+    margin:0px;
+    margin-top:5px;
+    color: #264398;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.header-subtitle {
+    margin:0px;
+    color: #264398;
+    font-size:1.75em;
+    margin:0px;
 }
 
 .contactbox {
     background: #fce4b4;
+    min-height:100px;
+    min-width:110px;
     border: 1px solid #999;
-    border-radius: 5px;  
+    border-radius: 3px;
     font-size: 10pt;
-    float: right;
-    margin: 10px 10px 0 0;
+    margin: 10px 10px 10px auto;
     padding: 5px;
     text-align: right;
+    grid-area: 1 / 3 / 2 / 4;
 }
 
 p.update {
@@ -63,11 +111,13 @@ p.update {
 form.searchbar {
     margin-top: 5px;
     margin-bottom: 5px;
-    float: left;
+    margin-right:none;
+    display:inline;
+    min-width:800px;
 }
 
-input[type=text] {
-    width: 875px;
+form.searchbar input[type=text] {
+    margin:6px;
     padding: 6px;
     outline: none;
     border: 1px solid #999999;
@@ -75,6 +125,13 @@ input[type=text] {
     background-color: #FBFBFB;
     vertical-align: top;
     font-size: 10pt;
+    width: clamp(70%, 90%, 50%);
+    
+}
+form.searchbar input[type=submit] {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width:50px;
 }
 
 img.right1 {
@@ -85,9 +142,10 @@ img.right1 {
 .cart1 {
     float: right;
     height: 43px;
-    width: 125px;
+    width: 55px;
     font-size: 10pt;
     text-align: right;
+
 }
 
 /* Search Bar Button */
