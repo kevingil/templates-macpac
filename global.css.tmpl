@@ -119,6 +119,10 @@ p.update {
 form.searchbar {
     min-width:300px;
     display: grid;
+    grid-template-columns: auto 60px;
+    grid-template-rows: 50px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 form.searchbar input[type=text] {
@@ -131,6 +135,7 @@ form.searchbar input[type=text] {
     vertical-align: top;
     font-size: 10pt;
 
+    
     grid-area: 1 / 1 / 2 / 2;
 }
 form.searchbar input[type=submit] {
