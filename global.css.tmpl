@@ -58,12 +58,11 @@ body {
 .header-logo {
     grid-area:1 / 1 / 2 / 2;
     /* TODO wendy: new cool logo :) */
-    background-color:#ff943d;
-    -webkit-mask-image: url('http://wb500.macpac1.com/images/logo.svg') ;
-    mask-image: url('http://wb500.macpac1.com/images/logo.svg') ;
-    mask-repeat: no-repeat;
-    background-size: auto auto;
     margin:10px;
+}
+
+.header-logo {
+    fill: #ffa846;
 }
 
 .con-info {
@@ -172,11 +171,12 @@ img.right1 {
 
 .button {
     background: #EEEEEE url('http://wb500.macpac1.com/images/search-50.png') no-repeat;
+    background-size: contain;
     cursor:pointer;
     border: none;
     border-radius: 5px;
-    height: 36px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     vertical-align: top;
     margin: 0 0 0 5px;
     padding: 0 0 0 5px;
