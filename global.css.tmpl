@@ -123,12 +123,8 @@ p.update {
 }
 
 form.searchbar {
-    min-width:300px;
-    display: grid;
-    grid-template-columns: auto 60px;
-    grid-template-rows: 50px;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 form.searchbar input[type=text] {
@@ -140,21 +136,19 @@ form.searchbar input[type=text] {
     background-color: #FBFBFB;
     vertical-align: top;
     font-size: 10pt;
-
+    flex: 1 0 auto;
     
     grid-area: 1 / 1 / 2 / 2;
 }
 
 /* Search Bar Button */
 
-form.searchbar input[type=submit] {
-    width:50px;
-    grid-area: 1 / 2 / 2 / 3;
-    background: url('images/search-50.png') no-repeat;
+form.searchbar button {
     cursor:pointer;
     border: none;
     border-radius: 7px;
     vertical-align: center;
+    flex: 1 0 50px;
 
 }
 
