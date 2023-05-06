@@ -14,6 +14,9 @@ buttons text color: #FFFFFF
   --primary: #296adb;
 }
 
+:root:not([data-theme=dark]), [data-theme=light] {
+  --primary: #296adb;
+}
 
 /* Header Styles -----------------------------------------------------------------*/
 
@@ -120,8 +123,7 @@ p.update {
 }
 
 .search-wrap {
-	overflow: hidden;
-	border-radius: 7px;
+	border-radius: 4px;
   display: grid;
   height: 50px;
   grid-template-columns: auto 65px;
@@ -134,7 +136,7 @@ p.update {
 
 form.searchbar {
   display: grid;
-  margin: 0px 10px 0px 0px;
+  margin: 0px 10px 0px 10px;
   grid-area: 1 / 1 / 2 / 2;
   grid-template-columns: auto 120px;
   grid-template-rows: 50px;
@@ -146,9 +148,11 @@ form.searchbar input[type=text] {
   border: 1px;
   grid-area: 1 / 1 / 2 / 2;
   height: 50px;
-  box-shadow: 0 0 40px #ccc;
+  box-shadow: 0 0 3px #ccc;
   padding: 12px 20px;
   box-sizing: border-box;
+  border-radius: 10px;
+  margin: 0px 0px 0px -10px
   
 }
 
