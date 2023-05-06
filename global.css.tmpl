@@ -34,7 +34,6 @@ body {
 #wrap {
     max-width: 1100px;
     min-height: 100%;
-    min-width: 600px;
     position: relative;
     margin: 0 auto;
 }
@@ -1469,11 +1468,12 @@ ul#toc {
 ul#toc li {
     float: left;
     margin: 0 8px 0 0;
+    list-style: none;
 }
 
 ul#toc a {
-    background: #bdf url(images/tabs2.gif);
-    color: #152b75;
+    background: rgb(199, 199, 199);
+    color: #131313;
     display: block;
     float: left;
     height: 2em;
@@ -1482,7 +1482,7 @@ ul#toc a {
 }
 
 ul#toc a:hover {
-    background-color: #152b75;
+    background-color: #1e2849;
     background-position: 0 -120px;
 }
 
@@ -1491,7 +1491,7 @@ ul#toc a:hover span {
 }
 
 ul#toc li.current a {
-    background-color: #152b75;
+    background-color: #161f3b;
     background-position: 0 -60px;
     color: #fff;
     font-weight: bold;
@@ -1503,7 +1503,6 @@ ul#toc li.current span {
 }
 
 ul#toc span {
-    background: url(images/tabs2.gif) 100% 0;
     display: block;
     line-height: 2em;
     padding-right: 10px;
