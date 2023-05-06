@@ -4,6 +4,11 @@
 
 <div class="center">
   <p>User <b><TMPL_VAR NAME="user_name"></b> for <b><TMPL_VAR NAME="session_custName"></b></p>
+  
+<!--Salesmen Tools-->
+<div class="center" style="clear: both">
+<TMPL_INCLUDE NAME="salesNavs.tmpl">
+</div>
 
     <a href="/category.html?productShowOnly=Favorites&productSortBy=ProductCat"><div class="buttonBig"><h4>My<br/>Favorites</h4></div></a>
     <a href="/category.html?productShowOnly=ShoppingList"><div class="buttonBig"><h4>My<br/>Shopping List</h4></div></a>
@@ -41,6 +46,9 @@
 
 </div>
 </div>
+
+
+
 
 <div class="custInfo">
 <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br/>
@@ -94,9 +102,7 @@
 </div>
 
 
-<div class="center" style="clear: both">
-<TMPL_INCLUDE NAME="salesNavs.tmpl">
-</div>
+
 
 
 <TMPL_INCLUDE NAME="footer.tmpl">
