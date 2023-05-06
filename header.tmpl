@@ -88,20 +88,22 @@
         <!--begin content box (tabs)-->
 
 
-        <div class="search-wrap">
+    <div class="search-wrap">
 
         <form class="searchbar" action="/category.html" method="post">
           <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
             searchFor" escape=html>">
+
           <button type="submit" name="button" value="" class="button">
             Search <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
           </button>
+          
           <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All"></TMPL_UNLESS>
         </form>
 
-        <TMPL_UNLESS NAME="session_isGuest">
+
           <div class="cart1">
-            <a href="/cart.html"><img src="images/emptycart.jpg" class="right1" alt="cart" height="38" width="40">
+            <a href="/cart.html"><i class="fa-solid fa-cart-shopping" style="color: #296adb;"></i></a>
               <div class="ItemsInCart">
                 <TMPL_IF NAME="placed">0 items<TMPL_ELSE>
                     <TMPL_VAR NAME="cart_ItemsInCart">
@@ -114,7 +116,6 @@
               </div>
             </a>
           </div>
-        </TMPL_UNLESS><br /><br />
 
         </div>
 
