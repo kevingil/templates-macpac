@@ -104,6 +104,7 @@ body {
     min-height:90px;
     min-width:110px;
     border: 1px solid #999;
+    background: #eee;
     border-radius: 3px;
     font-size: 1vw;
     margin: 10px 10px 10px auto;
@@ -133,12 +134,12 @@ p.update {
 
 form.searchbar {
   display: grid;
+  margin: 0px 10px 0px 0px;
   grid-area: 1 / 1 / 2 / 2;
-
-grid-template-columns: auto 120px;
-grid-template-rows: 50px;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+  grid-template-columns: auto 120px;
+  grid-template-rows: 50px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 form.searchbar input[type=text] {
@@ -266,7 +267,7 @@ padding-left: 10px;
     border: 1px solid #999;
     border-radius: 10px;
     padding: 0 10px 0 10px;
-    width: 750px;
+    max-width: 750px;
 }
 
 .blue1 { font-weight: bold; color: #21409A; }
@@ -625,7 +626,6 @@ p.small2 {
 }
 
 div.content {
-    box-shadow: 0px 5px 10px #000033;
     padding: 1em;
 }
 
@@ -687,7 +687,7 @@ p.right1 {
     border: 1px solid #ccc;
     height: 100px;
     width: auto;
-    background: #fce4b4;
+    background: #e0e0e0;
     padding: 10px;
 }
 
@@ -941,25 +941,7 @@ display: none;
     background-color: #fff;
 }
 
-.newbutton {
-	display: inline-block;
 
-	padding: 6px 6px;
-	margin: 10px;
-	border: 0 none;
-	border-radius: 10px;
-	text-shadow: 0 -1px 0 #ccc;
-	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
-	cursor: pointer;
-	-webkit-transition: all 150ms ease;
-	transition: all 150ms ease;
-}
-
-.newbutton:hover, .newbutton:focus
-{
-	-webkit-animation: pulsate 1.2s linear infinite;
-	animation: pulsate 1.2s linear infinite;
-}
 	
 @-webkit-keyframes pulsate
 {
@@ -975,37 +957,6 @@ display: none;
 	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
 }
 
-.newbutton:active
-{
-	color: #fff;
-	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
-	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
-	-webkit-transform: translateY(3px);
-	transform: translateY(3px);
-	-webkit-animation: none;
-	animation: none;
-}
-
-.newbutton1
-{
-	display: inline-block;
-
-	padding: 6px 6px;
-	margin: 10px;
-	border: 0 none;  
-	border-radius: 10px;
-	text-shadow: 0 -1px 0 #ccc;
-	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
-	cursor: pointer;
-	-webkit-transition: all 150ms ease;
-	transition: all 150ms ease;
-}
-
-.newbutton1:hover, .newbutton1:focus
-{
-	-webkit-animation: pulsate 1.2s linear infinite;
-	animation: pulsate 1.2s linear infinite;
-}
 	
 @-webkit-keyframes pulsate
 {
@@ -1019,60 +970,6 @@ display: none;
 	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
 	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
 	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
-}
-
-.newbutton1:active
-{
-	color: #fff;
-	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
-	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
-	-webkit-transform: translateY(3px);
-	transform: translateY(3px);
-	-webkit-animation: none;
-	animation: none;
-}
-
-.newbutton2 {
-	display: inline-block;
-    font-size: 12pt;
-    font-family: arial, sans-serif;
-	padding: 6px 6px;
-	margin: 10px;
-	border: 0 none;
-	border-radius: 10px;
-	text-shadow: 0 -1px 0 #ccc;
-	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
-	cursor: pointer;
-	-webkit-transition: all 150ms ease;
-	transition: all 150ms ease;
-}
-
-.newbutton2:hover, .newbutton1:focus
-{
-	-webkit-animation: pulsate 1.2s linear infinite;
-	animation: pulsate 1.2s linear infinite;
-}
-
-.newbutton3 {
-	display: inline-block;
-
-	padding: 6px 6px;
-	margin: 10px;
-	color: #fff;
-	background-color: #cc3333;
-	border: 0 none;
-	border-radius: 10px;
-	text-shadow: 0 -1px 0 #ccc;
-	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
-	cursor: pointer;
-	-webkit-transition: all 150ms ease;
-	transition: all 150ms ease;
-}
-
-.newbutton3:hover, .newbutton1:focus
-{
-	-webkit-animation: pulsate 1.2s linear infinite;
-	animation: pulsate 1.2s linear infinite;
 }
 
 .dropdown {
@@ -1091,30 +988,6 @@ display: none;
     z-index: 1;
 }
 
-.newbutton4 {
-	display: inline-block;
-    float: right;
-	padding: 6px 6px;
-	margin: 0px 30px 0px 0px;
-	color: #003300;
-	background-color: #66cc66;
-	background: -webkit-linear-gradient(#003300, #66cc66);
-	background: linear-gradient(#d3eafb, #66cc66);
-	border: 0 none;
-	border-radius: 10px;
-	text-shadow: 0 -1px 0 #ccc;
-	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
-	cursor: pointer;
-	-webkit-transition: all 150ms ease;
-	transition: all 150ms ease;
-}
-
-.newbutton4:hover, .newbutton1:focus
-{
-	-webkit-animation: pulsate 1.2s linear infinite;
-	animation: pulsate 1.2s linear infinite;
-}
-
 .dropdown-content a {
     color: black;
     padding: 7px 7px;
@@ -1128,41 +1001,14 @@ display: none;
     display: block;
 }
 
-.dropdown:hover .newbutton {
-    background-color: #3e8e41;
-}
 
-/* Small Button */
-
-.button1 {
-  display: inline-block;
-  margin: 9px;
-  padding: 4px;
-  font-size: 12px;
-  cursor: pointer;
-  text-align: center;	
-  text-decoration: none;
-  outline: none;
-  background-color: #d3eafb;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 5px #666;
-}
-
-.button1:hover {background-color: #92b7f3}
-
-.button1:active {
-  background-color: #92b7f3;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
 
 /* Customer Nav Buttons (Lg) */
 
 .button3 {
     background-color: #d3eafb;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0 5px #666;
     text-align: center;
     text-decoration: none;
@@ -1177,28 +1023,6 @@ display: none;
 
 .button3:active {
   background-color: #92b7f3;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-.button6 {
-    background-color: #fce4b4;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px #666;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    padding: 10px;
-    margin: 15px;
-    font-size: 12pt;
-    font-family: arial, sans-serif;
-}
-
-.button6:hover {background-color: #eec677;}
-
-.button6:active {
-  background-color: #eec677;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
