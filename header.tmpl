@@ -10,9 +10,12 @@
   hardware wholesalers, California wholesalers, hinges, drawer slides, shop supplies, kitchen accessories">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=1100" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
   <link rel="stylesheet" type="text/css" href="global.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/99fbdcde4b.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/gif" href="images/bridge2.gif">
+
   <html data-theme="light">
 </head>
 
@@ -91,7 +94,7 @@
         <form class="searchbar" action="/category.html" method="post">
           <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
             searchFor" escape=html>">
-          <input type="submit" name="button" value="" class="button">
+          <input type="submit" name="button" value="" class="button fa-solid fa-magnifying-glass" style="color: #000000;">
           <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All"></TMPL_UNLESS>
         </form>
 
