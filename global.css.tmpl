@@ -114,43 +114,63 @@ p.update {
 }
 
 .search-wrap {
-    display: grid;
-    grid-template-columns: auto fit-content(100px);
-    grid-template-rows: 50px;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+	border: 2px solid #2c81ff;
+	overflow: auto;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
     
 }
 
-form.searchbar {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 form.searchbar input[type=text] {
-    margin:6px;
-    padding: 6px;
-    outline: none;
-    border: 1px solid #999999;
-    border-radius: 5px;
-    background-color: #FBFBFB;
-    vertical-align: top;
-    font-size: 10pt;
-    flex: 1 0 auto;
-    
-    grid-area: 1 / 1 / 2 / 2;
+  border: 0px;
+	width: 67%;
+	padding: 10px 10px;
 }
+
+form.searchbar input[type=text]:focus
+{
+	outline: 0;
+}
+
+
 
 /* Search Bar Button */
 
 form.searchbar button {
-    cursor:pointer;
-    border: none;
-    border-radius: 7px;
-    vertical-align: center;
-    flex: 1 0 50px;
+	border: 0px;
+	background: none;
+	background-color: blue;
+	color: #fff;
+	float: right;
+	padding: 10px;
+	border-radius-top-right: 5px;
+	-moz-border-radius-top-right: 5px;
+	-webkit-border-radius-top-right: 5px;
+	border-radius-bottom-right: 5px;
+	-moz-border-radius-bottom-right: 5px;
+	-webkit-border-radius-bottom-right: 5px;
+        cursor:pointer;
 
 }
+
+
+/* ===========================
+   ====== Medua Query for Search Box ====== 
+   =========================== */
+
+   @media only screen and (min-width : 150px) and (max-width : 780px)
+   {
+     {}
+     .search-wrap
+     {
+       width: 95%;
+       margin: 0 auto;
+     }
+   
+   }
+
 
 img.right1 {
     float: right;
