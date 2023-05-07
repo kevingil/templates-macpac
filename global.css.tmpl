@@ -16,6 +16,7 @@ buttons text color: #FFFFFF
 
 :root:not([data-theme=dark]), [data-theme=light] {
   --primary: #296adb;
+  --primary-hover: #1b4388;
 }
 
 /* Header Styles -----------------------------------------------------------------*/
@@ -271,9 +272,6 @@ padding-left: 10px;
 }
 
 .homeimages {   
-    margin: 10px 10px 10px 10px;
-    max-width: 400px;
-    margin: 0 auto;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(2, 1fr); 
@@ -288,9 +286,8 @@ padding-left: 10px;
 .homeimages img {
     border: 0px;
     border-radius: 2px;
-    margin-right: 20px;
     width: auto;
-    height: 150px;
+    max-height: 150px;
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
 
@@ -1483,28 +1480,25 @@ ul#toc {
     font-size: 11pt;
     height: 2em;
     list-style: none;
-    margin: 15px 0 0 10px;
     padding: 0;
 }
 
 ul#toc li {
     float: left;
-    margin: 0 8px 0 0;
     list-style: none;
 }
 
 ul#toc a {
-    background: rgb(199, 199, 199);
+    background: #296adb;
     color: #131313;
     display: block;
     float: left;
     height: 2em;
-    padding-left: 10px;
     text-decoration: none;
 }
 
 ul#toc a:hover {
-    background-color: #1e2849;
+    background-color: #1d4da1;
     background-position: 0 -120px;
 }
 
