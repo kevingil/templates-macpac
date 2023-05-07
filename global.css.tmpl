@@ -214,12 +214,17 @@ img.right1 {
 .login-wrap {
     max-width: 400px;
     margin: 0px auto 0px auto;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(1, 1fr); 
 }
+
+@media (min-width: 600px) {
+    .login-wrap { grid-template-columns: repeat(2, 1fr); }
+  }
+
 
 .login-info {
     padding: 20px;
-    
+
 }
 
 
