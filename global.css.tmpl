@@ -252,7 +252,7 @@ p.center {
 #quicklinks {
     font-size: 10pt;
     border: 1px solid #999;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 7px;
     float: right;
 
@@ -270,13 +270,21 @@ padding-left: 10px;
 }
 
 .homeimages {   
-    margin: 20px 0 0 0;
+    margin: 10px 10px 10px 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
 }
 
+@media (min-width: 600px) {
+    .homeimages { grid-template-columns: repeat(2, 1fr); }
+  }
+
+
 .homeimages img {
-    border: 1px solid #999;
+    border: 0px;
     border-radius: 2px;
-    display: flex;
     margin-right: 20px;
 }
 
@@ -316,9 +324,9 @@ padding-left: 10px;
 }
 
 .homeProducts {
+    display: flex;
     max-width: 675px;
-    float: right;
-    line-height: 10%;
+    line-height: 90%;
     margin-left: 30px;
 }
 
