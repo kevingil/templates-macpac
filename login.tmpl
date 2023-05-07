@@ -1,9 +1,13 @@
 <TMPL_INCLUDE NAME="header.tmpl">
 
 <TMPL_VAR NAME=errorText>
+
 <form name="verify" action="login.html" method="post">
+
 <h3>Customer Login</h3>
+
 <div id="clockWarning"></div>
+
 <script>
   const systemClock = <TMPL_VAR NAME="systemClock">;
   const allowableMinutes = 10;
@@ -15,19 +19,15 @@
   }
   // document.getElementById('clockWarning').innerHTML = `${earliest}<br>${browserClock}<br>${latest}`;
 </script>
-<table class="login">
-  <tr>
-    <td>Username:</td>
-    <td><input class="ibox" id="userName" name="Code" size="20" value="<TMPL_VAR NAME="Code" ESCAPE=HTML>" tabindex=1></td>
-    <td rowspan="2"><input class="newbutton1"  style="font-size: 13pt;" type="submit" name="Submit" value="Login" tabindex=3></td>
-    <td rowspan="2" ><input class="newbutton1" style="font-size: 13pt;" type="reset" value="Cancel" tabindex=0></td>
-  </tr>
-  <tr>
-    <td>Password:</td>
-    <td><input class="ibox" id="password" name="Password" type="password" size="20" maxlength="10" value="" tabindex=2></td>
-  </tr>
-</table>
-<input type="hidden" name="e" value="login">
+
+    <span>Username:</span>
+    <input class="ibox" id="userName" name="Code" size="20" value="<TMPL_VAR NAME="Code" ESCAPE=HTML>" >
+    <span>Password:</span>
+    <input class="ibox" id="password" name="Password" type="password" size="20" maxlength="10" value="">
+    <input class="newbutton1"  style="font-size: 13pt;" type="submit" name="Submit" value="Login" >
+    <input class="newbutton1" style="font-size: 13pt;" type="reset" value="Cancel" >
+    <input type="hidden" name="e" value="login">
+
 </form>
 
 <form method="post" action="/sendPassword.html"><br/>
