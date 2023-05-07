@@ -212,24 +212,18 @@ img.right1 {
 
 /* Login Page */
 .login-wrap {
-    max-width: 400px;
     margin: 0px auto 0px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
 }
 
-@media (min-width: 400px) {
-    .login-wrap { grid-template-columns: repeat(1, 1fr); }
-  }
-
-
 .login-info {
     padding: 20px;
-
 }
 
-
-
+@media (max-width: 400px) {
+    .homeimages { grid-template-columns: repeat(1, 1fr); }
+  }
 
 /* Footer Styles -----------------------------------------------------------------*/
 
