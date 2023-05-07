@@ -1,49 +1,59 @@
 <TMPL_INCLUDE NAME="header.tmpl">
 
-<TMPL_VAR NAME=errorText>
+  <TMPL_VAR NAME=errorText>
 
-<div class="login-wrap">
+    <div class="login-wrap">
 
-<form name="verify" action="login.html" method="post">
+      <form name="verify" action="login.html" method="post">
 
-<h3>Customer Login</h3>
+        <h3>Customer Login</h3>
 
-<div id="clockWarning"></div>
+        <div id="clockWarning"></div>
 
-<script>
-  const systemClock = <TMPL_VAR NAME="systemClock">;
-  const allowableMinutes = 10;
-  const browserClock = (new Date()).getTime();
-  const earliest = systemClock - (allowableMinutes * 60000);
-  const latest = systemClock + (allowableMinutes * 60000);
-  if (browserClock < earliest || browserClock > latest) {
-    document.getElementById('clockWarning').innerHTML = `<span style="background-color:red">Your clock is off by more than ${allowableMinutes} minutes. This will cause issues with your login.</span><br>`;
-  }
-  // document.getElementById('clockWarning').innerHTML = `${earliest}<br>${browserClock}<br>${latest}`;
-</script>
+        <script>
+          const systemClock = < TMPL_VAR NAME = "systemClock" > ;
+          const allowableMinutes = 10;
+          const browserClock = (new Date()).getTime();
+          const earliest = systemClock - (allowableMinutes * 60000);
+          const latest = systemClock + (allowableMinutes * 60000);
+          if (browserClock < earliest || browserClock > latest) {
+            document.getElementById('clockWarning').innerHTML =
+              `<span style="background-color:red">Your clock is off by more than ${allowableMinutes} minutes. This will cause issues with your login.</span><br>`;
+          }
+          // document.getElementById('clockWarning').innerHTML = `${earliest}<br>${browserClock}<br>${latest}`;
+        </script>
 
-    <span>Username:</span>
-    <input class="ibox" id="userName" name="Code" size="20" value="<TMPL_VAR NAME="Code" ESCAPE=HTML>" >
-    <span>Password:</span>
-    <input class="ibox" id="password" name="Password" type="password" size="20" maxlength="10" value="">
-    <input class="newbutton1"  style="font-size: 13pt;" type="submit" name="Submit" value="Login" >
-    <input class="newbutton1" style="font-size: 13pt;" type="reset" value="Cancel" >
-    <input type="hidden" name="e" value="login">
+        <span>Username:</span>
+        <input class="ibox" id="userName" name="Code" size="20" value="<TMPL_VAR NAME=" Code" ESCAPE=HTML>" >
+        <span>Password:</span>
+        <input class="ibox" id="password" name="Password" type="password" size="20" maxlength="10" value="">
+        <input class="newbutton1" style="font-size: 13pt;" type="submit" name="Submit" value="Login">
+        <input type="hidden" name="e" value="login">
+        <a href="/sendPassword.html">Forgot password?</a>
+      </form>
 
-</form>
+      <form method="post" action="/sendPassword.html"><br />
+        <input class="newbutton2 forgotpwd" type="submit" value="I forgot my Password">
+      </form>
 
-<form method="post" action="/sendPassword.html"><br/>
-<input class="newbutton2" type="submit" value="I forgot my Password">
-</form>
-
+<div class="login-info">
+<p class="spacing">New customers:</p><br>
+	<a href="/pdf/credit-app.pdf" class="products">
+	 <p class="spacing">Account Application</p>
+	 </a>
+	<p class="spacing">Already have an account?</p><br>
+	<a href="/regform.html" class="products" target="_blank">
+	<p class="spacing">Register to order online</p>
+	</a>
 </div>
 
 
-<br/>
-<br/>
-<p>Need a Username and Password? <a href="contact.html#ac">Go Here </a>for registration help.</p>
 
-<script>
-  document.getElementById('<TMPL_VAR NAME="first">').focus();
-//-></script>
-<TMPL_INCLUDE NAME="footer.tmpl">
+    </div>
+
+
+    <script>
+      document.getElementById('<TMPL_VAR NAME="first">').focus();
+      //->
+    </script>
+    <TMPL_INCLUDE NAME="footer.tmpl">
