@@ -11,7 +11,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-  <script src="https://kit.fontawesome.com/99fbdcde4b.js" crossorigin="anonymous"></script>  
+  <script src="https://kit.fontawesome.com/99fbdcde4b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <link rel="stylesheet" type="text/css" href="global.css">
   <html data-theme="light">
@@ -31,8 +31,9 @@
         <!--begin header box-->
 
         <div class="con-info">
-        <a href="index.html"><img class="header-logo" src="images/mp-logo.png"/></a><br>
-        <p class="header-info"><span><b>Phone:</b> 1-800-244-1455 / </span><span><b>Orders:</b> orders@macmurraypacific.com</b></span></p>
+          <a href="index.html"><img class="header-logo" src="images/mp-logo.png" /></a><br>
+          <p class="header-info"><span><b>Phone:</b> 1-800-244-1455 / </span><span><b>Orders:</b>
+              orders@macmurraypacific.com</b></span></p>
         </div>
 
         <div class="contactbox">
@@ -47,69 +48,72 @@
             </TMPL_IF>
 
         </div>
+
+        <ul id="toc">
+          <TMPL_IF NAME="session_isGuest">
+            <li<TMPL_IF NAME="glob_menu_home"> class="current"
+          </TMPL_IF>><a href="index.html"><span>Home</span></a></li>
+          </TMPL_IF>
+          <TMPL_IF NAME="session_isGuest">
+            <TMPL_ELSE>
+              <li<TMPL_IF NAME="glob_menu_custHome"> class="current"
+          </TMPL_IF>><a href="custHome.html"><span>Home</span></a></li>
+          </TMPL_IF>
+          <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
+              href="productCats.html"><span>Products</span></a></li>
+            <li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a
+                href="catalog.html"><span>Catalog</span></a></li>
+              <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
+                  href="forms.html"><span>Resources</span></a></li>
+                <li<TMPL_IF NAME="glob_menu_videos"> class="current"</TMPL_IF>><a
+                    href="videos.html"><span>Videos</span></a></li>
+                  <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Manufacturer
+                        Links</span></a></li>
+                    <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact
+                          Us</span></a></li>
+                      <TMPL_IF NAME="session_isSales">
+                        <li<TMPL_IF NAME="glob_menu_sales"> class="current"
+                      </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
+                      </TMPL_IF>
+                      <TMPL_IF NAME="session_isAdmin">
+                        <li<TMPL_IF NAME="glob_menu_admin"> class="current"
+                      </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
+                      </TMPL_IF>
+        </ul>
       </div>
       <!--end header box-->
-
-      <ul id="toc">
-        <TMPL_IF NAME="session_isGuest">
-          <li<TMPL_IF NAME="glob_menu_home"> class="current"
-        </TMPL_IF>><a href="index.html"><span>Home</span></a></li>
-        </TMPL_IF>
-        <TMPL_IF NAME="session_isGuest">
-          <TMPL_ELSE>
-            <li<TMPL_IF NAME="glob_menu_custHome"> class="current"
-        </TMPL_IF>><a href="custHome.html"><span>Home</span></a></li>
-        </TMPL_IF>
-        <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
-            href="productCats.html"><span>Products</span></a></li>
-          <li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a href="catalog.html"><span>Catalog</span></a></li>
-            <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
-                href="forms.html"><span>Resources</span></a></li>
-              <li<TMPL_IF NAME="glob_menu_videos"> class="current"</TMPL_IF>><a
-                  href="videos.html"><span>Videos</span></a></li>
-                <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Manufacturer
-                      Links</span></a></li>
-                  <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact Us</span></a></li>
-                    <TMPL_IF NAME="session_isSales">
-                      <li<TMPL_IF NAME="glob_menu_sales"> class="current"
-                    </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
-                    </TMPL_IF>
-                    <TMPL_IF NAME="session_isAdmin">
-                      <li<TMPL_IF NAME="glob_menu_admin"> class="current"
-                    </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
-                    </TMPL_IF>
-      </ul>
 
       <div class="content"><br />
         <!--begin content box (tabs)-->
 
 
-    <div class="search-wrap">
+        <div class="search-wrap">
 
-        <form class="searchbar" action="/category.html" method="post">
-          <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
-            searchFor" escape=html>">
+          <form class="searchbar" action="/category.html" method="post">
+            <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
+              searchFor" escape=html>">
 
-          <button type="submit" name="button" value="" class="button">
-            Search <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
-          </button>
+            <button type="submit" name="button" value="" class="button">
+              Search <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
+            </button>
 
-          <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All"></TMPL_UNLESS>
-        </form>
+            <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All">
+            </TMPL_UNLESS>
+          </form>
 
 
           <div class="cart1">
             <a href="/cart.html"><i class="fa-solid fa-cart-shopping" style="color: #f1f1f1;"></i></a>
-              <div class="ItemsInCart">
-                <TMPL_IF NAME="placed">0 items<TMPL_ELSE>
-                    <TMPL_VAR NAME="cart_ItemsInCart">
-                </TMPL_IF>
-              </div>
-              <div class="GrandTotalInCart">
-                <TMPL_IF NAME="placed">$0.00<TMPL_ELSE>
-                    <TMPL_VAR NAME="cart_GrandTotalInCart">
-                </TMPL_IF>
-              </div>
+            <div class="ItemsInCart">
+              <TMPL_IF NAME="placed">0 items<TMPL_ELSE>
+                  <TMPL_VAR NAME="cart_ItemsInCart">
+              </TMPL_IF>
+            </div>
+            <div class="GrandTotalInCart">
+              <TMPL_IF NAME="placed">$0.00<TMPL_ELSE>
+                  <TMPL_VAR NAME="cart_GrandTotalInCart">
+              </TMPL_IF>
+            </div>
             </a>
           </div>
 
