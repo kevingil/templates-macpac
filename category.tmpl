@@ -22,8 +22,9 @@
             var openfilters = $(".product-search-wrap details");
             if ($(window).width() > 768) {
               if (openfilters.attr("open") != "open") {
+                openfilters.attr('open', 'false');
+              } else {
                 openfilters.attr('open', 'true');
-
               }
             }
             // listens for resize
