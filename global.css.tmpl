@@ -593,9 +593,6 @@ td.center {
     max-width: 540px;
     padding: 4px;
     font-size: 11pt;
-
-    grid-area: 1 / 2 / 3 / 3;
-
 }
 
 #pagecontrols {
@@ -605,8 +602,6 @@ td.center {
     padding: 6px;
     font-size: 11pt;
     clear: left;
-
-    grid-area: 1 / 1 / 2 / 2;
 
 }
 
@@ -633,12 +628,30 @@ responsive controls
         grid-template-columns: 1fr;
         grid-template-rows: 200px 400px auto;
      }
+    #productbox {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    #pagecontrols {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    #filtercontainer {
+        grid-area: 3 / 1 / 4 / 2;
+    }
   }
 
   @media (min-width: 720px) {
     .product-search-wrap { 
         grid-template-columns: 1fr 2.5fr;
         grid-template-rows: 200px 400px;
+    }
+    #productbox {
+        grid-area: 1 / 2 / 3 / 3;
+    }
+    #pagecontrols {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    #filtercontainer {
+        grid-area: 2 / 1 / 3 / 2;
     }
   }
 
