@@ -590,31 +590,16 @@ td.center {
 #productbox {
     border: 1px solid #b81515;
     border-radius: 5px;
-    max-width: 540px;
-    padding: 4px;
-    font-size: 11pt;
 }
 
 #pagecontrols {
     border: 1px solid #ad1111;
     border-radius: 5px;
-    max-width: 185px;
-    padding: 6px;
-    font-size: 11pt;
-    clear: left;
-
 }
 
 #filtercontainer {
     border: 1px solid #999;
     border-radius: 5px;
-    padding: 6px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-width: 185px;
-    max-height: 650px;
-    padding-bottom:0;
-    margin: 10px 0 10px 0;
 
     grid-area: 2 / 1 / 3 / 2;
 }
@@ -629,12 +614,23 @@ responsive controls
         grid-template-rows: 200px 400px auto;
      }
     #productbox {
+        max-width: 540px;
+        padding: 4px;
         grid-area: 1 / 1 / 2 / 2;
     }
     #pagecontrols {
+        max-width: 185px;
+        padding: 6px;
         grid-area: 2 / 1 / 3 / 2;
     }
     #filtercontainer {
+        padding: 6px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-width: 185px;
+        max-height: 650px;
+        padding-bottom:0;
+        margin: 10px 0 10px 0;
         grid-area: 3 / 1 / 4 / 2;
     }
   }
