@@ -218,16 +218,20 @@ form.searchbar button {
 /* search button resize */
 @media (min-width: 100px) {
     form.searchbar { 
-        grid-template-columns: auto 80px;
+        grid-template-columns: auto 70px;
+    }
+    form.searchbar button {
         font-size: 0;
     }
-    .fa { font-size: initial; }
+    button i.fa-solid { font-size: 11pt; }
   }
 
   @media (min-width: 768px) {
     form.searchbar { 
         grid-template-columns: auto 120px;
-        font-size: 11pt;
+    }
+    button i.fa-solid {
+        font-size: 12pt; 
     }
   }
 
