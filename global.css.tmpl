@@ -184,9 +184,9 @@ and Cart
 }
 
 form.searchbar {
+    grid-area: 1 / 1 / 2 / 2;
   display: grid;
   margin: 0px 10px 0px 10px;
-  grid-area: 1 / 1 / 2 / 2;
   grid-template-rows: 50px;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -210,7 +210,6 @@ form.searchbar input[type=text]:focus
 
 form.searchbar button {
 	border: 0px;
-	background: none;
     height: 50px;
     grid-area: 1 / 2 / 2 / 3;
 
@@ -226,7 +225,7 @@ form.searchbar button {
   }
 
   @media (min-width: 768px) {
-    form.searchbar button { 
+    form.searchbar { 
         grid-template-columns: auto 120px;
         font-size: 11pt;
     }
