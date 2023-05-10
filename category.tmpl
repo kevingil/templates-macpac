@@ -22,18 +22,18 @@
             var pagecontrols = $('#pagecontrols');
             var filters = $('#filtercontainer');
 
-            var resize = function() {
-              if (window.innerWidth < 768) {
+            $(window).resize(function() {
+              var width = $(window).width();
+              if (width < 768) {
               pagecontrols.attr('open', 'false');
               filters.attr('open', 'false');
-              }
-              else {
-              pagecontrols.attr('open', 'true');
-              filters.attr('open', 'true');
-            }
-          }
-            // listens for resize
-            window.addEventListener("resize", resize);
+              } else {
+                pagecontrols.attr('open', 'true');
+                filters.attr('open', 'true');
+              } 
+            })
+
+
           </script>
 
   </div>
