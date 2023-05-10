@@ -1,13 +1,13 @@
 <details id="pagecontrols">
   <summary><b>Page Controls</b></summary>
   <form method="post" action="/category.html">
-      <label>Sort By</label>
+    <label>Sort By</label>
 
-      <select id="productSortBy" name="productSortBy">
-        <option value="ProductCode">Product Code</option>
-        <option value="ProductCat">Product Category</option>
-        <option value="Vendor">Manufacturer</option>
-      </select>
+    <select id="productSortBy" name="productSortBy">
+      <option value="ProductCode">Product Code</option>
+      <option value="ProductCat">Product Category</option>
+      <option value="Vendor">Manufacturer</option>
+    </select>
     <div>
       <label>Items Per Page</label>
       <select id="productPerPage" name="productPerPage">
@@ -16,50 +16,54 @@
         <option value="-1">Show All</option>
       </select>
     </div>
-    <TMPL_IF NAME="session_isGuest"><TMPL_ELSE>
-    <div>
-      <label>Show</label><br/>
-      <select id="productShowOnly" name="productShowOnly" onchange="changeProductShowOnly()">
-        <option value="All">General</option>
-        <option value="Favorites">My Favorites</option>
-        <option value="History">Order History</option>
-        <option value="ShoppingList">Shopping List</option>
-      </select>
-    </div></TMPL_IF>
+    <TMPL_IF NAME="session_isGuest">
+      <TMPL_ELSE>
+        <div>
+          <label>Show</label><br />
+          <select id="productShowOnly" name="productShowOnly" onchange="changeProductShowOnly()">
+            <option value="All">General</option>
+            <option value="Favorites">My Favorites</option>
+            <option value="History">Order History</option>
+            <option value="ShoppingList">Shopping List</option>
+          </select>
+        </div>
+    </TMPL_IF>
     <div id="withinLast" class="hideInline">
-      <label>Within Last</label><br/>
+      <label>Within Last</label><br />
       <select name="productHistoryAge">
-      <TMPL_LOOP NAME="historySelector">
-        <option value="<TMPL_VAR NAME="value">"<TMPL_VAR NAME="selected">><TMPL_VAR NAME="text"></option>
-      </TMPL_LOOP>
+        <TMPL_LOOP NAME="historySelector">
+          <option value="<TMPL_VAR NAME=" value">"<TMPL_VAR NAME="selected">><TMPL_VAR NAME="text">
+          </option>
+        </TMPL_LOOP>
       </select>
     </div>
     <div id="showFavoritesAge" class="hideInline">
-      <label>Favorites Age</label><br/>
+      <label>Favorites Age</label><br />
       <select name="favoritesSince">
-      <TMPL_LOOP NAME="favoritesAgeData">
-        <option value="<TMPL_VAR NAME="value">"<TMPL_VAR NAME="selected">><TMPL_VAR NAME="text"></option>
-      </TMPL_LOOP>
+        <TMPL_LOOP NAME="favoritesAgeData">
+          <option value="<TMPL_VAR NAME=" value">"<TMPL_VAR NAME="selected">><TMPL_VAR NAME="text">
+          </option>
+        </TMPL_LOOP>
       </select>
     </div>
     <TMPL_VAR NAME="hiddenParameters">
-    <input type="submit" value="Change" class="newbutton">
+      <input type="submit" value="Change" class="newbutton">
   </form>
-</summary>
-<script>
-  function changeProductShowOnly() {
-    if ($('#productShowOnly').val() == 'Favorites') {
-      $('#withinLast').addClass('hideInline');
-      $('#showFavoritesAge').removeClass('hideInline');
+  </details>
+  <script>
+    function changeProductShowOnly() {
+      if ($('#productShowOnly').val() == 'Favorites') {
+        $('#withinLast').addClass('hideInline');
+        $('#showFavoritesAge').removeClass('hideInline');
+      }
+      if ($('#productShowOnly').val() == 'History') {
+        $('#withinLast').removeClass('hideInline');
+        $('#showFavoritesAge').addClass('hideInline');
+      }
     }
-    if ($('#productShowOnly').val() == 'History') {
-      $('#withinLast').removeClass('hideInline');
-      $('#showFavoritesAge').addClass('hideInline');
-    }
-  }
 
-  $('#productSortBy').val('<TMPL_VAR NAME="productSortBy">');
-  $('#productPerPage').val('<TMPL_VAR NAME="productPerPage">');
-  $('#productShowOnly').val('<TMPL_VAR NAME="productShowOnly">');
-  changeProductShowOnly();
-</script>
+    $('#productSortBy').val('<TMPL_VAR NAME="productSortBy">');
+    $('#productPerPage').val('<TMPL_VAR NAME="productPerPage">');
+    $('#productShowOnly').val('<TMPL_VAR NAME="productShowOnly">');
+    changeProductShowOnly();
+  </script>
