@@ -25,11 +25,12 @@
             $(window).resize(function() {
               var width = $(window).width();
               if (width < 768) {
-              pagecontrols.attr('open', 'false');
-              filters.attr('open', 'false');
+                pagecontrols.removeAttribute('open')
+                filters.removeAttribute('open')
+
               } else {
-                pagecontrols.attr('open', 'true');
-                filters.attr('open', 'true');
+                pagecontrols.setAttribute('open',true);
+                filters.setAttribute('open',true);
               } 
             })
 
