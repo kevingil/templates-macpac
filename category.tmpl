@@ -19,18 +19,14 @@
 
           <script>
             // opens details tags if screen over 768
-            var pagecontrols = $('#pagecontrols');
-            var filters = $('#filtercontainer');
-
             $(window).resize(function() {
               var width = $(window).width();
               if (width < 768) {
-                pagecontrols.removeAttribute('open')
-                filters.removeAttribute('open')
-
+                document.querySelector("#pagecontrols").removeAttribute('open');
+                document.querySelector("#filtercontainer").removeAttribute('open');
               } else {
-                pagecontrols.setAttribute('open',true);
-                filters.setAttribute('open',true);
+                document.querySelector("#pagecontrols").setAttribute('open',true);
+                document.querySelector("#filtercontainer").setAttribute('open',true);
               } 
             });
 
