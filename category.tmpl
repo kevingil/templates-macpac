@@ -20,7 +20,7 @@
           <script>
             // opens filter tags if screen over 768
 
-            var resize = function () {
+            var filtersAttr = function () {
               var width = $(window).width();
               if (width < 768) {
                 document.querySelector("#pagecontrols").removeAttribute('open');
@@ -32,10 +32,10 @@
             }
 
             $(document).ready(function () {
-              resize();
+              filtersAttr();
             });
             $(window).resize(function () {
-              resize();
+              filtersAttr();
             });
 
 
