@@ -5,11 +5,12 @@
   <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink2">"><TMPL_VAR NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
 </p>
 
-
-
-<TMPL_INCLUDE NAME="productChunk.tmpl">
+<div class="product-search-wrap">
 <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
 <TMPL_INCLUDE NAME="filters.tmpl">
+<TMPL_INCLUDE NAME="productChunk.tmpl">
+</div>
+
 <p class="divider">&nbsp;</p>
 
 <div class="center" style="clear: both">
