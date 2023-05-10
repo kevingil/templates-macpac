@@ -1,37 +1,55 @@
-<div id="filtercontainer">
-<div id="filters">
-  <TMPL_IF NAME="showFilters">
-  <form method="post" action="/category.html">
-  <div class="title"><b>Narrow Search By</b></div>
-  <p><b>Manufacturer</b></p>
-  <input type="submit" value="Update" class="newbutton">
-  <TMPL_IF NAME="vendors">
-  <table><p class="lowercase">
-  <TMPL_LOOP NAME="vendors">
-    <tr style="vertical-align: top; text-transform: capitalize"><td><input type="checkbox" name="vendor_<TMPL_VAR NAME="VendorCode">"<TMPL_VAR NAME="checked"> value=1></td><td><TMPL_VAR NAME="VendorName"></td></tr>
-  </TMPL_LOOP></p>
-  </table><br/>
-<input type="submit" value="Update" class="newbutton">
-  <hr>
-  </TMPL_IF>
-  <TMPL_IF NAME="filters">
-  <p><b>Filters</b></p>
-  <input type="submit" value="Update" class="newbutton">
-  <table>
-  <TMPL_LOOP NAME="filters">
-    <tr style="text-transform: capitalize; height: 42px"><td colspan=2><TMPL_VAR NAME="filter"></td></tr>
-    <TMPL_LOOP NAME="values">
-    <tr style="vertical-align: top; color: #666"><td><input type="checkbox" name="filter_<TMPL_VAR NAME="key">"<TMPL_VAR NAME="checked"> value="<TMPL_VAR NAME="value" ESCAPE="HTML">"></td><td><TMPL_VAR NAME="value"></td></tr>
-    </TMPL_LOOP>
-  </TMPL_LOOP>
-  </table>
-  </TMPL_IF><br/>
-  <TMPL_IF NAME="cat">
-  <input type="hidden" name="cat" value="<TMPL_VAR NAME="cat" escape=html>">
-  </TMPL_IF>
-  <input type="submit" value="Update" class="newbutton">
-  <TMPL_VAR NAME="hiddenParameters">
-  </form>
-  </TMPL_IF>
-</div>
-</div>
+<details id="filtercontainer">
+  <summary><b>Filters</b></summary>
+  <div id="filters">
+    <TMPL_IF NAME="showFilters">
+      <form method="post" action="/category.html">
+        <p><b>Manufacturer</b></p>
+        <input type="submit" value="Update" class="newbutton">
+        <TMPL_IF NAME="vendors">
+          <table>
+            <p class="lowercase">
+              <TMPL_LOOP NAME="vendors">
+                <tr style="vertical-align: top; text-transform: capitalize">
+                  <td><input type="checkbox" name="vendor_<TMPL_VAR NAME=" VendorCode">"<TMPL_VAR NAME="checked">
+                      value=1></td>
+                  <td>
+                    <TMPL_VAR NAME="VendorName">
+                  </td>
+                </tr>
+              </TMPL_LOOP>
+            </p>
+          </table><br />
+          <input type="submit" value="Update" class="newbutton">
+          <hr>
+        </TMPL_IF>
+        <TMPL_IF NAME="filters">
+          <p><b>Filters</b></p>
+          <input type="submit" value="Update" class="newbutton">
+          <table>
+            <TMPL_LOOP NAME="filters">
+              <tr style="text-transform: capitalize; height: 42px">
+                <td colspan=2>
+                  <TMPL_VAR NAME="filter">
+                </td>
+              </tr>
+              <TMPL_LOOP NAME="values">
+                <tr style="vertical-align: top; color: #666">
+                  <td><input type="checkbox" name="filter_<TMPL_VAR NAME=" key">"<TMPL_VAR NAME="checked"> value="
+                      <TMPL_VAR NAME="value" ESCAPE="HTML">"></td>
+                  <td>
+                    <TMPL_VAR NAME="value">
+                  </td>
+                </tr>
+              </TMPL_LOOP>
+            </TMPL_LOOP>
+          </table>
+        </TMPL_IF><br />
+        <TMPL_IF NAME="cat">
+          <input type="hidden" name="cat" value="<TMPL_VAR NAME=" cat" escape=html>">
+        </TMPL_IF>
+        <input type="submit" value="Update" class="newbutton">
+        <TMPL_VAR NAME="hiddenParameters">
+      </form>
+    </TMPL_IF>
+  </div>
+</details>
