@@ -1,6 +1,6 @@
-<div id="pagecontrols">
+<details id="pagecontrols">
+  <summary><b>Page Controls</b></summary>
   <form method="post" action="/category.html">
-    <div class="title"><b>Page Controls</b></div><br/>
       <label>Sort By</label>
 
       <select id="productSortBy" name="productSortBy">
@@ -45,7 +45,7 @@
     <TMPL_VAR NAME="hiddenParameters">
     <input type="submit" value="Change" class="newbutton">
   </form>
-</div>
+</summary>
 <script>
   function changeProductShowOnly() {
     if ($('#productShowOnly').val() == 'Favorites') {
