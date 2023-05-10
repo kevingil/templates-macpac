@@ -23,7 +23,7 @@
             var filters = $('#filtercontainer');
 
             var resize = function() {
-              if ($(window).width() < 768) {
+              if (window.innerWidth < 768) {
               pagecontrols.attr('open', 'false');
               filters.attr('open', 'false');
               }
