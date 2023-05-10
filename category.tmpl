@@ -19,16 +19,16 @@
 
           <script>
             // opens details tags if screen over 768
-            var openfilters = $(".product-search-wrap details");
-            if ($(window).width() > 768) {
-              if (openfilters.attr("open") != "open") {
-                openfilters.attr('open', 'false');
-              } else {
-                openfilters.attr('open', 'true');
+            var resizeBar = function() {
+              var filter = $(".product-search-wrap details");
+              if ($(window).width() > 768) {
+              filter.attr('open', 'false');
+            } else {
+                filter.attr('open', 'true');
               }
             }
             // listens for resize
-            window.addEventListener("resize", openfilters);
+            window.addEventListener("resize", resizeBar);
           </script>
 
   </div>
