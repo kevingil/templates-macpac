@@ -21,9 +21,9 @@
             // opens details tags if screen over 768
             var resizeBar = function() {
               var filter = $(".product-search-wrap details");
-              if ($(window).width() > 768) {
-              filter.attr('open', 'false');
-            } else {
+              if ($(window).width() >= 768) {
+              filter.attr('open', 'true');
+            } else ($(window).width() < 768) {
                 filter.attr('open', 'true');
               }
             }
