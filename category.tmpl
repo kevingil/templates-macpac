@@ -1,26 +1,40 @@
 <TMPL_INCLUDE NAME="header.tmpl">
 
-<div class="center" style="clear: both">
-<TMPL_INCLUDE NAME="salesNavs.tmpl">
-</div>
+  <div class="center" style="clear: both">
+    <TMPL_INCLUDE NAME="salesNavs.tmpl">
+  </div>
 
-<p class="small1">
-  <a href="productCats.html">Back to Product Categories</a>
-  <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink1">"><TMPL_VAR NAME="breadcrumbtext1" escape=html></a></TMPL_IF>
-  <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink2">"><TMPL_VAR NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
-</p>
+  <p class="small1">
+    <a href="productCats.html">Back to Product Categories</a>
+    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink1">"><TMPL_VAR
+          NAME="breadcrumbtext1" escape=html></a></TMPL_IF>
+    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink2">"><TMPL_VAR
+          NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
+  </p>
 
-<div class="product-search-wrap grid">
-<TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
-<TMPL_INCLUDE NAME="filters.tmpl">
-<TMPL_INCLUDE NAME="productChunk.tmpl">
-</div>
+  <div class="product-search-wrap grid">
+    <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
+      <TMPL_INCLUDE NAME="filters.tmpl">
+        <TMPL_INCLUDE NAME="productChunk.tmpl">
 
-<p class="divider">&nbsp;</p>
+          <script>
+            // opens details tags if screen over 768
+            var openfilters = $(".product-search-wrap details");
+            if ($(window).width() > 768) {
+              if (openfilters.attr("open") != "open") {
+                openfilters.attr('open', 'true');
+
+              }
+            }
+          </script>
+
+  </div>
+
+  <p class="divider">&nbsp;</p>
 
 
 
-<TMPL_INCLUDE NAME="jquery_favorite.tmpl">
-<TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
-<TMPL_INCLUDE NAME="jquery_regHandleCart.tmpl">
-<TMPL_INCLUDE NAME="footer.tmpl">
+  <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
+    <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
+      <TMPL_INCLUDE NAME="jquery_regHandleCart.tmpl">
+        <TMPL_INCLUDE NAME="footer.tmpl">
