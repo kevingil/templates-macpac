@@ -167,15 +167,7 @@ p.update {
 Button 
 and Cart
 
-TODO: resize button on small screens
 
-@media (min-width: 408px) {
-    form.searchbar button {}
-  }
-
-  @media (min-width: 720px) {
-    form.searchbar button { }
-  }
 */
 
 
@@ -195,7 +187,6 @@ form.searchbar {
   display: grid;
   margin: 0px 10px 0px 10px;
   grid-area: 1 / 1 / 2 / 2;
-  grid-template-columns: auto 120px;
   grid-template-rows: 50px;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -225,7 +216,21 @@ form.searchbar button {
 
 }
 
+/* search button resize */
+@media (min-width: 100px) {
+    form.searchbar { 
+        grid-template-columns: auto 80px;
+        font-size: 0;
+    }
+    .fa { font-size: initial; }
+  }
 
+  @media (min-width: 768px) {
+    form.searchbar button { 
+        grid-template-columns: auto 120px;
+        font-size: 11pt;
+    }
+  }
 
 
 img.right1 {
@@ -605,7 +610,6 @@ td.center {
 
 #filtercontainer {
     border-radius: 5px;
-
     
 }
 
