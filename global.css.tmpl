@@ -2172,7 +2172,7 @@ td.chem {
   background-color: #ffff80;
 }
 
-.searchDif::after {
+.searchDif {
     margin-left: 2px;
     margin-bottom: 15px;
     font-size: 1.2em;
@@ -2180,6 +2180,11 @@ td.chem {
     color: #152b75;
     float: left;
     clear: both;
+}
+
+.searchDif::after{
+    content: "\a";
+    white-space: pre;
 }
 
 .notAvailable {
