@@ -1,9 +1,4 @@
 <TMPL_INCLUDE NAME="header.tmpl">
-
-  <div class="center" style="clear: both">
-    <TMPL_INCLUDE NAME="salesNavs.tmpl">
-  </div>
-
   <p class="breadbrumb-header">
     <a href="productCats.html">Back to Product Categories</a>
     <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink1">"><TMPL_VAR
@@ -49,7 +44,9 @@
 
   <p class="divider">&nbsp;</p>
 
-
+  <div class="center" style="clear: both">
+    <TMPL_INCLUDE NAME="salesNavs.tmpl">
+  </div>
 
   <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
     <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
