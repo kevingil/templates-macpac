@@ -4,7 +4,7 @@
     <TMPL_INCLUDE NAME="salesNavs.tmpl">
   </div>
 
-  <p class="small1">
+  <p class="breadbrumb-header">
     <a href="productCats.html">Back to Product Categories</a>
     <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink1">"><TMPL_VAR
           NAME="breadcrumbtext1" escape=html></a></TMPL_IF>
@@ -12,10 +12,9 @@
           NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
   </p>
 
-  <div class="product-search-wrap grid">
+  <div class="product-filters-wrap grid">
     <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
       <TMPL_INCLUDE NAME="filters.tmpl">
-        <TMPL_INCLUDE NAME="productChunk.tmpl">
 
           <script>
             // opens filter tags if screen over 768
@@ -41,6 +40,9 @@
 
           </script>
 
+  </div>
+  <div class="product-results-wrap">
+  <TMPL_INCLUDE NAME="productChunk.tmpl">
   </div>
 
   <p class="divider">&nbsp;</p>
