@@ -65,26 +65,36 @@
                 href="catalog.html"><span>Catalog</span></a></li>
               <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
                   href="forms.html"><span>Resources</span></a></li>
-                  <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Our brands</span></a></li>
+                <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Our
+                      brands</span></a></li>
                   <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact
-                          Us</span></a></li>
-                      <TMPL_IF NAME="session_isSales">
-                        <li<TMPL_IF NAME="glob_menu_sales"> class="current"
-                      </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
-                      </TMPL_IF>
-                      <TMPL_IF NAME="session_isAdmin">
-                        <li<TMPL_IF NAME="glob_menu_admin"> class="current"
-                      </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
-                      </TMPL_IF>
+                        Us</span></a></li>
+                    <TMPL_IF NAME="session_isSales">
+                      <li<TMPL_IF NAME="glob_menu_sales"> class="current"
+                    </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
+                    </TMPL_IF>
+                    <TMPL_IF NAME="session_isAdmin">
+                      <li<TMPL_IF NAME="glob_menu_admin"> class="current"
+                    </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
+                    </TMPL_IF>
         </ul>
       </div>
       <!--end header box-->
 
-      <div class="content"><br />
+      <div class="content">
         <!--begin content box (tabs)-->
 
 
         <div class="search-wrap">
+
+          <TMPL_IF NAME="categoryPage">
+            <div class="searchDif">
+              <TMPL_IF NAME="prod_favorites">My Favorites Search</TMPL_IF>
+              <TMPL_IF NAME="prod_history">Order History Search</TMPL_IF>
+              <TMPL_IF NAME="prod_shoplist">Shopping List Search</TMPL_IF>
+              <TMPL_IF NAME="prod_normal">MacPac Inventory </TMPL_IF>
+            </div>
+          </TMPL_IF>
 
           <form class="searchbar" action="/category.html" method="post">
             <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
@@ -114,14 +124,10 @@
             </a>
           </div>
 
-        </div>
 
-        <TMPL_IF NAME="categoryPage">
-          <div class="searchDif">
-            <TMPL_IF NAME="prod_favorites">Search My Favorites</TMPL_IF>
-            <TMPL_IF NAME="prod_history">Search Order History</TMPL_IF>
-            <TMPL_IF NAME="prod_shoplist">Search Shopping List</TMPL_IF>
-            <TMPL_IF NAME="prod_normal">Search MacPac Inventory</TMPL_IF>
-          </div>
-        </TMPL_IF>
-        <br />
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
