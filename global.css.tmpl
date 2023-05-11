@@ -57,14 +57,19 @@ body {
     max-width: 1100px;
     margin: 0px 0px -10px 0px;
     display: grid;
-    grid-template-rows: auto auto;
+    
     grid-template-columns: 3fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 
   @media (min-width: 100px) {
-    #header { font-size:0.8em; }
+    #header { font-size:0.8em;
+        grid-template-rows: 115px auto;
+    }
+  }
+  @media (min-width: 495px) {
+    #header { grid-template-rows: 110px auto; }
   }
 
   @media (min-width: 768px) {
@@ -211,7 +216,7 @@ form.searchbar button {
 /* search button resize */
 @media (min-width: 100px) {
     form.searchbar { 
-        grid-template-columns: auto 70px;
+        grid-template-columns: auto 60px;
     }
     form.searchbar button {
         font-size: 0;
@@ -231,6 +236,11 @@ form.searchbar button {
     }
   }
 /*end button resize*/
+
+.breadcrumb-header {
+    font-size: 15pt;
+}
+
 
 img.right1 {
     float: right;
@@ -610,6 +620,7 @@ td.center {
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     grid-template-columns: auto;
+    font-size: 15pt;
 }
 
 
