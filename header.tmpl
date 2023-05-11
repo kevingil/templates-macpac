@@ -84,9 +84,6 @@
       <div class="content">
         <!--begin content box (tabs)-->
 
-
-        <div class="search-wrap">
-
           <TMPL_IF NAME="categoryPage">
             <div class="searchDif">
               <TMPL_IF NAME="prod_favorites">My Favorites Search</TMPL_IF>
@@ -95,6 +92,7 @@
               <TMPL_IF NAME="prod_normal">MacPac Inventory </TMPL_IF>
             </div>
           </TMPL_IF>
+        <div class="search-wrap">
 
           <form class="searchbar" action="/category.html" method="post">
             <input name="searchFor" type="text" placeholder="Search Part Number, Keyword ..." value="<TMPL_VAR NAME="
@@ -123,8 +121,6 @@
             </div>
             </a>
           </div>
-
-
 
         </div>
       </div>
