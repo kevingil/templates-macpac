@@ -99,7 +99,7 @@
               searchFor" escape=html>">
 
             <button type="submit" name="button" value="" class="button">
-              Search <i class="fa-solid fa-magnifying-glass"></i>
+              Search <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
             </button>
 
             <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All">
@@ -108,7 +108,7 @@
 
 
           <div class="cart1">
-            <a href="/cart.html"><i class="fa-solid fa-cart-shopping" style="color: #f1f1f1;"></i></a>
+            <a role="button" href="/cart.html"><i class="fa-solid fa-cart-shopping" style="color: #f1f1f1;"></i></a>
             <div class="ItemsInCart">
               <TMPL_IF NAME="placed">0 items<TMPL_ELSE>
                   <TMPL_VAR NAME="cart_ItemsInCart">
