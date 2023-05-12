@@ -9,6 +9,11 @@
   <div id="mainproductbox"><!--begin mainproductbox-->
     <h3 class="title"><TMPL_VAR NAME="ProductCode"></h3>
 
+      
+    <p><TMPL_VAR NAME="ProductDescription" ESCAPE="html"></p>
+      <TMPL_IF NAME="full_image"><img src="<TMPL_VAR NAME="glob_thumbnailPrefix">/<TMPL_VAR NAME="full_image">" height="<TMPL_VAR NAME="fullY">" width="<TMPL_VAR NAME="fullX">" style="margin-left: 20px" title="<TMPL_VAR NAME="ProductDescription" ESCAPE=html>"></TMPL_IF>
+  
+
     <div id="mainproductinfo"><!--begin mainproductinfo-->
       <TMPL_VAR NAME="Description">
       <br/>
@@ -66,9 +71,6 @@
       <TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="favoriteButton.tmpl"></TMPL_IF>
 
     </div><!--end mainproductinfo-->
-
-    <p><TMPL_VAR NAME="ProductDescription" ESCAPE="html"></p>
-    <TMPL_IF NAME="full_image"><img src="<TMPL_VAR NAME="glob_thumbnailPrefix">/<TMPL_VAR NAME="full_image">" height="<TMPL_VAR NAME="fullY">" width="<TMPL_VAR NAME="fullX">" style="margin-left: 20px" title="<TMPL_VAR NAME="ProductDescription" ESCAPE=html>"></TMPL_IF>
 
     <TMPL_INCLUDE NAME="youtube_code.tmpl">
   </div><!--end mainproductbox-->
