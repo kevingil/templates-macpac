@@ -16,8 +16,8 @@
           <img src="<TMPL_VAR NAME="glob_thumbnailPrefix">/<TMPL_VAR NAME="filename">" title="<TMPL_VAR NAME="ProductCode" escape=html> image" alt="image"></a></TMPL_IF>
         </td>
         <td class="chunk1">
-          <p class="medium"><b><a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>" style= "text-decoration: underline"> <TMPL_VAR NAME="ProductCode"> </a></b>
-          <TMPL_IF NAME="session_isSales"><TMPL_IF NAME="ShowPR"><a href="/pr.html?ProductCode=<TMPL_VAR NAME="ProductCode">" style="text-decoration: underline; float: right; margin-right: 20px;">P</a></TMPL_IF></TMPL_IF></p>
+          <p class="medium"><b><a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>"> <TMPL_VAR NAME="ProductCode"> </a></b>
+          <TMPL_IF NAME="session_isSales"><TMPL_IF NAME="ShowPR"><a href="/pr.html?ProductCode=<TMPL_VAR NAME="ProductCode">">P</a></TMPL_IF></TMPL_IF></p>
 
           <p class="medium"><TMPL_VAR NAME="ProductDescription"></p>
           <TMPL_VAR NAME="Memo1">
@@ -49,7 +49,7 @@
               <table class="ladders">
               <TMPL_LOOP NAME="ladder">
                 <tr>
-                  <td style="text-align: left; white-space: nowrap"><TMPL_VAR NAME="range"></td><td class="white-space: nowrap"><span<TMPL_IF NAME="special"> class="promo"</TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM"></td></tr>
+                  <td><TMPL_VAR NAME="range"></td><td class="white-space: nowrap"><span<TMPL_IF NAME="special"> class="promo"</TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM"></td></tr>
                 </tr>
               </TMPL_LOOP>
               </table>
@@ -58,7 +58,7 @@
             </TMPL_IF>
 
             <TMPL_IF NAME="session_isGuest"><TMPL_ELSE>
-              <div style="white-space: nowrap">
+              <div >
                 <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty">" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" DEFAULT="">">
                 <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="ProductCode">" />
               </div>
@@ -86,15 +86,15 @@
     </TMPL_IF>
     <TMPL_IF NAME="prod_favorites">
       <b>No items found in your favorites.</b>
-      <form style="display: inline" method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly" value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME="searchFor" ESCAPE=HTML>"></form> to search our entire catalog.
+      <form  method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly" value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME="searchFor" ESCAPE=HTML>"></form> to search our entire catalog.
     </TMPL_IF>
     <TMPL_IF NAME="prod_history">
       <b>No items found in your order history.</b>
-      <form style="display: inline" method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly" value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME="searchFor" ESCAPE=HTML>"></form> to search our entire catalog.
+      <form method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly" value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME="searchFor" ESCAPE=HTML>"></form> to search our entire catalog.
     </TMPL_IF>
     <TMPL_IF NAME="prod_shoplist">
       <b>No items found in your shopping list.</b>
-      <form style="display: inline" method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly" value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME="searchFor" ESCAPE=HTML>"></form> to search our entire catalog.
+      <form  method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly" value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME="searchFor" ESCAPE=HTML>"></form> to search our entire catalog.
     </TMPL_IF>
     <br><br><div>If you cannot find what you're looking for, please give us a call at 800-244-1455 so we can help!</div>
   </TMPL_IF>
