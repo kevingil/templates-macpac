@@ -27,41 +27,9 @@
     <div class="product-filters-modal-wrap">
       <!-- modal for mobile site -->
 
-      <script>
-        /*
- * Modal
- *
- * Pico.css - https://picocss.com
- * Copyright 2019-2023 - Licensed under MIT
- */
-
-        // Config
-        const isOpenClass = "modal-is-open";
-        const openingClass = "modal-is-opening";
-        const closingClass = "modal-is-closing";
-        const animationDuration = 400; // ms
-        let visibleModal = null;
-
-        // Open modal
-        const openModal = (modalID) => {
-          let modal = document.getElementById(modalID);
-          modal.setAttribute("open", true);
-        };
-
-        // Close modal
-        const closeModal = (modalID) => {
-          let modal = document.getElementById(modalID);
-          visibleModal = null;
-          setTimeout(() => {
-            document.documentElement.classList.remove(closingClass, isOpenClass);
-            modal.removeAttribute("open");
-          }, animationDuration);
-        };
-      </script>
-
-      <a role="button" class="secondary" onClick="openModal('sort-dialog')">
+      <button class="secondary" onClick="openModal('sort-dialog')">
         Sort
-      </a>
+      </button>
 
       <dialog id="sort-dialog">
         <article>
@@ -82,9 +50,9 @@
         </article>
       </dialog>
 
-      <a role="button" class="secondary" onClick="openModal('filter-dialog')">
+      <button class="secondary" onClick="openModal('filter-dialog')">
         Filter
-      </a>
+      </button>
 
       <dialog id="filter-dialog">
         <article>
@@ -103,6 +71,41 @@
         </article>
       </dialog>
     </div>
+
+
+    <script>
+      /*
+* Modal
+*
+* Pico.css - https://picocss.com
+* Copyright 2019-2023 - Licensed under MIT
+*/
+
+      // Config
+      const isOpenClass = "modal-is-open";
+      const openingClass = "modal-is-opening";
+      const closingClass = "modal-is-closing";
+      const animationDuration = 400; // ms
+      let visibleModal = null;
+
+      // Open modal
+      const openModal = (modalID) => {
+        let modal = document.getElementById(modalID);
+        modal.setAttribute("open", true);
+      };
+
+      // Close modal
+      const closeModal = (modalID) => {
+        let modal = document.getElementById(modalID);
+        visibleModal = null;
+        setTimeout(() => {
+          document.documentElement.classList.remove(closingClass, isOpenClass);
+          modal.removeAttribute("open");
+        }, animationDuration);
+      };
+    </script>
+
+
 
     <div class="products-wrap">
       <TMPL_INCLUDE NAME="productChunk.tmpl">
