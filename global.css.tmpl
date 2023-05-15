@@ -282,12 +282,13 @@ img.right1 {
 .login-wrap {
     margin: 0px auto 0px auto;
     display: grid;
+    column-gap: 10px;
 }
 
 
 
-.login-info {
-    padding: 0px;
+.login-info a {
+    color: white;
 }
 
 .login-info h3 {
@@ -297,14 +298,12 @@ img.right1 {
 @media (min-width: 200px) {
     .login-wrap { grid-template-columns: repeat(1, 1fr); }
     .login-form {
-        padding: 10px 10px;
     }
   }
 
   @media (min-width: 720px) {
     .login-wrap { grid-template-columns: repeat(2, 1fr); }
     .login-form {
-        padding: 10px 40px;
     }
   }
 
