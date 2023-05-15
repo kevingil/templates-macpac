@@ -610,13 +610,17 @@ td.center {
 }
 
 @media (min-width: 100px) {
-    .product-results-wrap { display: none; }
+    .product-filters-wrap { display: none; }
     .product-filters-modal-wrap { grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 25px;}
+    grid-template-rows: 25px;
+    display: grid;
+}
   }
 
   @media (min-width: 768px) {
-    .product-results-wrap { grid-template-columns: 250px auto; }
+    .product-filters-wrap { grid-template-columns: 250px auto;
+        display: grid;
+    }
     .product-filters-modal-wrap { display: none;}
   }
 
