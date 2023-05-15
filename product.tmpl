@@ -107,6 +107,12 @@
     </TMPL_IF>
     <br />
 
+    <TMPL_IF NAME="session_isGuest">
+      <!-- login to see price ?-->
+      <TMPL_ELSE>
+        <TMPL_INCLUDE NAME="favoriteButton.tmpl">
+    </TMPL_IF>
+
     <TMPL_IF NAME="CatalogPageNo">
       <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank"><button
           class="newbutton1">Catalog Page</button></a>
@@ -114,10 +120,6 @@
     <TMPL_IF NAME="youtubeCode">
       <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3"
           id="showProductVideo">Product Video</button></a>
-    </TMPL_IF>
-    <TMPL_IF NAME="session_isGuest">
-      <TMPL_ELSE>
-        <TMPL_INCLUDE NAME="favoriteButton.tmpl">
     </TMPL_IF>
 
   </div><!--end mainproductinfo-->

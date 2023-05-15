@@ -1,7 +1,7 @@
 <TMPL_IF NAME="showNewButtons">
   <div class="customer-lists">
-          <a role="button" class="shoppingList newButtons <TMPL_UNLESS NAME="ShoppingList">addShoppingList</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="ShoppingList">Remove from Shopping List<TMPL_ELSE>Add to Shopping List</TMPL_IF></a>
-          <a role="button" class="favorite newButtons <TMPL_UNLESS NAME="Favorite">addFavorite</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites List<TMPL_ELSE>Add to Favorites List</TMPL_IF></a>
+          <a role="button" class="shoppingList newButtons <TMPL_UNLESS NAME="ShoppingList">addShoppingList</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="ShoppingList">Remove from Bookmarks <i class="fa-regular fa-bookmark"></i><TMPL_ELSE>Add to Bookmarks <i class="fa-solid fa-bookmark"></i></i></TMPL_IF></a>
+          <a role="button" class="favorite newButtons <TMPL_UNLESS NAME="Favorite">addFavorite</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites <i class="fa-regular fa-heart"></i><TMPL_ELSE>Add to Favorites <i class="fa-solid fa-heart"></i></i></TMPL_IF></a>
   </div>
 <TMPL_ELSE>
   <button class="newbutton favorite addFavorite <TMPL_IF NAME="Favorite">hideInline<TMPL_ELSE>showInline</TMPL_IF>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>" onclick="return false">Add to<br/>Favorites</button>

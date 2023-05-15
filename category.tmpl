@@ -7,40 +7,85 @@
           NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
   </p>
 
-<div class="product-results-wrap">
-  <div class="product-filters-wrap grid">
-    <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
-      <TMPL_INCLUDE NAME="filters.tmpl">
+  <div class="product-results-wrap">
+    <div class="product-filters-wrap grid">
 
-          <script>
-            // opens filter tags if screen over 768
+      <!-- filter bar for full size -->
 
-            var filtersAttr = function () {
-              var width = $(window).width();
-              if (width < 751) {
-                document.querySelector("#pagecontrols").removeAttribute('open');
-                document.querySelector("#filtercontainer").removeAttribute('open');
-              } else {
-                document.querySelector("#pagecontrols").setAttribute('open', true);
-                document.querySelector("#filtercontainer").setAttribute('open', true);
-              }
+      <details id="pagecontrols" role="button" class="contrast outline" open>
+        <summary><b>Page Controls</b></summary>
+        <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
+      </details>
+
+
+      <details id="filtercontainer" role="button" class="contrast outline" open>
+        <summary><b>Filters</b></summary>
+        <TMPL_INCLUDE NAME="filters.tmpl">
+      </details>
+    </div>
+
+    <div class="product-filters-modal-wrap grid">
+           <!-- modal for mobile site -->
+
+           <script>
+            // modal controls
+    
+            function modalClose(modalID) {
+              document.querySelector(modalID).removeAttribute('open');
             }
-
-            $(document).ready(function () {
-              filtersAttr();
-            });
-            $(window).resize(function () {
-              filtersAttr();
-            });
-
-
+    
+            function modalOpen(modalID){
+              document.querySelector(modalID).setAttribute('open', true);
+            }
+    
           </script>
+    
+          <button class="secondary" onclick="openModal('sort-dialog')">Sort</button>
+          <dialog id="sort-dialog">
+            <article>
+              <header>
+                <Link to="#" aria-label="Close" class="close" />
+                <p>
+                  <strong>Sort</strong>
+                </p>
+              </header>
+    
+              <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
+    
+              <footer>
+                <button className="secondary">
+                  Cancel
+                </button>
+                <button>Confirm</button>
+              </footer>
+            </article>
+          </dialog>
+    
+          <button class="secondary" onclick="openModal('filter-dialog')">Filter</button>
+          <dialog id="filter-dialog">
+            <article>
+              <header>
+                <Link to="#" aria-label="Close" class="close" />
+                <p>
+                  <strong>Filter</strong>
+                </p>
+              </header>
+              <TMPL_INCLUDE NAME="filters.tmpl">
+              <footer>
+                <button className="secondary">
+                  Cancel
+                </button>
+                <button>Confirm</button>
+              </footer>
+            </article>
+          </dialog>
+    </div>
+
+    <div class="products-wrap">
+      <TMPL_INCLUDE NAME="productChunk.tmpl">
+    </div>
 
   </div>
-  <div class="products-wrap">
-  <TMPL_INCLUDE NAME="productChunk.tmpl">
-  </div>
-   </div>
 
   <p class="divider">&nbsp;</p>
 
