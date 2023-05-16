@@ -402,7 +402,6 @@ p.center {
 
 .homeimage-wrap {
     display: grid;
-    text-align: center;
     overflow: hidden;
     position: relative;
     border: 0px;
@@ -423,7 +422,7 @@ p.center {
 
 .homeimage-caption {
     position: absolute;
-    padding: 35% 40% 0% 0%;
+    padding: 45% 0% 0% 5%;
     pointer-events: auto;
     width: 100%;
     height: 100%;
@@ -445,11 +444,9 @@ p.center {
             hsla(0, 0%, 0%, 0.033) 74.2%,
             hsla(0, 0%, 0%, 0.009) 86%,
             hsla(0, 0%, 0%, 0) 100%);
-
-
     text-decoration: none;
     color: white;
-
+    overflow-wrap: normal;
     box-shadow: 0px 0px 10px -1px #797979;
 }
 
@@ -534,6 +531,7 @@ p.center {
 
     .homeimage-caption {
         font-size: 1.2em;
+        overflow: visible;
     }
 }
 
