@@ -38,7 +38,6 @@ body {
     min-height: 100%;
     position: relative;
     margin: 0 auto;
-    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
 
 .nowrap {
@@ -61,6 +60,15 @@ body {
     grid-template-columns: 3fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
 }
 
 @media (min-width: 100px) {
@@ -417,31 +425,29 @@ p.center {
     pointer-events: auto;
     width: 100%;
     height: 100%;
-    
-    background: linear-gradient(
-        to top,
-        hsla(0, 0%, 0%, 0.64) 0%,
-        hsla(0, 0%, 0%, 0.632) 7.6%,
-        hsla(0, 0%, 0%, 0.609) 14%,
-        hsla(0, 0%, 0%, 0.574) 19.2%,
-        hsla(0, 0%, 0%, 0.529) 23.7%,
-        hsla(0, 0%, 0%, 0.475) 27.7%,
-        hsla(0, 0%, 0%, 0.417) 31.5%,
-        hsla(0, 0%, 0%, 0.354) 35.3%,
-        hsla(0, 0%, 0%, 0.291) 39.4%,
-        hsla(0, 0%, 0%, 0.228) 44.1%,
-        hsla(0, 0%, 0%, 0.169) 49.6%,
-        hsla(0, 0%, 0%, 0.115) 56.3%,
-        hsla(0, 0%, 0%, 0.069) 64.4%,
-        hsla(0, 0%, 0%, 0.033) 74.2%,
-        hsla(0, 0%, 0%, 0.009) 86%,
-        hsla(0, 0%, 0%, 0) 100%
-      );
 
-    
+    background: linear-gradient(to top,
+            hsla(0, 0%, 0%, 0.64) 0%,
+            hsla(0, 0%, 0%, 0.632) 7.6%,
+            hsla(0, 0%, 0%, 0.609) 14%,
+            hsla(0, 0%, 0%, 0.574) 19.2%,
+            hsla(0, 0%, 0%, 0.529) 23.7%,
+            hsla(0, 0%, 0%, 0.475) 27.7%,
+            hsla(0, 0%, 0%, 0.417) 31.5%,
+            hsla(0, 0%, 0%, 0.354) 35.3%,
+            hsla(0, 0%, 0%, 0.291) 39.4%,
+            hsla(0, 0%, 0%, 0.228) 44.1%,
+            hsla(0, 0%, 0%, 0.169) 49.6%,
+            hsla(0, 0%, 0%, 0.115) 56.3%,
+            hsla(0, 0%, 0%, 0.069) 64.4%,
+            hsla(0, 0%, 0%, 0.033) 74.2%,
+            hsla(0, 0%, 0%, 0.009) 86%,
+            hsla(0, 0%, 0%, 0) 100%);
+
+
     text-decoration: none;
     color: white;
-    
+
     box-shadow: 0px 0px 10px -1px #797979;
 }
 
@@ -460,22 +466,25 @@ p.center {
     height: 300px;
     line-height: 0.5;
     background-color: #d8d8d8;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.6117424242424243) 0%, rgba(0,0,0,0.058712121212121215) 100%),
-    url("https://www.salice.com/media/immagini/127_t_salice-hinges-soft-close-silentia-plus-MO-10a.jpg");
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6117424242424243) 0%, rgba(0, 0, 0, 0.058712121212121215) 100%),
+        url("https://www.salice.com/media/immagini/127_t_salice-hinges-soft-close-silentia-plus-MO-10a.jpg");
     background-position: center;
     background-size: cover;
     text-shadow: 0 0 1px #4b4b4b;
 }
+
 #custlogin a {
     width: 50%;
     display: block;
     margin: 0px 20px;
 }
+
 #custlogin p {
     color: whitesmoke;
     text-shadow: 0 0 1px #4b4b4b;
     line-height: 100%;
 }
+
 .blue1 {
     font-weight: bold;
     color: #2b2d38;
@@ -503,17 +512,24 @@ p.center {
     #custlogin {
         grid-area: 1 / 1 / 2 / 3;
     }
+
     #quicklinks {
         grid-area: 2 / 1 / 3 / 3;
     }
-    .homeText {grid-area: 3 / 1 / 4 / 3;}
+
+    .homeText {
+        grid-area: 3 / 1 / 4 / 3;
+    }
+
     .invBorder {
         grid-area: 4 / 1 / 4 / 4;
-        }
+    }
+
     .homeProducts {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 170px 170px 170px;
     }
+
     .homeimage-caption {
         font-size: 1.2em;
     }
@@ -523,17 +539,24 @@ p.center {
     #custlogin {
         grid-area: 1 / 1 / 2 / 2;
     }
+
     #quicklinks {
         grid-area: 1 / 2 / 2 / 3;
     }
-    .homeText {grid-area: 2 / 1 / 3 / 3;}
-    .invBorder {
-        grid-area: 3 / 1 / 4 / 3; 
+
+    .homeText {
+        grid-area: 2 / 1 / 3 / 3;
     }
+
+    .invBorder {
+        grid-area: 3 / 1 / 4 / 3;
+    }
+
     .homeProducts {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 220px 220px;
     }
+
     .homeimage-caption {
         font-size: 2em;
     }
