@@ -1,26 +1,22 @@
 </div><!--end content box (tabs)-->
 
-<div id="footer"><!--begin footer-->
-      <p class="icons">
-        <a href="https://www.youtube.com/user/MacMurrayPacific?feature=guide" target="_blank">
-        <img src="images/yt.gif" height="48" width="80" alt="YT" style="vertical-align:middle"></a>
-      </p>
-       <p class="icons">
-        <a href="https://www.facebook.com/macmurraypacific" target="_blank">
-        <img src="images/fb1.gif" height="43" width="36" alt="FB" style="vertical-align:middle"></a>
+<article id="footer"><!--begin footer-->
+  <footer>
+      <p class="center">
+        Copyright &copy; <TMPL_VAR NAME="copyrightYear"> MacMurray Pacific / <a href="terms.html">Company Policies and Terms</a>
       </p>
       <p class="backtotop">
         <a href="#top"><img src="images/backtotop.gif" alt="top" height="40" width="40"></a>
       </p>
-      <p class="center">
-        Copyright &copy; <TMPL_VAR NAME="copyrightYear"> MacMurray Pacific / <a href="terms.html">Company Policies and Terms</a>
-      </p>
+    </footer>
 <script>
+  // this is a work around for
+  //https://en.wikipedia.org/wiki/Post/Redirect/Get
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
     }
 </script>
-</div><!--end footer-->
+</article><!--end footer-->
 
 </div><!--end maincontent-->
 </div><!--end wrap-->
