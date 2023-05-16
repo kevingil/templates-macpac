@@ -8,7 +8,7 @@
   </p>
 
   <div class="product-results-wrap">
-    <div class="product-filters-wrap grid">
+    <div class="product-filters-wrap">
 
       <!-- filter bar for full size -->
 
@@ -24,62 +24,88 @@
       </details>
     </div>
 
-    <div class="product-filters-modal-wrap grid">
-           <!-- modal for mobile site -->
+    <div class="product-filters-modal-wrap">
+      <!-- modal for mobile site -->
 
-           <script>
-            // modal controls
-    
-            function modalClose(modalID) {
-              document.querySelector(modalID).removeAttribute('open');
-            }
-    
-            function modalOpen(modalID){
-              document.querySelector(modalID).setAttribute('open', true);
-            }
-    
-          </script>
-    
-          <button class="secondary" onclick="openModal('sort-dialog')">Sort</button>
-          <dialog id="sort-dialog">
-            <article>
-              <header>
-                <Link to="#" aria-label="Close" class="close" />
-                <p>
-                  <strong>Sort</strong>
-                </p>
-              </header>
-    
-              <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
-    
-              <footer>
-                <button className="secondary">
-                  Cancel
-                </button>
-                <button>Confirm</button>
-              </footer>
-            </article>
-          </dialog>
-    
-          <button class="secondary" onclick="openModal('filter-dialog')">Filter</button>
-          <dialog id="filter-dialog">
-            <article>
-              <header>
-                <Link to="#" aria-label="Close" class="close" />
-                <p>
-                  <strong>Filter</strong>
-                </p>
-              </header>
-              <TMPL_INCLUDE NAME="filters.tmpl">
-              <footer>
-                <button className="secondary">
-                  Cancel
-                </button>
-                <button>Confirm</button>
-              </footer>
-            </article>
-          </dialog>
+      <button class="secondary" onClick="openModal('sort-dialog')">
+        Sort
+      </button>
+
+      <dialog id="sort-dialog">
+        <article>
+          <header>
+            <p>
+              <strong>Sort</strong>
+            </p>
+          </header>
+
+          <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
+
+            <footer>
+              <button className="secondary" onClick="closeModal('sort-dialog')">
+                Cancel
+              </button>
+              <button>Confirm</button>
+            </footer>
+        </article>
+      </dialog>
+
+      <button class="secondary" onClick="openModal('filter-dialog')">
+        Filters
+      </button>
+
+      <dialog id="filter-dialog">
+        <article>
+          <header>
+            <p>
+              <strong>Filter</strong>
+            </p>
+          </header>
+          <TMPL_INCLUDE NAME="filters.tmpl">
+            <footer>
+              <button className="secondary" onClick="closeModal('filter-dialog')">
+                Cancel
+              </button>
+              <button>Confirm</button>
+            </footer>
+        </article>
+      </dialog>
     </div>
+
+
+    <script>
+      /*
+* Modal
+*
+* Pico.css - https://picocss.com
+* Copyright 2019-2023 - Licensed under MIT
+*/
+
+      // Config
+      const isOpenClass = "modal-is-open";
+      const openingClass = "modal-is-opening";
+      const closingClass = "modal-is-closing";
+      const animationDuration = 400; // ms
+      let visibleModal = null;
+
+      // Open modal
+      const openModal = (modalID) => {
+        let modal = document.getElementById(modalID);
+        modal.setAttribute("open", true);
+      };
+
+      // Close modal
+      const closeModal = (modalID) => {
+        let modal = document.getElementById(modalID);
+        visibleModal = null;
+        setTimeout(() => {
+          document.documentElement.classList.remove(closingClass, isOpenClass);
+          modal.removeAttribute("open");
+        }, animationDuration);
+      };
+    </script>
+
+
 
     <div class="products-wrap">
       <TMPL_INCLUDE NAME="productChunk.tmpl">
