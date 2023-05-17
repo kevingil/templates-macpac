@@ -20,7 +20,13 @@
 
     <div class="itemtable"><!--start search result item -->
 
-      <div class="thumbnail">
+      <div class="result-title">
+        <p class="medium">
+          <TMPL_VAR NAME="ProductDescription">
+        </p>
+      </div>
+
+      <div class="result-thumbnail">
         <TMPL_IF NAME="filename">
           <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>">
             <img src="products<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR NAME="filename">" title="<TMPL_VAR
@@ -28,7 +34,9 @@
           </a>
         </TMPL_IF>
       </div>
-      <div class="chunk1">
+      
+
+      <div class="result-body">
         <p class="medium">
           <b>
             <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>">
@@ -39,9 +47,6 @@
           </TMPL_IF>
         </p>
 
-        <p class="medium">
-          <TMPL_VAR NAME="ProductDescription">
-        </p>
         <TMPL_VAR NAME="Memo1">
           <TMPL_VAR NAME="Cat_Description">
             <TMPL_IF NAME="SpecialOrder">
@@ -70,27 +75,7 @@
                     </TMPL_IF>
                 </TMPL_IF>
             </TMPL_IF>
-      </div>
-      <div class="chunk2">
-        <TMPL_IF NAME="CatalogPageNo">
-          <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
-              class="newbutton1">Catalog Page</button></a>
-        </TMPL_IF>
-        <!--
-          5-17 REMOVING FOR NOW
-          We dont need this in search results.
-        <TMPL_IF NAME="youtubeCode">
-          <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME="youtubeCode">"><button class="newbutton3"
-              id="showProductVideo">Product Video</button></a>
-        </TMPL_IF>
-        -->
-        <br />
-        <TMPL_IF NAME="session_isGuest">
-          <TMPL_ELSE>
-            <TMPL_INCLUDE NAME="favoriteButton.tmpl">
-        </TMPL_IF>
-      </div>
-      <div class="chunk3">
+
         <TMPL_IF NAME="SpecialOrder">
           <TMPL_ELSE>
             <TMPL_IF NAME="ladder">
@@ -138,9 +123,29 @@
                     <TMPL_VAR NAME="explanation">
                   </td>
                 </tr>
-              </TMPL_IF>
-              
+          </TMPL_IF>   
       </div>
+
+      <div class="result-links">
+        <TMPL_IF NAME="CatalogPageNo">
+          <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
+              class="newbutton1">Catalog Page</button></a>
+        </TMPL_IF>
+        <TMPL_IF NAME="session_isGuest">
+          <TMPL_ELSE>
+            <TMPL_INCLUDE NAME="favoriteButton.tmpl">
+        </TMPL_IF>
+       <!--
+          5-17 REMOVING FOR NOW
+          We dont need this in search results.
+        <TMPL_IF NAME="youtubeCode">
+          <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME="youtubeCode">"><button class="newbutton3"
+              id="showProductVideo">Product Video</button></a>
+        </TMPL_IF>
+        -->
+      </div>
+
+
     </div>
   </TMPL_LOOP>
 </div>
