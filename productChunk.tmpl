@@ -76,10 +76,14 @@
           <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
               class="newbutton1">Catalog Page</button></a>
         </TMPL_IF>
+        <!--
+          5-17 REMOVING FOR NOW
+          We dont need this in search results.
         <TMPL_IF NAME="youtubeCode">
-          <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3"
+          <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME="youtubeCode">"><button class="newbutton3"
               id="showProductVideo">Product Video</button></a>
         </TMPL_IF>
+        -->
         <br />
         <TMPL_IF NAME="session_isGuest">
           <TMPL_ELSE>
