@@ -6,12 +6,7 @@
       <form method="post" action="/category.html">
         <fieldset>
           <legend class="filter-legend">Manufacturer</legend>
-
-          <input type="submit" value="Update" class="newbutton">
-
           <TMPL_IF NAME="vendors">
-
-
             <TMPL_LOOP NAME="vendors">
               <label for="vendor">
                 <input type="checkbox" name="vendor_<TMPL_VAR NAME=" VendorCode">"<TMPL_VAR NAME="checked">
