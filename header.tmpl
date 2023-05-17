@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   <link rel="stylesheet" type="text/css" href="global.css">
   <html data-theme="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <link rel="icon" type="image/gif" href="images/bridge2.gif">
 
@@ -84,14 +87,14 @@
       <div class="content">
         <!--begin content box (tabs)-->
 
-          <TMPL_IF NAME="categoryPage">
-            <div class="searchDif">
-              <TMPL_IF NAME="prod_normal">MacPac Inventory</TMPL_IF>
-              <TMPL_IF NAME="prod_favorites">My Favorites Search</TMPL_IF>
-              <TMPL_IF NAME="prod_history">Order History Search</TMPL_IF>
-              <TMPL_IF NAME="prod_shoplist">Shopping List Search</TMPL_IF>
-            </div>
-          </TMPL_IF>
+        <TMPL_IF NAME="categoryPage">
+          <div class="searchDif">
+            <TMPL_IF NAME="prod_normal">MacPac Inventory</TMPL_IF>
+            <TMPL_IF NAME="prod_favorites">My Favorites Search</TMPL_IF>
+            <TMPL_IF NAME="prod_history">Order History Search</TMPL_IF>
+            <TMPL_IF NAME="prod_shoplist">Shopping List Search</TMPL_IF>
+          </div>
+        </TMPL_IF>
         <div class="search-wrap">
 
           <form class="searchbar" action="/category.html" method="post">
