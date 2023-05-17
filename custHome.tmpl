@@ -2,7 +2,7 @@
 
 
 
-<div class="center">
+<article class="center">
   <p>User <b><TMPL_VAR NAME="user_name"></b> for <b><TMPL_VAR NAME="session_custName"></b></p>
   
 <!--Salesmen Tools-->
@@ -18,14 +18,14 @@
     <a href="/account.html"><div class="buttonBig"><h4>My<br/>Account</h4></div></a>
     <a href="/cart.html"><div class="buttonBig"><h4>Quick Order/<br/>View Cart</h4></div></a>
 
-</div>
+</article>
 
-<div class="webTool">
+<article class="webTool">
 <a href="https://www.rockymountainhardware.com/design-your-own/#get-started" class="products" target="_blank"><b>Featured Web Tool</b><br/><p class="small2">Rocky Mountain - Design your own Artisan Hardware</p><br/>
 <img src="images/rocky2.jpg" alt="Rocky" class="shadow"></a>
-</div>
+</article>
 
-<div class="prodBull">
+<article class="prodBull">
 <b>New Products</b><br/>
 <div id="slideshow">
     <div>
@@ -45,12 +45,12 @@
    </div>
 
 </div>
-</div>
+</article>
 
 
 
 
-<div class="custInfo">
+<article class="custInfo">
 <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br/>
 <TMPL_VAR NAME="session_cust_customerRow_Name"><br/>
 <TMPL_VAR NAME="session_cust_customerRow_Address"><br />
@@ -73,19 +73,19 @@
   </TMPL_LOOP>
 </TMPL_IF>
 </div>
-</div>
+</article>
 
-<div class="specials">
+<article class="specials">
 <b>View our current Specials Flyer</b>
 <a href="040523special.pdf" class="products">
 <img src="images/sheet.jpg" width="75" height="75" alt="specials" class="left1"><br/><br/>
 <b>April - May '23</b></a><br/><br/>
 <TMPL_IF NAME="session_isCustomer"><TMPL_ELSE>
 <p class="small"><a href="/archive.html">Specials Archive</a></p></TMPL_IF>
-</div>
+</article>
 
 
-<div class="cartstatus">
+<article class="cartstatus">
 <b>Cart Status</b>
 <TMPL_IF NAME="cart_itemCount"><div>You have items in your cart.</div></TMPL_IF>
 <hr>
@@ -99,7 +99,7 @@
     </div>
   </a>
 </TMPL_LOOP>
-</div>
+</article>
 
 
 
