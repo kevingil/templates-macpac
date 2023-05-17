@@ -96,44 +96,45 @@
                     <td class="white-space: nowrap">
                       <span<TMPL_IF NAME="special"> class="promo"
             </TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM">
+            </TMPL_LOOP>
+            <TMPL_ELSE>
+              <p class="medium">
+                <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
+              </p>
+              </TMPL_IF>
+            
+              <TMPL_IF NAME="session_isGuest">
+                <TMPL_ELSE>
+                  <div>
+                    <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
+                    useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
+                        perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
+                            DEFAULT="">">
+                            <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
+                              ProductCode="<TMPL_VAR NAME="ProductCode">" />
+                  </div>
+                  <TMPL_IF NAME="Qty">
+                    <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
+                      <TMPL_ELSE>
+                        <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
+                  </TMPL_IF>
+              </TMPL_IF>
+              </TMPL_IF>
+            
+              <TMPL_IF NAME="showExplanation">
+                <tr>
+                  <td colspan=4>
+                    <h2>Price Ladder Explanation for <TMPL_VAR NAME="ProductCode"> visible only to admins</h2>
+                    <TMPL_VAR NAME="explanation">
+                  </td>
+                </tr>
+              </TMPL_IF>
+              </TMPL_LOOP>
       </div>
+    </div>
 </div>
 </div>
-  </TMPL_LOOP>
-</div>
-<TMPL_ELSE>
-  <p class="medium">
-    <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
-  </p>
-  </TMPL_IF>
 
-  <TMPL_IF NAME="session_isGuest">
-    <TMPL_ELSE>
-      <div>
-        <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
-        useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
-            perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
-                DEFAULT="">">
-                <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
-                  ProductCode="<TMPL_VAR NAME="ProductCode">" />
-      </div>
-      <TMPL_IF NAME="Qty">
-        <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
-          <TMPL_ELSE>
-            <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
-      </TMPL_IF>
-  </TMPL_IF>
-  </TMPL_IF>
-
-  <TMPL_IF NAME="showExplanation">
-    <tr>
-      <td colspan=4>
-        <h2>Price Ladder Explanation for <TMPL_VAR NAME="ProductCode"> visible only to admins</h2>
-        <TMPL_VAR NAME="explanation">
-      </td>
-    </tr>
-  </TMPL_IF>
-  </TMPL_LOOP>
   </div> <!-- end search result item-->
   </article>
   <TMPL_INCLUDE NAME="pageNumbers.tmpl">
