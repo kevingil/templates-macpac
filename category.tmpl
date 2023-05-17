@@ -13,7 +13,7 @@
       <!-- filter bar for full size -->
 
       <details id="pagecontrols" open>
-        <summary role="button secondary"><b>Page Controls</b></summary>
+        <summary role="button" class="secondary"><b>Page Controls</b></summary>
         <article>
         <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
         </article>
@@ -21,8 +21,10 @@
 
 
       <details id="filtercontainer" open>
-        <summary role="button secondary"><b>Filters</b></summary>
+        <summary role="button " class="secondary"><b>Filters</b></summary>
+        <article>
         <TMPL_INCLUDE NAME="filters.tmpl">
+        </article>
       </details>
     </div>
 
