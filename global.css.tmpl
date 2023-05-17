@@ -1941,7 +1941,7 @@ table.table3 td {
 .itemtable {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto 200px 50px;
+    grid-template-rows: auto 200px 30px;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
@@ -1953,8 +1953,16 @@ table.table3 td {
 
 .result-body { grid-area: 2 / 2 / 3 / 3;
     padding: 0px 10px; }
-.result-links { grid-area: 3 / 1 / 4 / 3;  }
+.result-links { 
+    grid-area: 3 / 1 / 4 / 3;
 
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.result-link {
+    padding: 10px;
+}
 
 
 
