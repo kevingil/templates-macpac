@@ -1940,21 +1940,22 @@ table.table3 td {
 
 .itemtable {
     display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: 1fr 0.5fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 200px 50px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
-.itemtable .thumbnail {grid-area: 1 / 1 / 2 / 2;}
-.chunk1 {grid-area: 1 / 2 / 2 / 4;
-        padding: 0px 10px;}
-.chunk2 { grid-area: 2 / 1 / 3 / 3; }
-.chunk3 { grid-area: 2 / 3 / 3 / 4; }
+.result-title {grid-area: 1 / 1 / 2 / 3; }
 
-.thumbnail a img {
-    width: 100%;
-}
+.result-thumbnail {grid-area: 2 / 1 / 3 / 2;
+    width: 100%;}
+
+.result-body { grid-area: 2 / 2 / 3 / 3;
+    padding: 0px 10px; }
+.result-links { grid-area: 3 / 1 / 4 / 3;  }
+
+
 
 
 /* Ladder Table */
