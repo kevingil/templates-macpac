@@ -33,6 +33,11 @@
                 NAME="ProductCode" escape=html> image" alt="image">
           </a>
         </TMPL_IF>
+        <TMPL_IF NAME="session_isGuest">
+          <TMPL_ELSE>
+            <button class="result-link secondary shoppingList newButtons <TMPL_UNLESS NAME="ShoppingList">addShoppingList</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="ShoppingList">Remove from Bookmarks <i class="fa-regular fa-bookmark"></i><TMPL_ELSE>Add to Bookmarks <i class="fa-solid fa-bookmark"></i></i></TMPL_IF></button>
+            <button class="result-link secondary favorite newButtons <TMPL_UNLESS NAME="Favorite">addFavorite</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites <i class="fa-regular fa-heart"></i><TMPL_ELSE>Add to Favorites <i class="fa-solid fa-heart"></i></i></TMPL_IF></button>
+        </TMPL_IF>
       </div>
       
 
@@ -128,13 +133,9 @@
 
       <div class="result-links">
         <TMPL_IF NAME="CatalogPageNo">
-          <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank">Catalog Page</a>
+          <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank">Catalog Page</a>
         </TMPL_IF>
-        <TMPL_IF NAME="session_isGuest">
-          <TMPL_ELSE>
-            <button class="result-link secondary shoppingList newButtons <TMPL_UNLESS NAME="ShoppingList">addShoppingList</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="ShoppingList">Remove from Bookmarks <i class="fa-regular fa-bookmark"></i><TMPL_ELSE>Add to Bookmarks <i class="fa-solid fa-bookmark"></i></i></TMPL_IF></button>
-            <button class="result-link secondary favorite newButtons <TMPL_UNLESS NAME="Favorite">addFavorite</TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites <i class="fa-regular fa-heart"></i><TMPL_ELSE>Add to Favorites <i class="fa-solid fa-heart"></i></i></TMPL_IF></button>
-        </TMPL_IF>
+ 
        <!--
           5-17 REMOVING FOR NOW
           We dont need this in search results.
