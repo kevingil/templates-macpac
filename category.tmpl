@@ -12,14 +12,16 @@
 
       <!-- filter bar for full size -->
 
-      <details id="pagecontrols" role="button" class="contrast outline" open>
-        <summary><b>Page Controls</b></summary>
+      <details id="pagecontrols" open>
+        <summary role="button secondary"><b>Page Controls</b></summary>
+        <article>
         <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
+        </article>
       </details>
 
 
-      <details id="filtercontainer" role="button" class="contrast outline" open>
-        <summary><b>Filters</b></summary>
+      <details id="filtercontainer" open>
+        <summary role="button secondary"><b>Filters</b></summary>
         <TMPL_INCLUDE NAME="filters.tmpl">
       </details>
     </div>
