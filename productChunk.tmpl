@@ -128,8 +128,9 @@
 
       <div class="result-links">
         <TMPL_IF NAME="CatalogPageNo">
-          <button class="result-link secondary" onclick="window.open('/viewCatalog.html?page=<TMPL_VAR NAME=\"CatalogPageNo\">')">Catalog Page</button>
-
+          <form action="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">">
+            <button class="secondary result-link" type="submit" value="Catalog" />
+        </form>
         </TMPL_IF>
         <TMPL_IF NAME="session_isGuest">
           <TMPL_ELSE>
