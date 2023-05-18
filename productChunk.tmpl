@@ -21,7 +21,7 @@
     <div class="itemtable"><!--start search result item -->
 
       <div class="result-title">
-        <p class="medium">
+        <p>
           <TMPL_VAR NAME="ProductDescription">
         </p>
       </div>
@@ -38,10 +38,10 @@
       
 
       <div class="result-body">
-        <p class="medium">
+        <p>
           <b>
-            <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>">
-              <TMPL_VAR NAME="ProductCode"></a>
+            Part#: <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>">
+               <TMPL_VAR NAME="ProductCode"></a>
           </b>
           <TMPL_IF NAME="session_isSales">
             <TMPL_IF NAME="ShowPR"><a href="/pr.html?ProductCode=<TMPL_VAR NAME="ProductCode">">DISC CHART</a></TMPL_IF>
@@ -53,6 +53,7 @@
             <TMPL_IF NAME="SpecialOrder">
               <TMPL_ELSE>
                 <TMPL_IF NAME="allowQtyAvailable">
+                  
                   <p class="smallChunk">Stock Availability: <TMPL_VAR NAME="QtyAvailable">
                   </p>
                 </TMPL_IF>
@@ -94,7 +95,7 @@
             </TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM">
             </TMPL_LOOP>
             <TMPL_ELSE>
-              <p class="medium">
+              <p >
                 <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
               </p>
               </TMPL_IF>
