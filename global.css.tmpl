@@ -1958,7 +1958,8 @@ table.table3 td {
 
 .result-links {
     grid-area: 3 / 1 / 4 / 2;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
 }
 
 
@@ -1980,12 +1981,6 @@ table.table3 td {
 .result-links a {
     font-size: 13pt;
     color: var(--primary);
-}
-
-.result-links a::before {
-    content: "\a";
-    white-space: pre;
-    /*LOL*/
 }
 
 
