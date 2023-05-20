@@ -12,9 +12,7 @@
       <TMPL_LOOP NAME="pageList">
 
         <TMPL_IF NAME="selected">
-          <div class="current square">
-            <a href="#"><TMPL_VAR NAME="page"></a>
-          </div>
+            <a class="current" href="#"><TMPL_VAR NAME="page"></a>
           <TMPL_ELSE>
             <a href="<TMPL_VAR NAME=" url">">
               <div class="square">
