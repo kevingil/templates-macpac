@@ -2,7 +2,7 @@
   <TMPL_IF NAME="pageCount">
     <TMPL_INCLUDE NAME="pageNumbers.tmpl">
 
-      <div class="itemrow">
+      <article class="itemrow">
         <b>Click on Image or Part Number for Detailed Product Information
           <TMPL_IF NAME="session_isGuest">
             <TMPL_ELSE>
@@ -18,7 +18,7 @@
       </tr>
     </TMPL_IF>
 
-    <article class="itemtable"><!--start search result item -->
+    <div class="itemtable"><!--start search result item -->
 
       <div class="result-title">
         <p>
@@ -152,10 +152,10 @@
   </TMPL_LOOP>
 </div>
 
-</article> <!-- end search result item-->
-</div>
+  </div> <!-- end search result item-->
+  </article>
 
-
+  
   <TMPL_INCLUDE NAME="pageNumbers.tmpl">
     <TMPL_ELSE>
       <TMPL_IF NAME="prod_normal">
