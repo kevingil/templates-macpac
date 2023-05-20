@@ -1,11 +1,11 @@
 <TMPL_IF NAME="showPageNumbers">
   <div class="pagination">
 
-        <TMPL_IF NAME="firstPage"><a href="<TMPL_VAR NAME=" firstPage">">  <i class="fa-solid fa-angles-left"></i> </a>
+        <TMPL_IF NAME="firstPage"><a href="<TMPL_VAR NAME="firstPage">">  <i class="fa-solid fa-angles-left"></i> </a>
           <TMPL_ELSE> <a href="#"><i class="fa-solid fa-angles-left"></i></a>
         </TMPL_IF>
 
-        <TMPL_IF NAME="prevPage"><a href="<TMPL_VAR NAME=" prevPage">">  <i class="fa-solid fa-angle-left"></i> </a>
+        <TMPL_IF NAME="prevPage"><a href="<TMPL_VAR NAME="prevPage">">  <i class="fa-solid fa-angle-left"></i> </a>
           <TMPL_ELSE><a href="#"><i class="fa-solid fa-angle-left"></i></a>
         </TMPL_IF>
 
@@ -14,7 +14,7 @@
         <TMPL_IF NAME="selected">
             <a class="current" href="#"><TMPL_VAR NAME="page"></a>
           <TMPL_ELSE>
-            <a href="<TMPL_VAR NAME=" url">">
+            <a href="<TMPL_VAR NAME="url">">
               <div class="square">
                 <TMPL_VAR NAME="page">
               </div>
@@ -23,11 +23,11 @@
  
       </TMPL_LOOP>
    
-        <TMPL_IF NAME="nextPage"><a href="<TMPL_VAR NAME=" nextPage">"> <i class="fa-solid fa-chevron-right"></i> </a>
+        <TMPL_IF NAME="nextPage"><a href="<TMPL_VAR NAME="nextPage">"> <i class="fa-solid fa-chevron-right"></i> </a>
           <TMPL_ELSE> <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
         </TMPL_IF> 
 
-        <TMPL_IF NAME="lastPage"><a href="<TMPL_VAR NAME=" lastPage">"> <i class="fa-solid fa-angles-right"></i> </a>
+        <TMPL_IF NAME="lastPage"><a href="<TMPL_VAR NAME="lastPage">"> <i class="fa-solid fa-angles-right"></i> </a>
           <TMPL_ELSE> <a href="#"><i class="fa-solid fa-angles-right"></i></a>
         </TMPL_IF>
 
