@@ -1,11 +1,13 @@
 <TMPL_IF NAME="showPageNumbers">
-  <div class="title1">
-    <TMPL_IF NAME="firstPage"><a href="<TMPL_VAR NAME="firstPage">">First</a><TMPL_ELSE>First</TMPL_IF> /
-    <TMPL_IF NAME="prevPage"><a href="<TMPL_VAR NAME="prevPage">">Previous</a><TMPL_ELSE>Previous</TMPL_IF>
-    <TMPL_LOOP NAME="pageList">
-    <TMPL_IF NAME="selected"><div class="current square"><TMPL_VAR NAME="page"></div><TMPL_ELSE><a href="<TMPL_VAR NAME="url">"><div class="square"><TMPL_VAR NAME="page"></div></a></TMPL_IF>
-    </TMPL_LOOP>
-    <TMPL_IF NAME="nextPage"><a href="<TMPL_VAR NAME="nextPage">">Next</a><TMPL_ELSE>Next</TMPL_IF> /
-    <TMPL_IF NAME="lastPage"><a href="<TMPL_VAR NAME="lastPage">">Last</a><TMPL_ELSE>Last</TMPL_IF>
+  <div class="pagination">
+    <div>
+      <TMPL_IF NAME="firstPage"><a href="<TMPL_VAR NAME="firstPage">">First</a><TMPL_ELSE>First</TMPL_IF> /
+      <TMPL_IF NAME="prevPage"><a href="<TMPL_VAR NAME="prevPage">">Previous</a><TMPL_ELSE>Previous</TMPL_IF>
+      <TMPL_LOOP NAME="pageList">
+      <TMPL_IF NAME="selected"><div class="current square"><TMPL_VAR NAME="page"></div><TMPL_ELSE><a href="<TMPL_VAR NAME="url">"><div class="square"><TMPL_VAR NAME="page"></div></a></TMPL_IF>
+      </TMPL_LOOP>
+      <TMPL_IF NAME="nextPage"><a href="<TMPL_VAR NAME="nextPage">">Next</a><TMPL_ELSE>Next</TMPL_IF> /
+      <TMPL_IF NAME="lastPage"><a href="<TMPL_VAR NAME="lastPage">">Last</a><TMPL_ELSE>Last</TMPL_IF>
+    </div>
   </div>
 </TMPL_IF>
