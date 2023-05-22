@@ -118,7 +118,7 @@
                     function minus(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = $(this).parent().find('input');
+                      let inputfield = this.parentNode.getElementsByClassName('.addQuantity');
 
                       console.log($(this).parent());
 
@@ -130,7 +130,7 @@
                         console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
-                        inputfield.val(Number(0));
+                        inputfield.value = Number(0);
                         console.log("zeroed?");
                       }
                     }
@@ -138,7 +138,7 @@
                     function add(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = $(this).parent().find('input');
+                      let inputfield = this.parentNode.getElementsByClassName('.addQuantity');
 
                       console.log($(this).parent());
 
@@ -150,7 +150,7 @@
                         console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
-                        inputfield.val(Number(0));
+                        inputfield.value = Number(0);
                         console.log("zeroed?");
                       }
                     }
