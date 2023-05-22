@@ -120,7 +120,7 @@
                       let currentVal = Number($(this).parent().find('input').val());
                       let inputfield = $(this).parent().find('input');
 
-                      console.log("current: " + currentVal);
+                      console.log($(this).parent());
 
                       // If is not undefined
                       if (!isNaN(currentVal)) {
@@ -140,7 +140,7 @@
                       let currentVal = Number($(this).parent().find('input').val());
                       let inputfield = $(this).parent().find('input');
 
-                      console.log("current: " + currentVal);
+                      console.log($(this).parent());
 
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
