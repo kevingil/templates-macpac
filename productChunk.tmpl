@@ -57,7 +57,10 @@
                         <p class="smallChunk">Stock Availability: <TMPL_VAR NAME="QtyAvailable">
                         </p>
                       </TMPL_IF>
-                      <p class="smallChunk">Carton Quantity: <TMPL_VAR NAME="PerBox">
+                      <p class="smallChunk">Carton Quantity: <TMPL_VAR NAME="PerBox"><br></br>
+                        <TMPL_IF NAME="CatalogPageNo">
+                          <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank">Catalog Page <i class="fa-regular fa-file"></i></a>
+                        </TMPL_IF>
                       </p>
                       <TMPL_IF NAME="StatusFlagN">
                         <p class="notAvailable">Product no longer available.</p>
@@ -150,9 +153,6 @@
         productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites
             <TMPL_ELSE>Add to Favorites 
           </TMPL_IF></button>
-  </TMPL_IF>
-  <TMPL_IF NAME="CatalogPageNo">
-    <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank">Catalog Page <i class="fa-regular fa-file"></i></a>
   </TMPL_IF>
   <!--
                                     5-17 REMOVING FOR NOW
