@@ -94,11 +94,14 @@
                     <TMPL_IF NAME="session_isGuest">
                     <TMPL_ELSE>
                       <div>
+
+                        <span class="minus">-</span>
                         <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
                               useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
                                   perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
                                       DEFAULT="">">
-                                      <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
+                        <span class="plus">+</span>            
+                        <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
                                         ProductCode="<TMPL_VAR NAME="ProductCode">" >Add to Cart</button>
                       </div>
                       <TMPL_IF NAME="Qty">
