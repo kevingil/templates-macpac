@@ -16,14 +16,16 @@
           <article class="itemtable"><!--start search result item -->
 
             <div class="result-title">
-              <p>
+              <p> 
+                <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>">
                 <TMPL_VAR NAME="ProductDescription">
+                </a>
               </p>
             </div>
 
             <div class="result-thumbnail">
               <TMPL_IF NAME="filename">
-                <a href="/product.html?productCode=<TMPL_VAR NAME=" ProductCode" escape=url>">
+                <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>">
                   <img src="products<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR NAME="filename">" title="<TMPL_VAR
                       NAME="ProductCode" escape=html> image" alt="image">
                 </a>
@@ -44,7 +46,7 @@
               </p>
 
               <TMPL_VAR NAME="Memo1">
-                
+
                 <p class="cat-description">
                   <TMPL_VAR NAME="Cat_Description">
                   </p>
