@@ -1611,8 +1611,9 @@ table.center {
     display: grid;
     grid-template-columns: 50px auto 50px;
     grid-template-rows: repeat(2, 50px);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    line-height: auto;
 }
 
 .addQuantity {
@@ -1631,6 +1632,7 @@ table.center {
 
 .addProductToCart {
     grid-area: 2 / 1 / 3 / 4; 
+    height: 100%;
 }
 
 .addRowToCart {
