@@ -120,7 +120,9 @@
                       // If is not undefined
                       if (!isNaN(currentVal)) {
                         // Increment
+                        console.log("current: " + currentVal);
                         $(this).parent().find('input').val(currentVal + 1);
+                        console.log("current: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
                         $(this).parent().find('input').val(0);
@@ -135,7 +137,9 @@
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
                         // Decrement one
+                        console.log("current: " + currentVal);
                         $(this).parent().find('input').val(currentVal - 1);
+                        console.log("current: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
                         $(this).parent().find('input').val(0);
