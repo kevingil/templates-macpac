@@ -116,9 +116,9 @@
                     // This button will increment the value
                   });
                     function minus(e) {
-                      // Stop acting like a button
                       // Get its current value
                       var currentVal = Number($(this).parent().find('input').val());
+                      console.log("current: " + currentVal);
                       // If is not undefined
                       if (!isNaN(currentVal)) {
                         // Increment
@@ -132,9 +132,9 @@
                     }
                     // This button will decrement the value till 0
                     function add(e) {
-                      // Stop acting like a button
                       // Get its current value
                       var currentVal = Number($(this).parent().find('input').val());
+                      console.log("current: " + currentVal);
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
                         // Decrement one
