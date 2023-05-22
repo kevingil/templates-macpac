@@ -144,11 +144,10 @@
       <button class="result-link secondary shoppingList newButtons <TMPL_UNLESS NAME=" ShoppingList">addShoppingList
         </TMPL_UNLESS>" productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="ShoppingList">Remove from
             Bookmarks <i class="fa-regular fa-bookmark"></i>
-            <TMPL_ELSE>Add to Bookmarks <i class="fa-solid fa-bookmark"></i></i>
+            <TMPL_ELSE>Add to Bookmarks</i>
           </TMPL_IF></button>
       <button class="result-link secondary favorite newButtons <TMPL_UNLESS NAME=" Favorite">addFavorite</TMPL_UNLESS>"
-        productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites <i
-              class="fa-regular fa-heart"></i>
+        productCode="<TMPL_VAR NAME="ProductCode" escape=html>"><TMPL_IF NAME="Favorite">Remove from Favorites
             <TMPL_ELSE>Add to Favorites <i class="fa-solid fa-heart"></i></i>
           </TMPL_IF></button>
   </TMPL_IF>
