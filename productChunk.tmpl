@@ -115,9 +115,8 @@
                   jQuery(document).ready(function () {
                     // This button will increment the value
                   });
-                    function minus(span) {
+                    function minus(e) {
                       // Stop acting like a button
-                      span.preventDefault();
                       // Get its current value
                       var currentVal = Number($(this).parent().find('input').val());
                       // If is not undefined
@@ -132,9 +131,8 @@
                       }
                     }
                     // This button will decrement the value till 0
-                    function add(span) {
+                    function add(e) {
                       // Stop acting like a button
-                      span.preventDefault();
                       // Get its current value
                       var currentVal = Number($(this).parent().find('input').val());
                       // If it isn't undefined or its greater than 0
