@@ -112,6 +112,8 @@
                   // Cart Controls Controls
                   jQuery(document).ready(function () {
                     // This button will increment the value
+                    var currentVal = $(this).parent().find('input').val();
+                    console.log("found: " + currentVal);
                     $('.plus').click(function (e) {
                       // Stop acting like a button
                       e.preventDefault();
@@ -122,7 +124,7 @@
                         // Increment
                         console.log("current: " + currentVal);
                         $(this).parent().find('input').val(currentVal + 1);
-                        console.log("current: " + currentVal);
+                        console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
                         $(this).parent().find('input').val(0);
@@ -139,7 +141,7 @@
                         // Decrement one
                         console.log("current: " + currentVal);
                         $(this).parent().find('input').val(currentVal - 1);
-                        console.log("current: " + currentVal);
+                        console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
                         $(this).parent().find('input').val(0);
