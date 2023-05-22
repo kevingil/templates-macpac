@@ -127,7 +127,7 @@
                         console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
-                        $(this).parent().find('input').val(0);
+                        $(this).parent().querySelector('.quantity').val(Number(0));
                         console.log("zeroed?");
                       }
                     }
@@ -144,7 +144,7 @@
                         console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
-                        $(this).parent().find('input').val(0);
+                        $(this).parent().querySelector('.quantity').val(Number(0));
                         console.log("zeroed?");
                       }
                     }
