@@ -380,11 +380,11 @@ img.right1 {
     bottom: 2%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     transition: display 200ms;
-  }
-  
-  #backToTop:hover {
+}
+
+#backToTop:hover {
     background-color: var(--primary-hover);
-  }
+}
 
 
 
@@ -860,38 +860,40 @@ html[xmlns] .clearfix {
 }
 
 .pagination {
-	display: flex;
-	justify-content: left;
-	align-items: center;
-	flex-wrap: wrap;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
     margin: 0px 15px;
 }
 
-.pagination > a {
-	background-color: #fff;
-	color: #999;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 14px;
-	min-width: 20px;
-	padding: 0 15px;
-	height: 40px;
-	text-decoration: none;
-	position: relative;
+.pagination>a {
+    background-color: #fff;
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    min-width: 20px;
+    padding: 0 15px;
+    height: 40px;
+    text-decoration: none;
+    position: relative;
     margin: 3px;
-    
-	border-radius: 5px;
-	box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
+
+    border-radius: 5px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.15);
 }
-.pagination > a.current {
-	background-color: var(--primary-hover);
-	color: #fff;
+
+.pagination>a.current {
+    background-color: var(--primary-hover);
+    color: #fff;
     padding: 10px;
 }
-.pagination > a:hover {
-	background-color: var(--primary);
-	color: #fff;
+
+.pagination>a:hover {
+    background-color: var(--primary);
+    color: #fff;
 }
 
 
@@ -969,8 +971,7 @@ div.content {
     font-size: 8pt;
     text-align: right;
     font-weight: bold;
-    color:red
-    padding: 0px 0px 20px 0px;
+    color: red padding: 0px 0px 20px 0px;
 }
 
 .savecartas {
@@ -1604,21 +1605,32 @@ table.center {
 
 .addToCart,
 .setPriceButton,
-.addProductToCart {
+.addProductToCart {}
 
+.cart-controls {
+    display: grid;
+    grid-template-columns: 50px auto 50px;
+    grid-template-rows: repeat(2, 50px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
-.minus, .plus{
-    background:#f2f2f2;
-    border-radius:4px;
-    padding:8px 5px 8px 5px;
-    border:1px solid #ddd;
+
+.addQuantity {
+    display: inline-block;
+}
+
+.minus,
+.plus {
+    background: #f2f2f2;
+    border-radius: 4px;
+    border: 1px solid #ddd;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
 }
 
-.addProductToCart1 {
-
+.addProductToCart {
+    grid-area: 2 / 1 / 3 / 4; 
 }
 
 .addRowToCart {
