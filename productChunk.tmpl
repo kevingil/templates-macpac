@@ -117,34 +117,40 @@
                   });
                     function minus(e) {
                       // Get its current value
-                      var currentVal = Number($(this).parent().find('input').val());
+                      let currentVal = Number($(this).parent().find('input').val());
+                      let inputfield = this.parentElement.querySelector('input[name="text"]');
+
                       console.log("current: " + currentVal);
+
                       // If is not undefined
                       if (!isNaN(currentVal)) {
                         // Increment
                         console.log("current: " + currentVal);
-                        this.parentElement.querySelector('.quantity').val(Number(currentVal - 1));
+                        inputfield.val(Number(currentVal - 1));
                         console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
-                        this.parentElement.querySelector('.quantity').val(Number(0));
+                        inputfield.val(Number(0));
                         console.log("zeroed?");
                       }
                     }
                     // This button will decrement the value till 0
                     function add(e) {
                       // Get its current value
-                      var currentVal = Number($(this).parent().find('input').val());
+                      let currentVal = Number($(this).parent().find('input').val());
+                      let inputfield = this.parentElement.querySelector('input[name="text"]');
+
                       console.log("current: " + currentVal);
+                      
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
                         // Decrement one
                         console.log("current: " + currentVal);
-                        this.parentElement.querySelector('.quantity').val(Number(currentVal + 1));
+                        inputfield.val(Number(currentVal + 1));
                         console.log("added: " + currentVal);
                       } else {
                         // Otherwise put a 0 there
-                        this.parentElement.querySelector('.quantity').val(Number(0));
+                        inputfield.val(Number(0));
                         console.log("zeroed?");
                       }
                     }
