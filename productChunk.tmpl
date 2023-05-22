@@ -99,13 +99,13 @@
     <TMPL_ELSE>
       <div class="cart-controls">
 
-        <button class='down_count btn btn-info' title='Down'><i class="fa-solid fa-minus"></i></button>
-        <input type="text" class="quantity secondary addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
+        <button class='down_count btn btn-info secondary' title='Down'><i class="fa-solid fa-minus"></i></button>
+        <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
         useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
             perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
                 DEFAULT="0">">
 
-                <button class='up_count secondary btn btn-info' title='Up'><i class="fa-solid fa-plus"></i></button>
+                <button class='up_count btn btn-info secondary' title='Up'><i class="fa-solid fa-plus"></i></button>
 
                 <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
                   ProductCode="<TMPL_VAR NAME="ProductCode">" >Add to Cart</button>
