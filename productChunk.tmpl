@@ -99,35 +99,19 @@
     <TMPL_ELSE>
       <div class="cart-controls">
 
-        <button class='down_count btn btn-info' title='Down'><i class='icon-minus'></i></button>
-        <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
+        <button class='down_count btn btn-info' title='Down'><i class="fa-solid fa-minus"></i></button>
+        <input type="text" class="quantity secondary addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
         useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
             perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
                 DEFAULT="0">">
 
-                <button class='up_count btn btn-info' title='Up'><i class='icon-plus'></i></button>
+                <button class='up_count secondary btn btn-info' title='Up'><i class="fa-solid fa-plus"></i></button>
 
                 <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
                   ProductCode="<TMPL_VAR NAME="ProductCode">" >Add to Cart</button>
 
                 <script>
-                  $(document).ready(function () {
-                    $('.btn-info').click(function (e) {
-                      var button_classes, value = +$('.addQuantity').val();
-                      button_classes = $(e.currentTarget).prop('class');
-                      if (button_classes.indexOf('up_count') !== -1) {
-                        value = (value) + 1;
-                      } else {
-                        value = (value) - 1;
-                      }
-                      value = value < 0 ? 0 : value;
-                      $('.addQuantity').val(value);
-                    });
-                    $('.addQuantity').click(function () {
-                      $(this).focus().select();
-                    });
-                  });
-
+                  // pending
                 </script>
 
       </div>
