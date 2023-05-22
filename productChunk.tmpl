@@ -118,7 +118,7 @@
                     function minus(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = this.parentElement.querySelector('input');
+                      let inputfield = $(this).parent().find('input');
 
                       console.log("current: " + currentVal);
 
@@ -138,7 +138,7 @@
                     function add(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = this.parentElement.querySelector('input');
+                      let inputfield = $(this).parent().find('input');
 
                       console.log("current: " + currentVal);
 
