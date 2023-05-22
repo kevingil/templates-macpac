@@ -118,7 +118,7 @@
                     function minus(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = this.parentElement.querySelector('input[name="text"]');
+                      let inputfield = this.parentElement.querySelector('input');
 
                       console.log("current: " + currentVal);
 
@@ -138,10 +138,10 @@
                     function add(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = this.parentElement.querySelector('input[name="text"]');
+                      let inputfield = this.parentElement.querySelector('input');
 
                       console.log("current: " + currentVal);
-                      
+
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
                         // Decrement one
