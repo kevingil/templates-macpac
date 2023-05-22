@@ -118,9 +118,9 @@
                     function minus(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = this.parentNode.querySelector('.addQuantity');
+                      let inputfield = this.parentNode.querySelector('input');
 
-                      console.log(inputfield);
+                      console.log(this);
 
                       // If is not undefined
                       if (!isNaN(currentVal)) {
@@ -138,9 +138,9 @@
                     function add(e) {
                       // Get its current value
                       let currentVal = Number($(this).parent().find('input').val());
-                      let inputfield = this.parentNode.querySelector('.addQuantity');
+                      let inputfield = this.parentNode.querySelector('input');
 
-                      console.log(inputfield);
+                      console.log(this);
 
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
