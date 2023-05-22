@@ -44,7 +44,10 @@
               </p>
 
               <TMPL_VAR NAME="Memo1">
-                <TMPL_VAR NAME="Cat_Description">
+                
+                <p class="cat-description">
+                  <TMPL_VAR NAME="Cat_Description">
+                  </p>
 
                   <TMPL_IF NAME="SpecialOrder">
                     <TMPL_ELSE>
@@ -88,7 +91,7 @@
                               <td class="white-space: nowrap">
                                 <span<TMPL_IF NAME="special"> class="promo"
                       </TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM">
-        </TMPL_LOOP>
+            </TMPL_LOOP>
         <TMPL_ELSE>
           <p class="result-price">
             <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
