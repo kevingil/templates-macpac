@@ -99,12 +99,12 @@
     <TMPL_ELSE>
       <div class="cart-controls">
 
-        <span class="minus">-</span>
+        <span class="minus" id="cart-minus">-</span>
         <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
         useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
             perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
                 DEFAULT="0">">
-                <span class="plus">+</span>
+                <span class="plus" id="cart-plus">+</span>
                 <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
                   ProductCode="<TMPL_VAR NAME="ProductCode">" >Add to Cart</button>
 
@@ -114,11 +114,11 @@
                     // This button will increment the value
                     var currentVal = $(this).parent().find('input').val();
                     console.log("found: " + currentVal);
-                    $('.plus').click(function (e) {
+                    $('#cart-plus').click(function (e) {
                       // Stop acting like a button
                       e.preventDefault();
                       // Get its current value
-                      var currentVal = $(this).parent().find('input').val();
+                      var currentVal = Number($(this).parent().find('input').val());
                       // If is not undefined
                       if (!isNaN(currentVal)) {
                         // Increment
@@ -131,11 +131,11 @@
                       }
                     });
                     // This button will decrement the value till 0
-                    $('.minus').click(function (e) {
+                    $('#cart-minus').click(function (e) {
                       // Stop acting like a button
                       e.preventDefault();
                       // Get its current value
-                      var currentVal = $(this).parent().find('input').val();
+                      var currentVal = Number($(this).parent().find('input').val());
                       // If it isn't undefined or its greater than 0
                       if (!isNaN(currentVal) && currentVal > 0) {
                         // Decrement one
