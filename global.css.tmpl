@@ -942,11 +942,12 @@ div.content {
     grid-template-columns: 1fr 1fr;
 }
 
-p.right1 {
-    font-size: 9pt;
-    margin: 1px;
-    padding-right: 3px;
-    padding-bottom: 3px;
+.availability-alert {
+    font-size: 8pt;
+    text-align: right;
+    font-weight: bold;
+    color:red
+    padding: 0px 0px 20px 0px;
 }
 
 .savecartas {
@@ -1581,23 +1582,12 @@ table.center {
 .addToCart,
 .setPriceButton,
 .addProductToCart {
-    background: url('images/refresh-cl.gif') center no-repeat;
-    margin-top: 5px;
-    height: 30px;
-    width: 30px;
-    border: none;
-    cursor: pointer;
+
 }
 
 .addProductToCart1 {
-    background: url('images/refresh-cl.gif') center no-repeat;
-    margin-top: 3px;
-    height: 30px;
-    width: 30px;
-    border: none;
-    cursor: pointer;
-}
 
+}
 
 .addRowToCart {
     background: url('images/cart-cl.gif') center no-repeat;
@@ -1925,6 +1915,7 @@ table.table3 td {
 
 .result-title p {
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .result-thumbnail {
@@ -1936,6 +1927,10 @@ table.table3 td {
     grid-area: 2 / 2 / a3 / 3;
     padding: 0px 10px;
     font-size: 1rem;
+}
+
+.result-body p {
+    margin: 0px;
 }
 
 .result-body .smallChunk {
