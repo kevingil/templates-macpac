@@ -28,14 +28,13 @@
 
 
     <div id="mainproductinfo"><!--begin mainproductinfo-->
+      <p>Carton Quantity: <TMPL_VAR NAME="PerBox"></p>
       <TMPL_IF NAME="allowQtyAvailable">
         <TMPL_UNLESS NAME="isKit1">
           <p>In Stock: <TMPL_VAR NAME="QtyAvailable">
           </p>
         </TMPL_UNLESS>
       </TMPL_IF>
-      <p>Carton Quantity: <TMPL_VAR NAME="PerBox">
-      </p>
       <TMPL_IF NAME="StatusFlagN">
         <p class="notAvailable">Product no longer available.</p>
       </TMPL_IF>
