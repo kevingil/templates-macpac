@@ -1240,12 +1240,17 @@ div.content {
 
 .savecartas > form {
     display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .savecartas > form > input, .savecartarea > button{
     height: 2rem;
     padding: 0px;
     width: 50%;
+}
+
+.savecartas > form > p {
+    grid-area: 1 / 1 / 2 / 3;
 }
 
 .together {
