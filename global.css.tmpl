@@ -685,8 +685,8 @@ img.right1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
 .custInfo {
@@ -709,7 +709,9 @@ img.shadow {
     padding: 10px;
 }
 
-.cartstatus {}
+.cartstatus {
+    grid-area: 3 / 1 / 4 / 4;
+}
 
 .newProd {
     display: inline-block;
