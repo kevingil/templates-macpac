@@ -1,6 +1,5 @@
 <TMPL_INCLUDE NAME="header.tmpl">
   <div class="center">
-		<TMPL_INCLUDE NAME="customerPrompt.tmpl">
 		<TMPL_IF NAME=customers>
       <div>Found the following customers:</div><br/>
       <div align="center">
@@ -17,5 +16,8 @@
     <TMPL_ELSE>
       <p class=error>No customers matched '<TMPL_VAR NAME=form_custCode>'</p>
     </TMPL_IF>
+
+    <TMPL_INCLUDE NAME="customerPrompt.tmpl">
+
   </div>
 <TMPL_INCLUDE NAME="footer.tmpl">
