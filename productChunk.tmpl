@@ -100,15 +100,14 @@
                       </TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM">
             </TMPL_LOOP>
         <TMPL_ELSE>
-          <p class="result-price">
-            <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
-          </p>
   </TMPL_IF>
 
   <TMPL_IF NAME="session_isGuest">
     <TMPL_ELSE>
       <div class="cart-controls">
-
+        <p class="result-price">
+          <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
+        </p>
         <button class='down_count btn btn-info secondary' title='Down'><i class="fa-solid fa-minus"></i></button>
         <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
         useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">"
