@@ -91,16 +91,7 @@
     </TMPL_IF>
     <br />
 
-    <TMPL_IF NAME="session_isGuest">
-      <!-- login to see price ?-->
-      <TMPL_ELSE>
-        <TMPL_INCLUDE NAME="favoriteButton.tmpl">
-    </TMPL_IF>
 
-    <TMPL_IF NAME="CatalogPageNo">
-      <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank"><button
-          class="newbutton1">Catalog Page</button></a>
-    </TMPL_IF>
     <TMPL_IF NAME="youtubeCode">
       <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3"
           id="showProductVideo">Product Video</button></a>
@@ -108,17 +99,28 @@
 
   </div><!--end mainproductinfo-->
   <div class="details">
-    <TMPL_VAR NAME="Description">
-      <br />
-      <TMPL_IF NAME="SpecialOrder">
-        <TMPL_ELSE>
-          <TMPL_VAR NAME="Memo1"><br />
-            <TMPL_VAR NAME="Memo2"><br />
-              <TMPL_VAR NAME="Memo3"><br /><br />
-                <TMPL_IF NAME="Cat_Description">
-                  <TMPL_VAR NAME="Cat_Description">
-                </TMPL_IF>
+    <div class="details-left">
+
+      <TMPL_VAR NAME="Description">
+        <br />
+        <TMPL_IF NAME="SpecialOrder">
+          <TMPL_ELSE>
+            <TMPL_VAR NAME="Memo1"><br />
+              <TMPL_VAR NAME="Memo2"><br />
+                <TMPL_VAR NAME="Memo3"><br /><br />
+                  <TMPL_IF NAME="Cat_Description">
+                    <TMPL_VAR NAME="Cat_Description">
+                  </TMPL_IF>
+        </TMPL_IF>
+    </div>
+
+    <div class="details-right">
+      <TMPL_IF NAME="CatalogPageNo">
+        <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank"><button
+            class="newbutton1">Catalog Page</button></a>
       </TMPL_IF>
+    </div>
+
 
       <TMPL_IF NAME="SpecialOrder">
         <p>This is a special order item.
@@ -126,6 +128,12 @@
           or email orders@macmurraypacific.com and we will help you with your request.
         </p>
       </TMPL_IF>
+      <TMPL_IF NAME="session_isGuest">
+        <!-- login to see price ?-->
+        <TMPL_ELSE>
+          <TMPL_INCLUDE NAME="favoriteButton.tmpl">
+      </TMPL_IF>
+  
       <br />
   </div>
 
