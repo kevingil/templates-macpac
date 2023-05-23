@@ -19,7 +19,7 @@
 
 
     <p class="part-number">
-      PART#: <TMPL_VAR NAME="ProductCode">
+      PART#: <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>"><TMPL_VAR NAME="ProductCode"></a>
     </p>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
     <TMPL_IF NAME="full_image"><img class="product-image" src="products<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR
@@ -88,7 +88,7 @@
     </TMPL_IF>
     </TMPL_IF>
     <TMPL_IF NAME="session_isSales">
-      <TMPL_IF NAME="ShowPR"><a href="/pr.html?ProductCode=<TMPL_VAR NAME=" ProductCode">"><p class="right"><button
+      <TMPL_IF NAME="ShowPR"><a href="/pr.html?ProductCode=<TMPL_VAR NAME="ProductCode">"><p class="right"><button
               class="button3">P</button></p></a></TMPL_IF>
     </TMPL_IF>
     <br />
