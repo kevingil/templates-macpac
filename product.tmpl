@@ -12,7 +12,7 @@
   
 
 
-  <div id="mainproductbox"><!--begin mainproductbox-->
+  <article id="mainproductbox"><!--begin mainproductbox-->
     <h3 class="title">
       <TMPL_VAR NAME="ProductCode">
     </h3>
@@ -27,7 +27,7 @@
               NAME="ProductDescription" ESCAPE=html>"></TMPL_IF>
 
 
-    <article id="mainproductinfo"><!--begin mainproductinfo-->
+    <div id="mainproductinfo"><!--begin mainproductinfo-->
       <TMPL_VAR NAME="Description">
         <br />
         <TMPL_IF NAME="SpecialOrder">
@@ -127,10 +127,10 @@
           id="showProductVideo">Product Video</button></a>
     </TMPL_IF>
 
-  </article><!--end mainproductinfo-->
+  </div><!--end mainproductinfo-->
 
   <TMPL_INCLUDE NAME="youtube_code.tmpl">
-    </div><!--end mainproductbox-->
+    </article><!--end mainproductbox-->
 
     <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
       <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
