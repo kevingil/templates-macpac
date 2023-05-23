@@ -2,6 +2,12 @@
 
 <article class="customer-prompt">
 
+	<form name="verifyForm" action="/setcust.html" method="post">
+					<p>Enter a Customer Account or Name:</p>
+					<input name="custCode" value="<TMPL_VAR NAME="user_custCode" ESCAPE=HTML>" id="fieldCustCode" class="getcust">
+					<input type="submit" name="Submit" value="Continue" class="newbutton2" >
+	</form>	
+
 	<nav class="customer-prompt-menu">
 		<ul>
 			<li><a href="/salesReport.html" class="newbutton2">Start Sales Report</a></li>
@@ -13,12 +19,6 @@
 		</ul>
 	</nav>
 
-	<form name="verifyForm" action="/setcust.html" method="post">
-					<p>Enter a Customer Account or Name:</p>
-					<input name="custCode" value="<TMPL_VAR NAME="user_custCode" ESCAPE=HTML>" id="fieldCustCode" class="getcust">
-					<input type="submit" name="Submit" value="Continue" class="newbutton2" >
-	</form>	
-	
 </article>
 
 
