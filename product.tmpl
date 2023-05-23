@@ -16,11 +16,6 @@
     <h3 class="title">
       <TMPL_VAR NAME="ProductDescription" ESCAPE="html">
     </h3>
-
-
-    <p class="part-number">
-      PART#: <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>"><TMPL_VAR NAME="ProductCode"></a>
-    </p>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
     <TMPL_IF NAME="full_image"><img class="product-image" src="products<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR
         NAME="full_image">" height="<TMPL_VAR NAME="fullY">" width="<TMPL_VAR NAME="fullX">" title="<TMPL_VAR
@@ -28,6 +23,11 @@
 
 
     <div id="mainproductinfo"><!--begin mainproductinfo-->
+      
+    <p class="part-number">
+      PART#: <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>"><TMPL_VAR NAME="ProductCode"></a>
+    </p>
+    
       <p>Carton Quantity: <TMPL_VAR NAME="PerBox"></p>
       <TMPL_IF NAME="allowQtyAvailable">
         <TMPL_UNLESS NAME="isKit1">
