@@ -67,11 +67,12 @@
                           <TMPL_VAR NAME="your"> Price $ <TMPL_VAR NAME="Price"> / <TMPL_VAR NAME="UofM">
                         </p>
             </TMPL_IF>
-
+            <button class='down_count btn btn-info secondary' title='Down'><i class="fa-solid fa-minus"></i></button>
             <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty"
               escape=html>" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" productCode="<TMPL_VAR
                 NAME="cleanProductCode" escape=html>" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="
                   <TMPL_VAR NAME="AllowPartialCases" DEFAULT="">">
+            <button class='up_count btn btn-info secondary' title='Up'><i class="fa-solid fa-plus"></i></button>
                     <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
                       productCode="<TMPL_VAR NAME="productCode" escape=html>" >Add to Cart</button>
                     <br />
