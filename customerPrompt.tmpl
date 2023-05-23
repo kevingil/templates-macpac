@@ -4,21 +4,21 @@
 
 	<nav class="customer-prompt-menu">
 		<ul>
-			<li><a href="/salesReport.html" class="newbutton2" style="padding: 7px; font-size: 12pt;">Start Sales Report</a></li>
-			<li><a href="/salesReport.html" class="newbutton2" style="padding: 7px; font-size: 12pt;">Start Sales Report</a></li>
-			<li><a href="/viewSalesReports.html" class="newbutton2" style="padding: 7px; font-size: 12pt;">View Sales Report</a></li>
-			<li><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">&mode=show" class="newbutton2" style="padding: 7px; font-size: 12pt;">View Invoices</a></li>
-			<li><a href="/cart.html" class="newbutton2" style="padding: 7px; font-size: 12pt;">Quick Order/View Cart</a></li>
-			<li><a href="/logout.html" class="newbutton2" style="padding: 7px; font-size: 12pt;">Log Out</a></li>
+			<li><a href="/salesReport.html" class="newbutton2">Start Sales Report</a></li>
+			<li><a href="/salesReport.html" class="newbutton2">Start Sales Report</a></li>
+			<li><a href="/viewSalesReports.html" class="newbutton2" >View Sales Report</a></li>
+			<li><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">&mode=show" class="newbutton2">View Invoices</a></li>
+			<li><a href="/cart.html" class="newbutton2">Quick Order/View Cart</a></li>
+			<li><a href="/logout.html" class="newbutton2">Log Out</a></li>
 		</ul>
 	</nav>
 
 	<form name="verifyForm" action="/setcust.html" method="post">
-					<p align="right">Enter a Customer Account or Name:</p>
+					<p>Enter a Customer Account or Name:</p>
 					<input name="custCode" value="<TMPL_VAR NAME="user_custCode" ESCAPE=HTML>" id="fieldCustCode" class="getcust">
-					<input type="submit" name="Submit" value="Continue" class="newbutton2" style="margin: 0 0 5px 20px;">
+					<input type="submit" name="Submit" value="Continue" class="newbutton2" >
 	</form>	
-
+	
 </article>
 
 
