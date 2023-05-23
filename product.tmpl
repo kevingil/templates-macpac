@@ -1,15 +1,17 @@
 <TMPL_INCLUDE NAME="header.tmpl">
   <p class="breadcrumb-header">
     <a href="productCats.html">Back to Product Categories</a>
-    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink1">">
-      <TMPL_VAR NAME="breadcrumbtext1" escape=html></a></TMPL_IF>
-    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink2">">
-      <TMPL_VAR NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
-        / <TMPL_VAR NAME="ProductCode">
+    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink1">">
+        <TMPL_VAR NAME="breadcrumbtext1" escape=html>
+      </a></TMPL_IF>
+    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink2">">
+        <TMPL_VAR NAME="breadcrumbtext2" escape=html>
+      </a></TMPL_IF>
+    / <TMPL_VAR NAME="ProductCode">
   </p>
 
 
-  
+
 
 
   <article id="mainproductbox"><!--begin mainproductbox-->
@@ -28,6 +30,37 @@
 
 
     <div id="mainproductinfo"><!--begin mainproductinfo-->
+
+      <TMPL_VAR NAME="Description">
+        <br />
+        <TMPL_IF NAME="SpecialOrder">
+          <p>This is a special order item.
+            <a href="/forms.html#Vendor<TMPL_VAR NAME=" VendorCode">">Click here for order forms</a><br /><br />
+            or email orders@macmurraypacific.com and we will help you with your request.
+          </p>
+        </TMPL_IF>
+        <br />
+        <TMPL_IF NAME="SpecialOrder">
+          <TMPL_ELSE>
+            <TMPL_VAR NAME="Memo1"><br />
+              <TMPL_VAR NAME="Memo2"><br />
+                <TMPL_VAR NAME="Memo3"><br /><br />
+                  <TMPL_IF NAME="allowQtyAvailable">
+                    <TMPL_UNLESS NAME="isKit1">
+                      <p>Stock Availability: <TMPL_VAR NAME="QtyAvailable">
+                      </p>
+                    </TMPL_UNLESS>
+                  </TMPL_IF>
+                  <p>Carton Quantity: <TMPL_VAR NAME="PerBox">
+                  </p>
+                  <TMPL_IF NAME="StatusFlagN">
+                    <p class="notAvailable">Product no longer available.</p>
+                  </TMPL_IF>
+                  <TMPL_IF NAME="Cat_Description">
+                    <TMPL_VAR NAME="Cat_Description">
+                  </TMPL_IF>
+        </TMPL_IF>
+
         <TMPL_IF NAME="SpecialOrder">
           <TMPL_ELSE>
             <TMPL_IF NAME="session_isGuest">
@@ -96,52 +129,24 @@
           id="showProductVideo">Product Video</button></a>
     </TMPL_IF>
 
-  </div><!--end mainproductinfo-->
+    </div><!--end mainproductinfo-->
 
-  <TMPL_INCLUDE NAME="youtube_code.tmpl">
-<div id="description">
-  <TMPL_VAR NAME="Description">
-    <br />
-    <TMPL_IF NAME="SpecialOrder">
-      <p>This is a special order item.
-        <a href="/forms.html#Vendor<TMPL_VAR NAME=" VendorCode">">Click here for order forms</a><br /><br />
-        or email orders@macmurraypacific.com and we will help you with your request.
-      </p>
-    </TMPL_IF>
-    <br />
-    <TMPL_IF NAME="SpecialOrder">
-      <TMPL_ELSE>
-        <TMPL_VAR NAME="Memo1"><br />
-          <TMPL_VAR NAME="Memo2"><br />
-            <TMPL_VAR NAME="Memo3"><br /><br />
-              <TMPL_IF NAME="allowQtyAvailable">
-                <TMPL_UNLESS NAME="isKit1">
-                  <p>Stock Availability: <TMPL_VAR NAME="QtyAvailable">
-                  </p>
-                </TMPL_UNLESS>
-              </TMPL_IF>
-              <p>Carton Quantity: <TMPL_VAR NAME="PerBox">
-              </p>
-              <TMPL_IF NAME="StatusFlagN">
-                <p class="notAvailable">Product no longer available.</p>
-              </TMPL_IF>
-              <TMPL_IF NAME="Cat_Description">
-                <TMPL_VAR NAME="Cat_Description">
-              </TMPL_IF>
-    </TMPL_IF>
-</div>
+    <TMPL_INCLUDE NAME="youtube_code.tmpl">
+      <div id="description">
 
-    </article><!--end mainproductbox-->
+      </div>
 
-    <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
-      <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
-        <TMPL_INCLUDE NAME="jquery_regHandleCart.tmpl">
+  </article><!--end mainproductbox-->
 
-          <TMPL_IF NAME="showExplanation">
-            <h2>Price Ladder Explanation visible only to admins</h2>
-            <TMPL_VAR NAME="explanation">
-          </TMPL_IF>
-          <div class="center" style="clear: both">
-            <TMPL_INCLUDE NAME="salesNavs.tmpl">
-          </div>
-          <TMPL_INCLUDE NAME="footer.tmpl">
+  <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
+    <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
+      <TMPL_INCLUDE NAME="jquery_regHandleCart.tmpl">
+
+        <TMPL_IF NAME="showExplanation">
+          <h2>Price Ladder Explanation visible only to admins</h2>
+          <TMPL_VAR NAME="explanation">
+        </TMPL_IF>
+        <div class="center" style="clear: both">
+          <TMPL_INCLUDE NAME="salesNavs.tmpl">
+        </div>
+        <TMPL_INCLUDE NAME="footer.tmpl">
