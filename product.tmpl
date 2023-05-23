@@ -14,12 +14,12 @@
 
   <div id="mainproductbox"><!--begin mainproductbox-->
     <h3 class="title">
-      <TMPL_VAR NAME="ProductCode">
+      <TMPL_VAR NAME="ProductDescription" ESCAPE="html">
     </h3>
 
 
     <p>
-      <TMPL_VAR NAME="ProductDescription" ESCAPE="html">
+      <TMPL_VAR NAME="ProductCode">
     </p>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
     <TMPL_IF NAME="full_image"><img class="product-image" src="products<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR
