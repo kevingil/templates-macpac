@@ -1023,6 +1023,11 @@ p.small2 {
     margin: 12px;
     font-size: 12pt;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2, 20px) repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 #mainproductbox p {
@@ -1037,11 +1042,7 @@ p.small2 {
     font-size: 10pt;
     float: right;
     margin: 0px 15px 15px 15px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(2, 20px) repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+
 }
 
 .product-description {
