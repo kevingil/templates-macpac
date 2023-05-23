@@ -1,108 +1,161 @@
 <TMPL_INCLUDE NAME="header.tmpl">
 
 
+  <div class="container custhome">
+    <article class="center">
+      <p>User <b>
+          <TMPL_VAR NAME="user_name">
+        </b> for <b>
+          <TMPL_VAR NAME="session_custName">
+        </b></p>
 
-<article class="center">
-  <p>User <b><TMPL_VAR NAME="user_name"></b> for <b><TMPL_VAR NAME="session_custName"></b></p>
-  
-<!--Salesmen Tools-->
-<div class="center" style="clear: both">
-<TMPL_INCLUDE NAME="salesNavs.tmpl">
-</div>
+      <!--Salesmen Tools-->
+      <div class="center" style="clear: both">
+        <TMPL_INCLUDE NAME="salesNavs.tmpl">
+      </div>
 
-    <a href="/category.html?productShowOnly=Favorites&productSortBy=ProductCat"><div class="buttonBig"><h4>My<br/>Favorites</h4></div></a>
-    <a href="/category.html?productShowOnly=ShoppingList"><div class="buttonBig"><h4>My<br/>Shopping List</h4></div></a>
-    <a href="/current.html"><div class="buttonBig"><h4>Current<br/>Orders</h4></div></a>
-    <a href="/category.html?productShowOnly=History"><div class="buttonBig"><h4>Order<br/>History</h4></div></a>
-    <a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">"><div class="buttonBig"><h4>View<br/>Invoices</h4></div></a>
-    <a href="/account.html"><div class="buttonBig"><h4>My<br/>Account</h4></div></a>
-    <a href="/cart.html"><div class="buttonBig"><h4>Quick Order/<br/>View Cart</h4></div></a>
+      <a href="/category.html?productShowOnly=Favorites&productSortBy=ProductCat">
+        <div class="buttonBig">
+          <h4>My<br />Favorites</h4>
+        </div>
+      </a>
+      <a href="/category.html?productShowOnly=ShoppingList">
+        <div class="buttonBig">
+          <h4>My<br />Shopping List</h4>
+        </div>
+      </a>
+      <a href="/current.html">
+        <div class="buttonBig">
+          <h4>Current<br />Orders</h4>
+        </div>
+      </a>
+      <a href="/category.html?productShowOnly=History">
+        <div class="buttonBig">
+          <h4>Order<br />History</h4>
+        </div>
+      </a>
+      <a href="/viewInvoices.html?custCode=<TMPL_VAR NAME=" session_custCode">"><div class="buttonBig">
+          <h4>View<br />Invoices</h4>
+        </div></a>
+      <a href="/account.html">
+        <div class="buttonBig">
+          <h4>My<br />Account</h4>
+        </div>
+      </a>
+      <a href="/cart.html">
+        <div class="buttonBig">
+          <h4>Quick Order/<br />View Cart</h4>
+        </div>
+      </a>
 
-</article>
+    </article>
 
-<article class="webTool">
-<a href="https://www.rockymountainhardware.com/design-your-own/#get-started" class="products" target="_blank"><b>Featured Web Tool</b><br/><p class="small2">Rocky Mountain - Design your own Artisan Hardware</p><br/>
-<img src="images/rocky2.jpg" alt="Rocky" class="shadow"></a>
-</article>
+    <article class="webTool">
+      <a href="https://www.rockymountainhardware.com/design-your-own/#get-started" class="products"
+        target="_blank"><b>Featured Web Tool</b><br />
+        <p class="small2">Rocky Mountain - Design your own Artisan Hardware</p><br />
+        <img src="images/rocky2.jpg" alt="Rocky" class="shadow">
+      </a>
+    </article>
 
-<article class="prodBull">
-<b>New Products</b><br/>
-<div id="slideshow">
-    <div>
-     <a href="bulletins/MAK_saws.pdf" title="Maksiwa" class="products"><img src="images/01-Mak.jpg" alt="Maksiwa"></a>
-   </div>
-  <div>
-    <a href="bulletins/NeoLoop.pdf" title="Neoloop" class="products"><img src="images/02-Neo.jpg" alt="Neoloop"></a>
-   </div>
-  <div>
-     <a href="bulletins/Salice_F70.pdf" title="F70" class="products"><img src="images/03-F70.jpg" alt="F70"></a>
-   </div>
-   <div>
-     <a href="bulletins/Sal-Titanium23.pdf" title="Titanium" class="products"><img src="images/04-SalTi.jpg" alt="Titanium"></a>
-   </div>
-  <div>
-    <a href="bulletins/Innovashelf.pdf" title="Innovashelf" class="products"><img src="images/05-FLO.jpg" alt="Floating"></a>
-   </div>
+    <article class="prodBull">
+      <b>New Products</b><br />
+      <div id="slideshow">
+        <div>
+          <a href="bulletins/MAK_saws.pdf" title="Maksiwa" class="products"><img src="images/01-Mak.jpg"
+              alt="Maksiwa"></a>
+        </div>
+        <div>
+          <a href="bulletins/NeoLoop.pdf" title="Neoloop" class="products"><img src="images/02-Neo.jpg"
+              alt="Neoloop"></a>
+        </div>
+        <div>
+          <a href="bulletins/Salice_F70.pdf" title="F70" class="products"><img src="images/03-F70.jpg" alt="F70"></a>
+        </div>
+        <div>
+          <a href="bulletins/Sal-Titanium23.pdf" title="Titanium" class="products"><img src="images/04-SalTi.jpg"
+              alt="Titanium"></a>
+        </div>
+        <div>
+          <a href="bulletins/Innovashelf.pdf" title="Innovashelf" class="products"><img src="images/05-FLO.jpg"
+              alt="Floating"></a>
+        </div>
 
-</div>
-</article>
-
-
-
-
-<article class="custInfo">
-<b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br/>
-<TMPL_VAR NAME="session_cust_customerRow_Name"><br/>
-<TMPL_VAR NAME="session_cust_customerRow_Address"><br />
-<TMPL_IF NAME="session_cust_customerRow_Address2"><TMPL_VAR NAME="session_cust_customerRow_Address2"><br/></TMPL_IF>
-<TMPL_VAR NAME="session_cust_customerRow_City">, <TMPL_VAR NAME="session_cust_customerRow_State"> <TMPL_VAR NAME="session_cust_customerRow_Zip"><br/>
-<TMPL_IF NAME="session_cust_customerRow_ContactPhone"><TMPL_VAR NAME="session_cust_customerRow_ContactPhone"><br /></TMPL_IF>
-<TMPL_IF NAME="session_cust_customerRow_Email"><TMPL_VAR NAME="session_cust_customerRow_Email"><br /></TMPL_IF>
-<br/>
-<b>Ship to Addresses for account:</b>
-<p class="small">(If different from above)</p>
-<div class="showAllShipToAccounts">
-<TMPL_IF NAME="allShipToAccountsCount">
-  <TMPL_LOOP NAME="allShipToAccounts">
-    <br />
-    <TMPL_VAR NAME="Name"><br/>
-    <TMPL_VAR NAME="Address"><br />
-    <TMPL_IF NAME="Address2"><TMPL_VAR NAME="Address2"><br/></TMPL_IF>
-    <TMPL_VAR NAME="City">, <TMPL_VAR NAME="State"> <TMPL_VAR NAME="Zip"><br/>
-    <TMPL_IF NAME="ContactPhone"><TMPL_VAR NAME="ContactPhone"><br /></TMPL_IF>
-  </TMPL_LOOP>
-</TMPL_IF>
-</div>
-</article>
-
-<article class="specials">
-<b>View our current Specials Flyer</b>
-<a href="040523special.pdf" class="products">
-<img src="images/sheet.jpg" width="75" height="75" alt="specials" class="left1"><br/><br/>
-<b>April - May '23</b></a><br/><br/>
-<TMPL_IF NAME="session_isCustomer"><TMPL_ELSE>
-<p class="small"><a href="/archive.html">Specials Archive</a></p></TMPL_IF>
-</article>
-
-
-<article class="cartstatus">
-<b>Cart Status</b>
-<TMPL_IF NAME="cart_itemCount"><div>You have items in your cart.</div></TMPL_IF>
-<hr>
-  <b>Saved Carts</b>
-<TMPL_LOOP NAME="carts">
-  <a href="/carts.html?mode=selectCart&CartID=<TMPL_VAR NAME="CartID">">
-
-<div class="savedcarticon">
-<img src="images/emptycart_sm.jpg" alt="cart" height="29" width="30"><br/>
-<TMPL_VAR NAME="cartName">
-    </div>
-  </a>
-</TMPL_LOOP>
-</article>
+      </div>
+    </article>
 
 
 
 
+    <article class="custInfo">
+      <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br />
+      <TMPL_VAR NAME="session_cust_customerRow_Name"><br />
+        <TMPL_VAR NAME="session_cust_customerRow_Address"><br />
+          <TMPL_IF NAME="session_cust_customerRow_Address2">
+            <TMPL_VAR NAME="session_cust_customerRow_Address2"><br />
+          </TMPL_IF>
+          <TMPL_VAR NAME="session_cust_customerRow_City">, <TMPL_VAR NAME="session_cust_customerRow_State">
+              <TMPL_VAR NAME="session_cust_customerRow_Zip"><br />
+                <TMPL_IF NAME="session_cust_customerRow_ContactPhone">
+                  <TMPL_VAR NAME="session_cust_customerRow_ContactPhone"><br />
+                </TMPL_IF>
+                <TMPL_IF NAME="session_cust_customerRow_Email">
+                  <TMPL_VAR NAME="session_cust_customerRow_Email"><br />
+                </TMPL_IF>
+                <br />
+                <b>Ship to Addresses for account:</b>
+                <p class="small">(If different from above)</p>
+                <div class="showAllShipToAccounts">
+                  <TMPL_IF NAME="allShipToAccountsCount">
+                    <TMPL_LOOP NAME="allShipToAccounts">
+                      <br />
+                      <TMPL_VAR NAME="Name"><br />
+                        <TMPL_VAR NAME="Address"><br />
+                          <TMPL_IF NAME="Address2">
+                            <TMPL_VAR NAME="Address2"><br />
+                          </TMPL_IF>
+                          <TMPL_VAR NAME="City">, <TMPL_VAR NAME="State">
+                              <TMPL_VAR NAME="Zip"><br />
+                                <TMPL_IF NAME="ContactPhone">
+                                  <TMPL_VAR NAME="ContactPhone"><br />
+                                </TMPL_IF>
+                    </TMPL_LOOP>
+                  </TMPL_IF>
+                </div>
+    </article>
 
-<TMPL_INCLUDE NAME="footer.tmpl">
+    <article class="specials">
+      <b>View our current Specials Flyer</b>
+      <a href="040523special.pdf" class="products">
+        <img src="images/sheet.jpg" width="75" height="75" alt="specials" class="left1"><br /><br />
+        <b>April - May '23</b></a><br /><br />
+      <TMPL_IF NAME="session_isCustomer">
+        <TMPL_ELSE>
+          <p class="small"><a href="/archive.html">Specials Archive</a></p>
+      </TMPL_IF>
+    </article>
+
+
+    <article class="cartstatus">
+      <b>Cart Status</b>
+      <TMPL_IF NAME="cart_itemCount">
+        <div>You have items in your cart.</div>
+      </TMPL_IF>
+      <hr>
+      <b>Saved Carts</b>
+      <TMPL_LOOP NAME="carts">
+        <a href="/carts.html?mode=selectCart&CartID=<TMPL_VAR NAME=" CartID">">
+
+          <div class="savedcarticon">
+            <img src="images/emptycart_sm.jpg" alt="cart" height="29" width="30"><br />
+            <TMPL_VAR NAME="cartName">
+          </div>
+        </a>
+      </TMPL_LOOP>
+    </article>
+
+  </div>
+
+
+
+  <TMPL_INCLUDE NAME="footer.tmpl">

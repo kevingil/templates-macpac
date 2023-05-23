@@ -170,6 +170,7 @@ body {
         font-size: 0.8em;
         grid-template-rows: 70px auto;
     }
+
     .header-info {
         display: none;
     }
@@ -193,6 +194,7 @@ body {
         grid-template-rows: 106px auto;
         font-size: 1em;
     }
+
     .header-info {
         display: block;
     }
@@ -679,6 +681,14 @@ img.right1 {
 
 /* Customer Home Page Styles -------------------------------------------------------*/
 
+.custhome {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
 .custInfo {}
 
 .specials {}
@@ -1075,11 +1085,12 @@ div.details {
 .details-left {
     padding: 0px 1.5rem;
 }
+
 .details-left h4 {
     margin-bottom: 5px;
 }
 
-div.details-right > div.customer-lists {
+div.details-right>div.customer-lists {
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -1507,10 +1518,10 @@ div.prod-cart {
 }
 
 .customer-prompt-menu ul {
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
 }
 
-article.customer-prompt > form {
+article.customer-prompt>form {
     width: 80%;
     margin: 0px auto;
 }
