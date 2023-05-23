@@ -31,7 +31,7 @@
       <p>Carton Quantity: <TMPL_VAR NAME="PerBox"></p>
       <TMPL_IF NAME="allowQtyAvailable">
         <TMPL_UNLESS NAME="isKit1">
-          <p>In Stock: <TMPL_VAR NAME="QtyAvailable">
+          <p>In Stock <i class="fa-solid fa-warehouse"></i>: <TMPL_VAR NAME="QtyAvailable">
           </p>
         </TMPL_UNLESS>
       </TMPL_IF>
@@ -94,10 +94,7 @@
     <br />
 
 
-    <TMPL_IF NAME="youtubeCode">
-      <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3 secondary outline"
-          id="showProductVideo">Product Video</button></a>
-    </TMPL_IF>
+
 
   </div><!--end mainproductinfo-->
   <div class="details">
@@ -132,6 +129,10 @@
         <!-- login to see price ?-->
         <TMPL_ELSE>
           <TMPL_INCLUDE NAME="favoriteButton.tmpl">
+      </TMPL_IF>
+      <TMPL_IF NAME="youtubeCode">
+        <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3 secondary outline"
+            id="showProductVideo">Product Video</button></a>
       </TMPL_IF>
     </div>
 
