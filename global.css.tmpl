@@ -682,7 +682,7 @@ img.right1 {
 /* Customer Home Page Styles -------------------------------------------------------*/
 
 .custhome > article {
-    margin-bottom: 0px;
+    margin: 2px 10px;
 }
 .specials {}
 
@@ -714,7 +714,7 @@ img.shadow {
 @media (min-width: 768px) {
     .custhome {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 275px 1fr 1fr;
         grid-template-rows: repeat(3, auto);
         grid-column-gap: 10px;
         grid-row-gap: 10px;
@@ -2740,8 +2740,7 @@ td.chem {
 #slideshow {
     margin: 15px auto;
     position: relative;
-    width: 300px;
-    height: 300px;
+    max-height: 300px;
     padding: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
