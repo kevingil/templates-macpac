@@ -18,7 +18,7 @@
     </h3>
 
 
-    <p>
+    <p class="part-number">
       <TMPL_VAR NAME="ProductCode">
     </p>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
@@ -128,6 +128,9 @@
     </TMPL_IF>
 
   </article><!--end mainproductinfo-->
+  <div class="details">
+    <TMPL_VAR NAME="Description">
+  </div>
 
   <TMPL_INCLUDE NAME="youtube_code.tmpl">
     </div><!--end mainproductbox-->
