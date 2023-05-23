@@ -95,7 +95,7 @@
 
 
     <TMPL_IF NAME="youtubeCode">
-      <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3"
+      <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">"><button class="newbutton3 secondary outline"
           id="showProductVideo">Product Video</button></a>
     </TMPL_IF>
 
@@ -116,7 +116,7 @@
         </TMPL_IF>
         <TMPL_IF NAME="SpecialOrder">
           <p>This is a special order item.
-            <a href="/forms.html#Vendor<TMPL_VAR NAME=" VendorCode">">Click here for order forms</a><br /><br />
+            <a href="/forms.html#Vendor<TMPL_VAR NAME="VendorCode">">Click here for order forms</a><br /><br />
             or email orders@macmurraypacific.com and we will help you with your request.
           </p>
         </TMPL_IF>
@@ -124,8 +124,8 @@
 
     <div class="details-right">
       <TMPL_IF NAME="CatalogPageNo">
-        <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank"><button
-            class="newbutton1">Catalog Page</button></a>
+        <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
+            class="newbutton1 secondary outline">Catalog Page</button></a>
       </TMPL_IF>
       
       <TMPL_IF NAME="session_isGuest">
