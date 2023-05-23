@@ -1,8 +1,49 @@
 <TMPL_INCLUDE NAME="header.tmpl">
 
 
-  <div class="container custhome">
-    <article class="center">
+  
+  <div class="custhome">
+
+    
+    <article class="custInfo">
+      <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br />
+      <TMPL_VAR NAME="session_cust_customerRow_Name"><br />
+        <TMPL_VAR NAME="session_cust_customerRow_Address"><br />
+          <TMPL_IF NAME="session_cust_customerRow_Address2">
+            <TMPL_VAR NAME="session_cust_customerRow_Address2"><br />
+          </TMPL_IF>
+          <TMPL_VAR NAME="session_cust_customerRow_City">, <TMPL_VAR NAME="session_cust_customerRow_State">
+              <TMPL_VAR NAME="session_cust_customerRow_Zip"><br />
+                <TMPL_IF NAME="session_cust_customerRow_ContactPhone">
+                  <TMPL_VAR NAME="session_cust_customerRow_ContactPhone"><br />
+                </TMPL_IF>
+                <TMPL_IF NAME="session_cust_customerRow_Email">
+                  <TMPL_VAR NAME="session_cust_customerRow_Email"><br />
+                </TMPL_IF>
+                <br />
+                <b>Ship to Addresses for account:</b>
+                <p class="small">(If different from above)</p>
+                <div class="showAllShipToAccounts">
+                  <TMPL_IF NAME="allShipToAccountsCount">
+                    <TMPL_LOOP NAME="allShipToAccounts">
+                      <br />
+                      <TMPL_VAR NAME="Name"><br />
+                        <TMPL_VAR NAME="Address"><br />
+                          <TMPL_IF NAME="Address2">
+                            <TMPL_VAR NAME="Address2"><br />
+                          </TMPL_IF>
+                          <TMPL_VAR NAME="City">, <TMPL_VAR NAME="State">
+                              <TMPL_VAR NAME="Zip"><br />
+                                <TMPL_IF NAME="ContactPhone">
+                                  <TMPL_VAR NAME="ContactPhone"><br />
+                                </TMPL_IF>
+                    </TMPL_LOOP>
+                  </TMPL_IF>
+                </div>
+    </article>
+
+
+    <article class="user-links">
       <p>User <b>
           <TMPL_VAR NAME="user_name">
         </b> for <b>
@@ -87,42 +128,6 @@
 
 
 
-    <article class="custInfo">
-      <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br />
-      <TMPL_VAR NAME="session_cust_customerRow_Name"><br />
-        <TMPL_VAR NAME="session_cust_customerRow_Address"><br />
-          <TMPL_IF NAME="session_cust_customerRow_Address2">
-            <TMPL_VAR NAME="session_cust_customerRow_Address2"><br />
-          </TMPL_IF>
-          <TMPL_VAR NAME="session_cust_customerRow_City">, <TMPL_VAR NAME="session_cust_customerRow_State">
-              <TMPL_VAR NAME="session_cust_customerRow_Zip"><br />
-                <TMPL_IF NAME="session_cust_customerRow_ContactPhone">
-                  <TMPL_VAR NAME="session_cust_customerRow_ContactPhone"><br />
-                </TMPL_IF>
-                <TMPL_IF NAME="session_cust_customerRow_Email">
-                  <TMPL_VAR NAME="session_cust_customerRow_Email"><br />
-                </TMPL_IF>
-                <br />
-                <b>Ship to Addresses for account:</b>
-                <p class="small">(If different from above)</p>
-                <div class="showAllShipToAccounts">
-                  <TMPL_IF NAME="allShipToAccountsCount">
-                    <TMPL_LOOP NAME="allShipToAccounts">
-                      <br />
-                      <TMPL_VAR NAME="Name"><br />
-                        <TMPL_VAR NAME="Address"><br />
-                          <TMPL_IF NAME="Address2">
-                            <TMPL_VAR NAME="Address2"><br />
-                          </TMPL_IF>
-                          <TMPL_VAR NAME="City">, <TMPL_VAR NAME="State">
-                              <TMPL_VAR NAME="Zip"><br />
-                                <TMPL_IF NAME="ContactPhone">
-                                  <TMPL_VAR NAME="ContactPhone"><br />
-                                </TMPL_IF>
-                    </TMPL_LOOP>
-                  </TMPL_IF>
-                </div>
-    </article>
 
     <article class="specials">
       <b>View our current Specials Flyer</b>
