@@ -13,13 +13,13 @@
 
 
   <article id="mainproductbox"><!--begin mainproductbox-->
-    <h3 class="title">
-      <TMPL_VAR NAME="ProductCode">
+    <h3 class="product-title">
+      <TMPL_VAR NAME="ProductDescription" ESCAPE="html"></TMPL_VAR>
     </h3>
 
 
-    <p>
-      <TMPL_VAR NAME="ProductDescription" ESCAPE="html">
+    <p class="part-number">
+      PART#: <TMPL_VAR NAME="ProductCode"></TMPL_VAR>
     </p>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
     <TMPL_IF NAME="full_image"><img class="product-image" src="products<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR
@@ -28,37 +28,6 @@
 
 
     <div id="mainproductinfo"><!--begin mainproductinfo-->
-      <TMPL_VAR NAME="Description">
-        <br />
-        <TMPL_IF NAME="SpecialOrder">
-          <p>This is a special order item.
-            <a href="/forms.html#Vendor<TMPL_VAR NAME=" VendorCode">">Click here for order forms</a><br /><br />
-            or email orders@macmurraypacific.com and we will help you with your request.
-          </p>
-        </TMPL_IF>
-        <br />
-        <TMPL_IF NAME="SpecialOrder">
-          <TMPL_ELSE>
-            <TMPL_VAR NAME="Memo1"><br />
-              <TMPL_VAR NAME="Memo2"><br />
-                <TMPL_VAR NAME="Memo3"><br /><br />
-                  <TMPL_IF NAME="allowQtyAvailable">
-                    <TMPL_UNLESS NAME="isKit1">
-                      <p>Stock Availability: <TMPL_VAR NAME="QtyAvailable">
-                      </p>
-                    </TMPL_UNLESS>
-                  </TMPL_IF>
-                  <p>Carton Quantity: <TMPL_VAR NAME="PerBox">
-                  </p>
-                  <TMPL_IF NAME="StatusFlagN">
-                    <p class="notAvailable">Product no longer available.</p>
-                  </TMPL_IF>
-                  <TMPL_IF NAME="Cat_Description">
-                    <TMPL_VAR NAME="Cat_Description">
-                  </TMPL_IF>
-        </TMPL_IF>
-
-
         <TMPL_IF NAME="SpecialOrder">
           <TMPL_ELSE>
             <TMPL_IF NAME="session_isGuest">
@@ -130,6 +99,38 @@
   </div><!--end mainproductinfo-->
 
   <TMPL_INCLUDE NAME="youtube_code.tmpl">
+<div id="description">
+  <TMPL_VAR NAME="Description">
+    <br />
+    <TMPL_IF NAME="SpecialOrder">
+      <p>This is a special order item.
+        <a href="/forms.html#Vendor<TMPL_VAR NAME=" VendorCode">">Click here for order forms</a><br /><br />
+        or email orders@macmurraypacific.com and we will help you with your request.
+      </p>
+    </TMPL_IF>
+    <br />
+    <TMPL_IF NAME="SpecialOrder">
+      <TMPL_ELSE>
+        <TMPL_VAR NAME="Memo1"><br />
+          <TMPL_VAR NAME="Memo2"><br />
+            <TMPL_VAR NAME="Memo3"><br /><br />
+              <TMPL_IF NAME="allowQtyAvailable">
+                <TMPL_UNLESS NAME="isKit1">
+                  <p>Stock Availability: <TMPL_VAR NAME="QtyAvailable">
+                  </p>
+                </TMPL_UNLESS>
+              </TMPL_IF>
+              <p>Carton Quantity: <TMPL_VAR NAME="PerBox">
+              </p>
+              <TMPL_IF NAME="StatusFlagN">
+                <p class="notAvailable">Product no longer available.</p>
+              </TMPL_IF>
+              <TMPL_IF NAME="Cat_Description">
+                <TMPL_VAR NAME="Cat_Description">
+              </TMPL_IF>
+    </TMPL_IF>
+</div>
+
     </article><!--end mainproductbox-->
 
     <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
