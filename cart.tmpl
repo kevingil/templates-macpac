@@ -3,6 +3,9 @@
 
 <div class="center"><p>User <b><TMPL_VAR NAME="user_name"></b> for <b><TMPL_VAR NAME="session_custName"></b></p></div>
 
+
+<article class="cart-grid-top">
+
 <div class="custInfocart">
 <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br/>
 <TMPL_VAR NAME="session_cust_customerRow_Name"><br/>
@@ -25,6 +28,8 @@
     </form>
   </div>
 
+
+
   <TMPL_LOOP NAME="carts">
   <a href="/carts.html?mode=selectCart&CartID=<TMPL_VAR NAME="CartID">">
   <div class="together">
@@ -40,9 +45,12 @@
   <button class="newbutton2" onclick="window.location.href='/carts.html?mode=addCart'">Save Cart</button>
 </div>
 
+</article>
+
+
+
 <!-- Open The Modal -->
 <button id="myBtn" class="button1">Click for Save Cart Instructions</button>
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
