@@ -681,22 +681,6 @@ img.right1 {
 
 /* Customer Home Page Styles -------------------------------------------------------*/
 
-.custhome {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-}
-
-.custInfo {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.user-links{
-    grid-area: 1 / 2 / 2 / 4;
-}
-
 .specials {}
 
 
@@ -709,9 +693,41 @@ img.shadow {
     padding: 10px;
 }
 
-.cartstatus {
-    grid-area: 3 / 1 / 4 / 4;
+
+
+@media (min-width: 100px) {
+    .custhome {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+    .invBorder {}
+    .user-links{}
+    .custInfo {}
+    .cartstatus {}
 }
+
+@media (min-width: 768px) {
+    .custhome {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+    .invBorder {grid-area: 3 / 1 / 4 / 3;}
+    .user-links{
+        grid-area: 1 / 2 / 2 / 4;
+    }
+    .custInfo {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    .cartstatus {
+        grid-area: 3 / 1 / 4 / 4;
+    }
+}
+
 
 .newProd {
     display: inline-block;
@@ -723,7 +739,6 @@ img.shadow {
 }
 
 .invBorder {
-    grid-area: 3 / 1 / 4 / 3;
     padding: 0;
 }
 
