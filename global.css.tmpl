@@ -1931,7 +1931,6 @@ article.customer-prompt>form {
 
 .cart-controls {
     display: grid;
-    grid-template-rows: repeat(3, 40px);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     line-height: auto;
@@ -1945,6 +1944,7 @@ article.customer-prompt>form {
 @media (min-width: 100px) {
     .cart-controls {
         grid-template-columns: 40px 60px 40px;
+        grid-template-rows: repeat(3, 40px);
     }
 }
 
@@ -1953,6 +1953,7 @@ article.customer-prompt>form {
         width: auto;
         margin: 0px 0px 0px auto;
         grid-template-columns: 40px 100px 40px;
+        grid-template-rows: repeat(3, 40px);
     }
 }
 
@@ -1961,6 +1962,7 @@ article.customer-prompt>form {
         width: 60%;
         margin: -40px 0px 0px auto;
         grid-template-columns: 50px 100px 50px;
+        grid-template-rows: repeat(3, 50px);
     }
 }
 
@@ -2401,9 +2403,17 @@ table.table3 td {
 }
 
 .result-body p.result-price {
-    font-size: 12pt;
-    margin: 0px;
+    font-size: 10pt;
+     margin: 0px;
 }
+
+@media (min-width: 768px) {
+    .result-body p.result-price {
+        font-size: 12pt;
+        margin: 0px;
+    }
+}
+
 
 
 /* Ladder Table */
