@@ -160,6 +160,9 @@
           UnitPrice:              <TMPL_VAR NAME="UnitPrice" default="0.00">,
           UofM:                  '<TMPL_VAR NAME="UofM">',
   }));
+  
+  Handlebars.registerHelper('uofmHelper', function (uofm) { return uofm.replace("C", "100")})
+
       </script>
     </TMPL_LOOP>
     <br />
