@@ -1,14 +1,19 @@
 <script id="cartrow-template" type="text/x-handlebars-template">
-  <div class="cart-item">
+  <article class="cart-item">
+    <div class="cart-item-description">
     <img src="{{thumbnailFilename}}" height="{{thumbY}}" width="{{thumbX}}">
     {{{ProductCodePrefix}}}<a href="/product.html?productCode={{ProductCode}}" class="show_underline {{ProductCodeClass}}">{{ProductCode}}</a>
-    {{#if canEditPrice}}{{#if ShowPR}}<p class="right1 price-cart"><a href="/pr.html?ProductCode={{ProductCode}}">PRICE CHART</a></p>{{/if}}{{/if}}</td>
 
-    <p>{{ProductDescription}}{{{MoreExpected}}}{{{ShowBuyer}}}{{{ProductNotAvailable}}}{{{Cat_Description}}}</p>
+    <p>{{ProductDescription}}</p>
 
-    <p>{{PerBox}}</p>
-    <p>{{QtyAvailable}}</p>
+      <p>{{{MoreExpected}}}{{{ShowBuyer}}}{{{ProductNotAvailable}}}{{{Cat_Description}}}</p>
+      {{#if canEditPrice}}{{#if ShowPR}}<p class="right1 price-cart"><a href="/pr.html?ProductCode={{ProductCode}}">PRICE CHART</a></p>{{/if}}{{/if}}</td>
 
+    <p>{{PerBox}} / Carton</p>
+    <p>{{QtyAvailable}} / In stock</p>
+    <p>{{UofM}}</p>
+  </div>
+  <div class="cart-item-qty">
     <div class="center">
       <div class="{{addByLegacyTrueClass}}"><TMPL_INCLUDE NAME="addToCart.tmpl"></div>
       <div class="{{addByLegacyFalseClass}}">
@@ -16,7 +21,9 @@
       </div>
 <TMPL_INCLUDE NAME="cartrow-template-addedToCart.tmpl">
 </div>
-    <p>{{UofM}}</p>
+  </div>
+  
+  <div class="cart-item-price">
     <p>{{ListPrice}}</p>
     <p class="right ShowPrice" IndexNo="{{IndexNo}}">
       <div>
@@ -28,6 +35,8 @@
 <TMPL_INCLUDE NAME="cartrow-template-addedToCart.tmpl">
     </p>
     <p class="right Extended addedByLegacyExtended" IndexNo="{{IndexNo}}">{{Extended}}</p>
-    <img src="images/x-cl.gif" width="20" height="20" class="deleteFromCart {{addByLegacyTrueClass}}" IndexNo="{{IndexNo}}" onclick="deleteFromCart('{{IndexNo}}')">
   </div>
+    
+    <img src="images/x-cl.gif" width="20" height="20" class="deleteFromCart {{addByLegacyTrueClass}}" IndexNo="{{IndexNo}}" onclick="deleteFromCart('{{IndexNo}}')">
+  </article>
 </script>

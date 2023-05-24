@@ -5,11 +5,11 @@
   <!-- if added by legacy, don't show qty in cart editor -->
   <TMPL_ELSE>
   <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty" escape=html>" IndexNo="<TMPL_VAR NAME="IndexNo" escape=html>" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" default="">">
-  <button class="addToCart qty" IndexNo="<TMPL_VAR NAME="IndexNo" escape=html>" />
+  <button class="addToCart qty" IndexNo="<TMPL_VAR NAME="IndexNo" escape=html>" >ADD TO CART</button>
   </TMPL_IF>
   <TMPL_ELSE>
   <input type="text" class="quantity addQuantity" placeholder="Quantity" value="{{Qty}}" IndexNo="{{IndexNo}}" perbox="{{PerBox}}" allowpartialcases="{{AllowPartialCases}}">
-  <button class="addToCart qty" IndexNo="{{IndexNo}}" />
+  <button class="addToCart qty" IndexNo="{{IndexNo}}" > ADD TO CART</button>
   </TMPL_IF>
 </div>
 <!-- /addToCart -->
