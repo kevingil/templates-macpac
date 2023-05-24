@@ -9,6 +9,10 @@
 <TMPL_INCLUDE NAME="cartrow-template.tmpl">
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>
+
+Handlebars.registerHelper('uofmHelper', function (uofm) { return uofm.replace("C", "100")})
+
+
   var cartrowSrc  = $("#cartrow-template").html();
   var cartrowTemplate = Handlebars.compile(cartrowSrc);
   var cartrowTmpl = function(row) {
