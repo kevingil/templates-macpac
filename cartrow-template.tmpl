@@ -16,7 +16,7 @@
   </div>
 </div>
   <div class="cart-item-qty">
-    Qty
+    <h4>Qty</h4>
     <div class="center">
       <div class="{{addByLegacyTrueClass}}"><TMPL_INCLUDE NAME="addToCart.tmpl"></div>
       <div class="{{addByLegacyFalseClass}}">
@@ -28,21 +28,21 @@
   
   <div class="cart-item-price">
     <div class="cart-item-price-ea">
-      <p>Price per {{UofM}}</p>
-      <p class="smallChunk">List: {{ListPrice}}</p>
+    </h4>Price per {{UofM}}</h4>
+      <p class="cart-item-list-price">List: {{ListPrice}}</p>
       <p class="right ShowPrice" IndexNo="{{IndexNo}}">
         <div>
           <TMPL_IF NAME="session_canEditPrice">
             <input class="setPrice" IndexNo="{{IndexNo}}" value="{{ShowPrice}}">
             <button class="setPriceButton" IndexNo="{{IndexNo}}" />
-          <TMPL_ELSE>{{ShowPrice}} /{{UofM}}</TMPL_IF>
+          <TMPL_ELSE><p class="cart-item-cust-price">{{ShowPrice}} /{{UofM}}</p></TMPL_IF>
         </div>
   <TMPL_INCLUDE NAME="cartrow-template-addedToCart.tmpl">
       </p>
 
     </div>
     <div class="cart-item-price-ext">
-      <p>Price per line</p>
+    </h4>Price per line</h4>
       <p class="right Extended addedByLegacyExtended" IndexNo="{{IndexNo}}">{{Extended}}</p>
     </div>
 
