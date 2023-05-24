@@ -1,21 +1,24 @@
 <script id="cartrow-template" type="text/x-handlebars-template">
-  <tr>
-    <td style="border: none;"><img src="{{thumbnailFilename}}" height="{{thumbY}}" width="{{thumbX}}"></td>
-    <td>{{{ProductCodePrefix}}}<a href="/product.html?productCode={{ProductCode}}" class="show_underline {{ProductCodeClass}}">{{ProductCode}}</a>
-    {{#if canEditPrice}}{{#if ShowPR}}<p class="right1"><a href="/pr.html?ProductCode={{ProductCode}}">P</a></p>{{/if}}{{/if}}</td>
-    <td>{{ProductDescription}}{{{MoreExpected}}}{{{ShowBuyer}}}{{{ProductNotAvailable}}}{{{Cat_Description}}}</td>
-    <td class="center">{{PerBox}}</td>
-    <td class="center">{{QtyAvailable}}</td>
-    <td class="center">
+  <div class="cart-item">
+    <img src="{{thumbnailFilename}}" height="{{thumbY}}" width="{{thumbX}}">
+    {{{ProductCodePrefix}}}<a href="/product.html?productCode={{ProductCode}}" class="show_underline {{ProductCodeClass}}">{{ProductCode}}</a>
+    {{#if canEditPrice}}{{#if ShowPR}}<p class="right1 price-cart"><a href="/pr.html?ProductCode={{ProductCode}}">PRICE CHART</a></p>{{/if}}{{/if}}</td>
+
+    <p>{{ProductDescription}}{{{MoreExpected}}}{{{ShowBuyer}}}{{{ProductNotAvailable}}}{{{Cat_Description}}}</p>
+
+    <p>{{PerBox}}</p>
+    <p>{{QtyAvailable}}</p>
+
+    <div class="center">
       <div class="{{addByLegacyTrueClass}}"><TMPL_INCLUDE NAME="addToCart.tmpl"></div>
       <div class="{{addByLegacyFalseClass}}">
         <input type="checkbox" class="addedByLegacyCheckbox" value=1 {{#if blockProduct}}{{else}}checked {{/if}} name="{{BlockName}}" unitPrice="{{UnitPrice}}" IndexNo="{{IndexNo}}" parentCode="{{ParentCode}}"> Include Add-on
       </div>
 <TMPL_INCLUDE NAME="cartrow-template-addedToCart.tmpl">
-    </td>
-    <td>{{UofM}}</td>
-    <td class="right">{{ListPrice}}</td>
-    <td class="right ShowPrice" IndexNo="{{IndexNo}}">
+</div>
+    <p>{{UofM}}</p>
+    <p>{{ListPrice}}</p>
+    <p class="right ShowPrice" IndexNo="{{IndexNo}}">
       <div>
         <TMPL_IF NAME="session_canEditPrice">
           <input class="setPrice" IndexNo="{{IndexNo}}" value="{{ShowPrice}}">
@@ -23,8 +26,8 @@
         <TMPL_ELSE>{{ShowPrice}}</TMPL_IF>
       </div>
 <TMPL_INCLUDE NAME="cartrow-template-addedToCart.tmpl">
-    </td>
-    <td class="right Extended addedByLegacyExtended" IndexNo="{{IndexNo}}">{{Extended}}</td>
-    <td class="center"><img src="images/x-cl.gif" width="20" height="20" class="deleteFromCart {{addByLegacyTrueClass}}" IndexNo="{{IndexNo}}" onclick="deleteFromCart('{{IndexNo}}')"></td>
-  </tr>
+    </p>
+    <p class="right Extended addedByLegacyExtended" IndexNo="{{IndexNo}}">{{Extended}}</p>
+    <img src="images/x-cl.gif" width="20" height="20" class="deleteFromCart {{addByLegacyTrueClass}}" IndexNo="{{IndexNo}}" onclick="deleteFromCart('{{IndexNo}}')">
+  </div>
 </script>

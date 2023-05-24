@@ -114,66 +114,51 @@
 
   <br />
   <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
-    <table id="carttable">
-      <thead>
-        <tr>
-          <th style="border: none;"></th>
-          <th class="left">Product Code</th>
-          <th class="left">Description</th>
-          <th>Ctn</th>
-          <th>Available</th>
-          <th>Qty in Cart</th>
-          <th>Unit</th>
-          <th class="right">List Price</th>
-          <th class="right">Your Price</th>
-          <th class="right">Extended</th>
-          <th style="border: none;"></th>
-        </tr>
-      </thead>
-      <tbody id="carttabletbody">
-      </tbody>
-    </table>
+    <div id="carttable">
+      <div id="carttabletbody">
+      </div>
+    </div>
 
     <TMPL_LOOP NAME="cartItems">
       <script>
-        var table = $('#carttable tbody');
+        var table = $('#carttable div');
         table.append(cartrowTmpl({
           addByLegacyFalseClass: '<TMPL_VAR NAME="addByLegacyFalseClass">',
           addByLegacyTrueClass: '<TMPL_VAR NAME="addByLegacyTrueClass">',
           added_by_legacy: <TMPL_VAR NAME="added_by_legacy" default="0">,
-            AllowPartialCases:     '<TMPL_VAR NAME="allowPartialCases" default="Y">',
-              BlockName:             '<TMPL_VAR NAME="BlockName" escape=js>',
-                Buyer:                 '<TMPL_VAR NAME="Buyer" escape=js>',
-                  blockProduct:           <TMPL_VAR NAME="blockProduct" default="0">,
-                    canEditPrice:           <TMPL_VAR NAME="session_canEditPrice" default="0">,
-                      Cat_Description:       '<TMPL_VAR NAME="Cat_Description" default="">',
-                        ExpectedDate:          '<TMPL_VAR NAME="ExpectedDate">',
-                          Extended:              '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="Extended"></TMPL_UNLESS>',
-                          fullX:                  <TMPL_VAR NAME="fullX" default="0">,
-                            fullY:                  <TMPL_VAR NAME="fullY" default="0">,
-                              IndexNo:                <TMPL_VAR NAME="IndexNo" default="0">,
-                                isSales:                <TMPL_VAR NAME="session_issales" default="0">,
-                                  isKit0:                 <TMPL_VAR NAME="isKit0" default="0">,
-                                    isKit1:                 <TMPL_VAR NAME="isKit1" default="0">,
-                                      isKit2:                 <TMPL_VAR NAME="isKit2" default="0">,
-                                        ListPrice:             '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="ListPrice"></TMPL_UNLESS>',
-                                        OrderQuantity:          <TMPL_VAR NAME="OrderQuantity" default="0">,
-                                          ParentCode:            '<TMPL_VAR NAME="ParentCode">',
-                                            PerBox:                '<TMPL_VAR NAME="PerBox">',
-                                              ProductCodeClass:      '<TMPL_IF NAME="isKit2">kitProductCode</TMPL_IF><TMPL_IF NAME="isAddon2">clipProductCode</TMPL_IF>',
-                                              ProductCodePrefix:     '<TMPL_IF NAME="isKit2">Component:<br></TMPL_IF><TMPL_IF NAME="isKit1">Kit:<br></TMPL_IF><TMPL_IF NAME="isAddon2">Is Add-on<br></TMPL_IF><TMPL_IF NAME="isAddon1">Has Add-on(s)<br></TMPL_IF>',
-                                              ProductCode:           '<TMPL_VAR NAME="ProductCode">',
-                                                ProductDescription:    '<TMPL_VAR NAME="ProductDescription" escape=js>',
-                                                  ProductNotAvailable:   '<TMPL_VAR NAME="ProductNotAvailable" default="">',
-                                                    QtyAvailable:          '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="QtyAvailable"></TMPL_UNLESS>',
-                                                    Qty:                   '<TMPL_VAR NAME="Qty">',
-                                                      ShowPrice:             '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="ShowPrice"></TMPL_UNLESS>',
-                                                      ShowPR:                 <TMPL_VAR NAME="ShowPR" default="0">,
-                                                        thumbnailFilename:     '<TMPL_VAR NAME="thumbnailFilename">',
-                                                          thumbX:                 <TMPL_VAR NAME="thumbX" default="0">*3/4,
-                                                            thumbY:                 <TMPL_VAR NAME="thumbY" default="0">*3/4,
-                                                              UnitPrice:              <TMPL_VAR NAME="UnitPrice" default="0.00">,
-                                                                UofM:                  '<TMPL_VAR NAME="UofM">',
+          AllowPartialCases:     '<TMPL_VAR NAME="allowPartialCases" default="Y">',
+          BlockName:             '<TMPL_VAR NAME="BlockName" escape=js>',
+          Buyer:                 '<TMPL_VAR NAME="Buyer" escape=js>',
+          blockProduct:           <TMPL_VAR NAME="blockProduct" default="0">,
+          canEditPrice:           <TMPL_VAR NAME="session_canEditPrice" default="0">,
+          Cat_Description:       '<TMPL_VAR NAME="Cat_Description" default="">',
+          ExpectedDate:          '<TMPL_VAR NAME="ExpectedDate">',
+          Extended:              '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="Extended"></TMPL_UNLESS>',
+          fullX:                  <TMPL_VAR NAME="fullX" default="0">,
+          fullY:                  <TMPL_VAR NAME="fullY" default="0">,
+          IndexNo:                <TMPL_VAR NAME="IndexNo" default="0">,
+          isSales:                <TMPL_VAR NAME="session_issales" default="0">,
+          isKit0:                 <TMPL_VAR NAME="isKit0" default="0">,
+          isKit1:                 <TMPL_VAR NAME="isKit1" default="0">,
+          isKit2:                 <TMPL_VAR NAME="isKit2" default="0">,
+          ListPrice:             '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="ListPrice"></TMPL_UNLESS>',
+          OrderQuantity:          <TMPL_VAR NAME="OrderQuantity" default="0">,
+          ParentCode:            '<TMPL_VAR NAME="ParentCode">',
+          PerBox:                '<TMPL_VAR NAME="PerBox">',
+          ProductCodeClass:      '<TMPL_IF NAME="isKit2">kitProductCode</TMPL_IF><TMPL_IF NAME="isAddon2">clipProductCode</TMPL_IF>',
+          ProductCodePrefix:     '<TMPL_IF NAME="isKit2">Component:<br></TMPL_IF><TMPL_IF NAME="isKit1">Kit:<br></TMPL_IF><TMPL_IF NAME="isAddon2">Is Add-on<br></TMPL_IF><TMPL_IF NAME="isAddon1">Has Add-on(s)<br></TMPL_IF>',
+          ProductCode:           '<TMPL_VAR NAME="ProductCode">',
+          ProductDescription:    '<TMPL_VAR NAME="ProductDescription" escape=js>',
+          ProductNotAvailable:   '<TMPL_VAR NAME="ProductNotAvailable" default="">',
+          QtyAvailable:          '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="QtyAvailable"></TMPL_UNLESS>',
+          Qty:                   '<TMPL_VAR NAME="Qty">',
+          ShowPrice:             '<TMPL_UNLESS NAME="isKit1"><TMPL_VAR NAME="ShowPrice"></TMPL_UNLESS>',
+          ShowPR:                 <TMPL_VAR NAME="ShowPR" default="0">,
+          thumbnailFilename:     '<TMPL_VAR NAME="thumbnailFilename">',
+          thumbX:                 <TMPL_VAR NAME="thumbX" default="0">*3/4,
+          thumbY:                 <TMPL_VAR NAME="thumbY" default="0">*3/4,
+          UnitPrice:              <TMPL_VAR NAME="UnitPrice" default="0.00">,
+          UofM:                  '<TMPL_VAR NAME="UofM">',
   }));
       </script>
     </TMPL_LOOP>
