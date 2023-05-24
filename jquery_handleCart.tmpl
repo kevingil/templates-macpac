@@ -10,16 +10,13 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>
 
-  Handlebars.registerHelper('uofmHelper', 
-    function (uofm) { 
-      switch (uofm) {
-        case 'C': uofm = '100'
-        case 'M': uofm = '1000'
-        case 'PR': uofm = 'pair'
-        case 'BG': uofm = 'bag'
-      }
-      return uofm
-  });
+  Handlebars.registerHelper('uofmHelper', function (umString) {
+    umString.replace('PR', 'pair')
+    umString.replace('M', '1000')
+    umString.replace('C', '100')
+    return umString
+})
+
 
   var cartrowSrc  = $("#cartrow-template").html();
   var cartrowTemplate = Handlebars.compile(cartrowSrc);
