@@ -1970,9 +1970,16 @@ controls .big {
 }
 
 @media (min-width: 992px) {
+    /*search cart*/
     div.result-body > div.cart-controls {
         width: 60%;
         margin: -40px 0px 0px auto;
+        grid-template-columns: 40px 100px 40px;
+        grid-template-rows: repeat(3, 50px);
+    }
+    /*product tmpl cart*/
+    div.prod-cart > div.cart-controls {
+        margin: 0px 0px 0px auto;
         grid-template-columns: 50px 100px 50px;
         grid-template-rows: repeat(3, 50px);
     }
