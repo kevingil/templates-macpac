@@ -2516,6 +2516,8 @@ dstable td {
     font-size: 10pt;
 }
 
+
+
 #carttable th {
     padding: 5px 3px 5px 4px;
     border: 1px solid #999;
@@ -2537,6 +2539,7 @@ dstable td {
 
 .cart-item {
     padding: 20px;
+    margin: 0px 0px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
 }
@@ -2564,6 +2567,27 @@ dstable td {
     grid-area: 2 / 3 / 3 / 4;
     margin-left: auto;
 }
+
+@media (min-width: 100px) {
+    .cart-item-price {
+        grid-area: 2 / 1 / 3 / 3;
+    }
+    #carttable {
+    }
+}
+@media (min-width: 768px) {
+    .cart-item-price {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+}
+@media (min-width: 1130px) {
+    #carttable {
+        font-size: 12pt;
+        margin: 0px 20px;
+    }
+}
+
+
 
 /* Order Table */
 

@@ -89,28 +89,23 @@
   </article>
 
 
-  <h3>Current Shopping Cart<TMPL_IF NAME="cart_cartName"> - <TMPL_VAR NAME="cart_cartName">
-    </TMPL_IF>
-  </h3>
+ 
 
-  <table>
-    <tr>
-      <td>Add Product Code:</td>
-      <td class="ibox"><input name="addProductCode" class="addProductCode" value=""></td>
-      <td>Quantity:</td>
-      <td><input name="addQuantity" class="addRowQuantity" value="" id="addQuantityField"></td>
-      <td><button class="addRowToCart"></button></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <div style="display:none" class="productCodeNotFound">Product Code Not Found</div>
-      </td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+  <div class="cart-middle">
+    <h3 class="cart-title">Shopping Cart<TMPL_IF NAME="cart_cartName"> - <TMPL_VAR NAME="cart_cartName">
+    </TMPL_IF></h3>
+    <div class="cart-middle-left">
+      <p>Add Product Code:</p>
+      <input name="addProductCode" class="addProductCode" value="">
+    </div>
+    <div class="cart-middle-right">
+      <p>Quantity:</p>
+      <input name="addQuantity" class="addRowQuantity" value="" id="addQuantityField">
+      <button class="addRowToCart"></button>
+    </div>
+
+    <div style="display:none" class="productCodeNotFound">Product Code Not Found</div>
+  </div>
 
   <br />
   <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
