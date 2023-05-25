@@ -132,27 +132,6 @@
   </TMPL_IF>
   </TMPL_IF>
 
-
-  <script>
-    // plus minus buttons handler
-    let plusButton = document.getElementsByClassName('plus-button');
-    console.log(plusButton)
-    let minusButton = document.getElementsByClassName('minus-button');
-    console.log(minusButton)
-
-    for (var i = 0; i < plusButton.lenght; i++){
-      let currentButton = plusButton[i];
-      currentButton.addEventListener('click',function(event){
-        let buttonClicked = event.target;
-        let input = buttonClicked.parentElement.children[2];
-        let inputValue = input.value;
-        console.log(inputValue);
-      })
-
-    }
-
-</script>
-
   <TMPL_IF NAME="showExplanation">
     <tr>
       <td colspan=4>
@@ -188,7 +167,31 @@
 </article><!--end item table-->
 </TMPL_LOOP>
 <!-- end search result item-->
+
+
+<script>
+  // plus minus buttons handler
+  let plusButton = document.getElementsByClassName('plus-button');
+  console.log(plusButton)
+  let minusButton = document.getElementsByClassName('minus-button');
+  console.log(minusButton)
+
+  for (var i = 0; i < plusButton.lenght; i++){
+    let currentButton = plusButton[i];
+    currentButton.addEventListener('click',function(event){
+      let buttonClicked = event.target;
+      let input = buttonClicked.parentElement.children[2];
+      let inputValue = input.value;
+      console.log(inputValue);
+    })
+
+  }
+
+</script>
+
 </div><!--itemrow-->
+
+
 
 
 <TMPL_INCLUDE NAME="pageNumbers.tmpl">
