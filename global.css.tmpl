@@ -2588,10 +2588,16 @@ div.cart-middle-right > p {
     .cart-middle-left {
         display: grid;
     }
+    .cart-middle-right {
+        grid-area: 3 / 1 / 4 / 3;
+    }
 }
 @media (min-width: 768px) {
     .cart-item-price {
         grid-area: 1 / 3 / 2 / 4;
+    }
+    .cart-middle-right {
+        grid-area: 2 / 2 / 3 / 3;
     }
 }
 @media (min-width: 1130px) {
