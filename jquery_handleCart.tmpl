@@ -10,10 +10,21 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>
 
-  Handlebars.registerHelper('uofmHelper', function (umString) {
-    umString.replace('PR', 'pair')
-    umString.replace('M', '1000')
-    umString.replace('C', '100')
+  Handlebars.registerHelper('umHelper', function (umString) {
+    switch (umString) {
+      case 'PR':
+        umString = 'pair';
+        break;
+      case 'M':
+        umString = '1000';
+        break;
+      case 'C':
+        umString = '100';
+        break;
+      default:
+        umString = umString.toLowerCase();
+      break;
+    }
     return umString
 })
 
