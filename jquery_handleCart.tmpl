@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>
 
+  /* Comprehensive units of measurement
+      not used all the time, we still need short version of UM */
   Handlebars.registerHelper('umHelper', function (umString) {
     switch (umString) {
       case 'PR':
@@ -27,7 +29,6 @@
     }
     return umString
 })
-
 
   var cartrowSrc  = $("#cartrow-template").html();
   var cartrowTemplate = Handlebars.compile(cartrowSrc);
