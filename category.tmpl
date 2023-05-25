@@ -128,7 +128,7 @@
         currentButton.addEventListener('click',function(event){
           let buttonClicked = event.target;
           let input = buttonClicked.parentElement.children[2];
-          let inputValue = parseInt(input.value) || 0;
+          let inputValue = input.value;
           console.log(inputValue);
         })
       }
