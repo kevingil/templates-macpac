@@ -2512,25 +2512,7 @@ dstable td {
 
 #carttable {
     width: 100%;
-    border: 1px solid #999;
     font-size: 10pt;
-}
-
-
-
-#carttable th {
-    padding: 5px 3px 5px 4px;
-    border: 1px solid #999;
-}
-
-#carttable td {
-    padding: 5px 4px 5px 4px;
-    border: 1px solid #999;
-    vertical-align: middle;
-}
-
-#carttable tr:nth-child(even) {
-    background-color: #ecf0f3;
 }
 
 #carttable a {
@@ -2541,7 +2523,7 @@ dstable td {
     padding: 20px;
     margin: 0px 0px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
 }
 
 .cart-item-description {
@@ -2572,7 +2554,8 @@ dstable td {
     .cart-item-price {
         grid-area: 2 / 1 / 3 / 3;
     }
-    #carttable {
+    .cart-item {
+        margin: 0px 20px;
     }
 }
 @media (min-width: 768px) {
@@ -2581,9 +2564,9 @@ dstable td {
     }
 }
 @media (min-width: 1130px) {
-    #carttable {
+    .cart-item {
         font-size: 12pt;
-        margin: 0px 20px;
+        margin: 0px 0px;
     }
 }
 
