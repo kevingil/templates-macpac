@@ -115,6 +115,26 @@
       <TMPL_INCLUDE NAME="productChunk.tmpl">
     </div>
 
+    <script>
+      // plus minus buttons handler
+      // see productChunk.tmpl for buttons
+      let plusButton = document.getElementsByClassName('plus-button');
+      console.log(plusButton)
+      let minusButton = document.getElementsByClassName('minus-button');
+      console.log(minusButton)
+    
+      for (var i = 0; i < plusButton.lenght; i++){
+        let currentButton = plusButton[i];
+        currentButton.addEventListener('click',function(event){
+          let buttonClicked = event.target;
+          let input = buttonClicked.parentElement.children[2];
+          let inputValue = input.value;
+          console.log(inputValue);
+        })
+      }
+
+    </script>
+
   </div>
 
   <p class="divider">&nbsp;</p>
