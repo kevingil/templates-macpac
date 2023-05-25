@@ -2587,6 +2587,7 @@ div.cart-middle-right > p {
     }
     .cart-middle-left {
         display: grid;
+        grid-area: 2 / 1 / 3 / 3;
     }
     .cart-middle-right {
         grid-area: 3 / 1 / 4 / 3;
@@ -2595,6 +2596,9 @@ div.cart-middle-right > p {
 @media (min-width: 768px) {
     .cart-item-price {
         grid-area: 1 / 3 / 2 / 4;
+    }
+    .cart-middle-left {
+        grid-area: 2 / 1 / 3 / 2; 
     }
     .cart-middle-right {
         grid-area: 2 / 2 / 3 / 3;
