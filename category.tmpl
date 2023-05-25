@@ -129,6 +129,10 @@
           let buttonClicked = event.target;
           let input = buttonClicked.parentElement.children[2];
           let inputValue = input.value;
+          let intValue = parseInt(inputValue);
+          if (isNaN(intValue)){
+            intValue = 0;
+          }
           console.log(inputValue);
         })
       }
