@@ -123,12 +123,12 @@
       let minusButton = document.getElementsByClassName('minus-button');
       console.log(minusButton)
     
-      for (var i = 0; i < plusButton.lenght; i++){
+      for (var i = 0; i < plusButton.length; i++){
         let currentButton = plusButton[i];
         currentButton.addEventListener('click',function(event){
           let buttonClicked = event.target;
           let input = buttonClicked.parentElement.children[2];
-          let inputValue = input.value;
+          let inputValue = parseInt(input.value) || 0;
           console.log(inputValue);
         })
       }
