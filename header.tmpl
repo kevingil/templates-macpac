@@ -3,13 +3,12 @@
 <html lang="en-US">
 
 <head>
-  <TMPL_IF name="isTemplatePage ">
-      <title><TMPL_VAR NAME="Description"></title>
-    <TMPL_ELSE><title>MacMurray Pacific Wholesale Hardware</title>
+  <TMPL_IF ISTEMPLATEPAGE>
+      <title>PART# <TMPL_VAR NAME="ProductCode"></title>
+    <TMPL_ELSE>
+      <title>MacMurray Pacific Wholesale Hardware</title>
     </TMPL_IF>
 
-
-      <title>MacMurray Pacific Wholesale Hardware</title>
   <meta name="description"
     content="MacMurray Pacific Wholesale Hardware: Products For the Cabinet and Woodworking Industries">
   <meta name="keywords" content="MacMurray Pacific, wholesale hardware, cabinet hardware, woodworking supplies, door hardware,
