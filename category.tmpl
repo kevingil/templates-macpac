@@ -123,6 +123,7 @@
       var minusButton = document.getElementsByClassName('minus-button');
       console.log(minusButton)
     
+      // add handler
       for (var i = 0; i < plusButton.length; i++){
         var currentButton = plusButton[i];
         currentButton.addEventListener('click',function(event){
@@ -141,6 +142,29 @@
           } 
 
           input.value = parseInt(input.value) + 1;
+          console.log("CALC:" + input.value);
+        })
+      }
+
+            // subtrac handler
+        for (var i = 0; i < minusButton.length; i++){
+        var currentButton = minusButton[i];
+        currentButton.addEventListener('click',function(event){
+
+          var buttonClicked = event.target;
+
+          var input = buttonClicked.parentElement.children[2];
+          console.log(buttonClicked);
+          console.log(buttonClicked.parentElement);
+          console.log(input);
+          var calcVal = 0;
+
+          if (isNaN(parseInt(input.value))){
+            console.log("assign val if undef");
+            input.value = calcVal;
+          } 
+
+          input.value = parseInt(input.value) - 1;
           console.log("CALC:" + input.value);
         })
       }
