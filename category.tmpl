@@ -135,13 +135,14 @@
           console.log(input);
           var calcVal = 0;
 
-          if (isNaN(input.value)){
+          if (isNaN(parseInt(input.value))){
             console.log("Not A Num");
             input.value = calcVal;
-          } else {
-            console.log("Is num...");
-            input.value = parseInt(input.value) + 1;
-          }
+            console.log("Input 0?:" + input.value);
+          } 
+
+          console.log("Now is num!");
+          input.value = parseInt(input.value) + 1;
           /*
             console.log("Init val:" + input.value);
             calcVal = (input.value || 0) + 1;
