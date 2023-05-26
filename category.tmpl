@@ -134,26 +134,26 @@
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
           var um = buttonClicked.parentElement.children[4];
-          var fullCaseOnly = buttonClicked.parentElement.children[5].innerHTML;
+          var allowPartial = buttonClicked.parentElement.children[5].innerHTML;
           var caseQty = buttonClicked.parentElement.children[6].innerHTML;
           console.log("priced per" + um.innerHTML);
 
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
             console.log("undefined resolved");
-            if (fullCaseOnly == '') {
-              fullCaseOnly = 'Y';
-              console.log("true" + fullCaseOnly);
+            if (allowPartial == '') {
+              allowPartial = 'Y';
+              console.log("true" + allowPartial);
             } else {
-              console.log("false" + fullCaseOnly);
+              console.log("false" + allowPartial);
             }
           } 
 
-          if (fullCaseOnly == 'N') {
+          if (allowPartial == 'N') {
             increment = parseInt(caseQty);
-          } else if (um == 'C'){
+          } else if (allowPartial == 'Y' && um == 'C'){
             increment = 100;
-          } else if (um == 'M'){
+          } else if (allowPartial == 'Y' && um == 'M'){
             increment = 100;
           }
 
