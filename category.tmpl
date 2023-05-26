@@ -130,10 +130,9 @@
           var buttonClicked = event.target;
 
           var input = buttonClicked.parentElement.children[2];
+          console.log(buttonClicked);
           console.log(input);
-          console.log(input.value);
           var inputValue = 0;
-
           if ( input.value == undefined){
             input.value = parseInt(0);
           } else {
