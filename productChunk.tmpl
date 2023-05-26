@@ -82,7 +82,7 @@
                           </TMPL_IF>
                       </TMPL_IF>
                   </TMPL_IF>
-
+                  <!-- QTY BRK CHRT -->
                   <TMPL_IF NAME="SpecialOrder">
                     <TMPL_ELSE>
                       <TMPL_IF NAME="ladder">
@@ -114,7 +114,7 @@
         </button>
 
         <input type="number" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty">" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" DEFAULT="0">">
-
+        
         <button class='plus-button secondary'>
           <i class="fa-solid fa-plus"></i>
         </button>
@@ -122,6 +122,8 @@
         <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="ProductCode">" >
           Add to Cart
         </button>
+
+        <span class="secret-um"><TMPL_VAR NAME="UofM"></span>
 
       </div>
       <TMPL_IF NAME="Qty">
@@ -164,6 +166,8 @@
                                   </TMPL_IF>
                                   -->
 </div>
+
+
 </article><!--end item table-->
 </TMPL_LOOP>
 <!-- end search result item-->

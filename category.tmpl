@@ -126,14 +126,16 @@
       // add handler
       for (var i = 0; i < plusButton.length; i++){
         var currentButton = plusButton[i];
+        var increment = 1;
 
         currentButton.addEventListener('click',function(event){
 
           var buttonClicked = event.currentTarget;
 
           var input = buttonClicked.parentElement.children[2];
+          var um = buttonClicked.parentElement.children[4];
           console.log(buttonClicked);
-          console.log(buttonClicked.parentElement);
+          console.log(um);
           console.log(input);
           var calcVal = 0;
 
@@ -141,8 +143,8 @@
             console.log("assign val if undef");
             input.value = calcVal;
           } 
-          
-          input.value = parseInt(input.value) + 1;
+
+          input.value = parseInt(input.value) + increment;
           
           console.log("CALC:" + input.value);
           
