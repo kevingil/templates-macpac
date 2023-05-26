@@ -149,6 +149,10 @@
             }
           } 
 
+          if (fullCaseOnly == 'N') {
+            increment = caseQty;
+          }
+
           input.value = parseInt(input.value) + increment;
 
           console.log("CALC:" + input.value);
