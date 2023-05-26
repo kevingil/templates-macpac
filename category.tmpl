@@ -134,7 +134,7 @@
           console.log(buttonClicked.parentElement);
           console.log(input);
           var inputValue = 0;
-          if ( input.value == undefined){
+          if (isNaN(input.value)){
             input.value = parseInt(0);
           } else {
             inputValue = input.value;
@@ -142,11 +142,7 @@
 
           console.log(inputValue);
           //let intValue = parseInt(inputValue) + 1;
-          var returnValue = inputValue + 1;
-          console.log(returnValue);
-          input.value = returnValue;
-          console.log(inputValue);
-          console.log(input.value);
+          var returnValue;
         })
       }
 
