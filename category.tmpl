@@ -135,7 +135,7 @@
           var input = buttonClicked.parentElement.children[2];
           var um = buttonClicked.parentElement.children[4];
           console.log(buttonClicked);
-          console.log(um);
+          console.log(um.innerHTML);
           console.log(input);
           var calcVal = 0;
 
@@ -143,7 +143,6 @@
             console.log("assign val if undef");
             input.value = calcVal;
           } 
-
           input.value = parseInt(input.value) + increment;
           
           console.log("CALC:" + input.value);
