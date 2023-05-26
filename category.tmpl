@@ -141,14 +141,13 @@
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
             console.log("undefined resolved");
+            if (fullCaseOnly == '') {
+              console.log("true" + fullCaseOnly);
+            } else {
+              console.log("false" + fullCaseOnly);
+            }
           } 
 
-          if (fullCaseOnly == ''){
-            increment = parseInt(caseQty);
-          } else if (fullCaseOnly == 'N') {
-            increment = parseInt(caseQty);
-          }
-          
           input.value = parseInt(input.value) + increment;
 
           console.log("CALC:" + input.value);
