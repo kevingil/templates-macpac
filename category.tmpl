@@ -140,9 +140,10 @@
           if (isNaN(parseInt(input.value))){
             console.log("assign val if undef");
             input.value = calcVal;
-          } 
-
-          input.value = parseInt(input.value) + 1;
+          } else {
+            input.value = parseInt(input.value) + 1;
+          }
+          
           console.log("CALC:" + input.value);
         })
 
@@ -153,7 +154,7 @@
         var currentButton = minusButton[i];
         currentButton.addEventListener('click',function(event){
 
-          var buttonClicked = event.target;
+          var buttonClicked = event.currentTarget;
 
           var input = buttonClicked.parentElement.children[2];
           console.log(buttonClicked);
@@ -164,9 +165,12 @@
           if (isNaN(parseInt(input.value))){
             console.log("assign val if undef");
             input.value = calcVal;
-          } 
+          } else if (input.value<=0) {
+            input.value = calcVal;
+          } else {
+            input.value = parseInt(input.value) - 1;
+          }
 
-          input.value = parseInt(input.value) - 1;
           console.log("CALC:" + input.value);
         })
       }
