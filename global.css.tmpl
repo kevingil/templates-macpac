@@ -1960,7 +1960,7 @@ controls .big {
     display: none;
 }
 
-.cart-controls {
+.control-box {
     display: grid;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
@@ -1968,29 +1968,29 @@ controls .big {
     margin-right: 0px;
 }
 
-div.cart-controls > button{
+div.control-box > button{
     margin: 0px;
     padding: 8px;
 } 
 
-.cart-controls>input.addQuantity {
+div.control-box >input.addQuantity {
     height: 100%;
 }
 
-div.cart-controls > div.secondary {
+div.control-box > div.secondary {
     /*div buttons need this*/
     padding: 11px;
 }
 
 @media (min-width: 100px) {
-    .cart-controls {
+    div.control-box {
         grid-template-columns: 40px auto 40px;
         grid-template-rows: repeat(3, 40px);
     }
 }
 
 @media (min-width: 768px) {
-    .cart-controls {
+    div.control-box {
         width: auto;
         margin: 0px 0px 0px auto;
         grid-template-columns: 40px 100px 40px;
@@ -2000,7 +2000,7 @@ div.cart-controls > div.secondary {
 
 @media (min-width: 992px) {
     /*search cart*/
-    div.result-body > div.cart-controls {
+    div.control-box {
         width: 60%;
         margin: -40px 0px 0px auto;
         grid-template-columns: 40px 100px 40px;
