@@ -140,11 +140,12 @@
           if (isNaN(parseInt(input.value))){
             console.log("assign val if undef");
             input.value = calcVal;
-          } else {
-            input.value = parseInt(input.value) + 1;
-          }
+          } 
+          
+          input.value = parseInt(input.value) + 1;
           
           console.log("CALC:" + input.value);
+          
         })
 
       }
