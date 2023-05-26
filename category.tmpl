@@ -135,12 +135,13 @@
           console.log(input);
           var calcVal = 0;
 
-          if (isNaN(input.value)){
+          if (typeof input.value !== 'undefined'){
             input.value = calcVal;
           } 
+          console.log("Init val:" + input.value);
           calcVal = parseInt(input.value) + 1;
           input.value = calcVal;
-          console.log(input.value);
+          console.log("Cacl val:" + input.value);
         })
       }
 
