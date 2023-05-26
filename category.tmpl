@@ -118,21 +118,21 @@
     <script>
       // plus minus buttons handler
       // see productChunk.tmpl for buttons
-      let plusButton = document.getElementsByClassName('plus-button');
+      var plusButton = document.getElementsByClassName('plus-button');
       console.log(plusButton)
-      let minusButton = document.getElementsByClassName('minus-button');
+      var minusButton = document.getElementsByClassName('minus-button');
       console.log(minusButton)
     
       for (var i = 0; i < plusButton.length; i++){
-        let currentButton = plusButton[i];
+        var currentButton = plusButton[i];
         currentButton.addEventListener('click',function(event){
 
-          let buttonClicked = event.target;
+          var buttonClicked = event.target;
 
-          let input = buttonClicked.parentElement.children[2];
+          var input = buttonClicked.parentElement.children[2];
           console.log(input);
           console.log(input.value);
-          let inputValue = 0;
+          var inputValue = 0;
 
           if ( input.value == undefined){
             input.value = parseInt(0);
