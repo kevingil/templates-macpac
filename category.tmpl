@@ -134,12 +134,13 @@
           console.log(buttonClicked.parentElement);
           console.log(input);
           var calcVal = 0;
+
           if (isNaN(input.value)){
             input.value = calcVal;
-          } else {
-            calcVal = input.value + 1;
-          }
-          console.log(calcVal);
+          } 
+          calcVal = parseInt(input.value) + 1;
+          input.value = calcVal;
+          console.log(input.value);
         })
       }
 
