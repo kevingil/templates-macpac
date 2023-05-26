@@ -126,14 +126,16 @@
       for (var i = 0; i < plusButton.length; i++){
         let currentButton = plusButton[i];
         currentButton.addEventListener('click',function(event){
+
           let buttonClicked = event.target;
+
           let input = buttonClicked.parentElement.children[2];
-          let inputValue = input.value;
-          let intValue = parseInt(inputValue);
-          if (isNaN(intValue)){
-            intValue = 0;
-          } else { intValue++;}
-          console.log(inputValue);
+
+          let inputValue = input.value ?? 0;
+
+          let intValue = parseInt(inputValue) + 1;
+
+          console.log(intValue);
         })
       }
 
