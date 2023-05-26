@@ -136,20 +136,12 @@
           var calcVal = 0;
 
           if (isNaN(parseInt(input.value))){
-            console.log("Not A Num");
+            console.log("assign val if undef");
             input.value = calcVal;
-            console.log("Input 0?:" + input.value);
           } 
 
-          console.log("Now is num!");
           input.value = parseInt(input.value) + 1;
-          /*
-            console.log("Init val:" + input.value);
-            calcVal = (input.value || 0) + 1;
-            console.log("Init val:" + input.value);
-            calcVal = parseInt(input.value) + 1;
-          */
-          console.log("Cacl val:" + input.value);
+          console.log("CALC:" + input.value);
         })
       }
 
