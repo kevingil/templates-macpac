@@ -177,9 +177,9 @@
             input.value = calcVal;
           } else if (input.value<=0) {
             input.value = calcVal;
-          } else {
-            input.value = parseInt(input.value) - 1;
           }
+          
+          input.value = parseInt(input.value) - 1;
 
           console.log("CALC:" + input.value);
         })
