@@ -1,12 +1,10 @@
 <TMPL_INCLUDE NAME="header.tmpl">
   <p class="breadcrumb-header">
     <a href="productCats.html">Back to Product Categories</a>
-    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink1">">
-        <TMPL_VAR NAME="breadcrumbtext1" escape=html>
-      </a></TMPL_IF>
-    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink2">">
-        <TMPL_VAR NAME="breadcrumbtext2" escape=html>
-      </a></TMPL_IF>
+    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink1">">
+      <TMPL_VAR NAME="breadcrumbtext1" escape=html></a></TMPL_IF>
+    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink2">">
+      <TMPL_VAR NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
   </p>
 
   <div class="product-results-wrap">
@@ -17,7 +15,7 @@
       <details id="pagecontrols">
         <summary role="button" class="secondary"><b>Sort</b></summary>
         <article>
-          <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
+        <TMPL_INCLUDE NAME="pageControlsSelects.tmpl">
         </article>
       </details>
 
@@ -25,7 +23,7 @@
       <details id="filtercontainer" open>
         <summary role="button" class="secondary"><b>Filters</b></summary>
         <article>
-          <TMPL_INCLUDE NAME="filters.tmpl">
+        <TMPL_INCLUDE NAME="filters.tmpl">
         </article>
       </details>
     </div>
@@ -124,12 +122,12 @@
       console.log(plusButton)
       var minusButton = document.getElementsByClassName('minus-button');
       console.log(minusButton)
-
+    
       // add handler
-      for (var i = 0; i < plusButton.length; i++) {
+      for (var i = 0; i < plusButton.length; i++){
         var currentButton = plusButton[i];
 
-        currentButton.onclick = function (event) {
+        currentButton.addEventListener('click',function(event){
 
           var buttonClicked = event.target;
 
@@ -139,22 +137,21 @@
           console.log(input);
           var calcVal = 0;
 
-          if (isNaN(parseInt(input.value))) {
+          if (isNaN(parseInt(input.value))){
             console.log("assign val if undef");
             input.value = calcVal;
-          }
+          } 
 
           input.value = parseInt(input.value) + 1;
           console.log("CALC:" + input.value);
-
-        };
+        })
 
       }
 
-      // subtrac handler
-      for (var i = 0; i < minusButton.length; i++) {
+        // subtrac handler
+        for (var i = 0; i < minusButton.length; i++){
         var currentButton = minusButton[i];
-        currentButton.addEventListener('click', function (event) {
+        currentButton.addEventListener('click',function(event){
 
           var buttonClicked = event.target;
 
@@ -164,10 +161,10 @@
           console.log(input);
           var calcVal = 0;
 
-          if (isNaN(parseInt(input.value))) {
+          if (isNaN(parseInt(input.value))){
             console.log("assign val if undef");
             input.value = calcVal;
-          }
+          } 
 
           input.value = parseInt(input.value) - 1;
           console.log("CALC:" + input.value);
