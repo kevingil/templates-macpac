@@ -146,10 +146,12 @@
             input.value = calcVal;
           } 
 
+          /*
+
           if (fullCaseOnly.innerHTML = 'C'){
             // increment = something something... fullCaseQty
             increment = 100;
-          }
+          }*/
           
           input.value = parseInt(input.value) + increment;
 
@@ -166,7 +168,7 @@
 
           var buttonClicked = event.currentTarget;
 
-          var input = buttonClicked.parentElement.children[2];
+          var input = buttonClicked.parentElement.children[1];
           console.log(buttonClicked);
           console.log(buttonClicked.parentElement);
           console.log(input);
