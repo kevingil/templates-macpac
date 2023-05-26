@@ -151,6 +151,10 @@
 
           if (fullCaseOnly == 'N') {
             increment = parseInt(caseQty);
+          } else if (um == 'C'){
+            increment = 100;
+          } else if (um == 'M'){
+            increment = 100;
           }
 
           input.value = parseInt(input.value) + increment;
