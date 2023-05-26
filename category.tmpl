@@ -131,7 +131,14 @@
 
           let input = buttonClicked.parentElement.children[2];
 
-          let inputValue = input.value || parseInt(0);
+          let inputValue = 0;
+
+          if ( input.value == undefined){
+            input.value = parseInt(0);
+          } else {
+            inputValue = input.value;
+          }
+
           console.log(inputValue);
           //let intValue = parseInt(inputValue) + 1;
           let returnValue = inputValue + 1;
