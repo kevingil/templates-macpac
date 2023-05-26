@@ -127,6 +127,7 @@
       for (var i = 0; i < plusButton.length; i++){
         var currentButton = plusButton[i];
         var increment = 1;
+        var fullCaseOnly = false;
 
         currentButton.addEventListener('click',function(event){
 
@@ -143,8 +144,13 @@
             console.log("assign val if undef");
             input.value = calcVal;
           } 
-          input.value = parseInt(input.value) + increment;
+
+          if (fullCaseOnly){
+            // increment = something something... fullCaseQty
+          }
           
+          input.value = parseInt(input.value) + increment;
+
           console.log("CALC:" + input.value);
           
         })
