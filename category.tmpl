@@ -135,10 +135,8 @@
           var input = buttonClicked.parentElement.children[1];
           var um = buttonClicked.parentElement.children[4];
           var fullCaseOnly = buttonClicked.parentElement.children[5];
-          console.log(buttonClicked);
-          console.log(um.innerHTML);
-          console.log(input);
-          console.log(fullCaseOnly.innerHTML);
+          console.log("priced per" + um.innerHTML);
+          console.log("fullcase rt val: " + fullCaseOnly.innerHTML);
           var calcVal = 0;
 
           if (isNaN(parseInt(input.value))){
