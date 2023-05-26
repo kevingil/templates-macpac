@@ -130,26 +130,23 @@
 
         currentButton.addEventListener('click',function(event){
 
+          var calcVal = 0;
           var buttonClicked = event.currentTarget;
-
           var input = buttonClicked.parentElement.children[1];
           var um = buttonClicked.parentElement.children[4];
-          var fullCaseOnly = buttonClicked.parentElement.children[5];
+          var fullCaseOnly = buttonClicked.parentElement.children[5].innerHTML;
+          var caseQty = buttonClicked.parentElement.children[6].innerHTML;
           console.log("priced per" + um.innerHTML);
-          console.log("fullcase rt val: " + fullCaseOnly.innerHTML);
-          var calcVal = 0;
 
           if (isNaN(parseInt(input.value))){
-            console.log("assign val if undef");
             input.value = calcVal;
+            console.log("undefined resolved");
           } 
 
-          /*
-
-          if (fullCaseOnly.innerHTML = 'C'){
+          if (fullCaseOnly = 'N'){
             // increment = something something... fullCaseQty
-            increment = 100;
-          }*/
+            increment = caseQty;
+          }
           
           input.value = parseInt(input.value) + increment;
 
