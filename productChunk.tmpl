@@ -110,7 +110,6 @@
         </p>
         
         <div class="control-box">
-        <span class="secret-um"><TMPL_VAR NAME="UofM"></span>
         <button class='minus-button secondary'>
           <i class="fa-solid fa-minus"></i>
         </button>
@@ -123,6 +122,8 @@
         <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="ProductCode">" >
           Add to Cart
         </button>
+        <span class="secret"><TMPL_VAR NAME="UofM"></span>
+        <span class="secret"><TMPL_VAR NAME="AllowPartialCases" DEFAULT="0"></span>
         </div>
 
       </div>

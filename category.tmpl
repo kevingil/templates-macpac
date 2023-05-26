@@ -127,17 +127,18 @@
       for (var i = 0; i < plusButton.length; i++){
         var currentButton = plusButton[i];
         var increment = 1;
-        var fullCaseOnly = false;
 
         currentButton.addEventListener('click',function(event){
 
           var buttonClicked = event.currentTarget;
 
-          var input = buttonClicked.parentElement.children[2];
-          var um = buttonClicked.parentElement.children[0];
+          var input = buttonClicked.parentElement.children[1];
+          var um = buttonClicked.parentElement.children[4];
+          var fullCaseOnly = buttonClicked.parentElement.children[5];
           console.log(buttonClicked);
           console.log(um.innerHTML);
           console.log(input);
+          console.log(fullCaseOnly);
           var calcVal = 0;
 
           if (isNaN(parseInt(input.value))){
