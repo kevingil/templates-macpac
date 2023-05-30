@@ -200,6 +200,26 @@
 
     </script>
 
+    <!-- UM helper for non Handlebars templates 
+      TY ChatGPT, time saver!
+    -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var results = document.getElementsByClassName("result-price");
+        for (var i = 0; i < results.length; i++) {
+          var result = results[i];
+          var content = result.innerHTML;
+          if (content === "C") {
+            result.innerHTML = "100 ea";
+          } else if (content === "M") {
+            result.innerHTML = "1000 ea";
+          }
+        }
+      });
+    </script>
+
+
+
   </div>
 
   <p class="divider">&nbsp;</p>
