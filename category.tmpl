@@ -200,7 +200,7 @@
           if (parseInt(input.value) > 0) {
             input.value = parseInt(input.value) - increment;
           } else {
-            input.value = parseInt(input.value);
+            input.value = Math.max(0, parseInt(input.value));
           }
 
           console.log("CASE QTY: " + caseQty);
