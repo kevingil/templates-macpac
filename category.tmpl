@@ -140,12 +140,12 @@
 
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
-            console.log("undefined resolved");
+            console.log("undefined set to 0");
             if (allowPartial == '') {
               allowPartial = 'Y';
-              console.log("true" + allowPartial);
+              console.log("allow partial: " + allowPartial);
             } else {
-              console.log("false" + allowPartial);
+              console.log("allow partial: " + allowPartial);
             }
           } 
 
@@ -163,7 +163,9 @@
 
           input.value = parseInt(input.value) + increment;
 
-          console.log("CALC:" + input.value);
+          console.log("CASE QTY: " + caseQty);
+          console.log("Set Increment: " + increment);
+          console.log("CALC val: " + input.value);
           
         })
 
