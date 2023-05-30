@@ -193,7 +193,11 @@
             }
           } 
 
-          input.value = parseInt(input.value) - increment;
+          if (parseInt(input.value) >= 0) {
+            input.value = parseInt(input.value) - increment;
+          } else {
+            input.value = parseInt(input.value);
+          }
 
           console.log("CASE QTY: " + caseQty);
           console.log("Set Increment: " + increment);
