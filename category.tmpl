@@ -133,10 +133,10 @@
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
-          var um = buttonClicked.parentElement.children[4];
+          var um = buttonClicked.parentElement.children[4].innerHTML;
           var allowPartial = buttonClicked.parentElement.children[5].innerHTML;
           var caseQty = buttonClicked.parentElement.children[6].innerHTML;
-          console.log("priced per" + um.innerHTML);
+          console.log("priced per: " + um);
 
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
