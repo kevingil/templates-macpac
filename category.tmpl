@@ -198,6 +198,7 @@
           } 
 
           if (parseInt(input.value) > 0) {
+            // Don't allow under 0
             input.value = Math.max(0, parseInt(input.value) - increment);
           } else {
             input.value = parseInt(input.value);
