@@ -181,23 +181,37 @@
 <TMPL_INCLUDE NAME="pageNumbers.tmpl">
   <TMPL_ELSE>
     <TMPL_IF NAME="prod_normal">
+      <div class="empty-result">
       <b>No items found in our catalog.</b>
+    </div>
+
     </TMPL_IF>
     <TMPL_IF NAME="prod_favorites">
+
+      <div class="empty-result">
       <b>No items found in your favorites.</b>
       <form method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly"
           value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME=" searchFor" ESCAPE=HTML>"></form>
       to
       search our entire catalog.
+    </div>
+
     </TMPL_IF>
     <TMPL_IF NAME="prod_history">
+
+      <div class="empty-result">
       <b>No items found in your order history.</b>
       <form method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly"
           value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME=" searchFor" ESCAPE=HTML>"></form>
       to
       search our entire catalog.
+
+    </div>
+
     </TMPL_IF>
     <TMPL_IF NAME="prod_shoplist">
+
+<div class="empty-result">
       <b>No items found in your shopping list.</b>
       <form method=post><input type=submit value="Click Here"><input type="hidden" name="productShowOnly"
           value="All"><input type="hidden" name="searchFor" value="<TMPL_VAR NAME=" searchFor" ESCAPE=HTML>"></form>
@@ -206,6 +220,9 @@
     </TMPL_IF>
     <br><br>
     <div>If you cannot find what you're looking for, please give us a call at 800-244-1455 so we can help!</div>
+  </div>
+
+
     </TMPL_IF>
-    </div>
+</div>
     <TMPL_INCLUDE NAME="youtube_code.tmpl">
