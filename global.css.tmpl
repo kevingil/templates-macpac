@@ -147,10 +147,6 @@ body {
     padding-bottom: 80px;
 }
 
-.button-navs {
-    padding: 0px 20px;
-}
-
 #header {
     /* background: url('dist/header-bg.jpg');
     TODO wendy: new header background if picture prefered 
@@ -611,7 +607,7 @@ article#quicklinks>div.container>a.products>p {
     line-height: 0.5;
     background-color: #d8d8d8;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6117424242424243) 0%, rgba(0, 0, 0, 0.058712121212121215) 100%),
-        url("https://www.salice.com/media/immagini/127_t_salice-hinges-soft-close-silentia-plus-MO-10a.jpg");
+        url("images/bridge-2023.jpg");
     background-position: center;
     background-size: cover;
 }
@@ -1978,21 +1974,7 @@ div.control-box > button{
 } 
 
 div.control-box >input.addQuantity {
-    /* Fixing input=number */
     height: 100%;
-    margin: 0;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-    /* ADJ padding */
-    padding: 5px;
-}
-
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
 }
 
 div.control-box > div.secondary {
@@ -2003,7 +1985,7 @@ div.control-box > div.secondary {
 @media (min-width: 100px) {
     div.control-box {
         grid-template-columns: 40px auto 40px;
-        grid-template-rows: repeat(2, 40px);
+        grid-template-rows: repeat(3, 40px);
     }
 }
 
@@ -2012,23 +1994,23 @@ div.control-box > div.secondary {
         width: auto;
         margin: 0px 0px 0px auto;
         grid-template-columns: 40px 100px 40px;
-        grid-template-rows: repeat(2, 40px);
+        grid-template-rows: repeat(3, 40px);
     }
 }
 
 @media (min-width: 992px) {
     /*search cart*/
     div.control-box {
-        width: 50%;
-        margin: -50px 0px 0px auto;
+        width: 60%;
+        margin: -40px 0px 0px auto;
         grid-template-columns: 40px 100px 40px;
-        grid-template-rows: repeat(2, 50px);
+        grid-template-rows: repeat(3, 50px);
     }
     /*product tmpl cart*/
     div.prod-cart > div.cart-controls {
         margin: 0px 0px 0px 260px;
         grid-template-columns: 50px 100px 50px;
-        grid-template-rows: repeat(2, 50px);
+        grid-template-rows: repeat(3, 50px);
     }
 }
 
@@ -2049,8 +2031,9 @@ div.control-box > div.secondary {
 }
 
 .addProductToCart {
+    height: 100%;
     padding: 0px;
-    grid-area: 2 / 1 / 3 / 4; 
+    grid-area: 3 / 1 / 4 / 4;
 }
 
 .btn-info {
@@ -2160,6 +2143,11 @@ p.small {
     font-size: 10pt;
 }
 
+
+div.center {
+    text-align: center;
+}
+
 img.center {
     text-align: center;
 }
@@ -2204,6 +2192,14 @@ h3.title {
 p.middle {
     text-align: center;
     font-size: 14pt;
+}
+
+
+
+h4,
+li,
+button {
+    cursor: pointer;
 }
 
 ul#toc {
@@ -2467,6 +2463,8 @@ table.table3 td {
 .result-price {
     padding: 5px;
     margin: 0px 20px 0px 5px;
+    text-align: right;
+    grid-area: 1 / 1 / 2 / 4;
 }
 
 .result-body p.result-price {
@@ -2481,9 +2479,7 @@ table.table3 td {
     }
 }
 
-.price-um{
-    /* pending */
-}
+
 
 /* Ladder Table */
 
@@ -2572,10 +2568,6 @@ dstable td {
 .cart-item-price {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-.cart-item-price > div > h4 {
-    padding-right: 20px;
 }
 
 .deleteFromCart{
@@ -3019,9 +3011,8 @@ td.chem {
 
 .addedToCartMessage {
     font-size: 12px;
-    color: var(--primary);
-    text-align: right;
-    margin: 5px 20px 5px 5px;
+    color: blue;
+    margin-top: 5px;
 }
 
 
