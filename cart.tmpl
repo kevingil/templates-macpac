@@ -165,13 +165,11 @@
     <div class="center<TMPL_UNLESS NAME=" cartIsEmpty"> cartHasItems</TMPL_UNLESS>" id="emptycart">Your cart is
       currently empty.</div>
 
-    <div class="right" id="subtotalField"><b>Subtotal <span class="GrandTotalInCart">
-          <TMPL_VAR NAME="subtotal">
-        </span></b></div>
-    <br />
-
-    <div id="emptyCartButton"><a href="/emptycart.html?mode=empty&next=cart.html"
-        onclick="return confirm('Are you sure you want to empty your cart?')" class="button6">Empty Cart</a></div>
+    <div id="emptyCartButton" class="right" id="subtotalField">
+      <a href="/emptycart.html?mode=empty&next=cart.html"
+        onclick="return confirm('Are you sure you want to empty your cart?')" class="button6">Empty Cart</a>
+      <b>Subtotal <span class="GrandTotalInCart"><TMPL_VAR NAME="subtotal"></span></b>
+    </div>
 
     <div class="center checkout">
       <a role="button" href="/placeorder.html" class="button3" id="checkoutButton"><b>Checkout</b></a>
