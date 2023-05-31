@@ -3,16 +3,26 @@
 <TMPL_IF NAME="session_isGuest"><TMPL_ELSE><TMPL_INCLUDE NAME="buttonNavs.tmpl"></TMPL_IF>
 
 <span id="pageNumber">
-<div align="center">
+<article align="center">
+<header>
   <h3>MacMurray Pacific Catalog</h3>
-  Jump to Page <input type="text" class="quantity" id="jumpToPage" v-bind:value="currentPage" @keyup.enter="jumpToPage"><button @click="jumpToPage" value="" class="button"></button>
-<br/><br/>
+</header>
+<div class="catalog-controls">  
+<h5>Jump to Page</h5>
+<input type="text" class="quantity" id="jumpToPage" v-bind:value="currentPage" @keyup.enter="jumpToPage">
+<button @click="jumpToPage" value="" class="button">GO</button>
+</div>
+
+<div class="catalog-nav">
   <button @click="showPage(-1)" class="previous" v-bind:style="{visibility: currentIndex > 0 ? 'visible' : 'hidden'}"></button>
-  <button @click="showPage(1)" class="next" v-bind:style="{visibility: currentIndex < pageList.length - 1 ? 'visible' : 'hidden'}"></button><br/><br/>
+  <button @click="showPage(1)" class="next" v-bind:style="{visibility: currentIndex < pageList.length - 1 ? 'visible' : 'hidden'}"></button>
+</div>
 <img v-bind:src="imageLink" width="90%" border="1"><br/><br/>
+<div class="catalog-nav">
   <button @click="showPage(-1)" class="previous" v-bind:style="{visibility: currentIndex > 0 ? 'visible' : 'hidden'}"></button>
   <button @click="showPage(1)" class="next" v-bind:style="{visibility: currentIndex < pageList.length - 1 ? 'visible' : 'hidden'}"></button><br/><br/>
-  </div>
+</div>
+</article>
 </span>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
