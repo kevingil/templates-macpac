@@ -18,7 +18,7 @@
     </TMPL_IF>
 
     <TMPL_IF NAME="filters">
-      <fieldset>
+      <fieldset class="filter-form">
         <legend class="filter-legend">Filters</legend>
         <TMPL_LOOP NAME="filters">
           <legend class="filter-legend"><TMPL_VAR NAME="filter"></label>
@@ -29,6 +29,7 @@
                   <TMPL_VAR NAME="value">
               </label>
             </TMPL_LOOP>
+            <input role="button" type="submit" value="Update" class="newbutton">
         </TMPL_LOOP>
       </fieldset>
     </TMPL_IF>
@@ -40,11 +41,5 @@
 
     <input type="submit" value="Update" class="newbutton">
     <TMPL_VAR NAME="hiddenParameters">
-      <footer>
-        <button className="secondary" onClick="closeModal('filter-dialog')">
-          Cancel
-        </button>
-        <input role="button" type="submit" value="Update" class="newbutton">
-      </footer>
   </form>
 </TMPL_IF>
