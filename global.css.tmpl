@@ -162,19 +162,13 @@ article>header>h3 {
     TODO wendy: new header background if picture prefered 
     */
     background: #124280;
-    max-width: 1100px;
+    width: 100%;
     margin: 0px 0px -10px 0px;
     display: grid;
 
     grid-template-columns: 3fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    -webkit-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
 
     /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
 
@@ -2369,7 +2363,7 @@ ul#toc span {
 }
 
 .catalog-viewer {
-    outline: 1px  #000;
+    border: 1px solid var(--secondary);
     width: 100%;
 }
 
@@ -3202,8 +3196,7 @@ td.chem {
 
 
 .previous, .next  {
-    border: none;
-    outline: 1px;
+    border: 1px solid;
 }
 
 #slideshow {
