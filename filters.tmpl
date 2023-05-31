@@ -10,8 +10,8 @@
     <legend class="filter-legend">Manufacturer</legend>
     <TMPL_IF NAME="vendors">
       <TMPL_LOOP NAME="vendors">
-        <label for="vendor">
-          <input class="vendor" type="checkbox" name="vendor_<TMPL_VAR NAME=" VendorCode">"<TMPL_VAR NAME="checked">
+        <label class="vendor" for="vendor">
+          <input type="checkbox" name="vendor_<TMPL_VAR NAME=" VendorCode">"<TMPL_VAR NAME="checked">
             value=1> <TMPL_VAR NAME="VendorName">
         </label>
       </TMPL_LOOP>
