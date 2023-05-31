@@ -2296,9 +2296,30 @@ ul#toc span {
 
 /* Catalog Table */
 
+.catalog-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 200px;
+    margin: 0px auto 0px auto;
+    grid-gap: 15px;
+    margin-bottom: 30px;
+}
+
+.catalog-controls > h5 {
+    width: 100px;
+    grid-area: 1 / 1 / 2 / 3;
+}
+.catalog-controls > input {
+    width: 150px;
+}
+
 .catalog-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+.catalog-nav > button {
+    width: 200px;
 }
 
 table.table1 td {
@@ -3107,10 +3128,7 @@ td.chem {
 
 
 .previous, .next  {
-    width: 85px;
-    height: 85px;
     border: none;
-    margin-right: 150px;
     outline: none;
 }
 
