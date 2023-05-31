@@ -44,39 +44,19 @@
 
 
     <article class="user-links">
-      <p>User <b>
+      <div class="current-user">
+        <p>User <b>
           <TMPL_VAR NAME="user_name">
         </b> for <b>
           <TMPL_VAR NAME="session_custName">
         </b></p>
-
+      </div>
+      
       <!--Salesmen Tools-->
       <div class="custhome-navs" style="clear: both">
         <TMPL_INCLUDE NAME="salesNavs.tmpl">
+          <TMPL_INCLUDE NAME="buttonNavs.tmpl">
       </div>
-
-      <a class="custhome-buttons" href="/category.html?productShowOnly=Favorites&productSortBy=ProductCat">
-        My Favorties
-      </a>
-      <a class="custhome-buttons" href="/category.html?productShowOnly=ShoppingList">
-          My Shopping List
-      </a>
-      <a class="custhome-buttons" href="/current.html">
-         Current Orders
-      </a>
-      <a class="custhome-buttons" href="/category.html?productShowOnly=History">
-        Order History
-      </a>
-      <a class="custhome-buttons" href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">">
-        Invoices
-      </a>
-      <a class="custhome-buttons" href="/account.html">
-        My Account
-      </a>
-      <a class="custhome-buttons" href="/cart.html">
-        Shopping Cart
-      </a>
-
     </article>
 
     <article class="specials">
