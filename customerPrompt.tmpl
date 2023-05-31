@@ -3,14 +3,7 @@
 <article class="customer-prompt">
 
 	<nav class="customer-prompt-menu">
-		<ul>
-			<li><a href="/salesReport.html" class="newbutton2">Start Sales Report</a></li>
-			<li><a href="/salesReport.html" class="newbutton2">Start Sales Report</a></li>
-			<li><a href="/viewSalesReports.html" class="newbutton2" >View Sales Report</a></li>
-			<li><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">&mode=show" class="newbutton2">View Invoices</a></li>
-			<li><a href="/cart.html" class="newbutton2">Quick Order/View Cart</a></li>
-			<li><a href="/logout.html" class="newbutton2">Log Out</a></li>
-		</ul>
+		<TMPL_INCLUDE NAME="salesNavs.tmpl">
 	</nav>
 
 	<form name="verifyForm" action="/setcust.html" method="post">

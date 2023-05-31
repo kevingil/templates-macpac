@@ -1,20 +1,25 @@
 <div class="salesnavs">
-<b>Salesmen</b>
 <ul>
-<TMPL_IF NAME="session_isGuest"><TMPL_ELSE>
-  <TMPL_IF NAME="session_isCustomer"><TMPL_ELSE>
-  <li><a href="/salesReport.html" class="products">Sales Reports</a></li>
-  <li><a href="/saveQuotes.html" class="products">Saved Quotes</a></li>
-  <li><a href="/dsnof.html" class="products">DS/NOF Entry</a></li>
-  <li><a href="/vendorList.html" class="products">Vendor List</a></li>
-  <li><a href="/salesCustomers.html" class="products">E-Customers</a></li>
-  <li><a href="/docs.html" class="products">Salesmen Docs</a></li></TMPL_IF>
-  <li><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">" class="products">View Invoices</a></li>
-  <li><a href="/setupCustomerLogin.html" class="products">Setup Customer Login</a></li>
-  
-  <TMPL_IF NAME="session_isCustomer"><TMPL_ELSE>
-  <li><a href="/getcust.html" class="products">Switch Customers</a></li></TMPL_IF>
-  <li><a href="/cart.html" class="products">Go To Cart</a></li>
-  <li><a href="/logout.html" class="products">Log Out</a></li></TMPL_IF>
+<TMPL_IF NAME="session_isGuest">
+<TMPL_ELSE>
+  <TMPL_IF NAME="session_isCustomer">
+  <TMPL_ELSE>
+    <li><a href="/salesReport.html" class="products">Sales Reports</a></li>
+    <li><a href="/saveQuotes.html" class="products">Saved Quotes</a></li>
+    <li><a href="/dsnof.html" class="products">DS/NOF Entry</a></li>
+    <li><a href="/vendorList.html" class="products">Vendor List</a></li>
+    <li><a href="/salesCustomers.html" class="products">E-Customers</a></li>
+    <li><a href="/docs.html" class="products">Salesmen Docs</a></li>
+  </TMPL_IF>
+    <li><a href="/viewInvoices.html?custCode=<TMPL_VAR NAME="session_custCode">" class="products">View Invoices</a></li>
+    <li><a href="/setupCustomerLogin.html" class="products">Setup Customer Login</a></li>
+    
+  <TMPL_IF NAME="session_isCustomer">
+  <TMPL_ELSE>
+    <li><a href="/getcust.html" class="products">Switch Customers</a></li>
+  </TMPL_IF>
+    <li><a href="/cart.html" class="products">Go To Cart</a></li>
+    <li><a href="/logout.html" class="products">Log Out</a></li>
+</TMPL_IF>
 </ul>
 </div>
