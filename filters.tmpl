@@ -5,13 +5,13 @@
 </header>
 <TMPL_IF NAME="showFilters">
 
-  <form method="post" action="/category.html">
+  <form id="filter-form" method="post" action="/category.html">
 
     <legend class="filter-legend">Manufacturer</legend>
     <TMPL_IF NAME="vendors">
       <TMPL_LOOP NAME="vendors">
         <label class="vendor" for="vendor">
-          <input type="checkbox" name="vendor_<TMPL_VAR NAME=" VendorCode">"<TMPL_VAR NAME="checked">
+          <input type="checkbox" name="vendor_<TMPL_VAR NAME="VendorCode">"<TMPL_VAR NAME="checked">
             value=1> <TMPL_VAR NAME="VendorName">
         </label>
       </TMPL_LOOP>
@@ -25,7 +25,7 @@
             <div class="filter-values">
             <TMPL_LOOP NAME="values">
               <label>
-              <input type="checkbox" name="filter_<TMPL_VAR NAME=" key">"<TMPL_VAR NAME="checked"> value="<TMPL_VAR
+              <input type="checkbox" name="filter_<TMPL_VAR NAME="key">"<TMPL_VAR NAME="checked"> value="<TMPL_VAR
                   NAME="value" ESCAPE="HTML">">
                   <TMPL_VAR NAME="value">
               </label>
