@@ -4,7 +4,7 @@
     <TMPL_IF NAME="showFilters">
 
       <form method="post" action="/category.html">
-        <fieldset>
+        
           <legend class="filter-legend">Manufacturer</legend>
           <TMPL_IF NAME="vendors">
             <TMPL_LOOP NAME="vendors">
@@ -50,7 +50,6 @@
           <input type="submit" value="Update" class="newbutton">
           <TMPL_VAR NAME="hiddenParameters">
 
-        </fieldset>
       </form>
     </TMPL_IF>
 
