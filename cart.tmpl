@@ -173,17 +173,15 @@
     <div id="emptyCartButton"><a href="/emptycart.html?mode=empty&next=cart.html"
         onclick="return confirm('Are you sure you want to empty your cart?')" class="button6">Empty Cart</a></div>
 
-    <div class="center">
-      <a href="/placeorder.html" class="button3" id="checkoutButton"><b>Checkout</b></a>
+    <div class="center checkout">
+      <a role="button" href="/placeorder.html" class="button3" id="checkoutButton"><b>Checkout</b></a>
       <TMPL_IF NAME="showSaveQuote">
-        <a href="/priceQuote.html?mode=create" class="button3" id="createQuoteButton">Save Changes to Quote</a>
+        <a role="button" href="/priceQuote.html?mode=create" class="button3" id="createQuoteButton">Save Changes to Quote</a>
         <TMPL_ELSE>
-          <a href="/priceQuote.html?mode=create" class="button3" id="createQuoteButton">Create Quote</a>
+          <a role="button" href="/priceQuote.html?mode=create" class="button3" id="createQuoteButton">Create Quote</a>
       </TMPL_IF>
-
-      <br /><br /><br />
-      <TMPL_INCLUDE NAME="salesNavs.tmpl">
     </div>
+    <TMPL_INCLUDE NAME="salesNavs.tmpl">
 
     <script>
                                                                   // Get the modal

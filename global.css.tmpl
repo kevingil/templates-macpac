@@ -2541,6 +2541,11 @@ dstable td {
 
 /* Cart Table */
 
+.checkout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 #carttable {
     width: 100%;
     font-size: 10pt;
@@ -2619,6 +2624,10 @@ dstable td {
 
 div.cart-middle-right > p {
     grid-area: 1 / 1 / 2 / 3;
+}
+
+#emptyCartButton {
+    padding: 0px 20px;
 }
 
 @media (min-width: 100px) {
