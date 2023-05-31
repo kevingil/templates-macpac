@@ -56,14 +56,6 @@
       <div class="custhome-navs" style="clear: both">
         <b>Customer Home</b>
         <TMPL_INCLUDE NAME="buttonNavs.tmpl">
-          <TMPL_IF NAME="session_isGuest">
-            <TMPL_ELSE>
-              <TMPL_IF NAME="session_isCustomer">
-              <TMPL_ELSE>
-                <b>Salesmen:</b>
-              </TMPL_IF>  
-          </TMPL_IF>
-        <TMPL_INCLUDE NAME="salesNavs.tmpl">
       </div>
     </article>
 
@@ -129,7 +121,7 @@
         </a>
       </TMPL_LOOP>
     </article>
-
+    <TMPL_INCLUDE NAME="salesNavs.tmpl">
   </div>
 
 
