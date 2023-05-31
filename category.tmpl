@@ -124,9 +124,8 @@
       // add handler
       for (var i = 0; i < plusButton.length; i++){
         var currentPlus = plusButton[i];
-        var increment = 1;
-
         currentPlus.addEventListener('click',function(event){
+          var increment = 1;
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
@@ -171,8 +170,8 @@
         // subtrac handler
         for (var i = 0; i < minusButton.length; i++){
         var currentMinus = minusButton[i];
-        var minus = 1;
         currentMinus.addEventListener('click',function(event){
+          var minus = 1;
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
