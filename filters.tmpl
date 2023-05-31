@@ -19,9 +19,10 @@
 
     <TMPL_IF NAME="filters">
       <fieldset class="filter-form">
-        <legend class="filter-legend">Filters</legend>
+      <legend class="filter-legend">Filters</legend>
         <TMPL_LOOP NAME="filters">
-          <legend class="filter-legend"><TMPL_VAR NAME="filter"></label>
+          <legend class="filter-legend"><TMPL_VAR NAME="filter"></legend>
+            <div class="filter-values">
             <TMPL_LOOP NAME="values">
               <label>
               <input type="checkbox" name="filter_<TMPL_VAR NAME=" key">"<TMPL_VAR NAME="checked"> value="<TMPL_VAR
@@ -29,6 +30,7 @@
                   <TMPL_VAR NAME="value">
               </label>
             </TMPL_LOOP>
+            </div>
             <input role="button" type="submit" value="Update" class="newbutton">
         </TMPL_LOOP>
       </fieldset>
