@@ -1,8 +1,4 @@
 <TMPL_INCLUDE NAME="header.tmpl">
-  <TMPL_IF NAME="session_isGuest">
-    <TMPL_ELSE>
-      <TMPL_INCLUDE NAME="buttonNavs.tmpl">
-  </TMPL_IF>
 
   <div class="user-info">
     <p>User: <b>
@@ -13,6 +9,13 @@
       </b>
     </p>
   </div>
+  
+  <TMPL_IF NAME="session_isGuest">
+    <TMPL_ELSE>
+      <TMPL_INCLUDE NAME="buttonNavs.tmpl">
+  </TMPL_IF>
+
+
 
 
   <article class="cart-grid-top">
