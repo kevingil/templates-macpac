@@ -926,14 +926,10 @@ td.center {
     width: 90%;
 }
 
-#sort-dialog footer {
+#sort-dialog footer, #filter-dialog footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-#filter-dialog footer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
 .product-filters-modal-wrap {
@@ -1676,14 +1672,11 @@ div.prod-cart {
 /* Customer Nav Buttons (Lg) */
 
 .button3 {
-    background-color: #d3eafb;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 5px #666;
     text-align: center;
     text-decoration: none;
     outline: none;
-    padding: 10px;
     margin: 15px;
     font-size: 12pt;
 }
@@ -2083,6 +2076,12 @@ input.addRowQuantity {
     vertical-align: middle;
     font-size: 10pt;
     box-shadow: 0px 0px 10px -1px #ccc;
+}
+
+#emptyCartButton{
+    padding: 0px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #salesReportArea {
