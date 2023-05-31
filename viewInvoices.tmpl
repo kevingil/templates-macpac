@@ -169,11 +169,8 @@ table.inv-2 td {
     background-color: #e0f1fe;
 }
 </style>
-<TMPL_IF NAME="session_isGuest">
-  <TMPL_ELSE>
-    <TMPL_INCLUDE NAME="buttonNavs.tmpl">
-    </TMPL_IF>
-    
+
+
 <div class="center">
   <div class="user-info">
     <p>User: <b>
@@ -184,6 +181,12 @@ table.inv-2 td {
       </b>
     </p>
   </div>
+
+  <TMPL_IF NAME="session_isGuest">
+    <TMPL_ELSE>
+      <TMPL_INCLUDE NAME="buttonNavs.tmpl">
+      </TMPL_IF>
+
 
 <ul id="toc">
   <li<TMPL_UNLESS NAME="invoice"> class="current"</TMPL_UNLESS>><a href="viewInvoices.html?custCode=<TMPL_VAR NAME="session_custcode">"><span>Select Invoice</span></a></li>
