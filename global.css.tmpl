@@ -223,7 +223,7 @@ article>header>h3 {
 
 .con-info {
     display: grid;
-    min-height: 90px;
+    min-height: 75px;
     /* to match contactbox*/
     grid-template-columns: auto;
     grid-column-gap: 0px;
@@ -754,9 +754,19 @@ img.shadow {
 }
 
 .button-navs > a {
-    color: var(--primary);
+    color: white;
     padding: 5px;
-    gap: 10px;
+    margin: 6px;
+    padding: 30px;
+    background: var(--contrast);
+}
+
+.button-navs > a:hover {
+    background: var(--contrast-hover);
+}
+
+.button-navs > a:focus {
+    background: var(--contrast-focus);
 }
 
 @media (min-width: 100px) {
