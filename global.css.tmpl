@@ -886,7 +886,7 @@ td.center {
 }
 
 .salesnavs li:before {
-    content: " | ";
+    content: " |  ";
 }
 
 .salesnavs li:first-child:before {
@@ -2347,6 +2347,26 @@ ul#toc span {
     height: 2rem;
 }
 
+.catalog-bookmarks {
+    display: grid;
+}
+
+
+@media (min-width: 100px) {
+    .catalog-bookmarks {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .catalog-bookmarks {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+
 table.table1 td {
     width: 100%;
     margin-top: 10px;
@@ -2572,9 +2592,13 @@ table.table3 td {
 }
 
 @media (min-width: 768px) {
-    .result-body p.result-price {
+    .result-body {
         font-size: 12pt;
         margin: 0px;
+    }
+    p.result-price {
+        font-size: 12pt;
+        margin: -10px 0px;
     }
 }
 
