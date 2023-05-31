@@ -155,6 +155,8 @@
             increment = 100;
           } else if (allowPartial == 'Y' && um == 'M'){
             increment = 100;
+          } else {
+            increment = 1;
           }
 
           input.value = parseInt(input.value) + increment;
