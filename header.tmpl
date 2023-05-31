@@ -30,65 +30,67 @@
 </head>
 
 <body>
+  <div id="header">
+    <div>
+    <!--begin header box-->
+
+    <div class="con-info">
+      <a href="index.html"><img class="header-logo" src="images/mp-logo.png" /></a><br>
+      <p class="header-info"><span><b>Phone:</b> 1-800-244-1455 / </span><span><b>Orders:</b>
+          orders@macmurraypacific.com</b></span></p>
+    </div>
+
+    <div class="contactbox">
+      <p class="low1">
+        <TMPL_IF NAME="session_loggedIn"><a href="/logout.html" class="products"><b>Logout <TMPL_VAR
+                NAME="user_Name"></b></a>
+          <TMPL_ELSE><a href="/login.html" class="products"><b>Customer Login</b></a>
+        </TMPL_IF><br /><br />
+        <TMPL_IF NAME="session_multipleCustomers"><br />
+          <TMPL_VAR NAME="session_custName"><br />
+            <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
+        </TMPL_IF>
+
+    </div>
+
+    <ul id="toc">
+      <TMPL_IF NAME="session_isGuest">
+        <li<TMPL_IF NAME="glob_menu_home"> class="current"
+      </TMPL_IF>><a href="index.html"><span>Home</span></a></li>
+      </TMPL_IF>
+      <TMPL_IF NAME="session_isGuest">
+        <TMPL_ELSE>
+          <li<TMPL_IF NAME="glob_menu_custHome"> class="current"
+      </TMPL_IF>><a href="custHome.html"><span>Home</span></a></li>
+      </TMPL_IF>
+      <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
+          href="productCats.html"><span>Products</span></a></li>
+        <li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a
+            href="catalog.html"><span>Catalog</span></a></li>
+          <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
+              href="forms.html"><span>Resources</span></a></li>
+            <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Our
+                  brands</span></a></li>
+              <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact
+                    Us</span></a></li>
+                <TMPL_IF NAME="session_isSales">
+                  <li<TMPL_IF NAME="glob_menu_sales"> class="current"
+                </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
+                </TMPL_IF>
+                <TMPL_IF NAME="session_isAdmin">
+                  <li<TMPL_IF NAME="glob_menu_admin"> class="current"
+                </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
+                </TMPL_IF>
+    </ul>
+  </div>
+  </div>
+  <!--end header box-->
+
   <div id="wrap">
     <!--begin wrap-->
     <div id="maincontent">
       <!--begin maincontent for footer padding-->
       <a name="top"></a>
-      <div id="header">
-        <!--begin header box-->
-
-        <div class="con-info">
-          <a href="index.html"><img class="header-logo" src="images/mp-logo.png" /></a><br>
-          <p class="header-info"><span><b>Phone:</b> 1-800-244-1455 / </span><span><b>Orders:</b>
-              orders@macmurraypacific.com</b></span></p>
-        </div>
-
-        <div class="contactbox">
-          <p class="low1">
-            <TMPL_IF NAME="session_loggedIn"><a href="/logout.html" class="products"><b>Logout <TMPL_VAR
-                    NAME="user_Name"></b></a>
-              <TMPL_ELSE><a href="/login.html" class="products"><b>Customer Login</b></a>
-            </TMPL_IF><br /><br />
-            <TMPL_IF NAME="session_multipleCustomers"><br />
-              <TMPL_VAR NAME="session_custName"><br />
-                <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
-            </TMPL_IF>
-
-        </div>
-
-        <ul id="toc">
-          <TMPL_IF NAME="session_isGuest">
-            <li<TMPL_IF NAME="glob_menu_home"> class="current"
-          </TMPL_IF>><a href="index.html"><span>Home</span></a></li>
-          </TMPL_IF>
-          <TMPL_IF NAME="session_isGuest">
-            <TMPL_ELSE>
-              <li<TMPL_IF NAME="glob_menu_custHome"> class="current"
-          </TMPL_IF>><a href="custHome.html"><span>Home</span></a></li>
-          </TMPL_IF>
-          <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
-              href="productCats.html"><span>Products</span></a></li>
-            <li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a
-                href="catalog.html"><span>Catalog</span></a></li>
-              <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
-                  href="forms.html"><span>Resources</span></a></li>
-                <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Our
-                      brands</span></a></li>
-                  <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact
-                        Us</span></a></li>
-                    <TMPL_IF NAME="session_isSales">
-                      <li<TMPL_IF NAME="glob_menu_sales"> class="current"
-                    </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
-                    </TMPL_IF>
-                    <TMPL_IF NAME="session_isAdmin">
-                      <li<TMPL_IF NAME="glob_menu_admin"> class="current"
-                    </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
-                    </TMPL_IF>
-        </ul>
-      </div>
-      <!--end header box-->
-
       <div class="content">
         <!--begin content box (tabs)-->
 
