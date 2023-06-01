@@ -175,12 +175,12 @@
     </div>
 
     <div class="center checkout">
-      <a role="button" href="/placeorder.html" class="button3" id="checkoutButton"><b>Checkout</b></a>
       <TMPL_IF NAME="showSaveQuote">
         <a role="button" href="/priceQuote.html?mode=create" class="button3" id="createQuoteButton">Save Changes to Quote</a>
         <TMPL_ELSE>
           <a role="button" href="/priceQuote.html?mode=create" class="button3" id="createQuoteButton">Create Quote</a>
       </TMPL_IF>
+      <a role="button" href="/placeorder.html" class="button3" id="checkoutButton"><b>Checkout</b></a>
     </div>
     <TMPL_INCLUDE NAME="salesNavs.tmpl">
 
