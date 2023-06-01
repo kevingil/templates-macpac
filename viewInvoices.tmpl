@@ -171,21 +171,23 @@ table.inv-2 td {
 </style>
 
 
-<div class="center">
-  <div class="user-info">
-    <p>User: <b>
-        <TMPL_VAR NAME="user_name">
-      </b>
-      Company: <b>
-        <TMPL_VAR NAME="session_custName">
-      </b>
-    </p>
-  </div>
+
 
   <TMPL_IF NAME="session_isGuest">
     <TMPL_ELSE>
       <TMPL_INCLUDE NAME="buttonNavs.tmpl">
       </TMPL_IF>
+      
+      <div class="center">
+        <div class="user-info">
+          <p>User: <b>
+              <TMPL_VAR NAME="user_name">
+            </b>
+            Company: <b>
+              <TMPL_VAR NAME="session_custName">
+            </b>
+          </p>
+        </div>
 
 
 <ul id="toc">
