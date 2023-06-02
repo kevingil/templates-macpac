@@ -119,15 +119,15 @@
     // mobile header handler
     function toggleMenu() {
       var x = document.getElementById("menu");
-      if (x.style.display === "none") {
-        x.style.display = "block";
+      if (!x.style.display === "flex") {
+        x.style.display = "flex";
       } else {
         x.style.display = "none";
       }
     }
     function toggleContact() {
       var x = document.getElementById("contactbox");
-      if (x.style.display === "none") {
+      if (!x.style.display === "block") {
         x.style.display = "block";
       } else {
         x.style.display = "none";
