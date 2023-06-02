@@ -69,7 +69,7 @@
             <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
         </TMPL_IF>
     </div>
-
+    <div id="menu">
     <ul id="toc" class="dropcontent">
       <TMPL_IF NAME="session_isGuest">
 
@@ -113,12 +113,12 @@
 
       </TMPL_IF>
     </ul>
- 
+  </div>
 
   <script>
     // mobile header handler
     function toggleMenu() {
-      var x = document.getElementById("toc");
+      var x = document.getElementById("menu");
       if (x.style.display === "none") {
         x.style.display = "block";
       } else {
