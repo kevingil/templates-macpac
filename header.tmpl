@@ -31,92 +31,25 @@
 
 <body>
   <div id="header">
-    <div class="mobile-nav">
-      <nav>
-        <ul>
-          <li>
-          <a href="#" class="white menudrop" id="menudrop" onclick="toggleDisplay()">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
-          </a>
-        </li>
-        </ul>
-        <ul>
-          <li><a href="index.html" class="white" ><strong>MacMurray Pacific</strong></a></li>
-        </ul>
-        <ul>
-          <li><a href="#" class="white userdrop" id="userdrop">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
-          </a></li>
-        </ul>
-      </nav>
-
-      <div id="mobile-menu">
-        <!-- BAD - copy pasted / maybe put in template or better js -->
-        <ul id="toc" class="dropcontent">
-          <TMPL_IF NAME="session_isGuest">
-    
-            <li<TMPL_IF NAME="glob_menu_home"> class="current"</TMPL_IF>>
-            <a href="index.html">
-            <span>Home</span>
-          </a>
-        </li>
-    
-      </TMPL_IF>
-          <TMPL_IF NAME="session_isGuest">
-            <TMPL_ELSE>
-              <li<TMPL_IF NAME="glob_menu_custHome"> class="current"
-          </TMPL_IF>><a href="custHome.html"><span>Home</span></a></li>
-          </TMPL_IF>
-    
-          <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
-              href="productCats.html"><span>Products</span></a></li>
-    
-            <li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a
-                href="catalog.html"><span>Catalog</span></a></li>
-    
-              <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
-                  href="forms.html"><span>Resources</span></a></li>
-    
-                <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Our
-                      brands</span></a></li>
-    
-                  <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact
-                        Us</span></a></li>
-    
-                    <TMPL_IF NAME="session_isSales">
-                      <li<TMPL_IF NAME="glob_menu_sales"> class="current"
-                    </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
-    
-                  </TMPL_IF>
-              <TMPL_IF NAME="session_isAdmin">
-                  <li<TMPL_IF NAME="glob_menu_admin"> class="current"
-              </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
-    
-          </TMPL_IF>
-        </ul>
-      </div>
-
-      <div id="mobile-user">
-        <!-- BAD - copy pasted / maybe put in template or better js -->
-        <div class="contactbox" id="contactbox">
-          <TMPL_IF NAME="session_loggedIn">
-            <a href="/logout.html" class="white"><b>Logout <TMPL_VAR NAME="user_Name"></b></a>
-            <TMPL_ELSE>
-              <a href="/login.html" class="white"><b>Customer Login</b></a>
-          </TMPL_IF>
-  
-          <TMPL_IF NAME="session_multipleCustomers">
-              <p class="customer-name"><TMPL_VAR NAME="session_custName"></p>
-              <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
-          </TMPL_IF>
-      </div>
-      </div>
-
-    </div>
-    <div class="desktop-nav">
     <!--begin header box-->
+    <nav class="mobile-nav">
+      <ul>
+        <li>
+        <a href="#" class="white menudrop" id="menudrop" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </a>
+      </li>
+      </ul>
+      <ul>
+        <li><a href="index.html" class="white" ><strong>MacMurray Pacific</strong></a></li>
+      </ul>
+      <ul>
+        <li><a href="#" class="white userdrop" id="userdrop" onclick="toggleContact()">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+        </a></li>
+      </ul>
+    </nav>
 
-  <div class="desktop-nav-top">
     <div class="con-info">
       <a href="index.html"><img class="header-logo" src="images/mp-logo.png" /></a>
       <p class="header-info"><span><b>Phone:</b> 1-800-244-1455 / </span><span><b>Orders:</b>
@@ -135,7 +68,6 @@
             <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
         </TMPL_IF>
     </div>
-  </div>
 
     <ul id="toc" class="dropcontent">
       <TMPL_IF NAME="session_isGuest">
@@ -180,7 +112,7 @@
 
       </TMPL_IF>
     </ul>
-  </div>
+ 
 
   <script>
     // mobile header handler
@@ -192,6 +124,25 @@
     x.style.display = "none";
   }
 }
+
+function toggleMenu() {
+      var x = document.getElementById("#toc");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function toggleContact() {
+      var x = document.getElementById("#contactbox");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+
+
   </script>
 
   </div>
