@@ -31,9 +31,29 @@
 
 <body>
   <div id="header">
-    <div>
+    <div class="mobile-nav">
+      <nav>
+        <ul>
+          <li>
+          <a href="#" class="secondary menudrop" onclick="menuDropdown()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+          </a>
+        </li>
+        </ul>
+        <ul>
+          <li><strong>MacMurray Pacific</strong></li>
+        </ul>
+        <ul>
+          <li><a href="#" class="secondary" onclick="userDropdown()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+          </a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="desktop-nav">
     <!--begin header box-->
 
+  <div class="desktop-nav-top">
     <div class="con-info">
       <a href="index.html"><img class="header-logo" src="images/mp-logo.png" /></a>
       <p class="header-info"><span><b>Phone:</b> 1-800-244-1455 / </span><span><b>Orders:</b>
@@ -41,48 +61,87 @@
     </div>
 
     <div class="contactbox">
-      <p class="low1">
-        <TMPL_IF NAME="session_loggedIn"><a href="/logout.html" class="products"><b>Logout <TMPL_VAR
-                NAME="user_Name"></b></a>
-          <TMPL_ELSE><a href="/login.html" class="products"><b>Customer Login</b></a>
-        </TMPL_IF><br /><br />
-        <TMPL_IF NAME="session_multipleCustomers"><br />
-          <TMPL_VAR NAME="session_custName"><br />
-            <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
+        <TMPL_IF NAME="session_loggedIn">
+          <a href="/logout.html" class="products"><b>Logout <TMPL_VAR NAME="user_Name"></b></a>
+          <TMPL_ELSE>
+            <a href="/login.html" class="products"><b>Customer Login</b></a>
         </TMPL_IF>
 
+        <TMPL_IF NAME="session_multipleCustomers">
+          <TMPL_VAR NAME="session_custName">
+            <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
+        </TMPL_IF>
     </div>
+  </div>
 
-    <ul id="toc">
+    <ul id="toc" class="dropcontent">
       <TMPL_IF NAME="session_isGuest">
-        <li<TMPL_IF NAME="glob_menu_home"> class="current"
-      </TMPL_IF>><a href="index.html"><span>Home</span></a></li>
-      </TMPL_IF>
+
+        <li<TMPL_IF NAME="glob_menu_home"> class="current"</TMPL_IF>>
+        <a href="index.html">
+        <span>Home</span>
+      </a>
+    </li>
+
+  </TMPL_IF>
+
       <TMPL_IF NAME="session_isGuest">
         <TMPL_ELSE>
           <li<TMPL_IF NAME="glob_menu_custHome"> class="current"
       </TMPL_IF>><a href="custHome.html"><span>Home</span></a></li>
       </TMPL_IF>
+
       <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
           href="productCats.html"><span>Products</span></a></li>
+
         <li<TMPL_IF NAME="glob_menu_catalog"> class="current"</TMPL_IF>><a
             href="catalog.html"><span>Catalog</span></a></li>
+
           <li<TMPL_IF NAME="glob_menu_forms"> class="current"</TMPL_IF>><a
               href="forms.html"><span>Resources</span></a></li>
+
             <li<TMPL_IF NAME="glob_menu_manu"> class="current"</TMPL_IF>><a href="manu.html"><span>Our
                   brands</span></a></li>
+
               <li<TMPL_IF NAME="glob_menu_contact"> class="current"</TMPL_IF>><a href="contact.html"><span>Contact
                     Us</span></a></li>
+
                 <TMPL_IF NAME="session_isSales">
                   <li<TMPL_IF NAME="glob_menu_sales"> class="current"
                 </TMPL_IF>><a href="sales.html"><span>Sales</span></a></li>
-                </TMPL_IF>
-                <TMPL_IF NAME="session_isAdmin">
-                  <li<TMPL_IF NAME="glob_menu_admin"> class="current"
-                </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
-                </TMPL_IF>
+
+              </TMPL_IF>
+          <TMPL_IF NAME="session_isAdmin">
+              <li<TMPL_IF NAME="glob_menu_admin"> class="current"
+          </TMPL_IF>><a href="admin.html"><span>System</span></a></li>
+
+      </TMPL_IF>
     </ul>
   </div>
+
+  <script>
+    // mobile header handler
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("toc").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.menudrop')) {
+        var dropdowns = document.getElementsByClassName("dropcontent");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
   </div>
   <!--end header box-->
 
