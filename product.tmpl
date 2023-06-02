@@ -17,7 +17,7 @@
       <TMPL_VAR NAME="ProductDescription" ESCAPE="html">
     </h3>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
-    <TMPL_IF NAME="full_image"><img class="product-image" src="products<TMPL_VAR NAME="glob_thumbnailPrefix">/<TMPL_VAR
+    <TMPL_IF NAME="full_image"><img class="product-image" src="<TMPL_VAR NAME="glob_thumbnailPrefix">/<TMPL_VAR
         NAME="full_image">" height="<TMPL_VAR NAME="fullY">" width="<TMPL_VAR NAME="fullX">" title="<TMPL_VAR
               NAME="ProductDescription" ESCAPE=html>"></TMPL_IF>
 
