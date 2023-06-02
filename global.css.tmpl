@@ -234,13 +234,15 @@ article>header>h3 {
     padding: 10px;
 }
 
+.con-info, #contactbox, #menu {
+    display: none;
+}
 
 @media (min-width: 100px) {
     #header {
     }
 
     .mobile-nav {
-        display: block;
         color: white;
     }
 
@@ -249,10 +251,7 @@ article>header>h3 {
     }
     .con-info{
             grid-template-rows: 75px;
-        }
-        .con-info, #contactbox, #toc {
-            display: none;
-        }
+    }    
 }
 
 @media (min-width: 576px) {
@@ -267,7 +266,7 @@ article>header>h3 {
     .con-info, #contactbox {
         display: grid;
     }
-    #toc {
+    #menu {
         display: block;
     }
     .header-info {
