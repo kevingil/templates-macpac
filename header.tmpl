@@ -62,13 +62,13 @@
 
     <div class="contactbox">
         <TMPL_IF NAME="session_loggedIn">
-          <a href="/logout.html" class="products"><b>Logout <TMPL_VAR NAME="user_Name"></b></a>
+          <a href="/logout.html" class="white"><b>Logout <TMPL_VAR NAME="user_Name"></b></a>
           <TMPL_ELSE>
-            <a href="/login.html" class="products"><b>Customer Login</b></a>
+            <a href="/login.html" class="white"><b>Customer Login</b></a>
         </TMPL_IF>
 
         <TMPL_IF NAME="session_multipleCustomers">
-          <TMPL_VAR NAME="session_custName">
+            <p class="customer-name"><TMPL_VAR NAME="session_custName"></p>
             <p class="low1"><a href="/getcust.html">Switch Customers</a></p>
         </TMPL_IF>
     </div>
