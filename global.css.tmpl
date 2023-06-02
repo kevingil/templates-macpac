@@ -164,61 +164,6 @@ article>header>h3 {
 
 
 
-@media (min-width: 100px) {
-    #header {
-        font-size: 0.8em;
-        grid-template-rows: 70px auto;
-    }
-
-    .mobile-nav {
-        display: block;
-    }
-
-    .header-info {
-        display: none;
-    }
-    .con-info{
-            grid-template-rows: 75px;
-        }
-        .desktop-nav {
-            display: none;
-        }
-}
-
-@media (min-width: 576px) {
-    .mobile-nav {
-    display: none;
-    color: white;
-    }
-    .desktop-nav {
-        display: grid;
-        max-width: 1100px;
-        margin: 0px auto -10px auto;
-        grid-template-columns: 3fr 1fr;
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    .desktop-nav-top  {
-        display: grid;
-        grid-template-columns: auto 100px;
-    }
-}
-
-@media (min-width: 768px) {
-    #header {
-        grid-template-rows: 106px auto;
-        font-size: 1em;
-    }
-
-    .header-info {
-        display: block;
-    }
-    .con-info{
-        grid-template-rows: 75px auto;
-    }
-}
-
-
 
 .con-info {
     display: grid;
@@ -271,11 +216,52 @@ article>header>h3 {
     text-align: right;
 }
 
-@media (min-width: 720px) {
-    .contactbox {
-        padding: 15px;
+
+
+@media (min-width: 100px) {
+    #header {
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .header-info {
+        display: none;
+    }
+    .con-info{
+            grid-template-rows: 75px;
+        }
+        .desktop-nav {
+            display: none;
+        }
+}
+
+@media (min-width: 576px) {
+    .mobile-nav {
+    display: none;
+    color: white;
+    }
+    .desktop-nav {
+        display: grid;
+        max-width: 1100px;
+        margin: 0px auto 0px auto;
+        grid-template-rows: 3fr 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    .desktop-nav-top  {
+        display: grid;
+        grid-template-columns: auto 100px;
+    }
+    .header-info {
+        display: block;
+    }
+    .con-info{
+        grid-template-rows: 75px auto;
     }
 }
+
 
 
 .contactbox p a {
@@ -295,6 +281,9 @@ article>header>h3 {
     color: #ececec;
     text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
+
+
+
 
 
 p.update {
