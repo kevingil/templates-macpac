@@ -130,6 +130,21 @@
       }
     }
 
+    window.addEventListener("resize", (event) => {
+      var w = window.innerWidth;
+
+      var c = document.getElementById("contactbox");
+      var m = document.getElementById("menu");
+
+      if ( w <= 576 ) {
+        m.style.display = "none";
+        c.style.display = "none";
+      } else {
+        c.style.display = "block";
+        m.style.display = "flex";
+      }
+    });
+
 
   </script>
 </div>
