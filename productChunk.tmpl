@@ -138,13 +138,12 @@
       <span class="secret"><TMPL_VAR NAME="AllowPartialCases" DEFAULT="0"></span>
       <span class="secret"><TMPL_VAR NAME="PerBox"></span>
       </div>
-
+      <TMPL_IF NAME="Qty">
+        <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
+          <TMPL_ELSE>
+            <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
+      </TMPL_IF>
     </div>
-    <TMPL_IF NAME="Qty">
-      <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
-        <TMPL_ELSE>
-          <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
-    </TMPL_IF>
 </TMPL_IF>
 
 
