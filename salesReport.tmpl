@@ -183,6 +183,8 @@ return true;
               </div>
               <p>Sales Amount:</p>
               <input name="salesAmount" value="<TMPL_VAR NAME=" salesAmount" escape=html>" class="quick">
+
+                <div class="reportquestions">
               <p>Sales Opportunity</p>
               <input type="checkbox" name="SOP" value=1 onChange="toggleSOPDisplay()" id="SOPField"> - Yes
               <div id="ShowSOP" style="display:none">
@@ -205,6 +207,7 @@ return true;
                 <p>Outstanding Sales Opportunities</p>
                 <TMPL_INCLUDE NAME="salesOps.tmpl">
               </TMPL_IF>
+</div>
 
               <div class="center">
                 <input type="submit" value="Finish Report" class="newbutton"><input type="button"
