@@ -4,7 +4,7 @@
 
 <head>
   <TMPL_IF name="inProductPage">
-    <title>MACPAC# <TMPL_VAR name="ProductCode"> &#x2022; <TMPL_VAR NAME="Description"></title>
+    <title><TMPL_VAR name="ProductCode"> &#x2022; <TMPL_VAR NAME="Description"></title>
   <TMPL_ELSE>
       <title>MacMurray Pacific Wholesale Hardware</title>
   </TMPL_IF>
@@ -162,9 +162,9 @@
         <TMPL_IF NAME="categoryPage">
           <div class="searchDif">
             <TMPL_IF NAME="prod_normal">MacPac Inventory</TMPL_IF>
-            <TMPL_IF NAME="prod_favorites">My Favorites Search</TMPL_IF>
-            <TMPL_IF NAME="prod_history">Order History Search</TMPL_IF>
-            <TMPL_IF NAME="prod_shoplist">Shopping List Search</TMPL_IF>
+            <TMPL_IF NAME="prod_favorites">My Favorites</TMPL_IF>
+            <TMPL_IF NAME="prod_history">Previously Ordered</TMPL_IF>
+            <TMPL_IF NAME="prod_shoplist">My Shopping List</TMPL_IF>
           </div>
         </TMPL_IF>
         <div class="search-wrap">
