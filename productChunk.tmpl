@@ -101,39 +101,6 @@
             </TMPL_LOOP>
         <TMPL_ELSE>
   </TMPL_IF>
-
-  <TMPL_IF NAME="session_isGuest">
-    <TMPL_ELSE>
-      <div class="cart-controls">
-        <p class="result-price">
-          <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <span class="price-um"><TMPL_VAR NAME="UofM"></span>
-        </p>
-        
-        <div class="control-box">
-        <button class='minus-button secondary'>
-          <i class="fa-solid fa-minus"></i>
-        </button>
-        <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty">" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" DEFAULT="0">">
-        
-        <button class='plus-button secondary'>
-          <i class="fa-solid fa-plus"></i>
-        </button>
-
-        <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="ProductCode">" >
-          Add to Cart
-        </button>
-        <span class="secret"><TMPL_VAR NAME="UofM"></span>
-        <span class="secret"><TMPL_VAR NAME="AllowPartialCases" DEFAULT="0"></span>
-        <span class="secret"><TMPL_VAR NAME="PerBox"></span>
-        </div>
-
-      </div>
-      <TMPL_IF NAME="Qty">
-        <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
-          <TMPL_ELSE>
-            <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
-      </TMPL_IF>
-  </TMPL_IF>
   </TMPL_IF>
 
   <TMPL_IF NAME="showExplanation">
@@ -145,6 +112,42 @@
     </tr>
   </TMPL_IF>
 </div>
+
+<!-- cart controls -->
+<TMPL_IF NAME="session_isGuest">
+  <TMPL_ELSE>
+    <div class="cart-controls">
+      <p class="result-price">
+        <TMPL_VAR NAME="your"> List Price $<TMPL_VAR NAME="Price"> / <span class="price-um"><TMPL_VAR NAME="UofM"></span>
+      </p>
+      
+      <div class="control-box">
+      <button class='minus-button secondary'>
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty">" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" DEFAULT="0">">
+      
+      <button class='plus-button secondary'>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+      <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="ProductCode">" >
+        Add to Cart
+      </button>
+      <span class="secret"><TMPL_VAR NAME="UofM"></span>
+      <span class="secret"><TMPL_VAR NAME="AllowPartialCases" DEFAULT="0"></span>
+      <span class="secret"><TMPL_VAR NAME="PerBox"></span>
+      </div>
+
+    </div>
+    <TMPL_IF NAME="Qty">
+      <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
+        <TMPL_ELSE>
+          <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
+    </TMPL_IF>
+</TMPL_IF>
+
+
 
 <div class="result-links">
   <TMPL_IF NAME="session_isGuest">
