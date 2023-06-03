@@ -146,56 +146,43 @@
   <TMPL_IF NAME="mode_salesOrder">
     <div id="salesReportArea">
       <form method="post" name="form" onSubmit="return validateForm()">
-        <table width="900">
-          <tr>
-            <td><h4>Finish Sales Report - <TMPL_VAR NAME="Name"></h4></td>
-            <td class="small">Time Start: <TMPL_VAR NAME="reportStartTime"></td>
-            <td class="small">Date: <TMPL_VAR NAME="reportStartDate"></td>
-          </tr>
-        </table>
 
-        <table>
-          <tr>
-            <td width="250">Contact:</td><td></td>
-            <td>Comments:</td>
-          </tr>
-          <tr height="60">
-            <td valign="top">
+            <p><h4>Finish Sales Report - <TMPL_VAR NAME="Name"></h4></p>
+            <p class="small">Time Start: <TMPL_VAR NAME="reportStartTime"></p>
+            <p class="small">Date: <TMPL_VAR NAME="reportStartDate"></p>
+    
+
+  
+           <p>Contact:</p>
+           <p>Comments:</p>
+
               <input name="talkedToName" value="<TMPL_VAR NAME="talkedToName" escape=html>" class="quick">
-            </td><td></td>
-            <td valign="top">
+    
               <input name="comment" maxlength="75" id="id_comment" value="<TMPL_VAR NAME="comment" escape=html>" class="quick1"><br />
-              <input name="comment2" maxlength="75" value="<TMPL_VAR NAME="comment2" escape=html>" class="quick1"><br/><i class="small">75 characters max each line</i><br/><br/>
-            </td>
-          </tr>
-          <tr>
-            <td valign="top">Sales Amount:</td><td></td>
-            <td valign="top">Sales Opportunity</td>
-          </tr>
-          <tr>
-            <td valign="top"><input name="salesAmount" value="<TMPL_VAR NAME="salesAmount" escape=html>" class="quick"></td><td></td>
-            <td><input type="checkbox" name="SOP" value=1 onChange="toggleSOPDisplay()" id="SOPField"> - Yes<br/><br/>
+              <input name="comment2" maxlength="75" value="<TMPL_VAR NAME="comment2" escape=html>" class="quick1"><br/><i class="small">75 characters max each line</i>
+      
+           Sales Amount:
+            Sales Opportunity
+   
+            <input name="salesAmount" value="<TMPL_VAR NAME="salesAmount" escape=html>" class="quick">
+            <input type="checkbox" name="SOP" value=1 onChange="toggleSOPDisplay()" id="SOPField"> - Yes
               <div id="ShowSOP" style="display:none">
-                Opportunity:
+                <p>Opportunity:</p>
                 <TMPL_IF NAME="opportunityPulldown">
-                  <TMPL_INCLUDE NAME="opportunityPulldown.tmpl"><br/>
+                  <TMPL_INCLUDE NAME="opportunityPulldown.tmpl">
                 </TMPL_IF>
                 <input name="opportunity" maxlength=20 id="opportunityField" class="quick" value="<TMPL_VAR NAME="opportunity" escape=html>"><br/>
 
-                Next Step:<br/>
+                <p>Next Step:</p>
                 <input name="nextStep" maxlength=50 id="nextStepField" class="quick" value="<TMPL_VAR NAME="nextStep" escape=html>"><br/>
 
-                Next Date (mm-dd-yy):<br/>
+                <p>Next Date (mm-dd-yy):</p>
                 <input name="nextDate" id="nextDateField" maxlength=10 class="quick" onChange="validateNextDate(false)" value="<TMPL_VAR NAME="nextDate" escape=html>"><br/><br/>
               </div>
               <TMPL_IF NAME="salesOps">
-                Outstanding Sales Opportunities<br/>
+                <p>Outstanding Sales Opportunities</p>
                 <TMPL_INCLUDE NAME="salesOps.tmpl">
               </TMPL_IF>
-            </td>
-          </tr>
-        </table>
-        <br/><br/>
 
         <div class="center">
           <input type="submit" value="Finish Report" class="newbutton"><input type="button" onclick="location='/salesReport.html?mode=removeCurrent'" value="Delete Current Report" class="newbutton">
@@ -203,7 +190,7 @@
         <input type="hidden" name="mode" value="save">
       </form>
     </div>
-    <br/>
+    
   </TMPL_IF>
   <TMPL_IF NAME="mode_view">
     <div align="center">
