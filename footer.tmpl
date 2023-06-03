@@ -17,7 +17,7 @@
 <button onclick="topFunction()" id="backToTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 <script>
   // Get #backToTop button
-  let mybutton = document.getElementById("backToTop");
+  var toTop = document.getElementById("backToTop");
   
   // When the user scrolls down 50px from the top of the document,
   // show back to top button
@@ -25,9 +25,9 @@
   
   function scrollFunction() {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      mybutton.style.display = "block";
+      toTop.style.display = "block";
     } else {
-      mybutton.style.display = "none";
+      toTop.style.display = "none";
     }
   }
   
