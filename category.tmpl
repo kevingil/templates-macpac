@@ -149,18 +149,21 @@
             increment = parseInt(caseQty);
           } else if (allowPartial == 'Y' && um == 'PR'){
             increment = 1;
+            console.log("PR incr set to: " + increment + " um: " + um);
           } else if (allowPartial == 'Y' && um == 'BX'){
             increment = 1;
+            console.log("BX incr set to: " + increment + " um: " + um);
           } else if (allowPartial == 'Y' && um == 'C'){
             increment = 100;
+            console.log("C incr set to: " + increment + " um: " + um);
           } else if (allowPartial == 'Y' && um == 'M'){
             increment = 100;
+            console.log("C incr set to: " + increment + " um: " + um);
           }
 
           input.value = parseInt(input.value) + increment;
 
           console.log("CASE QTY: " + caseQty);
-          console.log("Set Increment: " + increment);
           console.log("CALC val: " + input.value);
           
         })
