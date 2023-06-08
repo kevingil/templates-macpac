@@ -159,6 +159,8 @@
           } else if (allowPartial === 'Y' && um === 'M'){
             increment = 100;
             console.log("C incr set to: " + increment + " um: " + um);
+          } else {
+            increment = 1;
           }
 
           input.value = parseInt(input.value) + increment;
