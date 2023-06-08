@@ -126,14 +126,14 @@
         var currentPlus = plusButton[i];
         var increment = 1;
         currentPlus.addEventListener('click',function(event){
-          console.log("=====================================");
+          console.log("================================");
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
           var um = buttonClicked.parentElement.children[4].innerHTML;
           var allowPartial = buttonClicked.parentElement.children[5].innerHTML;
           var caseQty = buttonClicked.parentElement.children[6].innerHTML;
-          console.log("Product: " + "UM: " + um + "AllowP: " + allowPartial + "Case:" + caseQty);
+          console.log("Product: " + "UM: " + um + " AllowP: " + allowPartial + " Case:" + caseQty);
 
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
@@ -177,7 +177,7 @@
         var currentMinus = minusButton[i];
         var minus = 1;
         currentMinus.addEventListener('click',function(event){
-          console.log("=====================================");
+          console.log("=============================");
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
