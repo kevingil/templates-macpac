@@ -138,13 +138,14 @@
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
             console.log("undefined set to 0");
-            if (allowPartial === '') {
+          } 
+
+          if (allowPartial === '') {
               allowPartial = 'Y';
               console.log("AllowP: " + allowPartial);
             } else {
               console.log("AllowP: " + allowPartial);
             }
-          } 
 
           if (allowPartial === 'N') {
             increment = parseInt(caseQty);
@@ -188,13 +189,14 @@
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
             console.log("undefined set to 0");
-            if (allowPartial == '') {
+          } 
+
+          if (allowPartial == '') {
               allowPartial = 'Y';
               console.log("allow partial: " + allowPartial);
             } else {
               console.log("allow partial: " + allowPartial);
             }
-          } 
           
           if (allowPartial === 'N') {
             minus = parseInt(caseQty);
