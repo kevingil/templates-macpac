@@ -148,21 +148,20 @@
 
           if (allowPartial === 'N') {
             increment = parseInt(caseQty);
-          } else if (allowPartial === 'Y' && um === 'PR'){
+          } else if (allowPartial === 'Y') {
+            if (um === 'PR'){
             increment = 1;
-            console.log("PR incr set to: " + increment + " um: " + um);
-          } else if (allowPartial === 'Y' && um === 'BX'){
+          } else if (um === 'BX'){
             increment = 1;
-            console.log("BX incr set to: " + increment + " um: " + um);
-          } else if (allowPartial === 'Y' && um === 'C'){
+          } else if (um === 'C'){
             increment = 100;
-            console.log("C incr set to: " + increment + " um: " + um);
-          } else if (allowPartial === 'Y' && um === 'M'){
+          } else if (um === 'M'){
             increment = 100;
-            console.log("C incr set to: " + increment + " um: " + um);
           } else {
             increment = 1;
           }
+          }
+    
 
           input.value = parseInt(input.value) + increment;
 
@@ -199,17 +198,22 @@
           
           if (allowPartial === 'N') {
             minus = parseInt(caseQty);
-          } else if (allowPartial === 'Y' && um === 'PR'){
+          } else if (allowPartial === 'Y') {
+
+            if (um === 'PR'){
             minus = 1;
-          } else if (allowPartial === 'Y' && um === 'BX'){
-            minus = 1;
-          } else if (allowPartial === 'Y' && um === 'C'){
-            minus = 100;
-          } else if (allowPartial === 'Y' && um === 'M'){
-            minus = 100;
-          } else {
-            minus = 1;
+              } else if (um === 'BX'){
+                minus = 1;
+              } else if (um === 'C'){
+                minus = 100;
+              } else if (um === 'M'){
+                minus = 100;
+              } else {
+                minus = 1;
           }
+
+          }
+          
 
           if (parseInt(input.value) > 0) {
             // Don't allow under 0
