@@ -126,22 +126,23 @@
         var currentPlus = plusButton[i];
         var increment = 1;
         currentPlus.addEventListener('click',function(event){
+          console.log("=====================================");
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
           var um = buttonClicked.parentElement.children[4].innerHTML;
           var allowPartial = buttonClicked.parentElement.children[5].innerHTML;
           var caseQty = buttonClicked.parentElement.children[6].innerHTML;
-          console.log("priced per: " + um);
+          console.log("Product: " + "UM: " + um + "AllowP: " + allowPartial + "Case:" + caseQty);
 
           if (isNaN(parseInt(input.value))){
             input.value = calcVal;
             console.log("undefined set to 0");
-            if (allowPartial == '') {
+            if (allowPartial === '') {
               allowPartial = 'Y';
-              console.log("allow partial: " + allowPartial);
+              console.log("AllowP: " + allowPartial);
             } else {
-              console.log("allow partial: " + allowPartial);
+              console.log("AllowP: " + allowPartial);
             }
           } 
 
@@ -165,8 +166,7 @@
 
           input.value = parseInt(input.value) + increment;
 
-          console.log("CASE QTY: " + caseQty);
-          console.log("CALC val: " + input.value);
+          console.log("Calc Out: " + input.value);
           
         })
 
@@ -175,8 +175,9 @@
         // subtrac handler
         for (var i = 0; i < minusButton.length; i++){
         var currentMinus = minusButton[i];
+        var minus = 1;
         currentMinus.addEventListener('click',function(event){
-          var minus = 1;
+          console.log("=====================================");
           var calcVal = 0;
           var buttonClicked = event.currentTarget;
           var input = buttonClicked.parentElement.children[1];
@@ -196,15 +197,15 @@
             }
           } 
           
-          if (allowPartial == 'N') {
+          if (allowPartial === 'N') {
             minus = parseInt(caseQty);
-          } else if (allowPartial == 'Y' && um == 'PR'){
+          } else if (allowPartial === 'Y' && um === 'PR'){
             minus = 1;
-          } else if (allowPartial == 'Y' && um == 'BX'){
+          } else if (allowPartial === 'Y' && um === 'BX'){
             minus = 1;
-          } else if (allowPartial == 'Y' && um == 'C'){
+          } else if (allowPartial === 'Y' && um === 'C'){
             minus = 100;
-          } else if (allowPartial == 'Y' && um == 'M'){
+          } else if (allowPartial === 'Y' && um === 'M'){
             minus = 100;
           } else {
             minus = 1;
@@ -221,7 +222,7 @@
 
           console.log("CASE QTY: " + caseQty);
           console.log("Set Sub: " + minus);
-          console.log("CALC val: " + input.value);
+          console.log("Calc Out: " + input.value);
         })
       }
 
