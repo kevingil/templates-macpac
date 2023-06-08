@@ -1307,8 +1307,6 @@ h3.title {
     padding: 6px;
 }
 
-
-
 #mainproductbox p {
     margin: 0px;
     padding: 10px;
@@ -1326,6 +1324,37 @@ h3.title {
     padding: 0px 1.5rem;
 }
 
+.tabs {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .tabs .tab {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+  }
+  .tabs .tab.active,
+  .tabs .tab:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+  .tab-content {
+    display: none;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+  }
+  .tab-content.active {
+    display: block;
+  }
+
+  .ic-frame {
+    width: 100%;
+  }
+
+
 .details-left h4 {
     margin-bottom: 5px;
 }
@@ -1334,7 +1363,6 @@ div.details-right>div.customer-lists {
     display: grid;
     grid-template-columns: 1fr;
 }
-
 
 #complete {
     border: 1px solid #152b75;

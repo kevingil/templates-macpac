@@ -104,24 +104,53 @@
   </div><!--end mainproductinfo-->
   <div class="details">
     <div class="details-left">
-      <h4>Description:</h4>
-      <TMPL_VAR NAME="Description">
-        <br />
-        <TMPL_IF NAME="SpecialOrder">
-          <TMPL_ELSE>
-            <TMPL_VAR NAME="Memo1"><br />
-              <TMPL_VAR NAME="Memo2"><br />
-                <TMPL_VAR NAME="Memo3"><br /><br />
-                  <TMPL_IF NAME="Cat_Description">
-                    <TMPL_VAR NAME="Cat_Description">
-                  </TMPL_IF>
-        </TMPL_IF>
-        <TMPL_IF NAME="SpecialOrder">
-          <p>This is a special order item.
-            <a href="/forms.html#Vendor<TMPL_VAR NAME="VendorCode">">Click here for order forms</a><br /><br />
-            or email orders@macmurraypacific.com and we will help you with your request.
-          </p>
-        </TMPL_IF>
+      <ul class="tabs">
+        <li data-tab-target="#description-content" class="tab active">Description</li>
+        <li data-tab-target="#catalog-content" class="tab">Catalog</li>
+      </ul>
+
+      <div class="tab-contents">
+        <div class="tab-content active" id="description-content">
+          <TMPL_VAR NAME="Description">
+            <br />
+            <TMPL_IF NAME="SpecialOrder">
+              <TMPL_ELSE>
+                <TMPL_VAR NAME="Memo1"><br />
+                  <TMPL_VAR NAME="Memo2"><br />
+                    <TMPL_VAR NAME="Memo3"><br /><br />
+                      <TMPL_IF NAME="Cat_Description">
+                        <TMPL_VAR NAME="Cat_Description">
+                      </TMPL_IF>
+            </TMPL_IF>
+            <TMPL_IF NAME="SpecialOrder">
+              <p>This is a special order item.
+                <a href="/forms.html#Vendor<TMPL_VAR NAME="VendorCode">">Click here for order forms</a><br /><br />
+                or email orders@macmurraypacific.com and we will help you with your request.
+              </p>
+            </TMPL_IF>
+        </div>
+        <div class="tab-content" id="catalog-content">
+          <iframe class="ic-frame" src="https://macpac1.com/catalog/<TMPL_VAR NAME="CatalogPageNo">.pdf"></iframe>
+        </div>
+      </div>
+        <script>
+            const tabs = document.querySelectorAll("[data-tab-target]");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach((tab) => {
+              tab.addEventListener("click", () => {
+                tabs.forEach((tab) => {
+                  tab.classList.remove("active");
+                });
+                tab.classList.add("active");
+                tabContents.forEach((tabContent) => {
+                  tabContent.classList.remove("active");
+                });
+                const target = document.querySelector(tab.dataset.tabTarget);
+                target.classList.add("active");
+              });
+            });
+        </script>
     </div>
 
     <div class="details-right">
