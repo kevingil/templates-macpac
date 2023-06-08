@@ -199,16 +199,20 @@
           if (allowPartial === 'N') {
             minus = parseInt(caseQty);
           } else if (allowPartial === 'Y') {
-
             if (um === 'PR'){
-            minus = 1;
+              console.log("PR true, um: " + um);
+                minus = 1;
               } else if (um === 'BX'){
+                console.log("BX true, um: " + um);
                 minus = 1;
               } else if (um === 'C'){
+                console.log("C true, um: " + um);
                 minus = 100;
               } else if (um === 'M'){
+                console.log("M true, um: " + um);
                 minus = 100;
               } else {
+                console.log("else true, um: " + um);
                 minus = 1;
           }
 
