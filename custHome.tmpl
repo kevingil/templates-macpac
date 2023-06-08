@@ -6,7 +6,7 @@
 
     
     <article class="custInfo">
-      <b>Customer No. <TMPL_VAR NAME="session_cust_customerRow_CustomerID"></b><br />
+      <b>Bill to:</b> # <TMPL_VAR NAME="session_cust_customerRow_CustomerID"><br/>
       <TMPL_VAR NAME="session_cust_customerRow_Name"><br />
         <TMPL_VAR NAME="session_cust_customerRow_Address"><br />
           <TMPL_IF NAME="session_cust_customerRow_Address2">
@@ -21,8 +21,7 @@
                   <TMPL_VAR NAME="session_cust_customerRow_Email"><br />
                 </TMPL_IF>
                 <br />
-                <b>Ship to Addresses for account:</b>
-                <p class="small">(If different from above)</p>
+                <span><b>Ship to Addresses for account:</b> <p class="x-small">(if different from above)</p></span>
                 <div class="showAllShipToAccounts">
                   <TMPL_IF NAME="allShipToAccountsCount">
                     <TMPL_LOOP NAME="allShipToAccounts">
