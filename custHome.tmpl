@@ -44,16 +44,12 @@
 
     <article class="user-links">
       <div class="current-user">
-        <p>User: <b>
-          <TMPL_VAR NAME="user_name">
-        </b>,<b>
-          <TMPL_VAR NAME="session_custName">
-        </b></p>
+        <p><b>My Account</b> #<TMPL_VAR NAME="session_cust_customerRow_CustomerID"></TMPL_VAR> </p>
       </div>
       
       <!--Salesmen Tools-->
       <div class="custhome-navs" style="clear: both">
-        <b>Customer Home</b>
+        <b><TMPL_VAR NAME="session_custName"></b> \ <TMPL_VAR NAME="user_name">
         <TMPL_INCLUDE NAME="buttonNavs.tmpl">
       </div>
     </article>
