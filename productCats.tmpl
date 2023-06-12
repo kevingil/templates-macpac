@@ -4,13 +4,13 @@
 
 <h3>Product Categories</h3>
 
-<div class="categories homeProducts">
+<div class="categories ">
   <TMPL_LOOP NAME="prodTypeList">
     <TMPL_LOOP NAME="columns">
         <TMPL_IF NAME="subtypes">
-        <div class="cdropdown homeimage-wrap">
-          <div class="category-image home-image">
-            <img src="/images/cat-<TMPL_VAR NAME="id">.jpg"></img>
+        <div class="cdropdown homeProducts">
+          <div class="category-image homeimage-wrap">
+            <img class="home-image" src="/images/cat-<TMPL_VAR NAME="id" src="/images/1-hinges.jpg?cache=060323">.jpg"></img>
           </div>
           <button class="cdropbtn homeimage-caption"><TMPL_VAR NAME="type"></button>
           <span class="cdropdown-content">
