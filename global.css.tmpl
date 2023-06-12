@@ -2439,6 +2439,7 @@ ul#toc span {
 }
 
 .catalog-viewer {
+    display: grid;
     border: 1px solid var(--secondary);
     width: 100%;
 }
@@ -2448,8 +2449,11 @@ ul#toc span {
     .catalog-bookmarks {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .catalog-viewer {
+        grid-template-columns: 0px auto 0px;
+    }
+    .catalog-viewer > button {
         display: none;
     }
 
@@ -2465,7 +2469,6 @@ ul#toc span {
         grid-template-columns: 1fr 1fr 1fr;
     }
     .catalog-viewer {
-        display: grid;
         grid-template-columns: 1fr 6fr 1fr;
     }
     .catalog-nav {
