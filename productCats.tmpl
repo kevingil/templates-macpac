@@ -11,12 +11,15 @@
         <div class="cdropdown homeProducts">
           <div class="category-image homeimage-wrap">
             <img class="home-image" src="/images/1-hinges.jpg?cache=060323"></img>
-          </div>
+          
           <button class="cdropbtn homeimage-caption"><TMPL_VAR NAME="type"></button>
+
+          
           <span class="cdropdown-content">
             <TMPL_LOOP NAME="subtypes">
             <a href="/category.html?cat=<TMPL_VAR NAME="id">&productShowOnly=All"><TMPL_VAR NAME="subtype"></a>
             </TMPL_LOOP>
+          </div>
           </div>
         </span>
         </TMPL_IF>
