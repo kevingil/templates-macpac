@@ -2419,14 +2419,7 @@ ul#toc span {
     width: 150px;
 }
 
-.catalog-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
 .catalog-nav > button {
-    width: 80px;
-    height: 50px;
     border-radius: 5px;
     padding: 4px;
     margin: 10px auto;
@@ -2451,8 +2444,17 @@ ul#toc span {
 }
 
 
-@media (min-width: 100px) {
+@media (max-width: 576px) {
     .catalog-bookmarks {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .catalog-viewer {
+        display: none;
+    }
+
+    .catalog-nav {
+        display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
@@ -2461,6 +2463,13 @@ ul#toc span {
 @media (min-width: 768px) {
     .catalog-bookmarks {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    .catalog-viewer {
+        display: grid;
+        grid-template-columns: 1fr 6fr 1fr;
+    }
+    .catalog-nav {
+        display: none;
     }
 }
 
