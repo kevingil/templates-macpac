@@ -1220,7 +1220,7 @@ html[xmlns] .clearfix {
 
 /* Main Product Page Styles ---------------------------------------------------*/
 
-@media (min-width: 100px) {
+@media (max-width: 576px) {
     #mainproductbox {
         border-radius: 5px;
         margin: 12px;
@@ -1246,7 +1246,8 @@ html[xmlns] .clearfix {
 
     .mainproductbox img.product-image {}
 
-    div.details {
+    div.product-info {
+        grid-area: 3 / 1 / 4 / 3;
     }
 
     .details-right {
