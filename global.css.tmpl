@@ -1309,10 +1309,14 @@ div.description-tab {
     gap:10px;
 }
 
-.ic-frame {
+.cat-frame {
     width: 100%;
     aspect-ratio: 3 / 4;
     border: 1px;
+  }
+
+  .cat-frame {
+    width: fit-content;
   }
 
 
@@ -2470,7 +2474,7 @@ ul#toc span {
         grid-row-gap: 5px;
     }
 
-    .catalog-viewer img, .catalog-viewer .ic-frame {
+    .catalog-viewer img, .catalog-viewer .cat-frame {
         grid-area: 1 / 1 / 2 / 7;
         display: block;
     }
@@ -2504,7 +2508,7 @@ ul#toc span {
         grid-row-gap: 0px;
     }
     
-    .catalog-viewer img, .catalog-viewer .ic-frame {
+    .catalog-viewer img, .catalog-viewer .cat-frame {
         grid-area: 1 / 2 / 2 / 6;
     }
     .catalog-nav {
