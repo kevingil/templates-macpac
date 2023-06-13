@@ -1,15 +1,17 @@
 <TMPL_INCLUDE NAME="header.tmpl">
   <p class="breadcrumb-header">
     <a href="productCats.html">Back to Product Categories</a>
-    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink1">">
-      <TMPL_VAR NAME="breadcrumbtext1" escape=html></a></TMPL_IF>
-    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME="breadcrumblink2">">
-      <TMPL_VAR NAME="breadcrumbtext2" escape=html></a></TMPL_IF>
-        / <TMPL_VAR NAME="ProductCode">
+    <TMPL_IF NAME="breadcrumbtext1"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink1">">
+        <TMPL_VAR NAME="breadcrumbtext1" escape=html>
+      </a></TMPL_IF>
+    <TMPL_IF NAME="breadcrumbtext2"> / <a href="category.html?<TMPL_VAR NAME=" breadcrumblink2">">
+        <TMPL_VAR NAME="breadcrumbtext2" escape=html>
+      </a></TMPL_IF>
+    / <TMPL_VAR NAME="ProductCode">
   </p>
 
 
-  
+
 
 
   <article id="mainproductbox"><!--begin mainproductbox-->
@@ -17,21 +19,24 @@
       <TMPL_VAR NAME="ProductDescription" ESCAPE="html">
     </h3>
     <!-- src="products<VAR>" VAR="/img.jpg", no need for extra '/'-->
-    <TMPL_IF NAME="full_image"><img class="product-image" src="<TMPL_VAR NAME="glob_thumbnailPrefix">/<TMPL_VAR
+    <TMPL_IF NAME="full_image"><img class="product-image" src="<TMPL_VAR NAME=" glob_thumbnailPrefix">/<TMPL_VAR
         NAME="full_image">" height="<TMPL_VAR NAME="fullY">" width="<TMPL_VAR NAME="fullX">" title="<TMPL_VAR
               NAME="ProductDescription" ESCAPE=html>"></TMPL_IF>
 
 
     <div id="mainproductinfo"><!--begin mainproductinfo-->
-      
-    <p class="part-number">
-      PART#: <a href="/product.html?productCode=<TMPL_VAR NAME="ProductCode" escape=url>"><TMPL_VAR NAME="ProductCode"></a>
-    </p>
-    
-      <p>Carton Quantity: <TMPL_VAR NAME="PerBox"></p>
+
+      <p class="part-number">
+        PART#: <a href="/product.html?productCode=<TMPL_VAR NAME=" ProductCode" escape=url>"><TMPL_VAR
+            NAME="ProductCode"></a>
+      </p>
+
+      <p>Carton Quantity: <TMPL_VAR NAME="PerBox">
+      </p>
       <TMPL_IF NAME="allowQtyAvailable">
         <TMPL_UNLESS NAME="isKit1">
-          <p>In stock: <TMPL_VAR NAME="QtyAvailable"> <TMPL_VAR NAME="UofM">
+          <p>In stock: <TMPL_VAR NAME="QtyAvailable">
+              <TMPL_VAR NAME="UofM">
           </p>
         </TMPL_UNLESS>
       </TMPL_IF>
@@ -72,125 +77,141 @@
               <button class='minus-button secondary'>
                 <i class="fa-solid fa-minus"></i>
               </button>
-              <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME="Qty">" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">" perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases" DEFAULT="0">">
-              
-              <button class='plus-button secondary'>
-                <i class="fa-solid fa-plus"></i>
-              </button>
-        
-              <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="ProductCode">" >
-                Add to Cart
-              </button>
-              <span class="secret"><TMPL_VAR NAME="UofM"></span>
-              <span class="secret"><TMPL_VAR NAME="AllowPartialCases" DEFAULT="0"></span>
-              <span class="secret"><TMPL_VAR NAME="PerBox"></span>
-              
-            </div>
-            
+              <input type="text" class="quantity addQuantity" placeholder="Quantity" value="<TMPL_VAR NAME=" Qty">"
+              useProductCode="<TMPL_VAR NAME="productCode" escape=html>" ProductCode="<TMPL_VAR NAME="cleanProductCode">
+                  " perbox="<TMPL_VAR NAME="perBox" default=0>" allowpartialcases="<TMPL_VAR NAME="AllowPartialCases"
+                      DEFAULT="0">">
 
-                    <TMPL_IF NAME="Qty">
-                      <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
-                        <TMPL_ELSE>
-                          <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
-                    </TMPL_IF>
+                      <button class='plus-button secondary'>
+                        <i class="fa-solid fa-plus"></i>
+                      </button>
+
+                      <button class="addProductToCart qty" useProductCode="<TMPL_VAR NAME=" productCode" escape=html>"
+                        ProductCode="<TMPL_VAR NAME="ProductCode">" >
+                          Add to Cart
+                      </button>
+                      <span class="secret">
+                        <TMPL_VAR NAME="UofM">
+                      </span>
+                      <span class="secret">
+                        <TMPL_VAR NAME="AllowPartialCases" DEFAULT="0">
+                      </span>
+                      <span class="secret">
+                        <TMPL_VAR NAME="PerBox">
+                      </span>
+
+            </div>
+
+
+            <TMPL_IF NAME="Qty">
+              <TMPL_INCLUDE NAME="cartrow-template-addedToCart-shown.tmpl">
+                <TMPL_ELSE>
+                  <TMPL_INCLUDE NAME="cartrow-template-addedToCart-hidden.tmpl">
+            </TMPL_IF>
+      </div>
+      </TMPL_IF>
+      </TMPL_IF><br />
     </div>
-    </TMPL_IF>
-  </TMPL_IF><br />
-</div>
-  </div><!--end mainproductinfo-->
-  <div class="details">
+    </div><!--end mainproductinfo-->
+    <div class="product-info">
       <ul class="tabs">
         <li data-tab-target="#description-content" class="tab active">Description</li>
         <li data-tab-target="#catalog-content" class="tab">Catalog</li>
       </ul>
-      <div class="tab-contents">
-        <div class="details-box">
+      <div class="tab-contents description">
         <div class="tab-content active" id="description-content">
-          <TMPL_VAR NAME="Description">
-            <br />
-            <TMPL_IF NAME="SpecialOrder">
-              <TMPL_ELSE>
-                <TMPL_VAR NAME="Memo1"><br />
-                  <TMPL_VAR NAME="Memo2"><br />
-                    <TMPL_VAR NAME="Memo3"><br /><br />
-                      <TMPL_IF NAME="Cat_Description">
-                        <TMPL_VAR NAME="Cat_Description">
-                      </TMPL_IF>
-            </TMPL_IF>
-            <TMPL_IF NAME="SpecialOrder">
-              <p>This is a special order item.
-                <a href="/forms.html#Vendor<TMPL_VAR NAME="VendorCode">">Click here for order forms</a><br /><br />
-                or email orders@macmurraypacific.com and we will help you with your request.
-              </p>
-            </TMPL_IF>
-          </div>
+        <div class="product-description">
+            <TMPL_VAR NAME="Description">
+              <br />
+              <TMPL_IF NAME="SpecialOrder">
+                <TMPL_ELSE>
+                  <TMPL_VAR NAME="Memo1"><br />
+                    <TMPL_VAR NAME="Memo2"><br />
+                      <TMPL_VAR NAME="Memo3"><br /><br />
+                        <TMPL_IF NAME="Cat_Description">
+                          <TMPL_VAR NAME="Cat_Description">
+                        </TMPL_IF>
+              </TMPL_IF>
+              <TMPL_IF NAME="SpecialOrder">
+                <p>This is a special order item.
+                  <a href="/forms.html#Vendor<TMPL_VAR NAME=" VendorCode">">Click here for order forms</a><br /><br />
+                  or email orders@macmurraypacific.com and we will help you with your request.
+                </p>
+              </TMPL_IF>
         </div>
-    <div class="details-links">
-      <TMPL_IF NAME="CatalogPageNo">
-        <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
-            class="newbutton1 secondary outline">Catalog Page</button></a>
-      </TMPL_IF>
-      <TMPL_IF NAME="session_isSales">
-        <TMPL_IF NAME="ShowPR">
-          <a href="/pr.html?ProductCode=<TMPL_VAR NAME="ProductCode">">
-              <button class="newbutton3 secondary outline">
-                Price Chart <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 0c17.7 0 32 14.3 32 32V67.7c1.6 .2 3.1 .4 4.7 .7c.4 .1 .7 .1 1.1 .2l48 8.8c17.4 3.2 28.9 19.9 25.7 37.2s-19.9 28.9-37.2 25.7l-47.5-8.7c-31.3-4.6-58.9-1.5-78.3 6.2s-27.2 18.3-29 28.1c-2 10.7-.5 16.7 1.2 20.4c1.8 3.9 5.5 8.3 12.8 13.2c16.3 10.7 41.3 17.7 73.7 26.3l2.9 .8c28.6 7.6 63.6 16.8 89.6 33.8c14.2 9.3 27.6 21.9 35.9 39.5c8.5 17.9 10.3 37.9 6.4 59.2c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.1c-.4-.1-.9-.1-1.3-.2l-.2 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3c-16.1-7.2-23.4-26.1-16.2-42.2s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.5 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.6 .4-16.7-1.3-20.4c-1.9-4-5.6-8.4-13-13.3c-16.4-10.7-41.5-17.7-74-26.3l-2.8-.7 0 0C119.4 279.3 84.4 270 58.4 253c-14.2-9.3-27.5-22-35.8-39.6c-8.4-17.9-10.1-37.9-6.1-59.2C23.7 116 52.3 91.2 84.8 78.3c13.3-5.3 27.9-8.9 43.2-11V32c0-17.7 14.3-32 32-32z"/></svg>
-              </button>
-          </a>
-        </TMPL_IF>
-      </TMPL_IF>
-      <TMPL_IF NAME="session_isGuest">
-        <!-- login to see price ?-->
-        <TMPL_ELSE>
-          <TMPL_INCLUDE NAME="favoriteButton.tmpl">
-      </TMPL_IF>
-      <TMPL_IF NAME="youtubeCode">
-        <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">">
-          <button class="newbutton3 secondary outline" id="showProductVideo">Product Video</button>
-        </a>
-      </TMPL_IF>
-    </div>
-  
-        <div class="tab-content" id="catalog-content">
+        <div class="product-links">
+          <TMPL_IF NAME="CatalogPageNo">
+            <a href="/viewCatalog.html?page=<TMPL_VAR NAME=" CatalogPageNo">" target="_blank"><button
+                class="newbutton1 secondary outline">Catalog Page</button></a>
+          </TMPL_IF>
+          <TMPL_IF NAME="session_isSales">
+            <TMPL_IF NAME="ShowPR">
+              <a href="/pr.html?ProductCode=<TMPL_VAR NAME=" ProductCode">">
+                <button class="newbutton3 secondary outline">
+                  Price Chart <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M160 0c17.7 0 32 14.3 32 32V67.7c1.6 .2 3.1 .4 4.7 .7c.4 .1 .7 .1 1.1 .2l48 8.8c17.4 3.2 28.9 19.9 25.7 37.2s-19.9 28.9-37.2 25.7l-47.5-8.7c-31.3-4.6-58.9-1.5-78.3 6.2s-27.2 18.3-29 28.1c-2 10.7-.5 16.7 1.2 20.4c1.8 3.9 5.5 8.3 12.8 13.2c16.3 10.7 41.3 17.7 73.7 26.3l2.9 .8c28.6 7.6 63.6 16.8 89.6 33.8c14.2 9.3 27.6 21.9 35.9 39.5c8.5 17.9 10.3 37.9 6.4 59.2c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.1c-.4-.1-.9-.1-1.3-.2l-.2 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3c-16.1-7.2-23.4-26.1-16.2-42.2s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.5 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.6 .4-16.7-1.3-20.4c-1.9-4-5.6-8.4-13-13.3c-16.4-10.7-41.5-17.7-74-26.3l-2.8-.7 0 0C119.4 279.3 84.4 270 58.4 253c-14.2-9.3-27.5-22-35.8-39.6c-8.4-17.9-10.1-37.9-6.1-59.2C23.7 116 52.3 91.2 84.8 78.3c13.3-5.3 27.9-8.9 43.2-11V32c0-17.7 14.3-32 32-32z" />
+                  </svg>
+                </button>
+              </a>
+            </TMPL_IF>
+          </TMPL_IF>
+          <TMPL_IF NAME="session_isGuest">
+            <!-- login to see price ?-->
+            <TMPL_ELSE>
+              <TMPL_INCLUDE NAME="favoriteButton.tmpl">
+          </TMPL_IF>
+          <TMPL_IF NAME="youtubeCode">
+            <a href="#" class="youtube-link" youtubeid="<TMPL_VAR NAME=" youtubeCode">">
+              <button class="newbutton3 secondary outline" id="showProductVideo">Product Video</button>
+            </a>
+          </TMPL_IF>
+        </div>
+      </div>
+
+
+        <div class="tab-content catalog-tab" id="catalog-content">
           <iframe class="ic-frame" src="https://savageresearch.com/200/1.html"></iframe>
         </div>
-  </div>
-        <script>
-            const tabs = document.querySelectorAll("[data-tab-target]");
-            const tabContents = document.querySelectorAll(".tab-content");
+      </div>
+    </div>
+      <script>
+        const tabs = document.querySelectorAll("[data-tab-target]");
+        const tabContents = document.querySelectorAll(".tab-content");
 
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
             tabs.forEach((tab) => {
-              tab.addEventListener("click", () => {
-                tabs.forEach((tab) => {
-                  tab.classList.remove("active");
-                });
-                tab.classList.add("active");
-                tabContents.forEach((tabContent) => {
-                  tabContent.classList.remove("active");
-                });
-                const target = document.querySelector(tab.dataset.tabTarget);
-                target.classList.add("active");
-              });
+              tab.classList.remove("active");
             });
-        </script>
-    
+            tab.classList.add("active");
+            tabContents.forEach((tabContent) => {
+              tabContent.classList.remove("active");
+            });
+            const target = document.querySelector(tab.dataset.tabTarget);
+            target.classList.add("active");
+          });
+        });
+      </script>
 
 
 
 
 
-  <TMPL_INCLUDE NAME="youtube_code.tmpl">
-    </article><!--end mainproductbox-->
 
-    <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
-      <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
-        <TMPL_INCLUDE NAME="jquery_regHandleCart.tmpl">
+      <TMPL_INCLUDE NAME="youtube_code.tmpl">
+  </article><!--end mainproductbox-->
 
-          <TMPL_IF NAME="showExplanation">
-            <h2>Price Ladder Explanation visible only to admins</h2>
-            <TMPL_VAR NAME="explanation">
-          </TMPL_IF>
-          <div class="center" style="clear: both">
-            <TMPL_INCLUDE NAME="salesNavs.tmpl">
-          </div>
-          <TMPL_INCLUDE NAME="footer.tmpl">
+  <TMPL_INCLUDE NAME="jquery_favorite.tmpl">
+    <TMPL_INCLUDE NAME="jquery_handleCart.tmpl">
+      <TMPL_INCLUDE NAME="jquery_regHandleCart.tmpl">
+
+        <TMPL_IF NAME="showExplanation">
+          <h2>Price Ladder Explanation visible only to admins</h2>
+          <TMPL_VAR NAME="explanation">
+        </TMPL_IF>
+        <div class="center" style="clear: both">
+          <TMPL_INCLUDE NAME="salesNavs.tmpl">
+        </div>
+        <TMPL_INCLUDE NAME="footer.tmpl">
