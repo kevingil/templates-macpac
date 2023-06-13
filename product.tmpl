@@ -99,13 +99,12 @@
 </div>
   </div><!--end mainproductinfo-->
   <div class="details">
-    <div class="details-left">
       <ul class="tabs">
         <li data-tab-target="#description-content" class="tab active">Description</li>
         <li data-tab-target="#catalog-content" class="tab">Catalog</li>
       </ul>
-
       <div class="tab-contents">
+        <div class="details-left">
         <div class="tab-content active" id="description-content">
           <TMPL_VAR NAME="Description">
             <br />
@@ -124,31 +123,8 @@
                 or email orders@macmurraypacific.com and we will help you with your request.
               </p>
             </TMPL_IF>
+          </div>
         </div>
-        <div class="tab-content" id="catalog-content">
-          <iframe class="ic-frame" src="https://savageresearch.com/200/1.html"></iframe>
-        </div>
-      </div>
-        <script>
-            const tabs = document.querySelectorAll("[data-tab-target]");
-            const tabContents = document.querySelectorAll(".tab-content");
-
-            tabs.forEach((tab) => {
-              tab.addEventListener("click", () => {
-                tabs.forEach((tab) => {
-                  tab.classList.remove("active");
-                });
-                tab.classList.add("active");
-                tabContents.forEach((tabContent) => {
-                  tabContent.classList.remove("active");
-                });
-                const target = document.querySelector(tab.dataset.tabTarget);
-                target.classList.add("active");
-              });
-            });
-        </script>
-    </div>
-
     <div class="details-right">
       <TMPL_IF NAME="CatalogPageNo">
         <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
@@ -174,6 +150,32 @@
         </a>
       </TMPL_IF>
     </div>
+  
+        <div class="tab-content" id="catalog-content">
+          <iframe class="ic-frame" src="https://savageresearch.com/200/1.html"></iframe>
+        </div>
+  </div>
+        <script>
+            const tabs = document.querySelectorAll("[data-tab-target]");
+            const tabContents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach((tab) => {
+              tab.addEventListener("click", () => {
+                tabs.forEach((tab) => {
+                  tab.classList.remove("active");
+                });
+                tab.classList.add("active");
+                tabContents.forEach((tabContent) => {
+                  tabContent.classList.remove("active");
+                });
+                const target = document.querySelector(tab.dataset.tabTarget);
+                target.classList.add("active");
+              });
+            });
+        </script>
+    
+
+
 
 
 
