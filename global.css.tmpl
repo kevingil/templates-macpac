@@ -1246,9 +1246,6 @@ html[xmlns] .clearfix {
 
     .mainproductbox img.product-image {}
 
-    div.product-info {
-        grid-area: 3 / 1 / 4 / 3;
-    }
 
     .details-right {
         margin: 20px 0px 0px 0px;
@@ -1291,12 +1288,18 @@ html[xmlns] .clearfix {
         grid-area: 3 / 1 / 4 / 2;
     }
 
-    div.details {
-    }
-
     .product-description {
         grid-area: 4 / 1 / 5 / 3;
     }
+}
+
+div.description-tab {
+    display: grid;
+}
+
+div.product-info {
+    grid-area: 3 / 1 / 4 / 3;
+    display: grid;
 }
 
 .part-number {
