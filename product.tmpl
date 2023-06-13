@@ -98,13 +98,13 @@
   </TMPL_IF><br />
 </div>
   </div><!--end mainproductinfo-->
-  <div class="">
+  <div class="details">
       <ul class="tabs">
         <li data-tab-target="#description-content" class="tab active">Description</li>
         <li data-tab-target="#catalog-content" class="tab">Catalog</li>
       </ul>
-      <div class="tab-contents details">
-        <div class="details-left">
+      <div class="tab-contents">
+        <div class="details-box">
         <div class="tab-content active" id="description-content">
           <TMPL_VAR NAME="Description">
             <br />
@@ -125,7 +125,7 @@
             </TMPL_IF>
           </div>
         </div>
-    <div class="details-right">
+    <div class="details-links">
       <TMPL_IF NAME="CatalogPageNo">
         <a href="/viewCatalog.html?page=<TMPL_VAR NAME="CatalogPageNo">" target="_blank"><button
             class="newbutton1 secondary outline">Catalog Page</button></a>
