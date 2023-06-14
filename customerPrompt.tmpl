@@ -2,17 +2,15 @@
 
 <article class="customer-prompt">
 
-	<nav class="customer-prompt-menu">
-		<TMPL_INCLUDE NAME="salesNavs.tmpl">
-	</nav>
-
 	<form name="verifyForm" action="/setcust.html" method="post">
 					<p>Enter a Customer Account or Name:</p>
 					<input name="custCode" value="<TMPL_VAR NAME="user_custCode" ESCAPE=HTML>" id="fieldCustCode" class="getcust">
 					<input type="submit" name="Submit" value="Continue" class="newbutton2" >
 	</form>	
 
-
+	<nav class="customer-prompt-menu">
+		<TMPL_INCLUDE NAME="salesNavs.tmpl">
+	</nav>
 
 </article>
 
