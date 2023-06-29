@@ -1,14 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <title>MacMurray Pacific - System Unavailable</title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
-	<style type="text/css"><!-- 
-		body { font-family: Verdana, Arial, Helvetica, "sans-serif"; color: white; background: #343399 url(graphics/mplogo.gif) center top no-repeat ; }
+  <title><TMPL_VAR NAME="UnavailableTitle"></title>
+  <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+    body {
+      font-family: Arial,Helvetica,"sans-serif";
+      color: white;
+      background: #003e7e;
+    }
   </style>
 </head>
-<body bgcolor="<TMPL_VAR NAME="glob_pageColor">">
-  <div style="margin: .5in">&nbsp;</div>
-  <div style="margin: 1in 2in; text-align: center; padding: .5in; border: red solid 1px"><TMPL_VAR NAME="system_UnavailableMessage"></div>
+<body>
+  <div>
+    <div style="text-align:center">
+      <img src="/images/mplogo2.png">
+    </div>
+
+    <div style="font-size: 25px; margin: 1in; text-align: center; padding: .5in; border: orange solid 1px"><TMPL_VAR NAME="UnavailableMessage"></div>
+  </div>
 </body>
 </html>
