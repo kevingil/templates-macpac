@@ -173,13 +173,34 @@ return true;
               <div class="report-comments">
                 <p>Comments:</p>
 
-                <textarea id="salesvisit" name="salesvisit" rows="4" cols="50" placeholder="How did it go?"></textarea>
+                <textarea id="salesvisit" name="salesvisit" rows="4" cols="50" placeholder="How did it go?" maxlength="150"></textarea>
 
-                <input style="display: none;" autocomplete="off" name="comment" maxlength="75" id="id_comment" value="<TMPL_VAR NAME=" comment"
+                <p class="small" id="char_counter">Characters left: 150</p>
+
+                <input style="display: block;" autocomplete="off" name="comment" maxlength="75" id="id_comment" value="<TMPL_VAR NAME="comment"
                   escape=html>" class="quick1">
-                <input style="display: none;" autocomplete="off" name="comment2" maxlength="75" value="<TMPL_VAR NAME=" comment2" escape=html>"
+
+                <input style="display: block;" autocomplete="off" name="comment2" maxlength="75" id="id_comment2" value="<TMPL_VAR NAME="comment2" escape=html>"
                 class="quick1">
-                <i class="small">75 characters max each line</i>
+                
+                <script>
+                  document.getElementById('salesvisit').addEventListener('input', function() {
+                    var comment = this.value;
+                    var maxLength = parseInt(this.getAttribute('maxlength'));
+                    var remainingChars = maxLength - comment.length;
+              
+                    if (remainingChars < 0) {
+                      comment = comment.substr(0, maxLength); // Truncate the comment to the maximum length
+                      remainingChars = 0;
+                      this.value = comment;
+                    }
+              
+                    document.getElementById('id_comment').value = comment.substr(0, 75);
+                    document.getElementById('id_comment2').value = comment.substr(75);
+              
+                    document.getElementById('char_counter').textContent = 'Characters left: ' + remainingChars;
+                  });
+                </script>
               </div>
               <p>Sales Amount:</p>
               <input name="salesAmount" value="<TMPL_VAR NAME=" salesAmount" escape=html>" class="quick">
