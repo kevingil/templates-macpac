@@ -76,11 +76,18 @@
     <div id="menu">
     <ul id="toc" class="dropcontent">
       
-    <li<TMPL_IF NAME="glob_menu_home"> class="current"</TMPL_IF>>
-        <a href="index.html">
-        <span>Home</span>
-      </a>
+      <TMPL_IF NAME="session_isGuest">
+      <li<TMPL_IF NAME="glob_menu_home"> class="current"
+      </TMPL_IF>>
+      <a href="index.html"><span>Home</span></a>
+      </li>
+      </TMPL_IF>,.
+      <TMPL_IF NAME="session_isGuest">
+        <TMPL_ELSE>
+          <li<TMPL_IF NAME="glob_menu_custHome"> class="current" </TMPL_IF>>
+      <a href="custHome.html"><span>Dashboard</span></a>
     </li>
+      </TMPL_IF>
 
       <li<TMPL_IF NAME="glob_menu_productCats"> class="current"</TMPL_IF>><a
           href="productCats.html"><span>Products</span></a></li>
