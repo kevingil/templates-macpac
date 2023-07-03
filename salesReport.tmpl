@@ -230,10 +230,9 @@ return true;
               </TMPL_IF>
 </div>
 
-              <div class="center">
-                <input type="submit" value="Finish Report" class="newbutton"><input type="button"
-                  onclick="location='/salesReport.html?mode=removeCurrent'" value="Delete Current Report"
-                  class="newbutton">
+              <div class="center finish-report">
+                <input type="button" class="button-cancel" onclick="location='/salesReport.html?mode=removeCurrent'" value="Cancel" class="newbutton">
+                <input type="submit" value="Submit" class="newbutton button-submit">
               </div>
               <input type="hidden" name="mode" value="save">
             </form>
