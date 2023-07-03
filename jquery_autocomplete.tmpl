@@ -1,0 +1,82 @@
+  <style>
+    .ui-autocomplete-loading {
+      background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="/jquery.ui.autocomplete.scroll.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script>
+    $(function() {
+      var productCodeAutocompleteCache = {};
+      // autocomplete for product code {
+      $('.addProductCode').autocomplete({
+        minLength: 2,
+        maxShowItems: 5,
+        source: function( request, response ) {
+          var term = request.term;
+          if ( term in productCodeAutocompleteCache ) {
+            response( productCodeAutocompleteCache[ term ] );
+            return;
+          }
+
+          request.feed = 'autocomplete';
+          $.getJSON( "/feed.json", request, function( data, status, xhr ) {
+            productCodeAutocompleteCache[ term ] = data.prods;
+            response( data.prods );
+          });
+        },
+        change: function (event, ui) {
+          var productCode;
+          if (ui && ui.item && ui.item.value) {
+            productCode = ui.item.value;
+          } else {
+            productCode = $(this).val();
+          }
+          if (productCode == '') {
+            $('.productCodeNotFound').css('display', 'none');
+            $('.dsnof').css('display', 'none');
+            return;
+          }
+          $.ajax({
+            url: '/feed.json',
+            data: {feed: 'validateProductCode', productCode: productCode},
+            success: function(data) {
+              if (data.found != null) {
+                $('.productCodeNotFound').css('display', 'none');
+              } else {
+                $('.productCodeNotFound').css('display', 'block');
+              }
+            },
+          });
+        }
+      });
+      // autocomplete for product code }
+    });
+
+    $('.addProductCode').on("autocompletechange", function(event,ui) {
+      var productCode;
+      if (ui && ui.item && ui.item.value) {
+        productCode = ui.item.value;
+      } else {
+        productCode = $(this).val();
+      }
+      if (productCode == '') {
+        $('.productCodeNotFound').css('display', 'none');
+        $('.dsnof').css('display', 'none');
+        return;
+      }
+      $.ajax({
+        url: '/feed.json',
+        data: {feed: 'validateProductCode', productCode: productCode},
+        success: function(data) {
+          if (data.found != null) {
+            $('.productCodeNotFound').css('display', 'none');
+          } else {
+            $('.productCodeNotFound').css('display', 'block');
+          }
+          $('#addQuantityField').focus();
+        },
+      });
+    });
+  </script>

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
-
 <head>
+  <meta charset="utf-8" />
   <TMPL_IF name="inProductPage">
-    <title><TMPL_VAR name="ProductCode"> &#x2022; <TMPL_VAR NAME="Description"></title>
+    <title><TMPL_VAR NAME="ProductCode"> &bull; <TMPL_VAR NAME="Description"></title>
   <TMPL_ELSE>
-      <title>MacMurray Pacific Wholesale Hardware</title>
+    <title>MacMurray Pacific Wholesale Hardware</title>
   </TMPL_IF>
 
   <meta name="description"
     content="MacMurray Pacific Wholesale Hardware: Products For the Cabinet and Woodworking Industries">
   <meta name="keywords" content="MacMurray Pacific, wholesale hardware, cabinet hardware, woodworking supplies, door hardware,
   hardware wholesalers, California wholesalers, hinges, drawer slides, shop supplies, kitchen accessories">
-  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
   <script src="https://kit.fontawesome.com/99fbdcde4b.js" crossorigin="anonymous"></script>
@@ -27,6 +25,7 @@
   <link rel="icon" type="image/gif" href="images/bridge2.gif">
 
   <html data-theme="light">
+  <TMPL_INCLUDE NAME="jquery_autocomplete.tmpl">
 </head>
 
 <body>
@@ -166,8 +165,8 @@
         <div class="search-wrap">
 
           <form class="searchbar" action="/category.html" method="post">
-            <input name="searchFor" type="search" placeholder="Search Part#, Keyword, Brand.." value="<TMPL_VAR NAME="
-              searchFor" escape=html>">
+            <input name="searchFor" type="search" placeholder="Search Part#, Keyword, Brand.."
+              value="<TMPL_VAR NAME="searchFor" escape=html>" class="addProductCode ui-autocomplete-input">
 
             <button type="submit" name="button" value="" class="button">
               Search <i class="fa-solid fa-magnifying-glass" style="color: #fff;"></i>
@@ -176,7 +175,6 @@
             <TMPL_UNLESS NAME="doNotUpdateShowType"><input type="hidden" name="productShowOnly" value="All">
             </TMPL_UNLESS>
           </form>
-
 
           <div class="cart1">
             <a role="button" href="/cart.html"><i class="fa-solid fa-cart-shopping" style="color: #f1f1f1;"></i></a>
