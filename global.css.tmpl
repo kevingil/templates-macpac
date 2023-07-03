@@ -2248,9 +2248,11 @@ input.addRowQuantity {
     margin: 0px auto;
 }
 
-.button-red {
+[role=button].button-red , button.button-red , input[type=button].button-red , input[type=reset].button-red , input[type=submit].button-red, .button-red  {
     background:#cb5153;
+    background-color:#cb5153;
     border-color:#cb5153;
+    border:1px solid #cb5153;
 }
 
 #char_counter{
