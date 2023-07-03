@@ -100,8 +100,10 @@
                                 <TMPL_VAR NAME="range">
                               </td>
                               <td class="white-space: nowrap">
-                                <span<TMPL_IF NAME="special"> class="promo"
-                      </TMPL_IF>><TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM">
+                                <span<TMPL_IF NAME="special"> class="promo"</TMPL_IF>>
+                      <TMPL_VAR NAME="price"></span> / <TMPL_VAR NAME="UofM">
+                      </span>
+                    </td></tr></table>
             </TMPL_LOOP>
         <TMPL_ELSE>
   </TMPL_IF>
@@ -174,8 +176,6 @@
                                   </TMPL_IF>
                                   -->
 </div>
-
-
 </article><!--end item table-->
 </TMPL_LOOP>
 <!-- end search result item-->
